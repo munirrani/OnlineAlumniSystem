@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+html {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Body and Background*/
+
+
+/* ------------------------------------------------------- */
+
+body {
+    font-family: 'Merriweather', sans-serif;
+    background: linear-gradient(45deg, #23A6D5, #8f0b89, #23A6D5);
+    background-size: 400% 400%;
+    animation: Gradient 20s ease-in-out infinite;
+    position: relative;
+    min-height: 100vh;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+
+/* ------------------------------------------------------- */
+
+
+/* Navbar Section */
+
+
+/* ------------------------------------------------------- */
+
+#topNavbar {
+    background-color: #8f0b89;
+}
+
+#botNavbar {
+    background-color: #f3f3f3;
+    max-height: 110px;
+}
+
+#regbutton {
+    color: #f3f3f3;
+    background-color: #8f0b89;
+    border-radius: 200px;
+}
+
+#regbutton:hover {
+    filter: brightness(110%);
+}
+
+#logbutton {
+    border-radius: 200px;
+    color: #8f0b89;
+    border-color: #8f0b89;
+}
+
+#logbutton:hover {
+    color: white;
+    background-color: #8f0b89;
+}
+
+#logbutton:focus {
+    box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
+}
+
+
+/* ------------------------------------------------------- */
+
+
+/* Main Section */
+
+
+/* ------------------------------------------------------- */
+
+main {
+    min-height: calc(100vh - 52px - 110px - 595px);
+    padding: 20px;
+}
+
+
+/* ------------------------------------------------------- */
+
+
+/* Footer Section */
+
+
+/* ------------------------------------------------------- */
+
+footer {
+    padding-top: 2px;
+    background-color: #f3f3f3;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.footer-link a {
+    text-decoration: none;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}
+
+#map {
+    height: 300px;
+    /* The height is 400 pixels */
+    width: auto;
+    /* The width is the width of the web page */
+}
+
+
+/* ------------------------------------------------------- */
+
+
+/* Media Responsiveness Section */
+
+
+/* ------------------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+    .navbar-brand {
+        white-space: normal;
+    }
+    .navbar-nav {
+        text-align: end;
+    }
+    .fl-right {
+        float: right;
+    }
+    #botNavbar {
+        max-height: 100%;
+    }
+    #botNavbar img {
+        width: 35%;
+        height: 35%;
+    }
+    #logbutton,
+    #regbutton {
+        padding: 0.2rem 1rem;
+        font-size: 1.2rem;
+    }
+    body {
+        background-size: 200% 200%;
+    }
+}
+
+
+/* ------------------------------------------------------- */
