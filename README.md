@@ -1,10 +1,4 @@
-# OnlineAlumniSystem
-A system for managing university alumni
+# alumni-system-trial
 
-Team members: 
-    Munir
-    Hafiz
-    Haney
-    Humaira
-    Irfan
-    Fahad
+Theme of the website
+Place any content that you want under the <main> </main> sections in the document.

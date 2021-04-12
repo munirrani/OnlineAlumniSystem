@@ -5,11 +5,334 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
+    <title>FSKTM Alumni</title>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = {
+                lat: 3.128770468020777,
+                lng: 101.65073771534342
+            };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 17,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+
 </head>
 
 <body>
+    <div class="container-fluid p-0 m-0">
+        <header>
+            <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
+                <div class="container h4">
+                    <div class="mx-auto order-0">
+                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and
+                            Information
+                            Technology Alumni</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
+            <div class="container h5">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
+                        id="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html"><b>Home</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html"><b>Program & Events</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html"><b>About</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
+                        </li>
+                    </ul>
+                    <div class="fl-right">
+                        <div class="d-flex gap-2">
+                            <a href="login.html"><button id="logbutton" class="btn shadow"
+                                    type="button">Login</button></a>
+                            <a href="register.html"><button id="regbutton" class="btn shadow"
+                                    type="button">Register</button></a>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div id="home-container" class="container-fluid">
+                <!--First welcome jumbotron on home page-->
+                <div class="jumbotron-main shadow">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="display-6">Welcome to the FSKTM Alumni Portal. A place to connect and intereact
+                                with other alumnis!</h2>
+                            <br>
+                            <p class="lead">This is where you can find updated information about alumni events, find new
+                                job opportunties and
+                                even connect with other alumnis from FSKTM.</p>
+                            <hr class="my-4">
+                            <p class="lead">Don't forget to register for an account to better utilise the opportunties of this
+                                website!</p>
+                            <br>
+                            <p class="lead">
+                            <div class="d-flex gap-2">
+                                <a class="btn jumbotron-button btn-lg" href="register.html" role="button">Register
+                                    Now!</a>
+                                <a class="btn jumbotron-button btn-lg" href="about.html" role="button">Learn more</a>
+                            </div>
+                            </p>
+                        </div>
+                        <div id="jumbo-col" class="col"></div>
+                    </div>
+                </div>
+                <hr class="featurette-divider">
+
+                <!--Recent events jumbotron on home page-->
+                <div class="jumbotron-events shadow">
+                    <h2 class="display-5" style="text-align: center;">UPCOMING EVENTS</h2>
+                    <br>
+                    <div class="row">
+                        <div class="col event-card">
+                            <div class="card">
+                                <a href="events.html"><img src="img/hackathon.png" class="card-img-top" alt="..."></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">FSKTM Annual Hackathon 2021</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">30th of April 2021</h6>
+                                    <p class="card-text">Our annual FSKTM Hackaton now has an alumni category. Hope to
+                                        see you there. Learn more about the event by clicking
+                                        the link below!
+                                    </p>
+                                    <p class="event-info">
+                                        <a href="events.html" class="card-link">Learn More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col event-card">
+                            <div class="card">
+                                <a href="events.html"><img src="img/MyTech.jpg" class="card-img-top" alt="..."></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">MyTech Career Fair 2021</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">18th of May 2021</h6>
+                                    <p class="card-text">Join the MyTech Career Fair 2021 and get amazing job
+                                        opportunties in Malaysia. Learn more about the event by clicking the link below.
+                                    </p>
+                                    <p class="event-info">
+                                        <a href="events.html" class="card-link">Learn More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col event-card">
+                            <div class="card">
+                                <a href="events.html"><img src="img/alumni_reunion.jpg" class="card-img-top"
+                                        alt="..."></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">Reunion Session</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">30th May 2021</h6>
+                                    <p class="card-text">Fancy meeting some of your old batch mates? Join us for the
+                                        reunion event at our faculty.
+                                        Learn more about the event by cliking the link below.
+                                    </p>
+                                    <p class="event-info">
+                                        <a href="events.html" class="card-link">Learn More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col event-card">
+                            <div class="card">
+                                <a href="events.html"><img src="img/sports_event.png" class="card-img-top"
+                                        alt="..."></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">Alumni Sports Meet 2021</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">6th June 2021</h6>
+                                    <p class="card-text">Have a friendly competition among other alumnis in various
+                                        sports - futsal, basketball
+                                        and much more! Learn more about the event by clicking the link below.
+                                    </p>
+                                    <p class="event-info">
+                                        <a href="events.html" class="card-link">Learn More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <p class="lead">
+                        <h4>Browse all our upcoming events by clicking below.</h4>
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a class="btn jumbotron-button" href="events.html" role="button">Program & Events</a>
+                    </div>
+                </div>
+                <hr class="featurette-divider">
+
+                <!--Latest Anouncements jumbotron on home page-->
+                <div class="jumbotron-news shadow">
+                    <h2 class="display-5" style="text-align: center;">ANNOUNCEMENTS & NEWS</h2>
+                    <br>
+
+                    <div class="row featurette align-items-center">
+                        <div class="col-md-7 announcement-sec order-2 order-md-1">
+                            <h2 class="featurette-heading display-7 mb-5"> Universiti Malaya to hold 60th Convocation
+                                Ceremony at Dewan Tunku Cancelor
+                                in May 2021 </h2>
+                            <p class="lead">1st April 2021 - Taking into account and safety aspects of all parties,
+                                Universiti Malaya is hereby with great contentment to announce
+                                the upcoming 60th Convocation Ceremony, which will be held from 22 to 29 May 2021 at the
+                                Dewan Tunku Cancelor, Universiti Malaya.
+                            </p>
+                            <br>
+                        </div>
+                        <div class="col-md-5 announcement-sec order-1 order-md-2">
+                            <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/um_dtc.png"
+                                alt="" height="110%" width="110%">
+                        </div>
+                    </div>
+                    <hr class="featurette-divider">
+                    <div class="row featurette align-items-center">
+                        <div class="col-md-5 announcement-sec">
+                            <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/um_qs.png"
+                                alt="" height="110%" width="110%">
+                        </div>
+                        <div class="col-md-7 announcement-sec">
+                            <h2 class="featurette-heading display-7 mb-5"> Universiti Malaya Ranks 59th in the world in
+                                QS World University
+                                Rankings </h2>
+                            <p class="lead">10th June 2020 - The Quacquarelli Symonds World University Rankings (QS WUR)
+                                2021 has ranked the
+                                Universiti Malaya (UM) 59th globally. UM has leapt 11 spots up from 70 in 2020 and shows
+                                a consistent, steady
+                                rise in its recognition as one of the world’s leading universities in teaching and
+                                learning, research and
+                                internationalization.
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+                    <hr class="featurette-divider">
+
+                </div>
+                <hr class="featurette-divider">
+
+            </div>
+
+
+
+        </main>
+
+        <footer class="page-footer shadow">
+            <div class="container text-center text-md-left mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-4 mx-auto mb-4">
+                        <a href="index.html">
+                            <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
+                        </a>
+                        <br>
+                        <br>
+                        <br>
+                        <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
+                            & Information Technology made the university one of the pioneers in computer usage in
+                            Malaysia. Since its establishment, the Faculty of Computer Science and Information
+                            Technology
+                            has been led by a number of distinguished persons.</p>
+                    </div>
+
+                    <div class="col-md-3 mx-auto mb-4">
+                        <h2 class="text-uppercase">Links</h2>
+                        <br>
+                        <h5>
+                            <ul class="list-unstyled lh-5 footer-link">
+                                <li class="my-2 pt-2">
+                                    <a href="about.html" class="text-dark">About</a>
+                                </li>
+                                <li class="my-2 pt-2">
+                                    <a href="contact.html" class="text-dark">Contact Us</a>
+                                </li>
+                                <li class="my-2 pt-2">
+                                    <a href="events.html" class="text-dark">Upcoming Events</a>
+                                </li>
+                                <li class="my-2 pt-2">
+                                    <a href="jobs.html" class="text-dark">Search Jobs</a>
+                                </li>
+                            </ul>
+                        </h5>
+                    </div>
+
+                    <div class="col-md-4 mx-auto mb-4">
+                        <h2 class="text-uppercase">Location</h2>
+                        <div class="d-flex justify-content-center">
+                            <div id="map"></div>
+                        </div>
+                        <script
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
+                            async></script>
+                        <br>
+                        <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
+                            Federal Territory of Kuala Lumpur, Malaysia
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
+                <p>Copyright &copy; FSKTM 2021
+                </p>
+                Designed by Hafiz & Fahad
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $("#botNavbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
+        });
+    </script>
 </body>
 
 </html>
