@@ -525,7 +525,7 @@ footer {
 .submitreg:hover{
     box-shadow: 0 0 15px #c532be;
 }
-.form-reg-submit p {
+.form-reg-submit p{
     margin-top: 50px;
 }
 .reg-pic{
@@ -535,5 +535,11 @@ footer {
 .reg-pic img{
     height: 155%;
     width: 155%;
+}
+#error-text-reg{
+    display: none;
+    font-weight: 800;
+    margin-top: 20px;
+    position: absolute;
 }
 /* ------------------------------------------------------- */
