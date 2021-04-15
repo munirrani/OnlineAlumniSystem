@@ -12,19 +12,27 @@ let checkPassEmpty = function () {
         return true;
     }
 }
+// firstname
+// lastname
 
 let check = function () {
+
+
     if (document.getElementById('confirmpw').value != "") {
         if (document.getElementById('password').value != document.getElementById('confirmpw').value) {
-            document.getElementById('error-text-reg').style.display = "block";
-            document.getElementById('error-text-reg').classList.add("text-danger");
+            document.getElementById('error-text-reg').classList.add("error-reg-text");
+            document.getElementById('confirmpw').classList.add("input-error");
             document.getElementById('error-text-reg').innerHTML = 'Confimed Password Does Not Match';
             return false;
         } else {
-            document.getElementById('error-text-reg').style.display = "none";
+            document.getElementById('confirmpw').classList.remove("input-error");
+            document.getElementById('error-text-reg').classList.remove("error-reg-text");
             return true;
         }
     } else {
-        document.getElementById('error-text-reg').style.display = "none";
+        document.getElementById('confirmpw').classList.remove("input-error");
+        document.getElementById('error-text-reg').classList.remove("error-reg-text");
     }
+
+
 }
