@@ -306,6 +306,73 @@ footer {
 /* ------------------------------------------------------- */
 
 
+/* Event PAGE */
+/* ------------------------------------------------------- */
+a {
+    color: rgb(36, 32, 32);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(110, 108, 108);
+}
+
+#upcoming-events {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+}
+
+#event-main {
+    border-radius: 0.5em;
+    margin: auto;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    padding: 4em 3em 2em;
+    width: 90%;
+    background-color: #f3f3f3;
+    box-shadow: 10em;
+}
+
+.vertical-event-card {
+    border: 0px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: auto;
+    width: 80%;
+    margin-top: 0.5em;
+    padding-bottom: 3em;
+    align-items: center;
+    background-color: #f3f3f3;
+}
+
+.event-meta {
+    font-size: small;
+}
+
+.event-text {
+    padding-right: 1em;
+}
+
+.event-img {
+    display: grid;
+    place-items: center;
+}
+
+@media (max-width: 730px) {
+    .event-img {
+        text-align: center;
+    }
+
+    .vertical-event-card {
+        display: block;
+        grid-template-columns: none;
+        text-align: center;
+    }
+
+    .event-text {
+        text-align: justify;
+    }
+}
 
 
 
