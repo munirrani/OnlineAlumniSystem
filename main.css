@@ -222,11 +222,20 @@ footer {
     }
 }
 
-
-
 /* ------------------------------------------------------- */
 
 
+/* Home PAGE */
+/* ------------------------------------------------------- */
+.jumbotron-about{
+    height: 400px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background: url(img/fsktm.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: 1rem;
+    color: white;
+}
 
 
 /* Home PAGE */
