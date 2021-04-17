@@ -36,6 +36,7 @@ let checkpw = function () {
     if(document.getElementById('password').value == document.getElementById('confirmpw').value) {
         return true;
     }
+  }
 
 
 
