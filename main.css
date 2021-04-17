@@ -673,21 +673,41 @@ a:hover {
     background-color: #8f0b89;
 }
 
+#right-col {
+    background-color: #f3f3f3;
+    border-style: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px 50px 20px 50px;
+}
+
+#round-corner-left {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
 hr.profileBio-line { 
     border-top: 2px solid white;
-
 }
 
 a[id=profileNav-inactive] { 
     color: white;
 }
 
-
 a:hover[id=profileNav-inactive] {  
     color: white;
 }
-
-#profile-Wtext { 
+#profile-heading{
+    margin: 0px 0px 50px 0px;
+    font-family: 'Hammersmith One', sans-serif;
+    text-align: center;
+}
+#profile-name{
+    color: white;
+    margin-bottom: 20px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+#profile-bio { 
     color: white;
     margin-bottom: 20px;
 }
@@ -822,4 +842,6 @@ a:hover[id=profileNav-inactive] {
     background-color: #f44336;
     color: white;
 }
+
+
 /* ------------------------------------------------------- */
