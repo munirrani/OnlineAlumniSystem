@@ -149,7 +149,7 @@ footer {
     #botNavbar {
         max-height: 100%;
     }
-    #botNavbar img {
+    #botNavbar #logo-img {
         width: 35%;
         height: 35%;
     }
@@ -198,6 +198,27 @@ footer {
     .reg-pic img{
         height: auto;
         width: auto;
+    }
+
+    /*Profile Page*/
+    #right-col{
+        padding-left: 0px !important; 
+        padding-right: 0px !important;  
+    }
+
+    /*Event Page*/
+    .event-img {
+        text-align: center;
+    }
+
+    .vertical-event-card {
+        display: block;
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .event-text {
+        text-align: justify;
     }
 }
 
@@ -376,21 +397,6 @@ a:hover {
     width: auto;
 }
 
-@media (max-width: 730px) {
-    .event-img {
-        text-align: center;
-    }
-
-    .vertical-event-card {
-        display: block;
-        grid-template-columns: 1fr;
-        text-align: left;
-    }
-
-    .event-text {
-        text-align: justify;
-    }
-}
 
 /* Contact Us */
 /* ------------------------------------------------------- */

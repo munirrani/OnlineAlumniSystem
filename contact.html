@@ -108,10 +108,11 @@
               </div>
               <div class="col cont-right">
                 <div class="contact-us">
-                  <form>
+                  <form id="contact-form">
                     <h1 class="contact-us-heading">CONTACT US</h1>
                     <input
                       type="text"
+                      id = "contact-name"
                       class="form-control mb-4 shadow"
                       name="name"
                       placeholder="Full Name"
@@ -120,6 +121,7 @@
                     />
                     <input
                       type="text"
+                      id = "contact-email"
                       class="form-control mb-4 shadow"
                       name="email"
                       placeholder="Email-ID"
@@ -127,12 +129,14 @@
                     />
                     <input
                       type="text"
+                      id = "contact-subject"
                       class="form-control mb-4 shadow"
                       name="subject"
                       placeholder="Subject"
                       required="Please enter a subject"
                     />
                     <textarea
+                      id = "contact-message"
                       rows="15"
                       class="form-control shadow"
                       name="message"
@@ -140,51 +144,53 @@
                       required="Please include a message"
                     ></textarea>
                     <div class="bottom-submit">
-                      <button class="submit-message" type="submit" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
+                      <button id="contact-submit" type="submit" class="submit-message" data-bs-toggle="modal"
+                      data-bs-target="#confirmation-modal"
                       >
                         Submit
                       </button>
                     </div>
+
+                    <div
+                    class="modal fade"
+                    id="confirmation-modal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <h3 class="display-5"><p class="lead">Your message was submitted. We will get back to you shortly with a reply!</p></h3>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                id="confirmbutton"
+                                class="btn"
+                                data-bs-dismiss="modal"
+                              >
+                                Okay
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
                   </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-                      class="modal fade"
-                      id="exampleModal"
-                      tabindex="-1"
-                      aria-labelledby="exampleModalLabel"
-                      aria-hidden="true"
-                    >
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button
-                                  type="button"
-                                  class="btn-close"
-                                  data-bs-dismiss="modal"
-                                  aria-label="Close"
-                                ></button>
-                              </div>
-                              <div class="modal-body">
-                                <h3 class="display-5"><p class="lead">Your message was submitted. We will get back to you shortly with a reply!</p></h3>
-                              </div>
-                              <div class="modal-footer">
-                                <button
-                                  type="button"
-                                  id="confirmbutton"
-                                  class="btn"
-                                  data-bs-dismiss="modal"
-                                >
-                                  Okay
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
       </main>
 
       <footer class="page-footer shadow">
