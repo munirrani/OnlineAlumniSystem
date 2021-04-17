@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
     <script type="text/javascript" src="map.js"></script>
-    <title>Profile | FSKTM Alumni</title>
+    <title>FSKTM Alumni</title>
 </head>
 
 <body>
@@ -91,21 +91,44 @@
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow"></a>                           
+                                    <button type="button" id="profilebtn" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
+                                    </button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Upload a Photo</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form>
+                                                <div class="modal-body">
+                                                    <input class="form-control" type="file" id="formFile">
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" id="confirmbutton" class="btn shadow">Upload</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
                                     <div class="mt-3">
                                         <h2 id="profile-Wtext">Haney</h2>
                                         <div class="container">
                                             <div class="container">
-                                                <p id="profile-Wtext">Web Developer at Haney & Humaira' Sdn Bhd</p>
-                                            </div>
+                                                <form>
+                                                    <textarea class="form-control" id="bio" placeholder="Add a Bio">Web Developer at Haney and Humaira' Sdn Bhd</textarea>
+                                                    <div class="container mt-3">
+                                                        <button id="editbutton" class="btn shadow" type="button">Update Bio</button>
+                                                    </div>
+                                                </form>
+                                            </div>                                
                                         </div>
                                         <div class="container">
                                             <div class="container">
                                                 <hr class="profileBio-line">
                                             </div>
                                         </div>
-                                        <a href="editprofile.html"><button id="editbutton" class="btn shadow"
-                                        type="button">Edit Profile</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -114,83 +137,91 @@
                             <h2 id = "profile-Wtext"> Personal Information</h2>
                             <div class="card mb-3 shadow">
                                 <div class="card-body shadow">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Full Name</h6>
+                                    <form autocomplete="off">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Full Name</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Full Name" value="Humaira' Binti Ahmad Shuhemi">
+                                            </div>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Humaira' Binti Ahmad Shuhemi
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Current Position</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Current Position" value="Software Officer">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Current Position</h6>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Email</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Email" value="humairas00@yahoo.com">
+                                            </div>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Software Officer
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Phone</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Phone" value="018-2469011">
+                                                
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Email</h6>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Enrollment Year</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Enrollment Year" value="2019/2020">
+                                            </div>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            humairas00@yahoo.com
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Department</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Department" value="Software Engineering">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Phone</h6>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Level</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Level" value="Degree">
+                                            </div>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            018-2469011
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Address</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="text" class="form-control" id="purple" placeholder="Address" value="Selangor, Malaysia">
+                                                <div class="d-flex gap-2 mt-4">
+                                                    <a href="profile.html"><button id="confirmbutton" class="btn shadow" type="button">Cancel</button></a>
+                                                    <button id="updatebutton" class="btn shadow"  type="button">Update Information</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Enrollment Year</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            2019/2020
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Department</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Software Engineering
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Level</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Degree
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Address</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Selangor, Malaysia
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </main>
 
         <footer class="page-footer shadow">
