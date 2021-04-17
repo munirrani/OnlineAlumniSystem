@@ -22,6 +22,10 @@ body {
     transform: translateZ(0);
 }
 
+header , footer{
+    width: 100vw;
+}
+
 
 /* ------------------------------------------------------- */
 
@@ -34,6 +38,7 @@ body {
 #topNavbar {
     background-color: #8f0b89;
     font-weight: 800;
+    width: 100%;
     z-index: 10;
 }
 #botNavbar {
@@ -845,3 +850,16 @@ a:hover[id=profileNav-inactive] {
 
 
 /* ------------------------------------------------------- */
+
+
+/* SETTING FOR THE MODAL FOR IT TO BE CENTERED CORRECTLY */
+
+.modal {
+    height: 100vh !important;
+    padding-right: 0px !important;
+}
+
+.modal-backdrop {
+    width: 100% !important;
+    height: 100% !important;
+}
