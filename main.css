@@ -358,7 +358,7 @@ a:hover {
     place-items: center;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+.event-date input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
     color: transparent;
@@ -371,8 +371,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: auto;
 }
 
-input[type="time"]::-webkit-ti
-
 @media (max-width: 730px) {
     .event-img {
         text-align: center;
@@ -380,16 +378,14 @@ input[type="time"]::-webkit-ti
 
     .vertical-event-card {
         display: block;
-        grid-template-columns: none;
-        text-align: center;
+        grid-template-columns: 1fr;
+        text-align: left;
     }
 
     .event-text {
         text-align: justify;
     }
 }
-
-
 
 /* Contact Us */
 /* ------------------------------------------------------- */
