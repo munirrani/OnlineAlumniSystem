@@ -93,16 +93,16 @@
                                     (old and young!)</p>
                             </div>
                             <div class="row mt-3">
-                                <form action="" onSubmit="return check();">
+                                <form action="" target="_blank" onsubmit="return checkpw()">
                                     <div class="row">
                                         <div class="col-sm">
                                             <label class="form-label" for="firstname">First Name</label>
-                                            <input class="form-control" id="firstname" type="text" name="firstname"
+                                            <input class="form-control regc" id="firstname" type="text" name="firstname"
                                                 placeholder="" required>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="lastname">Last Name</label>
-                                            <input class="form-control" id="lastname" type="text" name="lastname"
+                                            <input class="form-control regc" id="lastname" type="text" name="lastname"
                                                 placeholder="" required>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-text" id="email"><i
                                                         class="far fa-envelope"></i></span>
-                                                <input type="email" class="form-control" placeholder="" required>
+                                                <input type="email" class="form-control regc" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -120,7 +120,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-text" id="matricid"><i
                                                         class="far fa-id-card"></i></span>
-                                                <input type="text" class="form-control" placeholder="" required>
+                                                <input type="text" class="form-control regc" placeholder="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -129,16 +129,16 @@
                                             <label class="form-label" for="password">Password</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                                <input id="password" type="password" class="form-control" placeholder=""
-                                                    onkeyup='checkPassEmpty()' required />
+                                                <input id="password" type="password" class="form-control regc" placeholder=""
+                                                    onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="confirmpw">Confirm Password</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                                <input id="confirmpw" type="password" class="form-control"
-                                                    placeholder="" onkeyup='check()' required />
+                                                <input id="confirmpw" type="password" class="form-control regc"
+                                                    placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                     </div>
@@ -148,7 +148,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-text" id="address"><i
                                                         class="fas fa-map-marker-alt"></i></span>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control regc" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -156,7 +156,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-text" id="phonenum"><i
                                                         class="fas fa-phone"></i></span>
-                                                <input type="tel" class="form-control" placeholder="">
+                                                <input type="tel" class="form-control regc" placeholder="">
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +173,7 @@
                                     </div>
 
                                     <div class="row form-reg-submit mt-2">
-                                        <button class="submitreg" type="submit">Create Account</button>
+                                        <button class="submitreg" type="submit">Create Account</button> 
                                         <p>Already have an account? <a href="login.html">Log in</a></p>
                                     </div>
                                 </form>
