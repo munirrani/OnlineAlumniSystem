@@ -5,13 +5,7 @@ $(function () {
   });
 });
 
-
-
-// firstname
-// lastname
-
 let checkpw = function () {
-
     if (document.getElementById('password').value == "" && document.getElementById('confirmpw').value == "") {
         document.getElementById('confirmpw').classList.remove("input-error");
         document.getElementById('error-text-reg').classList.remove("error-reg-text");
@@ -38,14 +32,21 @@ let checkpw = function () {
     }
   }
 
+let loggedin = false;
+$('#submitloggin').submit(function(e){
+    e.preventDefault();
+    loggedin = true;
+    sessionStorage.setItem("loggedin", loggedin);
+    window.location.href = "profile.html";
+});
 
 
+$('#contact-form').submit(function(e){
+  e.preventDefault();
+  $('#confirmation-modal').modal('show');
+});
 
-// document.querySelector(".submitreg").onsubmit = function () {
-//     if(check()){
-//         window.location.href = "profile.html";
-//     }
-// };
+
 
 
 
