@@ -818,3 +818,30 @@ a:hover[id=profileNav-inactive] {
 }
 /* ------------------------------------------------------- */
 
+/* SEARCH ALUMNI */
+/* ------------------------------------------------------- */
+#search-alumni {
+    margin: 20px auto;
+    background-color: #f3f3f3;
+}
+
+#alumni-search-field{
+    align-items: center;
+    max-width : 250px;
+}
+
+#alumni-row-card {
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.heading-search-page{
+    text-align: center;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.search-form{
+    display:flex;
+    justify-content: center;
+}
+
