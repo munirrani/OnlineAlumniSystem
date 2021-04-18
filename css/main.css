@@ -7,12 +7,8 @@ html {
     padding: 0;
 }
 
-
 /* Body and Background*/
-
-
 /* ------------------------------------------------------- */
-
 body {
     font-family: 'Merriweather', sans-serif;
     background: linear-gradient(45deg, #23A6D5, #8f0b89, #23A6D5);
@@ -21,18 +17,16 @@ body {
     min-height: 100vh;
     transform: translateZ(0);
 }
-
-
-
-
+/* modal bug */
+.modal-open {
+    padding-right: 0px !important;
+}
+/* modal bootstrap bug, modal automatically adds right padding to body for some unknown reason */
 /* ------------------------------------------------------- */
 
 
 /* Navbar Section */
-
-
 /* ------------------------------------------------------- */
-
 #topNavbar {
     background-color: #8f0b89;
     font-weight: 800;
@@ -79,29 +73,24 @@ body {
 #logbutton:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
 }
-
-
 /* ------------------------------------------------------- */
+
+
 
 
 /* Main Section */
-
-
 /* ------------------------------------------------------- */
-
 main {
     min-height: calc(100vh - 52px - 110px - 595px);
     padding: 20px;
 }
-
 /* ------------------------------------------------------- */
+
+
 
 
 /* Footer Section */
-
-
 /* ------------------------------------------------------- */
-
 footer {
     padding-top: 2px;
     background-color: #f3f3f3;
@@ -109,31 +98,24 @@ footer {
     position: relative;
     width: 100%;
 }
-
 .footer-link a {
     text-decoration: none;
 }
-
 .footer-link a:hover {
     text-decoration: underline;
 }
-
 #map {
     height: 300px;
     /* The height is 400 pixels */
     width: 80%;
     /* The width is the width of the web page */
 }
-
-
 /* ------------------------------------------------------- */
+
 
 
 /* Media Responsiveness Section */
-
-
 /* ------------------------------------------------------- */
-
 @media screen and (max-width: 992px) {
     .navbar-brand {
         white-space: normal;
@@ -163,23 +145,18 @@ footer {
         border-radius: 15px;
         font-size: 92%;
     }
-
     #jumbo-col{
         flex: none;
     }
-
     .event-card{
         margin-top: 20px;
     }
-
     .announcement-sec{
         margin-top: 20px;
     }
-
     .jumbotron-news {
         padding: 2rem 1rem;
     }
-
     /* REGISTER PAGE */
     .register .left-col {
     border-top-right-radius: 10px !important;
@@ -192,42 +169,34 @@ footer {
     .cont-right{
         margin-top: 30px;
     }
-
     .reg-pic img{
         height: auto;
         width: auto;
     }
-
     /*Profile Page*/
     #right-col{
         padding-left: 0px !important; 
         padding-right: 0px !important;  
     }
-
     /*Event Page*/
     .event-img , .top-reg-text{
         text-align: center;
     }
-
     .vertical-event-card {
         display: block;
         grid-template-columns: 1fr;
         text-align: left;
     }
-
     .event-text {
         text-align: justify;
     }
-
     .form-reg-container{
         max-width: 100% !important;
     }
-
     .form-reg-submit{
         justify-content: center;
     }
 }
-
 /* ------------------------------------------------------- */
 
 
@@ -237,12 +206,11 @@ footer {
     text-decoration: none;
     color: royalblue;
 }
-
 .about-mail:hover{
     text-decoration: none;
     color: white;
 }
-
+/* ------------------------------------------------------- */
 
 
 /* Home PAGE */
@@ -256,11 +224,9 @@ footer {
     border-radius: .4rem;
     color: white;
 }
-
 .jumbotron-main h2{
     font-family: 'Hammersmith One', sans-serif;
 }
-
 .jumbotron-events {
     margin-top: 1rem;
     padding: 2rem 2rem;
@@ -269,11 +235,9 @@ footer {
     border-radius: .4rem;
     color: white;
 }
-
 .jumbotron-events h2{
     font-family: 'Hammersmith One', sans-serif;
 }
-
 .jumbotron-news {
     margin-top: 1rem;
     padding: 2rem 2rem;
@@ -282,11 +246,9 @@ footer {
     border-radius: .4rem;
     color: white;
 }
-
 .jumbotron-news h2{
     font-family: 'Hammersmith One', sans-serif;
 }
-
 .jumbotron-button{
     color: black;
     font-weight: 800;
@@ -306,46 +268,38 @@ footer {
 #home-container.container-fluid{
     max-width: 85vw;
 }
-
 .event-card{
     border-radius: 4px;
     color:black;
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
-
 .jumbotron-events .card-title{
     font-family: 'Hammersmith One', sans-serif;
 }
-
 .event-card:hover{
     transform: scale(1.05);
     z-index: 5;
 }
-
 .event-info a {
     text-decoration: none;
     font-weight: 800;
     color: #8f0b89;
 }
-
 .news-home-link{
     text-decoration: none;
     font-weight: 800;
     color: #8f0b89;
 }
-
 .news-home-link:hover{
     text-decoration: none;
     font-weight: 800;
     color: #8f0b89;
 }
-
 .news-img{
     border-radius: 7px;
 }
-
-
 /* ------------------------------------------------------- */
+
 
 
 /* Event PAGE */
@@ -355,7 +309,6 @@ footer {
     padding-left: 2em;
     font-family: 'Hammersmith One', sans-serif;
 }
-
 #event-main {
     border-radius: 0.5em;
     margin: auto;
@@ -366,7 +319,6 @@ footer {
     background-color: #f3f3f3;
     box-shadow: 10em;
 }
-
 .vertical-event-card {
     border: 0px;
     display: grid;
@@ -378,29 +330,23 @@ footer {
     align-items: center;
     background-color: #f3f3f3;
 }
-
 #event-main a {
     color: black;
     text-decoration: none;
 }
-
 #event-main a:hover {
     color: rgb(114, 114, 114);
 }
-
 .event-meta {
     font-size: small;
 }
-
 .event-text {
     padding-right: 1.5em;
 }
-
 .event-img {
     display: grid;
     place-items: center;
 }
-
 .event-date input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
@@ -413,7 +359,6 @@ footer {
     top: 0;
     width: auto;
 }
-
 .page-nav {
     justify-content: center;
     padding: 0.5em; 
@@ -421,11 +366,9 @@ footer {
     border-radius: 1em;
     max-width: 20em;
 }
-
 .page-nav:hover {
     box-shadow: 0 0 15px #c532be;
 }
-
 @media (max-width: 730px) {
     .event-img {
         text-align: center;
@@ -441,6 +384,9 @@ footer {
         text-align: justify;
     }
 }
+/* ------------------------------------------------------- */
+
+
 
 /* Contact Us */
 /* ------------------------------------------------------- */
@@ -485,12 +431,10 @@ footer {
     border-radius: 10px;
     padding: 15px;
 }
-
 .contact-us textarea {
     border-radius: 10px;
     padding: 15px;
 }
-
 .bottom-submit{
     margin-top: 4px;
     display: grid;
@@ -510,11 +454,7 @@ footer {
 .submit-message:hover {
     box-shadow: 0 0 15px #c532be;
 }
-
-
-
 /* ------------------------------------------------------- */
-
 
 
 
@@ -522,7 +462,6 @@ footer {
 /* LOGIN PAGE */
 /* ------------------------------------------------------- */
 @import "bourbon";
-
 .login {	
 	margin-top: 80px;
     margin-bottom: 80px;
@@ -598,9 +537,8 @@ footer {
     font-weight: 800;
     color: #8f0b89;
 }
-
-
 /* ------------------------------------------------------- */
+
 
 
 /* Register PAGE */
@@ -609,7 +547,6 @@ footer {
 	margin: 80px auto;
     max-width: 85vw;
 }
-
 .register .left-col,.register .right-col {
     padding-bottom: 3.5rem;
     border-radius: 10px;
@@ -619,18 +556,15 @@ footer {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-
 .register .right-col {
     background-color: #f3f3f3;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
-
 .form-reg-container {
     max-width: 80%;
     margin: 80px auto 0px;
 }
-
 .form-reg-heading {
     margin-bottom: 50px;
     font-family: 'Hammersmith One', sans-serif;
@@ -639,7 +573,6 @@ footer {
     padding-top: 60px;
     padding-left: calc(var(--bs-gutter-x)/ 2);;
 }
-
 .form-check a , .form-reg-submit a{
     text-decoration: none;
     color: #8f0b89;
@@ -689,45 +622,39 @@ footer {
 /* ------------------------------------------------------- */
 
 
-/*                   PROFILE & SETTING PAGE                */
+
+/* PROFILE & SETTING PAGE */
 /* ------------------------------------------------------- */
 #updatebutton { 
     color: #f3f3f3;
     background-color: #8f0b89;
     border-radius: 200px;
 }
-
 #updatebutton:hover {
     filter: brightness(110%);
 }
-
 .confirmbuttonModalSetting { 
     border-radius: 200px;
     color: #8f0b89;
     border-color: #8f0b89;
 }
-
 .confirmbuttonModalSetting:hover {
     color: white;
     background-color: #8f0b89;
 }
-
 .confirmbuttonModalSetting:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
 }
-
 #editbutton {
     border-radius: 200px;
     color: #8f0b89;
     border-color: #8f0b89;
     background-color: white;
 }
-
 #editbutton:hover {
     color: white;
     background-color: #8f0b89;
 }
-
 #right-col {
     background-color: #f3f3f3;
     border-style: none;
@@ -735,20 +662,16 @@ footer {
     border-bottom-right-radius: 10px;
     padding: 10px 50px 20px 50px;
 }
-
 #round-corner-left {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 }
-
 hr.profileBio-line { 
     border-top: 2px solid white;
 }
-
 a[id=profileNav-inactive] { 
     color: white;
 }
-
 a:hover[id=profileNav-inactive] {  
     color: white;
 }
@@ -770,48 +693,39 @@ a:hover[id=profileNav-inactive] {
 #profileNav { 
     color: white;
 }
-
 #profileImg{
     border: 2px solid white ;
     border-radius: 50%;
     width:250px;
     height:250px;
 }
-
 #profilebtn:focus { 
     outline: none;
     box-shadow: none;    
 }
-
 #profileIcon {
     border: 1px solid #8f0b89;
 }
-
 .form-control[id=bio] {
     color: white;
     background-color: transparent;
     height: 90px;
 }
-
 .form-control[id=bio]::placeholder {
     color: whitesmoke;
 }
-
 .form-control[id=bio]:focus {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
-
 .form-control[class="purplemodalinput"]:focus  {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
-
 #formFile:focus {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
-
 .dropbtn {
     color: #8f0b89;
     border-color: #8f0b89;
@@ -822,17 +736,14 @@ a:hover[id=profileNav-inactive] {
     width: 50px;
     box-shadow: 0 0 0 .1rem #8f0b89;
 }
-  
 .dropbtn:hover, .dropbtn:focus {
     filter: brightness(90%);
 }
-  
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
 }
-  
 .dropdown-content {
     display: none;
     position: absolute;
@@ -844,7 +755,6 @@ a:hover[id=profileNav-inactive] {
     z-index: 1;
     border-radius: 5%;
 }
-  
 .dropdown-content a {
     color: black;
     padding: 12px 20px;
@@ -852,15 +762,12 @@ a:hover[id=profileNav-inactive] {
     display: block;
     font-size: 15px;
 }
-  
 .dropdown a:hover {
     background-color: #ddd;
 }
-  
 .show {
     display: block;
 }
-
 .collapsible { 
     background-color: white;
     color:black;
@@ -872,18 +779,15 @@ a:hover[id=profileNav-inactive] {
     outline: none;
     font-size: 15px;
 }
-  
 .active.collapsible, .collapsible:hover {
     background-color: rgb(235, 235, 235);
 }
-  
 .collapsible:after {
     color: white;
     font-weight: bold;
     float: right;
     margin-left: 5px;
 }
-  
 .content {
     padding: 0 18px;
     max-height: 0;
@@ -891,25 +795,22 @@ a:hover[id=profileNav-inactive] {
     transition: max-height 0.2s ease-out;
     background-color: rgb(235, 235, 235);
 }
-
 #deleteAcc.alert {
     padding: 20px;
     background-color: #f44336;
     color: white;
 }
-
-
 /* ------------------------------------------------------- */
 
 
 /* SETTING FOR THE MODAL FOR IT TO BE CENTERED CORRECTLY */
-
+/* ------------------------------------------------------- */
 .modal {
     height: 100vh !important;
     padding-right: 0px !important;
 }
-
 .modal-backdrop {
     width: 100% !important;
     height: 100% !important;
 }
+/* ------------------------------------------------------- */
