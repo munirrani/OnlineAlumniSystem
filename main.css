@@ -863,8 +863,49 @@ a:hover[id=profileNav-inactive] {
     background-color: #f44336;
     color: white;
 }
+/* ------------------------------------------------------- */
+
+/* ------------------------------------------------------- */
+/*                       JOB PAGE                          */
+
+#job-main{
+    background-color: #f3f3f3;
+    border-style: none;
+    border-radius: 10px;
+    padding: 30px 80px 30px 80px;
+}
+
+#job-heading{
+    font-family: 'Hammersmith One', sans-serif;
+    text-align: center;
+}
+
+#job-caption{
+    text-align: center;
+}
+
+#job-search-bar {
+    width: 100%;
+}
+
+#search-img {
+    height: 20px;
+    width: 20px;
+}
+
+.job-box{
+    border: 1px solid rgb(172, 171, 171);
+    margin: 10px 5px 10px 5px;
+    border-radius: 20px;
+}
 
 
+#job-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
 /* ------------------------------------------------------- */
 
 
