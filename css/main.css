@@ -73,6 +73,12 @@ body {
 #logbutton:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
 }
+.nav-button-bar {
+
+}
+.nav-prof-bar {
+    display: none;
+}
 /* ------------------------------------------------------- */
 
 

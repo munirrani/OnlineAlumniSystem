@@ -6,44 +6,44 @@ $(function () {
 });
 
 let checkpw = function () {
-    if (document.getElementById('password').value == "" && document.getElementById('confirmpw').value == "") {
-        document.getElementById('confirmpw').classList.remove("input-error");
-        document.getElementById('error-text-reg').classList.remove("error-reg-text");
-    }
-    if (document.getElementById('confirmpw').value != "") {
-        if (document.getElementById('password').value != document.getElementById('confirmpw').value) {
-            document.getElementById('error-text-reg').classList.add("error-reg-text");
-            document.getElementById('confirmpw').classList.add("input-error");
-            document.getElementById('error-text-reg').innerHTML = 'Confimed Password Does Not Match';
-            return false;
-        } else{
-            document.getElementById('confirmpw').classList.remove("input-error");
-            document.getElementById('error-text-reg').classList.remove("error-reg-text");
-        }
-    } else {
-      document.getElementById("confirmpw").classList.remove("input-error");
-      document
-        .getElementById("error-text-reg")
-        .classList.remove("error-reg-text");
-      return true;
-    }
-    if(document.getElementById('password').value == document.getElementById('confirmpw').value) {
-        return true;
-    }
+  if (document.getElementById('password').value == "" && document.getElementById('confirmpw').value == "") {
+    document.getElementById('confirmpw').classList.remove("input-error");
+    document.getElementById('error-text-reg').classList.remove("error-reg-text");
   }
+  if (document.getElementById('confirmpw').value != "") {
+    if (document.getElementById('password').value != document.getElementById('confirmpw').value) {
+      document.getElementById('error-text-reg').classList.add("error-reg-text");
+      document.getElementById('confirmpw').classList.add("input-error");
+      document.getElementById('error-text-reg').innerHTML = 'Confimed Password Does Not Match';
+      return false;
+    } else {
+      document.getElementById('confirmpw').classList.remove("input-error");
+      document.getElementById('error-text-reg').classList.remove("error-reg-text");
+    }
+  } else {
+    document.getElementById("confirmpw").classList.remove("input-error");
+    document
+      .getElementById("error-text-reg")
+      .classList.remove("error-reg-text");
+    return true;
+  }
+  if (document.getElementById('password').value == document.getElementById('confirmpw').value) {
+    return true;
+  }
+}
 
 let loggedin = false;
-$('#submitloggin').submit(function(e){
-    e.preventDefault();
-    loggedin = true;
-    sessionStorage.setItem("loggedin", loggedin);
-    window.location.href = "profile.html";
+$('#submitloggin').submit(function (e) {
+  e.preventDefault();
+  loggedin = true;
+  sessionStorage.setItem("loggedin", loggedin);
+  window.location.href = "profile.html";
 });
 
 
-$('#contact-form').submit(function(e){
-  e.preventDefault();
+$('#contact-form').submit(function (e) {
   $('#confirmation-modal').modal('show');
+  e.preventDefault();
 });
 
 
