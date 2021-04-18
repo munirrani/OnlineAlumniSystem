@@ -344,18 +344,10 @@ footer {
 
 /* Event PAGE */
 /* ------------------------------------------------------- */
-a {
-    color: rgb(36, 32, 32);
-    text-decoration: none;
-}
-
-a:hover {
-    color: rgb(110, 108, 108);
-}
-
 #upcoming-events {
     margin-bottom: 1.5em;
     padding-left: 2em;
+    font-family: 'Hammersmith One', sans-serif;
 }
 
 #event-main {
@@ -381,12 +373,21 @@ a:hover {
     background-color: #f3f3f3;
 }
 
+#event-main a {
+    color: black;
+    text-decoration: none;
+}
+
+#event-main a:hover {
+    color: rgb(114, 114, 114);
+}
+
 .event-meta {
     font-size: small;
 }
 
 .event-text {
-    padding-right: 1em;
+    padding-right: 1.5em;
 }
 
 .event-img {
@@ -407,6 +408,33 @@ a:hover {
     width: auto;
 }
 
+.page-nav {
+    justify-content: center;
+    padding: 0.5em; 
+    background-color: #f3f3f3;
+    border-radius: 1em;
+    max-width: 20em;
+}
+
+.page-nav:hover {
+    box-shadow: 0 0 15px #c532be;
+}
+
+@media (max-width: 730px) {
+    .event-img {
+        text-align: center;
+    }
+
+    .vertical-event-card {
+        display: block;
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .event-text {
+        text-align: justify;
+    }
+}
 
 /* Contact Us */
 /* ------------------------------------------------------- */

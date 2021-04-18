@@ -70,39 +70,6 @@
         </nav>
 
         <main>
-            <!--
-            <div id="event-main">
-                <h2>New Event</h2>
-                <form id="new-event-form" action="#">
-                    <label class="form-check-label" for="title">Event title</label>
-                    <input class="form-control mb-4 shadow rounded-input" type="text" name="title" id="title" required>
-
-                    <label class="form-label" for="date">Date: </label>
-                    <input class="form-control mb-4 shadow rounded-input" type="date" placeholder="Date" name="date" id="date" required>
-
-                    <label for="starttime">Start Time: </label>
-                    <input class="form-control mb-4 shadow rounded-input" type="time" placeholder="From" name="starttime" id="starttime" required>
-                    <label for="endtime">End Time: </label>
-                    <input class="form-control mb-4 shadow rounded-input" type="time" placeholder="To" name="endtime" id="endtime" required>
-                    
-                    <label for="mode">Mode: </label>
-                    <select class="form-control mb-4 shadow rounded-input" name="mode" id="mode" required>
-                        <option value="none" selected disabled hidden></option>
-                        <option value="physical">Physical</option>
-                        <option value="virtual">Virtual</option>
-                    </select>
-                
-                    <label for="description">Description: </label>
-                    <textarea class="form-control mb-4 shadow" style="border-radius: 2em;" name="description" id="description" cols="30" rows="8" required></textarea>
-                
-                    <label for="eventimg">Event Image: </label>
-                    <input class="form-control mb-4 shadow" placeholder="Event image" type="file" name="eventimg" id="eventimg" required>
-
-                    <button type="submit" class="btn btn-primary" id="create-event">Create New Event</button>
-                </form>
-            </div>
-            -->
-
             <div class="register">
                 <div class="row shadow-lg">
                     <div class="col-sm-8 right-col">
@@ -123,17 +90,17 @@
 
                                     <div class="row mt-2">
                                         <div class="col-sm">
-                                            <label class="form-label" for="date">Start Date</label>
+                                            <label class="form-label" for="startdate">Start Date</label>
                                             <div class="input-group event-date">
                                                 <!-- TODO: Insert the start date of the existing event -->
-                                                <input type="date" class="form-control" placeholder="" required>
+                                                <input type="date" class="form-control" id="startdate" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="enddate">End Date</label>
                                             <div class="input-group event-date">
                                                 <!-- TODO: Insert the end date of the existing event -->
-                                                <input type="date" class="form-control" placeholder="" required>
+                                                <input type="date" class="form-control" id="enddate" placeholder="" required>
                                             </div>
                                         </div>
                                     </div>
