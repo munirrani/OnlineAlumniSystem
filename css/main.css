@@ -207,7 +207,7 @@ footer {
     }
 
     /*Event Page*/
-    .event-img {
+    .event-img , .top-reg-text{
         text-align: center;
     }
 
@@ -219,6 +219,14 @@ footer {
 
     .event-text {
         text-align: justify;
+    }
+
+    .form-reg-container{
+        max-width: 100% !important;
+    }
+
+    .form-reg-submit{
+        justify-content: center;
     }
 }
 
