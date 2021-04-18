@@ -9,7 +9,6 @@ document.querySelector("#logoutbutton").onclick = function() {
 function topthingy() {
   let loggedinval = sessionStorage.getItem("loggedin") === "true";
   let navbuttonbar = document.querySelectorAll(".nav-button-bar");
-  document.querySelector(".nav-prof-bar").style.display = "none";
   if(loggedinval) {
     navbuttonbar.forEach(element => {
         element.style.display = "none";
