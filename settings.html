@@ -136,8 +136,8 @@
                                                 <label for="newUsername"><h6 class="mt-2 mb-4">New username</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <input id="purple" type="text" class="form-control" id="newUsername">
-                                                <button id="confirmbutton" class="btn" type="button" style="margin-top: 15px;">Confirm username</button>
+                                                <input class="purplemodalinput" type="text" class="form-control" id="newUsername">
+                                                <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px;">Confirm username</button>
                                             </div>
                                         </div>
                                     </div>
@@ -163,20 +163,20 @@
                                                 <label for="currentPass"><h6 class="mt-2 mb-4">Current password</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                <input id="purple" type="password" class="form-control" id="currentPass">
+                                                <input type="password" class="form-control purplemodalinput" id="currentPass">
                                             </div>
                                             <div class="col-sm-3">
-                                                <label for="newPass"><h6 class="mt-2 mb-2">New password</h6></label>
+                                                <label for="newPassModal"><h6 class="mt-2 mb-2">New password</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                <input id="purple" type="password" class="form-control" id="newPass">
+                                                <input type="password" class="form-control purplemodalinput" id="newPassModal">
                                             </div>
                                             <div class="col-sm-3">
-                                                <label for="newUsername"><h6 class="mt-2 mb-4">Re-enter password</h6></label>
+                                                <label for="newPassConfirmModal"><h6 class="mt-2 mb-4">Re-enter password</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <input id="purple" type="password" class="form-control" id="newPass">
-                                                <button id="confirmbutton" class="btn" type="button" style="margin-top: 15px;">Confirm password</button>
+                                                <input  type="password" class="form-control purplemodalinput" id="newPassConfirmModal">
+                                                <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px;">Confirm password</button>
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                     <div class="row">
                                         <h6 style="margin-bottom: 20px;">Please be certain before you delete your account. </h6>
                                     </div>
-                                    <button type="button" class="btn shadow" id="confirmbutton" style="margin-bottom: 20px;"data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your account</button>
+                                    <button type="button" class="btn shadow confirmbuttonModalSetting"  style="margin-bottom: 20px;"data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your account</button>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                           <div class="modal-content">
@@ -206,22 +206,22 @@
                                                       </div> 
                                                 </div>
                                                 <div class="mb-3">
-                                                  <label for="username" class="col-form-label">Your username or email:</label>
-                                                  <input id="purple"type="text" class="form-control" id="username">
+                                                  <label for="usernameModalSettings" class="col-form-label">Your username or email:</label>
+                                                  <input type="text" class="form-control purplemodalinput" id="usernameModalSettings">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="username" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
-                                                    <input id="purple" type="text" class="form-control" id="username">
+                                                    <label for="verifydelete" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
+                                                    <input type="text" class="form-control purplemodalinput" id="verifydelete">
                                                   </div>
                                                 <div class="mb-3">
-                                                    <label for="password" class="col-form-label">Confirm your password:</label>
-                                                    <input id="purple" type="password" class="form-control" id="password">
+                                                    <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
+                                                    <input type="password" class="form-control purplemodalinput" id="passwordModalSettings">
                                                   </div>
                                               </form>
                                             </div>
                                             <div class="modal-footer">
-                                              <button type="button" id="confirmbutton" class="btn" data-bs-dismiss="modal">Cancel</button>
-                                              <button type="button" id="confirmbutton" class="btn">Delete this account</button>
+                                              <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
+                                              <button type="button" id="confirmbuttonmodal" class="btn confirmbuttonModalSetting">Delete this account</button>
                                             </div>
                                           </div>
                                         </div>
@@ -306,6 +306,18 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+
+        $('body').on('show.bs.modal', function () {
+            $('.sticky-top').css('margin-left', '-=0px');
+        });
+    
+        $('body').on('hidden.bs.modal', function () {
+            $('.sticky-top').css('margin-left', 'auto');
+        });
+    
+    </script>
+    
 </body>
 
 </html>

@@ -22,9 +22,7 @@ body {
     transform: translateZ(0);
 }
 
-header , footer{
-    width: 100vw;
-}
+
 
 
 /* ------------------------------------------------------- */
@@ -675,18 +673,18 @@ a:hover {
     filter: brightness(110%);
 }
 
-#confirmbutton { 
+.confirmbuttonModalSetting { 
     border-radius: 200px;
     color: #8f0b89;
     border-color: #8f0b89;
 }
 
-#confirmbutton:hover {
+.confirmbuttonModalSetting:hover {
     color: white;
     background-color: #8f0b89;
 }
 
-#confirmbutton:focus {
+.confirmbuttonModalSetting:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
 }
 
@@ -776,7 +774,7 @@ a:hover[id=profileNav-inactive] {
     box-shadow: 0 0 10px #ca81c7;
 }
 
-.form-control[id="purple"]:focus  {
+.form-control[class="purplemodalinput"]:focus  {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
