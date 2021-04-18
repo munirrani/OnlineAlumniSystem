@@ -1,3 +1,35 @@
+window.onload = topthingy;
+
+let loggedin = false;
+document.querySelector("#logoutbutton").onclick = function() {
+  loggedin = false;
+  sessionStorage.setItem("loggedin", loggedin);
+  window.location.href = "index.html";
+};
+function topthingy() {
+  let loggedinval = sessionStorage.getItem("loggedin") === "true";
+  let navbuttonbar = document.querySelectorAll(".nav-button-bar");
+  document.querySelector(".nav-prof-bar").style.display = "none";
+  if(loggedinval) {
+    navbuttonbar.forEach(element => {
+        element.style.display = "none";
+    });
+    document.querySelector(".nav-prof-bar").style.display = "inline-block";
+  }else {
+    document.querySelector(".nav-prof-bar").style.display = "none";
+    navbuttonbar.forEach(element => {
+      element.style.display = "inline-block";
+  });
+  }
+};
+$('#submitloggin').submit(function (e) {
+  e.preventDefault();
+  loggedin = true;
+  sessionStorage.setItem("loggedin", loggedin);
+  window.location.href = "profile.html";
+});
+
+
 $(function () {
   $(document).scroll(function () {
     var $nav = $("#botNavbar");
@@ -32,25 +64,11 @@ let checkpw = function () {
   }
 }
 
-let loggedin = false;
-$('#submitloggin').submit(function (e) {
-  e.preventDefault();
-  loggedin = true;
-  sessionStorage.setItem("loggedin", loggedin);
-  window.location.href = "profile.html";
-});
-
 
 $('#contact-form').submit(function (e) {
   $('#confirmation-modal').modal('show');
   e.preventDefault();
 });
-
-
-
-
-
-
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");

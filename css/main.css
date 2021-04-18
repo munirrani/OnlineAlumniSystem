@@ -27,6 +27,9 @@ body {
 
 /* Navbar Section */
 /* ------------------------------------------------------- */
+.nav-prof-bar {
+    display: none;
+}
 #topNavbar {
     background-color: #8f0b89;
     font-weight: 800;
@@ -47,6 +50,7 @@ body {
     transition: background 0.25s;
 }
 #regbutton , #logbutton {
+    display: none;
     padding: 0.65rem 1.45rem;
 }
 #regbutton {
@@ -72,12 +76,6 @@ body {
 
 #logbutton:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
-}
-.nav-button-bar {
-
-}
-.nav-prof-bar {
-    display: none;
 }
 /* ------------------------------------------------------- */
 
@@ -748,7 +746,6 @@ a:hover[id=profileNav-inactive] {
 .dropdown {
     float: right;
     position: relative;
-    display: inline-block;
 }
 .dropdown-content {
     display: none;
@@ -820,3 +817,4 @@ a:hover[id=profileNav-inactive] {
     height: 100% !important;
 }
 /* ------------------------------------------------------- */
+
