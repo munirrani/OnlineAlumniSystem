@@ -9,9 +9,9 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
-    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
     <title>FSKTM Alumni</title>
 </head>
 
@@ -59,10 +59,20 @@
                     </ul>
                     <div class="fl-right">
                         <div class="d-flex gap-2">
-                            <a href="login.html"><button id="logbutton" class="btn shadow"
+                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
                                     type="button">Login</button></a>
-                            <a href="register.html"><button id="regbutton" class="btn shadow"
+                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
                                     type="button">Register</button></a>
+                            <div class="dropdown nav-prof-bar">
+                                <button onclick="myFunction()" id="profilebtn" class="btn">
+                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
+                                </button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="profile.html">Profile</a>
+                                    <a href="settings.html">Settings</a>
+                                    <a href="#" id="logoutbutton">Log Out</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -72,7 +82,7 @@
 
         <main>
             <div id="event-main">
-                <h2 id="upcoming-events">Past Events</h2>
+                <h2 id="upcoming-events">PAST EVENTS</h2>
 
                 <div class="vertical-event-card">
                     <div class="event-text">
@@ -140,9 +150,16 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-md-center">
-                    <button class="submitlog" style="margin: 1em; max-width: 11.5em;" type="oldentries">Older Entries</button>
-                    <button class="submitlog" style="margin: 1em; max-width: 11.5em;" type="newentries">Newer Entries</button>
+                <div class="text-center">
+                    <div class="row justify-content-md-center mx-auto btn-group">
+                        <a href="" class="col page-nav">Previous</a>
+                        <a href="" class="col page-nav">-5</a>
+                        <a href="" class="col page-nav">-4</a>
+                        <a href="" class="col page-nav">-3</a>
+                        <a href="" class="col page-nav">-2</a>
+                        <a href="" class="col page-nav">-1</a>
+                        <a href="" class="col page-nav">Next</a>
+                    </div>
                 </div>
             </div>
         </main>
@@ -217,7 +234,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 
