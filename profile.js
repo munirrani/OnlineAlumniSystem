@@ -1,0 +1,13 @@
+const alumniProfiles = [{"name":"Fahad Thakur", "currentPos":"UX Designer at Google", "email":"example@mail.com", "phone":"0123456789", 
+                        "enrollYear": "2020", "department": "Software Engineering", "level": "Degree", "address": "Qatar", 
+                        "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am a UX Designer at Google"},
+                        {"name":"Hafiz", "currentPos":"Senior Branch Manager", "email":"example@mail.com", "phone":"0123456789", 
+                        "enrollYear": "2020", "department": "Software Engineering", "level": "Degree", "address": "Malaysia", 
+                        "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am a Senior Branch Manager Twitter"},
+                        {"name":"Irfan", "currentPos":"Lead Android Developer", "email":"example@mail.com", "phone":"0123456789", 
+                        "enrollYear": "2019", "department": "Software Engineering", "level": "Degree", "address": "Malaysia", 
+                        "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am a Lead Android Developer at Google"},
+                        {"name":"Danial", "currentPos":"Machine Learning Master", "email":"example@mail.com", "phone":"0123456789", 
+                        "enrollYear": "2020", "department": "Artificial Intelligence", "level": "Degree", "address": "Malaysia", 
+                        "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am the Machine Learning Master"},
+]
