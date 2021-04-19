@@ -82,6 +82,9 @@
         <main>
             <div class="register">
                 <div class="row shadow-lg">
+                    <div class="col-sm-4 left-col d-flex reg-pic">
+                        <img src="img/balloons.svg" class="img-fluid" alt="">
+                    </div>
                     <div class="col-sm-8 right-col">
                         <div class="container form-reg-container">
                             <div class="row">
@@ -89,6 +92,7 @@
                                 <hr>
                             </div>
                             <div class="row mt-3">
+                                <script ></script>
                                 <form action="">
                                     <div class="row">
                                         <div class="col-sm">
@@ -115,26 +119,35 @@
                                     <div class="row mt-2">
                                         <div class="col-sm">
                                             <label class="form-label" for="description">Description</label>
-                                            <textarea name="description" class="form-control" id="description" cols="25" rows="10" required></textarea>
+                                            <textarea name="description" class="form-control" id="description" cols="25" rows="10"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="row mt-2">
                                         <div class="col-sm">
                                             <label class="form-label" for="eventimg">Event Image</label>
-                                            <input class="form-control" type="file" name="eventimg" id="eventimg" required>
+                                            <input class="form-control" type="file" name="eventimg" id="eventimg">
                                         </div>
                                     </div>
 
-                                    <div class="row form-reg-submit mt-2">
+                                    <div class="row mt-2">
+                                        <label class="form-label" for="eventmode">Mode</label>
+                                        <div class="col radio-label">
+                                            <input type="radio" class="event-mode" id="physical" name="eventmode" value="physical" required>
+                                            <label class="event-label" for="physical">Physical</label>
+                                        </div>
+                                        <div class="col radio-label">
+                                            <input type="radio" class="event-mode" id="virtual" name="eventmode" value="virtual" required>
+                                            <label class="event-label" for="virtual">Virtual</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-reg-submit justify-content-center mt-2">
                                         <button class="submitreg" type="submit">Create Event</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4 left-col d-flex reg-pic">
-                        <img src="img/logo_um_without_text.svg" alt="">
                     </div>
                 </div>
             </div>

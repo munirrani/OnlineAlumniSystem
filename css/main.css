@@ -310,7 +310,7 @@ footer {
 
 
 
-/* Event PAGE */
+/* Event PAGES */
 /* ------------------------------------------------------- */
 #upcoming-events {
     margin-bottom: 1.5em;
@@ -377,19 +377,83 @@ footer {
 .page-nav:hover {
     box-shadow: 0 0 15px #c532be;
 }
-@media (max-width: 730px) {
-    .event-img {
-        text-align: center;
-    }
 
+.mode-container {
+    align-items: center;
+}
+
+.event-mode {
+    visibility: hidden;
+}
+
+.event-label {
+    position: relative;
+    border-radius: 0.5em;
+    padding: 0.7em;
+    cursor: pointer;
+    border: 1px solid #aa2aa4;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    margin-top: -3em;
+}
+
+.event-label:before {
+    content: "";
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #aa2aa4;
+    border-radius: 50%;
+    background: #f3f3f3;    
+    margin-right: 20px;
+}
+
+.event-mode:checked + .event-label {
+    background-color: #aa2aa4;
+    color:white;
+}
+
+.radio-label {
+    margin-top: -0.5em;
+}
+
+.event-mode:checked + .event-label:before {
+    height: 20px;
+    width: 20px;
+    border: 6px solid #f3f3f3;
+    background-color: #aa2aa4;
+}
+
+.event-btn {
+    max-width: 10em;
+    padding: 1em;
+    margin-top: 35px;
+    display: inline-block;
+    background: #aa2aa4;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    transition: 0.25s;
+}
+
+.event-btn:hover {
+    box-shadow: 0 0 15px #c532be;
+}
+
+@media (max-width: 730px) {
     .vertical-event-card {
         display: block;
         grid-template-columns: 1fr;
-        text-align: left;
     }
 
     .event-text {
-        text-align: justify;
+        text-align: start;
+    }
+
+    .event-btn {
+        display: inline-block;
+
     }
 }
 /* ------------------------------------------------------- */

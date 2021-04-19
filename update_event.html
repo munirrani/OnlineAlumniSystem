@@ -82,6 +82,9 @@
         <main>
             <div class="register">
                 <div class="row shadow-lg">
+                    <div class="col-sm-4 left-col d-flex reg-pic">
+                        <img src="img/law.svg" class="img-fluid" alt="">
+                    </div>
                     <div class="col-sm-8 right-col">
                         <div class="container form-reg-container">
                             <div class="row">
@@ -134,20 +137,29 @@
                                         </div>
                                     </div>
 
-                                    <div class="row form-reg-submit mt-2">
+                                    <div class="row mt-2">
+                                        <label class="form-label" for="eventmode">Mode</label>
+                                        <div class="col radio-label">
+                                            <input type="radio" class="event-mode" id="physical" name="eventmode" value="physical" required>
+                                            <label class="event-label" for="physical">Physical</label>
+                                        </div>
+                                        <div class="col radio-label">
+                                            <input type="radio" class="event-mode" id="virtual" name="eventmode" value="virtual" required>
+                                            <label class="event-label" for="virtual">Virtual</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-reg-submit mt-2 justify-content-center">
                                         <!-- Insert an alert to advise user on deleting an event-->
                                         <script>
 
                                         </script>
-                                        <button class="submitreg btn-danger mx-3" type="submit">Delete Event</button>
-                                        <button class="submitreg mx-3" type="submit">Update Event</button>
+                                        <button class="event-btn btn-danger mx-3" type="submit">Delete Event</button>
+                                        <button class="event-btn mx-3" type="submit">Update Event</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4 left-col d-flex reg-pic">
-                        <img src="img/logo_um_without_text.svg" alt="">
                     </div>
                 </div>
             </div>
