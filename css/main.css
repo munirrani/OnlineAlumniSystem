@@ -1025,7 +1025,7 @@ a:hover[id=profileNav-inactive] {
     font-family: 'Hammersmith One', sans-serif;
 }
 
-.search-form{
+.alumni-search-form{
     margin-top: 15px;
     border-radius: 35px;
 }
@@ -1040,13 +1040,13 @@ a:hover[id=profileNav-inactive] {
     box-shadow: none;
 }
 
-.search-btn{
+.alumni-search-btn{
     color: #f3f3f3;
     background-color: #8f0b89;
     border-radius: 200px;
 }
 
-.search-btn:hover {
+.alumni-search-btn:hover {
     filter: brightness(110%);
     color: #f3f3f3;
 }
