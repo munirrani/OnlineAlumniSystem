@@ -1026,7 +1026,27 @@ a:hover[id=profileNav-inactive] {
 }
 
 .search-form{
-    display:flex;
-    justify-content: center;
+    margin-top: 15px;
+    border-radius: 35px;
 }
 
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.search-btn{
+    color: #f3f3f3;
+    background-color: #8f0b89;
+    border-radius: 200px;
+}
+
+.search-btn:hover {
+    filter: brightness(110%);
+    color: #f3f3f3;
+}

@@ -106,17 +106,28 @@
         <main>
 
             <div id = "home-container" class="container-fluid">
-              <div id="search-alumni">
-                  <div class="row d-flex justify-content-center align-items-center"> 
-                    <h2 class="diplay-4 heading-search-page">Search Alumni Profiles</h2>
-                  </div>
-                  
-                  <div class="row"> 
-                    <form class="form-inline search-form">
-                      <input id="alumni-search-field" class="form-control" type="search" placeholder="Search Alumni" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit"><img src="img/search_black_24dp.svg" alt=""> </button>
+
+              <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <form class="card card-sm search-form">
+                        <div class="card-body row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <i><img src="img/search_black_24dp.svg" alt=""></i>
+                            </div>
+                            <!--end of col-->
+                            <div class="col">
+                                <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search alumni profiles">
+                            </div>
+                            <!--end of col-->
+                            <div class="col-auto">
+                                <button class="btn search-btn" type="submit">Search</button>
+                            </div>
+                            <!--end of col-->
+                        </div>
                     </form>
-                  </div>
+                </div>
+                <!--end of col-->
+            </div>
 
                   <div class="container d-flex" id="alumni-row-card">
                     <div class="row">
