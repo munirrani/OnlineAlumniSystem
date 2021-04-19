@@ -1,66 +1,62 @@
-const alumniProfiles = [{"name":"Fahad Thakur", "currentPos":"UX Designer at Google", "email":"example@mail.com", "phone":"0123456789", 
-                        "enrollYear": "2020", "department": "Software Engineering", "level": "Degree", "address": "Qatar", 
+const alumniProfiles = [{"name":"Fahad", "currentPos":"UX Designer at Google", "email":"example@mail.com", "phone":"0123456789", 
+                        "enrollYear": "Batch of 2019", "department": "Software Engineering", "level": "Degree", "address": "Qatar", 
                         "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am a UX Designer at Google"},
                         {"name":"Hafiz", "currentPos":"Senior Branch Manager", "email":"example@mail.com", "phone":"0123456789", 
-                        "enrollYear": "2020", "department": "Software Engineering", "level": "Degree", "address": "Malaysia", 
+                        "enrollYear": "Batch of 2019", "department": "Software Engineering", "level": "Degree", "address": "Malaysia", 
                         "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am a Senior Branch Manager Twitter"},
                         {"name":"Irfan", "currentPos":"Lead Android Developer", "email":"example@mail.com", "phone":"0123456789", 
-                        "enrollYear": "2019", "department": "Software Engineering", "level": "Degree", "address": "Malaysia", 
+                        "enrollYear": "Batch of 2019", "department": "Software Engineering", "level": "Degree", "address": "Malaysia", 
                         "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am a Lead Android Developer at Google"},
                         {"name":"Danial", "currentPos":"Machine Learning Master", "email":"example@mail.com", "phone":"0123456789", 
-                        "enrollYear": "2020", "department": "Artificial Intelligence", "level": "Degree", "address": "Malaysia", 
+                        "enrollYear": "Batch of 2019", "department": "Artificial Intelligence", "level": "Degree", "address": "Malaysia", 
                         "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am the Machine Learning Master"},
-                        {"name":"Danial", "currentPos":"Machine Learning Master", "email":"example@mail.com", "phone":"0123456789", 
-                        "enrollYear": "2020", "department": "Artificial Intelligence", "level": "Degree", "address": "Malaysia", 
-                        "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am the Machine Learning Master"},
-                        {"name":"Danial", "currentPos":"Machine Learning Master", "email":"example@mail.com", "phone":"0123456789", 
-                        "enrollYear": "2020", "department": "Artificial Intelligence", "level": "Degree", "address": "Malaysia", 
-                        "image": "https://bootdey.com/img/Content/avatar/avatar1.png", "bio": "Hey, I am the Machine Learning Master"}
 ]
 
 const alumniList = document.querySelector("#alumniList");
+
+const searchBar = document.querySelector("#alumni-search-bar");
+
+searchBar.addEventListener('keyup', (e)=>{
+  const searchString = e.target.value.toLowerCase();
+  const filterSearchedProfile = alumniProfiles.filter(character =>{
+    return character.name.toLowerCase().includes(searchString) || character.currentPos.toLowerCase().includes(searchString) || 
+    character.department.toLowerCase().includes(searchString) || character.address.toLowerCase().includes(searchString);
+  });
+  displayAlumni(filterSearchedProfile);
+});
 
 const displayAlumni = (alumni) => {
     const htmlString = alumni
             .map((alumni) => {
                 return `
                 <li>
-                <div class="contact-box center-version">
-                <div class="body-alumni-card">
-                  <img alt="image" class="img-circle" src="${alumni.image}">
-                  <h3 class="m-b-xs"><strong>${alumni.name}</strong></h3>
-                  <h5 class="card-department-alumni">${alumni.department}</h4>
-                  <div class="row mt-3">
-                      <div class="row">
-                        <div class="col-md-auto col-card-alumni-key"><p>Level of Education</p> </div>
-                        <div class="col col-card-alumni-val"><p>${alumni.level}</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-key"><p>Enrol Year</p></div>
-                        <div class="col col-card-alumni-val"><p>${alumni.enrollYear}</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-auto col-card-alumni-key"><p>Current Position</p></div>
-                        <div class="col col-card-alumni-val"><p>${alumni.currentPos}</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-key"><p>Email</p></div>
-                        <div class="col col-card-alumni-val"><p>${alumni.email}</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-key"><p>Address</p></div>
-                        <div class="col col-card-alumni-val"><p>${alumni.address}</p></div>
+
+                  <div class="contact-box center-version shadow">
+                      <div class="body-alumni-card">
+                        <img alt="image" class="img-circle" src="${alumni.image}">
+                        <h1 class="m-b-xs profile-card-name">${alumni.name}</h1>
+                        <h4 class="card-department-alumni pb-1">${alumni.department}</h4>
+                        <hr>
+                          <div class="row">
+                            <div class="col col-card-alumni-val"><p class="lead">${alumni.enrollYear}</p></div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-card-alumni-val"><p class="lead">${alumni.level}</p></div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-card-alumni-val"><p class="lead">${alumni.currentPos}</p></div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-card-alumni-val"><p class="lead">${alumni.email}</p></div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-card-alumni-val"><p class="lead">${alumni.address}</p></div>
+                          </div>
+                        <div class="alumni-card-footer mt-1 mx-2 mb-3">
+                          <button class="btn shadow alumni-card-view-profile-button">View Alumni Profile</button>
+                        </div>
                       </div>
                     </div>
-                  <div class="alumni-card-footer mt-1">
-                    <button class="btn alumni-card-view-profile-button">View Alumni Profile</button>
-                    <div class="m-t-xs btn-group">
-                      <a class="btn btn-xs btn-white" href=""><i class="fa fa-phone"></i> ${alumni.phone} </a>
-                      <a class="btn btn-xs btn-white" href=""><i class="fa fa-envelope"></i>Email</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
               </li>
                 `;
             })
