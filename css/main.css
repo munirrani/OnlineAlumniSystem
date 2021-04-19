@@ -1185,6 +1185,18 @@ a:hover[id=profileNav-inactive] {
     text-align: center;
 }
 
+.body-alumni-card-modal{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content-alumni{
+    background-color: #f3f3f3;
+    border-radius: 28px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
 
   
 
