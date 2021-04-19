@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
     <script type="text/javascript" src="js/map.js"></script>
-    <title>Profile | FSKTM Alumni</title>
+    <title>Job Activity | FSKTM Alumni</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
+                            <a class="nav-link active" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="events.html"><b>Program & Events</b></a>
@@ -57,7 +57,7 @@
                     </ul>
                     <div class="fl-right">
                         <div class="d-flex">
-                            <div class="dropdown nav-prof-bar">
+                            <div class="dropdown">
                                 <button onclick="myFunction()" id="profilebtn" class="btn">
                                     <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                                 </button>
@@ -65,7 +65,7 @@
                                     <a href="profile.html">Profile</a>
                                     <a href="editJob.html">Job Activity</a>
                                     <a href="settings.html">Settings</a>
-                                    <a href="index.html" id="logoutbutton">Log Out</a>
+                                    <a href="index.html">Log Out</a>
                                 </div>
                             </div>
                         </div>
@@ -78,11 +78,10 @@
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="editJob.html">Job Activity</a>
+                        <a id="profileNav-inactive" class="nav-link  active" aria-current="page" href="editJob.html">Job Activity</a>
                     </li>
                     <li id="inactive" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="settings.html">Settings & Privacy</a>
@@ -92,112 +91,111 @@
 
             <div class="container" style="margin-top: 20px;">
                 <div class="main-body">
-                    <div id="round-corner-left" class="row gutters-sm shadow-lg">
-                        <div class="col-md-4 mb-3">
-                            <div class="card-body mt-3">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                    <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="profileImg"
-                                            class="shadow"></a>
-                                    <div class="mt-3">
-                                        <h2 id="profile-name">Haney</h2>
-                                        <div class="container">
-                                            <div class="container">
-                                                <p id="profile-bio">Web Developer at Haney & Humaira' Sdn Bhd</p>
-                                            </div>
-                                        </div>
-                                        <div class="container">
-                                            <div class="container">
-                                                <hr class="profileBio-line">
-                                            </div>
-                                        </div>
-                                        <a href="editprofile.html"><button id="editbutton" class="btn shadow"
-                                                type="button">Edit Profile</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="right-col" class="col-md-8">
-                            <div id="right-col" class="card mb-3">
+                            <div id="post-job-main" class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h2 id="profile-heading">PERSONAL INFORMATION</h2>
+                                        <h2 id = "profile-heading">JOB ACTIVITY</h2>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Full Name</h6>
+                                        <div id="act-box" class="row">
+                                            <div id="act-image" class="col-1" style="padding: 0px;">
+                                            </div>
+                                            <div id="act-box-inner" class="col">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <h6 id="act-jobname">
+                                                            Senior Branch Manager
+                                                        </h6>
+                                                        <h6 id="job-company">
+                                                            Highspeed Studios
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div id="act-details">
+                                                            RM 1000 - RM2000
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div id="act-details">
+                                                            Wangsa Maju, Kuala Lumpur
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-auto" style="margin-left: 30px;">
+                                                        <button type="button" id="act-editbtn"class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
+                                                        <button type="button" id="act-editbtn"class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Humaira' Binti Ahmad Shuhemi
-                                        </div>
-                                    </div>
                                     <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Current Position</h6>
+                                    <div id="act-box" class="row">
+                                        <div id="act-image" class="col-1" style="padding: 0px;">
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Software Officer
+                                        <div id="act-box-inner" class="col">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <h6 id="act-jobname">
+                                                        Senior Branch Manager
+                                                    </h6>
+                                                    <h6 id="job-company">
+                                                        Highspeed Studios
+                                                    </h6>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div id="act-details">
+                                                        RM 1000 - RM2000
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div id="act-details">
+                                                        Wangsa Maju, Kuala Lumpur
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-auto" style="margin-left: 30px;">
+                                                    <button type="button" id="act-editbtn"class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
+                                                    <button type="button" id="act-editbtn"class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                <hr>
+                                <div id="act-box" class="row">
+                                    <div id="act-image" class="col-1" style="padding: 0px;">
+                                    </div>
+                                    <div id="act-box-inner" class="col">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <h6 id="act-jobname">
+                                                    Senior Branch Manager
+                                                </h6>
+                                                <h6 id="job-company">
+                                                    Highspeed Studios
+                                                </h6>
+                                            </div>
+                                            <div class="col-3">
+                                                <div id="act-details">
+                                                    RM 1000 - RM2000
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div id="act-details">
+                                                    Wangsa Maju, Kuala Lumpur
+                                                </div>
+                                            </div>
+                                            <div class="col-md-auto" style="margin-left: 30px;">
+                                                <button type="button" id="act-editbtn"class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
+                                                <button type="button" id="act-editbtn"class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Email</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            humairas00@yahoo.com
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Phone</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            018-2469011
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Enrollment Year</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            2019/2020
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Department</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Software Engineering
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Level</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Degree
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Address</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Selangor, Malaysia
-                                        </div>
-                                    </div>
+                                    
+                                </div>
+                            <hr>
+                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </main>
 
