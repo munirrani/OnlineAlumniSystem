@@ -1132,12 +1132,14 @@ a:hover[id=profileNav-inactive] {
     background-color: #f3f3f3;
     border: 1px solid #e7eaec;
     margin-bottom: 20px;
+    padding: 23px !important;
+    max-width: 20rem;
   }
 .the-alumni-cards .contact-box{
     color: inherit;
   }
 .the-alumni-cards .contact-box , .body-alumni-card, .contact-box-footer{
-    border-radius: 20px;
+    border-radius: 28px;
 }
 .the-alumni-cards .contact-box.center-version {
     border: 1px solid #e7eaec;
@@ -1176,6 +1178,18 @@ a:hover[id=profileNav-inactive] {
  .alumni-card-view-profile-button:hover {
     filter: brightness(110%);
     color: #f3f3f3;
+}
+.card-department-alumni {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.col-card-alumni-key {
+    text-align: center;
+    /* float: left; */
+}
+.col-card-alumni-val {
+    text-align: center;
 }
 
   
