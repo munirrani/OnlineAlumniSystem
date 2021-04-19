@@ -830,7 +830,7 @@ a:hover[id=profileNav-inactive] {
     max-width : 250px;
 }
 
-#alumni-row-card {
+.the-alumni-cards {
     margin-top: 40px;
     justify-content: center;
 }
@@ -844,4 +844,47 @@ a:hover[id=profileNav-inactive] {
     display:flex;
     justify-content: center;
 }
+
+
+
+
+
+/* CONTACTS */
+.the-alumni-cards .contact-box {
+    background-color: #ffffff;
+    border: 1px solid #e7eaec;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+.the-alumni-cards .contact-box > a {
+    color: inherit;
+  }
+.the-alumni-cards .contact-box.center-version {
+    border: 1px solid #e7eaec;
+    padding: 0;
+  }
+.the-alumni-cards .contact-box.center-version > a {
+    display: block;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+.the-alumni-cards .contact-box.center-version > a img {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+.the-alumni-cards .contact-box.center-version address {
+    margin-bottom: 0;
+  }
+.the-alumni-cards .contact-box .contact-box-footer {
+    text-align: center;
+    background-color: #ffffff;
+    border-top: 1px solid #e7eaec;
+    padding: 15px 20px;
+  }
+.the-alumni-cards a{
+      text-decoration:none !important;    
+  }
 
