@@ -1118,47 +1118,44 @@ a:hover[id=profileNav-inactive] {
 }
 /* ------------------------------------------------------- */
 
+
 /* SEARCH ALUMNI */
 /* ------------------------------------------------------- */
 #search-alumni {
     margin: 20px auto;
     background-color: #f3f3f3;
 }
-
 #alumni-search-field{
     align-items: center;
     max-width : 250px;
 }
-
 .the-alumni-cards {
     margin-top: 40px;
     justify-content: center;
     align-items: center;
 }
-
 .heading-search-page{
     text-align: center;
     font-family: 'Hammersmith One', sans-serif;
 }
-
 .alumni-search-form{
     margin-top: 15px;
     border-radius: 35px;
 }
-
 .form-control-borderless {
     border: none;
 }
-
 .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
     border: none;
     outline: none;
     box-shadow: none;
 }
-
-
-
-/* CONTACTS */
+#alumni-search-heading {
+    text-align: center;
+    color: #f3f3f3;
+    font-family: 'Hammersmith One', sans-serif;
+    margin-top: 10px;
+}
 #alumniList {
     padding-left: 0px;
     padding-right: 0px;
@@ -1178,7 +1175,6 @@ a:hover[id=profileNav-inactive] {
     margin-bottom: 2rem;
     font-family: 'Hammersmith One', sans-serif;
 }
-
 .the-alumni-cards .contact-box {
     background-color: #f3f3f3;
     border: 1px solid #e7eaec;
@@ -1227,23 +1223,20 @@ a:hover[id=profileNav-inactive] {
 .card-department-alumni {
     text-align: center;
 }
-
 .col-card-alumni-val {
     text-align: center;
 }
-
 .body-alumni-card-modal{
     display: grid;
     justify-content: center;
     align-items: center;
 }
-
 #modal-content-alumni{
     background-color: #f3f3f3;
     border-radius: 28px;
     font-family: 'Hammersmith One', sans-serif;
 }
-
+/* ------------------------------------------------------- */
 
   
 

@@ -1,5 +1,17 @@
 const alumniProfiles = [
   {
+    name: "Humaira",
+    currentPos: "Software Officer",
+    email: "humairasoo@yahoo.com",
+    phone: "018-2469011",
+    enrollYear: "Batch of 2019",
+    department: "Software Engineering",
+    level: "Degree",
+    address: "Selangor, Malaysia",
+    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    bio: "Hey, I am a Software Officer at Google",
+  },
+  {
     name: "Fahad",
     currentPos: "UX Designer at Google",
     email: "example@mail.com",
@@ -72,7 +84,7 @@ const displayAlumni = (alumni) => {
       return `
                 <li>
 
-                  <div class="contact-box center-version shadow">
+                  <div class="contact-box center-version shadow-lg">
                       <div class="body-alumni-card">
                         <img alt="image" class="img-circle" src="${alumni.image}">
                         <h1 class="m-b-xs profile-card-name">${alumni.name}</h1>
@@ -113,8 +125,7 @@ function showProfile(name) {
   document.querySelector("#modal-profile-dept").innerText = alumni.department;
   document.querySelector("#modal-profile-batch").innerText = alumni.enrollYear;
   document.querySelector("#modal-profile-level").innerText = alumni.level;
-  document.querySelector("#modal-profile-position").innerText =
-    alumni.currentPos;
+  document.querySelector("#modal-profile-position").innerText = alumni.currentPos;
   document.querySelector("#modal-profile-mail").innerText = alumni.email;
   document.querySelector("#modal-profile-address").innerText = alumni.address;
 }
