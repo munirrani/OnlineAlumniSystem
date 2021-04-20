@@ -1280,7 +1280,13 @@ a:hover[id=profileNav-inactive] {
 }
 
 #top-row-modal-alumni.contact-box, #bot-row-modal-alumni.contact-box {
-    padding: 10px;
+    padding: 10px 0px;
+}
+
+#middle-top-row-modal-alumni {
+    padding: 0px;
+    margin: 0px;
+    padding-top: 20px;
 }
 
 
