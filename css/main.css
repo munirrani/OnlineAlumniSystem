@@ -312,21 +312,28 @@ footer {
 
 /* Event PAGES */
 /* ------------------------------------------------------- */
-#upcoming-events {
-    margin-bottom: 1.5em;
-    padding-left: 2em;
-    font-family: 'Hammersmith One', sans-serif;
-}
 #event-main {
     border-radius: 0.5em;
     margin: auto;
     margin-top: 4em;
     margin-bottom: 4em;
-    padding: 4em 3em 2em;
+    padding: 3.5em 3em 2em;
     width: 90%;
     background-color: #f3f3f3;
     box-shadow: 10em;
 }
+
+#upcoming-events {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+    font-family: 'Hammersmith One', sans-serif;
+    display: inline-block;
+}
+
+#event-creation {
+    margin-top: -1em;
+}
+
 .vertical-event-card {
     border: 0px;
     display: grid;
@@ -343,10 +350,10 @@ footer {
     text-decoration: none;
 }
 #event-main a:hover {
-    color: rgb(114, 114, 114);
 }
 .event-meta {
     font-size: small;
+    font-family: 'Hammersmith One', sans-serif;
 }
 .event-text {
     padding-right: 1.5em;
@@ -367,15 +374,63 @@ footer {
     top: 0;
     width: auto;
 }
+
 .page-nav {
     justify-content: center;
-    padding: 0.5em; 
+    padding: 0.5em 1em; 
     background-color: #f3f3f3;
-    border-radius: 1em;
+    border-radius: 0.5em;
     max-width: 20em;
+    color: black;
 }
 .page-nav:hover {
-    box-shadow: 0 0 15px #c532be;
+    color: white;
+    background-color: #cc67c7;
+}
+
+.event-row {
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.description-row {
+    margin-top: -1.5em;
+}
+
+.icon {
+    position: absolute;
+    top: 2.7em;
+    right: 1.3em;
+    visibility: hidden;
+}
+
+.error-msg {
+    position:absolute;
+    visibility: hidden;
+}
+
+.success input{
+    border-color: #2ecc71;
+}
+
+.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.error input {
+    border-color: #e74c3c;
+}
+
+.error small {
+    visibility: visible;
+    font-size: small;
+    color: #e74c3c;
+}
+
+.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
 }
 
 .mode-container {
@@ -387,6 +442,8 @@ footer {
 }
 
 .event-label {
+    display: inline-block;
+    margin-bottom: 5px;
     position: relative;
     border-radius: 0.5em;
     padding: 0.7em;

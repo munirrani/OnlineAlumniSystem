@@ -8,10 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
     <script type="text/javascript" src="js/map.js"></script>
-    <title>FSKTM Alumni</title>
+    <title>Update Event | FSKTM Alumni</title>
 </head>
 
 <body> 
@@ -93,68 +94,71 @@
                             </div>
                             <div class="row mt-3">
                                 <form action="">
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <label class="form-label" for="eventtitle">Event Title</label>
-                                            <!-- TODO: Insert the title of the existing event -->
-                                            <input class="form-control" id="eventtitle" type="text" name="eventtitle" placeholder="" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mt-2">
-                                        <div class="col-sm">
-                                            <label class="form-label" for="startdate">Start Date</label>
-                                            <div class="input-group event-date">
-                                                <!-- TODO: Insert the start date of the existing event -->
-                                                <input type="date" class="form-control" id="startdate" placeholder="" required>
+                                    <form action="" class="form" id="form">
+                                        <div class="row event-row">
+                                            <div class="col-sm">
+                                                <label class="form-label" for="eventTitle">Event Title</label>
+                                                <input class="form-control" id="eventTitle" type="text" name="eventTitle" placeholder="" required>
+                                                <i class="fas fa-check-circle icon"></i>
+                                                <i class="fas fa-exclamation-circle icon"></i>
+                                                <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
-                                        <div class="col-sm">
-                                            <label class="form-label" for="enddate">End Date</label>
-                                            <div class="input-group event-date">
-                                                <!-- TODO: Insert the end date of the existing event -->
-                                                <input type="date" class="form-control" id="enddate" placeholder="" required>
+    
+                                        <div class="row mt-2 event-row">
+                                            <div class="col-sm event-row">
+                                                <label class="form-label" for="startDate">Start Date</label>
+                                                <div class="input-group event-date" >
+                                                    <input type="date" class="form-control" id="startDate" placeholder="" required>
+                                                </div>
+                                                <i class="fas fa-check-circle icon"></i>
+                                                <i class="fas fa-exclamation-circle icon"></i>
+                                                <small class="error-msg">Error Message</small>
+                                            </div>
+                                            <div class="col-sm event-row">
+                                                <label class="form-label" for="endDate">End Date</label>
+                                                <div class="input-group event-date">
+                                                    <input type="date" class="form-control" id="endDate" placeholder="" required>
+                                                </div>
+                                                <i class="fas fa-check-circle icon"></i>
+                                                <i class="fas fa-exclamation-circle icon"></i>
+                                                <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row mt-2">
-                                        <div class="col-sm">
-                                            <label class="form-label" for="description">Description</label>
-                                            <textarea name="description" class="form-control" id="description" cols="25" rows="10" required>
-                                                <!-- TODO: Insert the description of the existing event -->
-                                                <script>
-                                                </script>
-                                            </textarea>
+    
+                                        <div class="row event-row" style="margin-top: -1.5em;">
+                                            <div class="col-sm">
+                                                <label class="form-label" for="description">Description</label>
+                                                <textarea name="description" class="form-control" id="description" cols="25" rows="10"></textarea>
+                                                <i class="fas fa-check-circle icon"></i>
+                                                <i class="fas fa-exclamation-circle icon"></i>
+                                                <small class="error-msg">Error Message</small>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row mt-2">
-                                        <div class="col-sm">
-                                            <label class="form-label" for="eventimg">Event Image</label>
-                                            <!-- TODO: Insert the image of the existing event -->
-                                            <input class="form-control" type="file" name="eventimg" id="eventimg" required>
+    
+                                        <div class="row mt-4 event-row">
+                                            <div class="col-sm">
+                                                <label class="form-label" for="eventImg">Event Image</label>
+                                                <input class="form-control" type="file" name="eventImg" id="eventImg">
+                                                <i class="fas fa-check-circle icon"></i>
+                                                <i class="fas fa-exclamation-circle icon"></i>
+                                                <small class="error-msg">Error Message</small>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row mt-2">
-                                        <label class="form-label" for="eventmode">Mode</label>
-                                        <div class="col radio-label">
-                                            <input type="radio" class="event-mode" id="physical" name="eventmode" value="physical" required>
-                                            <label class="event-label" for="physical">Physical</label>
+    
+                                        <div class="row mt-4 event-row">
+                                            <label class="form-label" for="eventMode">Mode</label>
+                                            <div class="col radio-label">
+                                                <input type="radio" class="event-mode" id="physical" name="eventMode" value="physical" required>
+                                                <label class="event-label" for="physical">Physical</label>
+                                            </div>
+                                            <div class="col radio-label">
+                                                <input type="radio" class="event-mode" id="virtual" name="eventMode" value="virtual" required>
+                                                <label class="event-label" for="virtual">Virtual</label>
+                                            </div>
                                         </div>
-                                        <div class="col radio-label">
-                                            <input type="radio" class="event-mode" id="virtual" name="eventmode" value="virtual" required>
-                                            <label class="event-label" for="virtual">Virtual</label>
-                                        </div>
-                                    </div>
 
                                     <div class="row form-reg-submit mt-2 justify-content-center">
-                                        <!-- Insert an alert to advise user on deleting an event-->
-                                        <script>
-
-                                        </script>
-                                        <button class="event-btn btn-danger mx-3" type="submit">Delete Event</button>
                                         <button class="event-btn mx-3" type="submit">Update Event</button>
                                     </div>
                                 </form>
@@ -236,6 +240,7 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/eventValidator.js"></script>
 </body>
 
 </html>
