@@ -378,6 +378,51 @@ footer {
     box-shadow: 0 0 15px #c532be;
 }
 
+.event-row {
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.description-row {
+    margin-top: -1.5em;
+}
+
+.icon {
+    position: absolute;
+    top: 2.7em;
+    right: 1.3em;
+    visibility: hidden;
+}
+
+.error-msg {
+    position:absolute;
+    visibility: hidden;
+}
+
+.success input{
+    border-color: #2ecc71;
+}
+
+.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.error input {
+    border-color: #e74c3c;
+}
+
+.error small {
+    visibility: visible;
+    font-size: small;
+    color: #e74c3c;
+}
+
+.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
 .mode-container {
     align-items: center;
 }
@@ -387,6 +432,8 @@ footer {
 }
 
 .event-label {
+    display: inline-block;
+    margin-bottom: 5px;
     position: relative;
     border-radius: 0.5em;
     padding: 0.7em;
