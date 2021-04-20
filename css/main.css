@@ -1179,16 +1179,55 @@ a:hover[id=profileNav-inactive] {
 .col-card-alumni-val {
     text-align: center;
 }
-.body-alumni-card-modal{
-    display: grid;
-    justify-content: center;
-    align-items: center;
+
+
+
+#alumni-modal .modal-dialog {
+    max-width: 70%;
+}
+.container.modal-container-alumni {
+    margin-top: 30px;
 }
 #modal-content-alumni{
-    background-color: #f3f3f3;
+    background-color:rgba(0, 0, 0, 0.5);
     border-radius: 28px;
     font-family: 'Hammersmith One', sans-serif;
 }
+#alumni-modal .modal-header {
+    border-bottom: 2px solid #fff;
+    margin-bottom: 0 !important;
+    padding-bottom: 3px;
+}
+#alumni-modal .modal-title{
+    color: #f3f3f3;
+    margin-left: 1.8rem;
+}
+#alumni-modal .btn-close {
+    background: transparent url(../img/clear-button-01.svg) center/1em auto no-repeat;
+}
+#alumni-modal .contact-box{
+    background: #f3f3f3;
+    border-radius: 20px;
+    width: 100%;
+}
+/* .body-alumni-card-modal{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+} */
+#alumni-modal img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+}
+
+#top-row-modal-alumni.contact-box, #bot-row-modal-alumni.contact-box {
+    padding: 10px;
+}
+
+
+
 /* ------------------------------------------------------- */
 
   
