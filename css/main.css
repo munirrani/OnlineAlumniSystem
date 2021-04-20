@@ -1237,7 +1237,11 @@ a:hover[id=profileNav-inactive] {
     text-align: center;
 }
 
-
+#alumni-modal {
+    /* OVERWRIDDEN BY BOOTSTRAP */
+    /* display: flex; */
+    justify-content: center;
+}
 
 #alumni-modal .modal-dialog {
     max-width: 70%;
@@ -1249,6 +1253,8 @@ a:hover[id=profileNav-inactive] {
     background-color:rgba(0, 0, 0, 0.5);
     border-radius: 28px;
     font-family: 'Hammersmith One', sans-serif;
+    padding-bottom: 10px;
+    overflow: auto !important;
 }
 #alumni-modal .modal-header {
     border-bottom: 2px solid #fff;
@@ -1278,7 +1284,10 @@ a:hover[id=profileNav-inactive] {
     border-top-right-radius: 20px;
     width: 100%;
 }
-
+#right-col-alumni-modal {
+    margin-right: 0px !important;
+    padding-right: 0px !important;
+}
 #top-row-modal-alumni.contact-box, #bot-row-modal-alumni.contact-box {
     padding: 10px 0px;
 }

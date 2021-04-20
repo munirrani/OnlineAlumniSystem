@@ -109,57 +109,13 @@
         <div class="modal fade" id="alumni-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div id="modal-content-alumni" class="modal-content shadow">
-              <!-- <div class="modal-header mb-3">
-                    <h4 class="modal-title" id="modal-title">Alumni Profile</h4>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                </div>
-                <div class="contact-box center-version">
-                  <div class="body-alumni-card-modal">
-                    <img alt="image" id="modal-profile-img" class="img-circle" src="#">
-                    <h1 id="modal-profile-name" class="m-b-xs profile-card-name mt-3" style="text-align: center;"></h1>
-                    <h4 id="modal-profile-dept" class="card-department-alumni pb-1"></h4>
-                    <hr>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p id="modal-profile-batch" class="lead"></p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p id="modal-profile-level" class="lead"></p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p id="modal-profile-position" class="lead"></p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p id="modal-profile-mail" class="lead"></p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p id="modal-profile-address" class="lead"></p></div>
-                      </div>
-                  </div>
-                </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      id="confirmbutton"
-                      class="btn"
-                      data-bs-dismiss="modal"
-                    >
-                      Okay
-                    </button>
-                  </div> -->
-
 
               <div class="modal-header mb-3">
                 <h4 class="modal-title" id="modal-title">Alumni Profile</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-
               <div class="container modal-container-alumni">
-                <div class="row">
+                <div class="row justify-content-center">
                   <div class="col-auto col-left-modal-alumni justify-content-center">
                     <div class="contact-box center-version">
                       <div class="body-alumni-card-modal">
@@ -196,17 +152,15 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="col-lg d-grid">
-
-
+                  <div class="col-lg d-grid justify-content-center mt-3" id="right-col-alumni-modal">
                     <div class="row contact-box d-flex" id="top-row-modal-alumni">
                       <div class="row">
                         <h1 class="display-6 text-center">Address</h1>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col">
-                          <p class="h4 text-center">Address line 1 </p>
+                          <p class="h4 text-end">Address line 1 </p>
                         </div>
                         :
                         <div class="col">
@@ -215,14 +169,14 @@
                       </div>
                       <div class="row">
                         <div class="col">
-                          <p class="h4 text-center">Address line 2 </p>
+                          <p class="h4 text-end">Address line 2 </p>
                         </div>
                         :
                         <div class="col">
                           <p class="h4">Taman Fahad Geh</p>
                         </div>
                       </div>
-                      
+                      <hr>
                       <div class="row">
                         <div class="col text-center">
                           <p class="h4">Poscode : 42069</p>
@@ -235,68 +189,47 @@
                         </div>
                       </div>
                     </div>
-
                     <div class="row contact-box mt-3 d-flex" id="bot-row-modal-alumni">
                       <div class="row">
-                        <h3 style="text-align: center;">Academic Background</h3>
+                        <h1 class="display-6 text-center">Academic Background</h1>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col">
+                          <p class="h4 text-end">Course</p>
+                        </div>
+                        :
+                        <div class="col">
+                          <p class="h4">Computer Science</p>
+                        </div>
                       </div>
                       <div class="row">
                         <div class="col">
-                          <p>Lot 1231 Jalan Babi, Taman Fahad Geh
-                          </p>
+                          <p class="h4 text-end">Major</p>
+                        </div>
+                        :
+                        <div class="col">
+                          <p class="h4">Software Engineer</p>
                         </div>
                       </div>
-                      <div class="row justify-content-center">
-                        <div class="col text-center">42069</div>
-                        <div class="col text-center">Hell</div>
-                        <div class="col text-center">Kelantan</div>
+                      <hr>
+                      <div class="row">
+                        <div class="col text-center">
+                          <p class="h4">Register Year : 2012</p>
+                        </div>
+                        <div class="col text-center">
+                          <p class="h4">Graduation Year : 1945</p>
+                        </div>
                       </div>
                     </div>
-
 
                   </div>
                 </div>
               </div>
-
 
             </div>
           </div>
         </div>
-
-        <!-- debug -->
-
-        <!-- <div class="container-fluid d-flex the-alumni-cards">
-            <div class="row justify-content-center">
-              <div class="col-md">
-                <div class="contact-box center-version">
-                  <div class="body-alumni-card">
-                    <img alt="image" class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                    <h1 class="m-b-xs profile-card-name">Fahad</h1>
-                    <h4 class="card-department-alumni pb-1">Software Engineering</h4>
-                    <hr>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p class="lead">Batch of 2020</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p class="lead">Bachelor's Degree</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p class="lead">UX designer at Google</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p class="lead">example@mail.com</p></div>
-                      </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val"><p class="lead">Qatar</p></div>
-                      </div>
-                    <div class="alumni-card-footer mt-1 mx-2 mb-3">
-                      <button class="btn alumni-card-view-profile-button">View Alumni Profile</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div> -->
       </div>
 
     </main>
