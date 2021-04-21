@@ -934,7 +934,7 @@ a:hover[id=profileNav-inactive] {
 /*                       JOB PAGE                          */
 
 #job-main{
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color: #f3f3f3;
     border-style: none;
     border-radius: 10px;
     padding: 30px 80px 30px 80px;
@@ -1044,6 +1044,7 @@ a:hover[id=profileNav-inactive] {
     background-color: rgb(172, 171, 171);
 }
 
+
 /*Post job*/
 #post-job-main {
     background-color: white;
@@ -1060,11 +1061,80 @@ a:hover[id=profileNav-inactive] {
     text-align: center;
 }
 
-/*Edit job*/
+/*Jon activity*/
+#act-header {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 30px 80px 30px 80px;
+    margin-top: 20px;
+}
+
+#act-count{
+    font-family: 'Hammersmith One', sans-serif;
+    color: white;
+    font-size: 35px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    text-align: center;
+    
+}
+
+#act-uploads{
+    color: white;
+    text-align: center;
+
+}
+
+#act-profileImg{
+    border: 2px solid white ;
+    border-radius: 50%;
+    width:100px;
+    height:100px;
+}
+
+#act-main {
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 30px 80px 30px 80px;
+    margin-bottom: 20px;
+}
+
+#act-txtheading{
+    margin: 30px 0px 50px 0px;
+    font-family: 'Hammersmith One', sans-serif;
+    text-align: center;
+}
+
+#act-addbox{
+    border: 1px solid rgb(172, 171, 171);
+    border-radius: 5px;
+    background-color: #ffffff;
+    
+}
+
+#act-addbox:hover{
+    background-color: rgb(172, 171, 171);
+    box-shadow: 0px 5px 5px #d3d2d2
+}
+
 #act-box{
     border: 1px solid rgb(172, 171, 171);
     border-radius: 5px;
     background-color: #ffffff;
+}
+
+#center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#act-txtadd{
+    text-align: left;
+    padding-top: 30px;
+    font-size: 20px;
+    color: gray;
 }
 
 #act-box-inner{
@@ -1095,22 +1165,27 @@ a:hover[id=profileNav-inactive] {
     text-overflow: ellipsis; 
 }
 
-#act-image{
-    background-image: url("img/software.jpg.crdownload");
+.act-image{
     height: 90px;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#act-editbtn{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#act-posted{
+    font-size: 15px;
+    font-style: italic;
+    color: red;
+    margin-bottom: 5px;
 }
 
-#act-editbtn:active{
-    color: white;
-    background-color: rgb(172, 171, 171);
+
+
+
+#cancelbutton {
+
 }
 /* ------------------------------------------------------- */
 

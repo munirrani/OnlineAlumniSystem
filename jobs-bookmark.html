@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
     <script type="text/javascript" src="map.js"></script>
-    <title>Saved | FSKTM Alumni</title>
+    <title>Saved Jobs | FSKTM Alumni</title>
 </head>
 
 <body>
@@ -57,10 +57,23 @@
                     </ul>
                     <div class="fl-right">
                         <div class="d-flex gap-2">
-                            <a href="login.html"><button id="logbutton" class="btn shadow"
+                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
                                     type="button">Login</button></a>
-                            <a href="register.html"><button id="regbutton" class="btn shadow"
+                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
                                     type="button">Register</button></a>
+                            <div class="dropdown nav-prof-bar">
+                                <button onclick="myFunction()" id="profilebtn" class="btn">
+                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
+                                </button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="profile.html">Profile</a>
+                                    <a href="jobs-bookmark.html">Bookmark</a>
+                                    <a href="jobs-activity.html">Job Activity</a>
+                                    <a href="alumnisearch.html">Search Alumni</a>
+                                    <a href="profile-settings.html">Settings</a>
+                                    <a href="#" id="logoutbutton">Log Out</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
