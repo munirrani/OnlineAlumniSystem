@@ -1238,9 +1238,14 @@ a:hover[id=profileNav-inactive] {
 }
 
 #alumni-modal {
-    /* OVERWRIDDEN BY BOOTSTRAP */
-    /* display: flex; */
     justify-content: center;
+}
+
+.alumni-modal-fix {
+    display: flex !important;
+}
+#home-container .show {
+    display: flex !important;
 }
 
 #alumni-modal .modal-dialog {
@@ -1297,10 +1302,4 @@ a:hover[id=profileNav-inactive] {
     margin: 0px;
     padding-top: 20px;
 }
-
-
-
 /* ------------------------------------------------------- */
-
-  
-
