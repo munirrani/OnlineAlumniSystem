@@ -47,6 +47,9 @@
               <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
             </li>
             <li class="nav-item">
+              <a class="nav-link active" href="alumnisearch.html"><b>Search Alumni</b></a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="about.html"><b>About</b></a>
             </li>
             <li class="nav-item">
@@ -65,6 +68,7 @@
                 </button>
                 <div id="myDropdown" class="dropdown-content">
                   <a href="profile.html">Profile</a>
+                  <a href="alumnisearch.html">Search Alumni</a>
                   <a href="settings.html">Settings</a>
                   <a href="#" id="logoutbutton">Log Out</a>
                 </div>
@@ -126,11 +130,6 @@
                         <hr>
                         <div class="row">
                           <div class="col col-card-alumni-val">
-                            <p id="modal-profile-batch" class="lead"></p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col col-card-alumni-val">
                             <p id="modal-profile-level" class="lead"></p>
                           </div>
                         </div>
@@ -142,6 +141,11 @@
                         <div class="row">
                           <div class="col col-card-alumni-val">
                             <p id="modal-profile-mail" class="lead"></p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col col-card-alumni-val">
+                            <p id="modal-profile-phone" class="lead"></p>
                           </div>
                         </div>
                         <div class="row">
@@ -164,28 +168,28 @@
                         </div>
                         :
                         <div class="col">
-                          <p class="h4">Lot 1231 Jalan Babi,</p>
+                          <p class="h4" id="modal-profile-address1"></p>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col">
-                          <p class="h4 text-end">Address line 2 </p>
+                          <p class="h4 text-end" >Address line 2 </p>
                         </div>
                         :
                         <div class="col">
-                          <p class="h4">Taman Fahad Geh</p>
+                          <p class="h4" id="modal-profile-address2"></p>
                         </div>
                       </div>
                       <hr>
                       <div class="row">
                         <div class="col text-center">
-                          <p class="h4">Poscode : 42069</p>
+                          <p class="h4" id="modal-profile-postcode"></p>
                         </div>
                         <div class="col text-center">
-                          <p class="h4">City : Hell</p>
+                          <p class="h4" id="modal-profile-city"></p>
                         </div>
                         <div class="col text-center">
-                          <p class="h4">State : Kelantan</p>
+                          <p class="h4" id="modal-profile-state"></p>
                         </div>
                       </div>
                     </div>
@@ -200,7 +204,7 @@
                         </div>
                         :
                         <div class="col">
-                          <p class="h4">Computer Science</p>
+                          <p class="h4" id="modal-profile-course">Computer Science</p>
                         </div>
                       </div>
                       <div class="row">
@@ -209,16 +213,16 @@
                         </div>
                         :
                         <div class="col">
-                          <p class="h4">Software Engineer</p>
+                          <p class="h4" id="modal-profile-major"></p>
                         </div>
                       </div>
                       <hr>
                       <div class="row">
                         <div class="col text-center">
-                          <p class="h4">Register Year : 2012</p>
+                          <p class="h4" id="modal-profile-batch"></p>
                         </div>
                         <div class="col text-center">
-                          <p class="h4">Graduation Year : 1945</p>
+                          <p class="h4" id="modal-profile-gradYear"></p>
                         </div>
                       </div>
                     </div>

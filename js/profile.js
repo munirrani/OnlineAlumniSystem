@@ -1,25 +1,20 @@
 const alumniProfiles = [
   {
-    name: "Humaira",
-    currentPos: "Software Officer",
-    email: "humairasoo@yahoo.com",
-    phone: "018-2469011",
-    enrollYear: "Batch of 2019",
-    department: "Software Engineering",
-    level: "Degree",
-    address: "Selangor, Malaysia",
-    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
-    bio: "Hey, I am a Software Officer at Google",
-  },
-  {
     name: "Fahad",
     currentPos: "UX Designer at Google",
     email: "example@mail.com",
     phone: "0123456789",
     enrollYear: "Batch of 2019",
+    graduationYear: "2023",
     department: "Software Engineering",
     level: "Degree",
     address: "Qatar",
+    address1: "Zone 25 Street 980 Building 9",
+    address2: "Doha-Qatar",
+    postcode: "123456", 
+    city: "Town city",
+    state: "Doha",
+    course: "Computer Science",
     image: "https://bootdey.com/img/Content/avatar/avatar1.png",
     bio: "Hey, I am a UX Designer at Google",
   },
@@ -29,9 +24,16 @@ const alumniProfiles = [
     email: "example@mail.com",
     phone: "0123456789",
     enrollYear: "Batch of 2019",
+    graduationYear: "2023",
     department: "Software Engineering",
     level: "Degree",
     address: "Malaysia",
+    address1: "Lot 151, Jalan Tun Razak, Selangor",
+    address2: "Taman Negara",
+    postcode: "123456",
+    city: "Town city",
+    state: "Selangor",
+    course: "Computer Science",
     image: "https://bootdey.com/img/Content/avatar/avatar1.png",
     bio: "Hey, I am a Senior Branch Manager Twitter",
   },
@@ -41,9 +43,16 @@ const alumniProfiles = [
     email: "example@mail.com",
     phone: "0123456789",
     enrollYear: "Batch of 2019",
+    graduationYear: "2023",
     department: "Software Engineering",
     level: "Degree",
     address: "Malaysia",
+    address1: "Lot 151, Jalan Tun Razak, Selangor",
+    address2: "Taman Negara",
+    postcode: "123456",
+    city: "Town city",
+    state: "Selangor",
+    course: "Computer Science",
     image: "https://bootdey.com/img/Content/avatar/avatar1.png",
     bio: "Hey, I am a Lead Android Developer at Google",
   },
@@ -53,9 +62,16 @@ const alumniProfiles = [
     email: "example@mail.com",
     phone: "0123456789",
     enrollYear: "Batch of 2019",
+    graduationYear: "2023",
     department: "Artificial Intelligence",
     level: "Degree",
     address: "Malaysia",
+    address1: "Lot 151, Jalan Tun Razak, Selangor",
+    address2: "Taman Negara",
+    postcode: "123456",
+    city: "Town city",
+    state: "Selangor",
+    course: "Computer Science",
     image: "https://bootdey.com/img/Content/avatar/avatar1.png",
     bio: "Hey, I am the Machine Learning Master",
   },
@@ -122,12 +138,22 @@ function showProfile(name) {
   $("#alumni-modal").modal("show");
   document.querySelector("#modal-profile-img").src = alumni.image;
   document.querySelector("#modal-profile-name").innerText = alumni.name;
-  document.querySelector("#modal-profile-dept").innerText = alumni.department;
   document.querySelector("#modal-profile-batch").innerText = alumni.enrollYear;
+  document.querySelector("#modal-profile-phone").innerText = alumni.phone;
   document.querySelector("#modal-profile-level").innerText = alumni.level;
   document.querySelector("#modal-profile-position").innerText = alumni.currentPos;
   document.querySelector("#modal-profile-mail").innerText = alumni.email;
   document.querySelector("#modal-profile-address").innerText = alumni.address;
+  document.querySelector("#modal-profile-address1").innerText = alumni.address1;
+  document.querySelector("#modal-profile-address2").innerText = alumni.address2;
+  document.querySelector("#modal-profile-postcode").innerText = "Postcode : "+alumni.postcode;
+  document.querySelector("#modal-profile-city").innerText = "City : "+alumni.city;
+  document.querySelector("#modal-profile-state").innerText = "State : "+alumni.state;
+  document.querySelector("#modal-profile-course").innerText = alumni.course;
+  document.querySelector("#modal-profile-dept").innerText = alumni.department;
+  document.querySelector("#modal-profile-major").innerText = alumni.department;
+  document.querySelector("#modal-profile-batch").innerText = alumni.enrollYear;
+  document.querySelector("#modal-profile-gradYear").innerText = "Graduation Year : "+alumni.graduationYear;
 }
 
 displayAlumni(alumniProfiles);
