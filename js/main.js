@@ -1,81 +1,102 @@
 window.onload = topthingy;
 
+let logoutbutton = document.querySelector("#logoutbutton");
+let navprofbar = document.querySelector(".nav-prof-bar");
+let navbuttonbar = document.querySelectorAll(".nav-button-bar");
+let password = document.querySelector("#password");
+let confirmpw = document.querySelector("#confirmpw");
+let errortextreg = document.querySelector("#error-text-reg");
+let myDropdown = document.querySelector("#myDropdown");
+let dropdowns = document.querySelector(".dropdown-content");
 let loggedin = false;
-document.querySelector("#logoutbutton").onclick = function() {
-  loggedin = false;
-  sessionStorage.setItem("loggedin", loggedin);
-  window.location.href = "index.html";
-};
+
+
+// Everytime any page is load, It will check whether the user if logged in or not and display personalized navbar
 function topthingy() {
   let loggedinval = sessionStorage.getItem("loggedin") === "true";
-  let navbuttonbar = document.querySelectorAll(".nav-button-bar");
   if(loggedinval) {
     navbuttonbar.forEach(element => {
         element.style.display = "none";
     });
-    document.querySelector(".nav-prof-bar").style.display = "inline-block";
+    navprofbar.style.display = "inline-block";
   }else {
-    document.querySelector(".nav-prof-bar").style.display = "none";
+    navprofbar.style.display = "none";
     navbuttonbar.forEach(element => {
       element.style.display = "inline-block";
   });
   }
 };
+// 
+
+// when submitting the login form page , loggedin will be true then sent user to profile.html
 $('#submitloggin').submit(function (e) {
   e.preventDefault();
   loggedin = true;
   sessionStorage.setItem("loggedin", loggedin);
   window.location.href = "profile.html";
 });
+// 
+
+// when clicking the logout button it will set loggedin to false and sent user to homepage
+logoutbutton.onclick = function() {
+  loggedin = false;
+  sessionStorage.setItem("loggedin", loggedin);
+  window.location.href = "index.html";
+};
+// 
 
 
+// Transition transparent effect when the page is scrolled for the Navbar
 $(function () {
   $(document).scroll(function () {
     var $nav = $("#botNavbar");
     $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
   });
 });
+// 
 
+// This function checks the confirm password to the password entered in the register page
 let checkpw = function () {
-  if (document.getElementById('password').value == "" && document.getElementById('confirmpw').value == "") {
-    document.getElementById('confirmpw').classList.remove("input-error");
-    document.getElementById('error-text-reg').classList.remove("error-reg-text");
+  if (password.value == "" && confirmpw.value == "") {
+    confirmpw.classList.remove("input-error");
+    errortextreg.classList.remove("error-reg-text");
   }
-  if (document.getElementById('confirmpw').value != "") {
-    if (document.getElementById('password').value != document.getElementById('confirmpw').value) {
-      document.getElementById('error-text-reg').classList.add("error-reg-text");
-      document.getElementById('confirmpw').classList.add("input-error");
-      document.getElementById('error-text-reg').innerHTML = 'Confimed Password Does Not Match';
+  if (confirmpw.value != "") {
+    if (password.value != confirmpw.value) {
+      errortextreg.classList.add("error-reg-text");
+      confirmpw.classList.add("input-error");
+      errortextreg.innerHTML = 'Confimed Password Does Not Match';
       return false;
     } else {
-      document.getElementById('confirmpw').classList.remove("input-error");
-      document.getElementById('error-text-reg').classList.remove("error-reg-text");
+      confirmpw.classList.remove("input-error");
+      errortextreg.classList.remove("error-reg-text");
     }
   } else {
-    document.getElementById("confirmpw").classList.remove("input-error");
-    document
-      .getElementById("error-text-reg")
-      .classList.remove("error-reg-text");
+    confirmpw.classList.remove("input-error");
+    errortextreg.classList.remove("error-reg-text");
     return true;
   }
-  if (document.getElementById('password').value == document.getElementById('confirmpw').value) {
+  if (password.value == confirmpw.value) {
     return true;
   }
 }
+// 
 
-
+// Making sure the contact-us form shows modal after submit
 $('#contact-form').submit(function (e) {
   $('#confirmation-modal').modal('show');
   e.preventDefault();
 });
+// 
 
+
+// The navbar profile dropdown
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  myDropdown.classList.toggle("show");
 }
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
   if (!event.target.matches(".dropbtn")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -85,10 +106,11 @@ window.onclick = function (event) {
     }
   }
 };
+// 
 
+// Collapsible part of the Profile Page
 var link = document.getElementsByClassName("collapsible");
 var i;
-
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function () {
     this.classList.toggle("active");
@@ -100,7 +122,7 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-
+// 
 
 
 
