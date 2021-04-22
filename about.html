@@ -62,14 +62,18 @@
           >
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html"
-                  ><b>Home</b></a
-                >
+                <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="events.html"
-                  ><b>Program & Events</b></a
-                >
+                <div class="dropdown">
+                  <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <b>Events</b>
+                  </button>
+                  <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
+                    <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
