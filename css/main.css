@@ -941,7 +941,8 @@ a:hover[id=profileNav-inactive] {
     color: white;
 }
 .index-chosen-dropdown {
-    font-weight: 800;
+    font-weight: 800 !important;
+    color: black !important;
 }
 /* ------------------------------------------------------- */
 
