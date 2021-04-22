@@ -312,6 +312,18 @@ footer {
 
 /* Event PAGES */
 /* ------------------------------------------------------- */
+#dropdownMenuButton {
+    border: 0px;
+    background-color: #f3f3f3;
+}
+.dropdown-toggle::after {
+    content: none;
+}
+
+.menu-back {
+    background-color: #f3f3f3;
+}
+
 #event-main {
     border-radius: 0.5em;
     margin: auto;
