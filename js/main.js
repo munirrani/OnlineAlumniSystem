@@ -8,6 +8,7 @@ let confirmpw = document.querySelector("#confirmpw");
 let errortextreg = document.querySelector("#error-text-reg");
 let myDropdown = document.querySelector("#myDropdown");
 let dropdowns = document.querySelector(".dropdown-content");
+var coll = document.getElementsByClassName("collapsible");
 let loggedin = false;
 
 
@@ -109,7 +110,6 @@ window.onclick = function (event) {
 // 
 
 // Collapsible part of the Profile Page
-var link = document.getElementsByClassName("collapsible");
 var i;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function () {

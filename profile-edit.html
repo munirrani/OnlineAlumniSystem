@@ -43,14 +43,22 @@
                             <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="events.html"><b>Program & Events</b></a>
+                            <div class="dropdown">
+                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <b>Events</b>
+                                </button>
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
+                                  <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
+                                </ul>
+                              </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                          </li>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html"><b>About</b></a>
                         </li>
@@ -60,12 +68,16 @@
                     </ul>
                     <div class="fl-right">
                         <div class="d-flex gap-2">
-                            <div class="dropdown">
+                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
+                                    type="button">Login</button></a>
+                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
+                                    type="button">Register</button></a>
+                            <div class="dropdown nav-prof-bar">
                                 <button onclick="myFunction()" id="profilebtn" class="btn">
                                     <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
-                                    <a href="profile.html">Profile</a>
+                                    <a class="index-chosen-dropdown"  href="profile.html">Profile</a>
                                     <a href="jobs-bookmark.html">Bookmark</a>
                                     <a href="jobs-activity.html">Job Activity</a>
                                     <a href="alumnisearch.html">Search Alumni</a>
@@ -74,15 +86,16 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
         </nav>
 
         <main>
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"
+                            href="profile.html">Profile</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
@@ -99,25 +112,29 @@
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <button type="button" id="profilebtn" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" id="profilebtn" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
                                         <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
                                     </button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Upload a Photo</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Upload a Photo</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form>
+                                                    <div class="modal-body">
+                                                        <input class="form-control" type="file" id="formFile">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="confirmbutton"
+                                                            class="btn shadow">Upload</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <form>
-                                                <div class="modal-body">
-                                                    <input class="form-control" type="file" id="formFile">
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button type="button" id="confirmbutton" class="btn shadow">Upload</button>
-                                                </div>
-                                            </form>
-                                        </div>
                                         </div>
                                     </div>
                                     <div class="mt-3">
@@ -125,12 +142,14 @@
                                         <div class="container">
                                             <div class="container">
                                                 <form>
-                                                    <textarea class="form-control" id="bio" placeholder="Add a Bio">Web Developer at Haney and Humaira' Sdn Bhd</textarea>
+                                                    <textarea class="form-control" id="bio"
+                                                        placeholder="Add a Bio">Web Developer at Haney and Humaira' Sdn Bhd</textarea>
                                                     <div class="container mt-3">
-                                                        <button id="editbutton" class="btn shadow" type="button">Update Bio</button>
+                                                        <button id="editbutton" class="btn shadow" type="button">Update
+                                                            Bio</button>
                                                     </div>
                                                 </form>
-                                            </div>                                
+                                            </div>
                                         </div>
                                         <div class="container">
                                             <div class="container">
@@ -141,20 +160,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="right-col"class="col-md-8">
-                            
+                        <div id="right-col" class="col-md-8">
+
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
                                     <form autocomplete="off">
                                         <div class="row">
-                                            <h2 id = "profile-heading"> PERSONAL INFORMATION</h2>
+                                            <h2 id="profile-heading"> PERSONAL INFORMATION</h2>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Full Name</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Full Name" value="Humaira' Binti Ahmad Shuhemi">
+                                                <input type="text" class="form-control" id="purple"
+                                                    placeholder="Full Name" value="Humaira' Binti Ahmad Shuhemi">
                                             </div>
                                         </div>
                                         <hr>
@@ -163,7 +183,8 @@
                                                 <h6 class="mb-0">Current Position</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Current Position" value="Software Officer">
+                                                <input type="text" class="form-control" id="purple"
+                                                    placeholder="Current Position" value="Software Officer">
                                             </div>
                                         </div>
                                         <hr>
@@ -172,7 +193,8 @@
                                                 <h6 class="mb-0">Email</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Email" value="humairas00@yahoo.com">
+                                                <input type="text" class="form-control" id="purple" placeholder="Email"
+                                                    value="humairas00@yahoo.com">
                                             </div>
                                         </div>
                                         <hr>
@@ -181,8 +203,9 @@
                                                 <h6 class="mb-0">Phone</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Phone" value="018-2469011">
-                                                
+                                                <input type="text" class="form-control" id="purple" placeholder="Phone"
+                                                    value="018-2469011">
+
                                             </div>
                                         </div>
                                         <hr>
@@ -191,7 +214,8 @@
                                                 <h6 class="mb-0">Enrollment Year</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Enrollment Year" value="2019/2020">
+                                                <input type="text" class="form-control" id="purple"
+                                                    placeholder="Enrollment Year" value="2019/2020">
                                             </div>
                                         </div>
                                         <hr>
@@ -200,7 +224,8 @@
                                                 <h6 class="mb-0">Department</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Department" value="Software Engineering">
+                                                <input type="text" class="form-control" id="purple"
+                                                    placeholder="Department" value="Software Engineering">
                                             </div>
                                         </div>
                                         <hr>
@@ -209,7 +234,8 @@
                                                 <h6 class="mb-0">Level</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Level" value="Degree">
+                                                <input type="text" class="form-control" id="purple" placeholder="Level"
+                                                    value="Degree">
                                             </div>
                                         </div>
                                         <hr>
@@ -218,10 +244,14 @@
                                                 <h6 class="mb-0">Address</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Address" value="Selangor, Malaysia">
+                                                <input type="text" class="form-control" id="purple"
+                                                    placeholder="Address" value="Selangor, Malaysia">
                                                 <div class="d-flex gap-2 mt-4">
-                                                    <a href="profile.html"><button class="btn shadow confirmbuttonModalSetting" type="button">Cancel</button></a>
-                                                    <button id="updatebutton" class="btn shadow"  type="button">Update Information</button>
+                                                    <a href="profile.html"><button
+                                                            class="btn shadow confirmbuttonModalSetting"
+                                                            type="button">Cancel</button></a>
+                                                    <button id="updatebutton" class="btn shadow" type="button">Update
+                                                        Information</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -232,69 +262,69 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </main>
+    </div>
+    </main>
 
-        <footer class="page-footer shadow">
-            <div class="container text-center text-md-left mt-4">
-                <div class="row align-items-center">
-                    <div class="col-md-4 mx-auto mb-4">
-                        <a href="index.html">
-                            <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
-                        </a>
-                        <br>
-                        <br>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
-                            & Information Technology made the university one of the pioneers in computer usage in
-                            Malaysia. Since its establishment, the Faculty of Computer Science and Information
-                            Technology
-                            has been led by a number of distinguished persons.</p>
-                    </div>
+    <footer class="page-footer shadow">
+        <div class="container text-center text-md-left mt-4">
+            <div class="row align-items-center">
+                <div class="col-md-4 mx-auto mb-4">
+                    <a href="index.html">
+                        <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
+                    </a>
+                    <br>
+                    <br>
+                    <br>
+                    <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
+                        & Information Technology made the university one of the pioneers in computer usage in
+                        Malaysia. Since its establishment, the Faculty of Computer Science and Information
+                        Technology
+                        has been led by a number of distinguished persons.</p>
+                </div>
 
-                    <div class="col-md-3 mx-auto mb-4">
-                        <h2 class="text-uppercase">Links</h2>
-                        <br>
-                        <h5>
-                            <ul class="list-unstyled lh-5 footer-link">
-                                <li class="my-2 pt-2">
-                                    <a href="about.html" class="text-dark">About</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="contact.html" class="text-dark">Contact Us</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="events.html" class="text-dark">Upcoming Events</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="jobs.html" class="text-dark">Search Jobs</a>
-                                </li>
-                            </ul>
-                        </h5>
-                    </div>
+                <div class="col-md-3 mx-auto mb-4">
+                    <h2 class="text-uppercase">Links</h2>
+                    <br>
+                    <h5>
+                        <ul class="list-unstyled lh-5 footer-link">
+                            <li class="my-2 pt-2">
+                                <a href="about.html" class="text-dark">About</a>
+                            </li>
+                            <li class="my-2 pt-2">
+                                <a href="contact.html" class="text-dark">Contact Us</a>
+                            </li>
+                            <li class="my-2 pt-2">
+                                <a href="events.html" class="text-dark">Upcoming Events</a>
+                            </li>
+                            <li class="my-2 pt-2">
+                                <a href="jobs.html" class="text-dark">Search Jobs</a>
+                            </li>
+                        </ul>
+                    </h5>
+                </div>
 
-                    <div class="col-md-4 mx-auto mb-4">
-                        <h2 class="text-uppercase">Location</h2>
-                        <div class="d-flex justify-content-center">
-                            <div id="map"></div>
-                        </div>
-                        <script
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
-                            async></script>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
-                            Federal Territory of Kuala Lumpur, Malaysia
-                        </p>
+                <div class="col-md-4 mx-auto mb-4">
+                    <h2 class="text-uppercase">Location</h2>
+                    <div class="d-flex justify-content-center">
+                        <div id="map"></div>
                     </div>
+                    <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
+                        async></script>
+                    <br>
+                    <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
+                        Federal Territory of Kuala Lumpur, Malaysia
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
-                <p>Copyright &copy; FSKTM 2021
-                </p>
-                Designed by Haney & Humaira
-            </div>
-        </footer>
+        <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
+            <p>Copyright &copy; FSKTM 2021
+            </p>
+            Designed by Haney & Humaira
+        </div>
+    </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"

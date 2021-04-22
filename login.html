@@ -67,9 +67,15 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="events.html"
-                  ><b>Program & Events</b></a
-                >
+                <div class="dropdown">
+                  <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <b>Events</b>
+                  </button>
+                  <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
+                    <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
@@ -95,10 +101,12 @@
                           <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                       </button>
                       <div id="myDropdown" class="dropdown-content">
-                          <a href="profile.html">Profile</a>
-                          <a href="alumnisearch.html">Search Alumni</a>
-                          <a href="settings.html">Settings</a>
-                          <a href="#" id="logoutbutton">Log Out</a>
+                        <a href="profile.html">Profile</a>
+                        <a href="jobs-bookmark.html">Bookmark</a>
+                        <a href="jobs-activity.html">Job Activity</a>
+                        <a href="alumnisearch.html">Search Alumni</a>
+                        <a href="profile-settings.html">Settings</a>
+                        <a href="#" id="logoutbutton">Log Out</a>
                       </div>
                   </div>
               </div>
