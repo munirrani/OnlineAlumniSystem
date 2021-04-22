@@ -178,7 +178,7 @@ footer {
         width: auto;
     }
     /*Profile Page*/
-    #right-col{
+    #right-col {
         padding-left: 0px !important; 
         padding-right: 0px !important;  
     }
@@ -949,6 +949,12 @@ a:hover[id=profileNav-inactive] {
 /* ------------------------------------------------------- */
 /*                       JOB PAGE                          */
 
+#jobs-header {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding-bottom: 70px; 
+    padding-top: 70px;
+}
+
 #job-main{
     background-color: #f3f3f3;
     border-style: none;
@@ -965,10 +971,6 @@ a:hover[id=profileNav-inactive] {
 #job-caption{
     color: white;
     text-align: center;
-}
-
-#job-search-bar {
-    width: 100%;
 }
 
 #search-button {
@@ -1012,11 +1014,8 @@ a:hover[id=profileNav-inactive] {
 .job-image{
     width: 80px;
     border-radius: 50%;
-    margin: 20px 10px 20px 0px;
-}
-
-#job-col{
-    padding: 0px;
+    float: left;
+    margin: 20px 20px 0px 0px
 }
 
 #job-name{
@@ -1060,6 +1059,9 @@ a:hover[id=profileNav-inactive] {
     background-color: rgb(172, 171, 171);
 }
 
+.page-nav-text {
+    text-decoration: none;
+}
 
 /*Post job*/
 #post-job-main {
@@ -1077,7 +1079,7 @@ a:hover[id=profileNav-inactive] {
     text-align: center;
 }
 
-/*Jon activity*/
+/*Job activity*/
 #act-header {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -1197,12 +1199,86 @@ a:hover[id=profileNav-inactive] {
     margin-bottom: 5px;
 }
 
+/*Job details*/
 
-
-
-#cancelbutton {
-
+#details-left-col-body {
+    padding: 10px; 
+    background-color: #f3f3f3; 
+    border-radius: 10px; 
+    margin: 5px;
+    padding-bottom: 50px;
 }
+
+#details-left-col-img {
+    padding-top: 60px; 
+    padding-bottom: 10px;
+}
+
+#details-image {
+    height: 100px; 
+    width: 100px; 
+    border-radius: 50%; 
+    border: 1px solid #8f0b89;
+}
+
+.pd-20 {
+    padding: 20px;
+}
+
+.no-text-wrap{
+    overflow: hidden;
+}
+
+.det-strong{
+    font-weight: bold;
+}
+
+#details-small{
+    font-size: small;
+}
+
+#details-right-col-body {
+    background-color: #f3f3f3;
+    border-style: none;
+    border-radius: 10px;
+    padding: 60px;
+    margin: 5px;
+}
+@media (max-width: 978px) {
+    #details-right-col-body, #job-main{
+        padding: 0;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 978px) {
+    #post-job-main, #act-main {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+#details-right-col-icon{
+    width: 30px;
+    float: left; 
+    margin: 5px 20px 20px 0px;
+}
+dt{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#details-left-col-icons {
+    width: 20px; 
+    float: left; 
+    margin-right: 10px;
+}
+
+#details-link {
+    text-decoration: none; 
+    color: #8f0b89;
+}
+
 /* ------------------------------------------------------- */
 
 
