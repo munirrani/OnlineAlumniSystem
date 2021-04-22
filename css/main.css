@@ -233,7 +233,7 @@ footer {
 }
 
 #main-jumbotron-register{
-    display: none;
+    display: flex;
 }
 .jumbotron-events {
     margin-top: 1rem;
@@ -1314,18 +1314,15 @@ a:hover[id=profileNav-inactive] {
 .col-card-alumni-val {
     text-align: center;
 }
-
 #alumni-modal {
     justify-content: center;
 }
-
 .alumni-modal-fix {
     display: flex !important;
 }
 #home-container .show {
     display: flex !important;
 }
-
 #alumni-modal .modal-dialog {
     max-width: 70%;
 }

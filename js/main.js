@@ -14,13 +14,11 @@ function topthingy() {
         element.style.display = "none";
     });
     document.querySelector(".nav-prof-bar").style.display = "inline-block";
-    document.querySelector("#main-jumbotron-register").style.display = "none";
   }else {
     document.querySelector(".nav-prof-bar").style.display = "none";
     navbuttonbar.forEach(element => {
       element.style.display = "inline-block";
   });
-  document.querySelector("#main-jumbotron-register").style.display = "flex";
   }
 };
 $('#submitloggin').submit(function (e) {
