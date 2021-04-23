@@ -75,6 +75,7 @@ $('#contact-form').submit(function (e) {
 function myFunction() {
   myDropdown.classList.toggle("show");
 }
+
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
   if (!event.target.matches(".dropbtn")) {
@@ -104,7 +105,15 @@ for (i = 0; i < coll.length; i++) {
 }
 // 
 
+//Salary Slider
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
 
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 
 
 let password = document.querySelector("#password");
