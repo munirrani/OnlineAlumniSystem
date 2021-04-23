@@ -77,8 +77,9 @@ let alumniProfiles = [
   },
 ];
 
-let addAlumniProf = JSON.parse(sessionStorage.addAlumniAll);
-Array.prototype.push.apply(alumniProfiles,addAlumniProf);
+let addAlumniProf = JSON.parse(sessionStorage.getItem("addAlumniAll"));
+
+if(addAlumniProf != null) Array.prototype.push.apply(alumniProfiles,addAlumniProf);
 
 const alumniList = document.querySelector("#alumniList");
 
