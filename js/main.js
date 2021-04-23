@@ -2,6 +2,7 @@ window.onload = topthingy;
 
 let logoutbutton = document.querySelector("#logoutbutton");
 let navprofbar = document.querySelector(".nav-prof-bar");
+let navbarlogged = document.querySelector(".nav-hide-logged");
 let navbuttonbar = document.querySelectorAll(".nav-button-bar");
 let myDropdown = document.querySelector("#myDropdown");
 let dropdowns = document.querySelector(".dropdown-content");
@@ -17,7 +18,9 @@ function topthingy() {
         element.style.display = "none";
     });
     navprofbar.style.display = "inline-block";
+    navbarlogged.style.display = "block";
   }else {
+    navbarlogged.style.display = "none";
     navprofbar.style.display = "none";
     navbuttonbar.forEach(element => {
       element.style.display = "inline-block";

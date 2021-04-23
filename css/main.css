@@ -30,6 +30,9 @@ body {
 .nav-prof-bar {
     display: none;
 }
+.nav-hide-logged{
+    display: none;
+}
 #topNavbar {
     background-color: #8f0b89;
     font-weight: 800;
