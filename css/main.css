@@ -314,7 +314,8 @@ footer {
 /* ------------------------------------------------------- */
 #dropdownMenuButton {
     border: 0px;
-    background-color: #f3f3f3;
+    /* background: rgb(243, 243, 243,0.88) !important; */
+    background: none !important;
 }
 .dropdown-toggle::after {
     content: none;
@@ -617,7 +618,6 @@ footer {
     font-family: 'Hammersmith One', sans-serif;
 }
 .form-signin-heading {
-    
     text-align: center;
 }
 .form-signin .form-signin-heading,
@@ -760,6 +760,31 @@ footer {
     border-color: #dc3545;
     box-shadow: 0 0 0 rgba(221, 12, 12, 0.842);
 }
+/* ------------------------------------------------------- */
+
+
+/* Request Page */
+/* ------------------------------------------------------- */
+.request-page {	
+    margin: 80px auto;
+    background-color: #fff;
+    font-family: 'Hammersmith One', sans-serif;
+    border-radius: 10px;
+    max-width: 40%;
+    height: auto;
+    padding: 25px;
+}
+/* .request-page .rowreq{
+    max-height: 18rem;
+} */
+
+@media screen and (max-width: 992px) 
+{
+    .request-page {
+        max-width: 80%;
+    }    
+}
+
 /* ------------------------------------------------------- */
 
 
@@ -941,7 +966,8 @@ a:hover[id=profileNav-inactive] {
     color: white;
 }
 .index-chosen-dropdown {
-    font-weight: 800;
+    font-weight: 800 !important;
+    color: black !important;
 }
 /* ------------------------------------------------------- */
 
