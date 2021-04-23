@@ -888,7 +888,7 @@ a:hover[id=profileNav-inactive] {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: 180px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
@@ -989,7 +989,7 @@ a:hover[id=profileNav-inactive] {
 #bookmark-img {
     height: 40px; 
     width: 40px; 
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid black;
     padding: 5px;
     background-color: #f3f3f3;
@@ -1028,11 +1028,8 @@ a:hover[id=profileNav-inactive] {
 }
 
 #viewbutton {
-    padding: 0.65rem 1.45rem;
-}
-
-#viewbutton {
     color: #f3f3f3;
+    padding: 0.65rem 1.45rem;
     background-color: #8f0b89;
     border-radius: 200px;
     margin-top: 20px;
@@ -1061,6 +1058,97 @@ a:hover[id=profileNav-inactive] {
 
 .page-nav-text {
     text-decoration: none;
+}
+
+#sortDropBtn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    height: 40px;
+}
+
+#sortDropBtn:hover {
+    background-color: white;
+    color: #8f0b89;   
+}
+
+.slidecontainer {
+    width: 100%;
+    padding: 10px;
+}
+  
+.slider {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 100%; 
+    height: 10px; 
+    background: #d3d3d3; 
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+    border-radius: 10px;
+}
+  
+.slider:hover {
+    opacity: 1; 
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 20px;
+    height: 20px; 
+    border-radius: 50%;
+    background: #8f0b89;
+    cursor: pointer; 
+}
+
+#applyBtn {
+    border: none; 
+    color: #8f0b89; 
+    font-size: medium; 
+    background-color: transparent;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+#cancelBtn {
+    border: none; 
+    color: #8f0b89; 
+    font-size: medium; 
+    background-color: transparent;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+#applyBtn:hover, #cancelBtn:hover {
+    filter: brightness(50%);
+}
+
+#sortby {
+    margin: 10px; 
+    color: white; 
+    font-size: small;
+}
+
+#sortSelected {
+    border: none; 
+    background-color: transparent; 
+    color: white; 
+    text-decoration: underline; 
+    font-size: small;
+}
+
+.sort-content {
+    color: black;
+}
+
+.mar-5 {
+    margin: 5px;
 }
 
 /*Post job*/
@@ -1094,22 +1182,17 @@ a:hover[id=profileNav-inactive] {
     margin-bottom: 0px;
     padding-top: 20px;
     text-align: center;
-    
 }
-
 #act-uploads{
     color: white;
     text-align: center;
-
 }
-
 #act-profileImg{
     border: 2px solid white ;
     border-radius: 50%;
     width:100px;
     height:100px;
 }
-
 #act-main {
     background-color: white;
     border-bottom-right-radius: 10px;
@@ -1117,81 +1200,88 @@ a:hover[id=profileNav-inactive] {
     padding: 30px 80px 30px 80px;
     margin-bottom: 20px;
 }
-
 #act-txtheading{
     margin: 30px 0px 50px 0px;
     font-family: 'Hammersmith One', sans-serif;
     text-align: center;
 }
-
 #act-addbox{
     border: 1px solid rgb(172, 171, 171);
     border-radius: 5px;
     background-color: #ffffff;
-    
+    padding: 20px;
 }
-
 #act-addbox:hover{
-    background-color: rgb(172, 171, 171);
+    background-color: rgb(219, 219, 219);
     box-shadow: 0px 5px 5px #d3d2d2
 }
-
+#act-addimg{
+    width: 40px;
+    margin-right: 20px;
+    float: left;
+    border-radius: 50%;
+}
+#act-addimg:hover{
+    background-color: white
+}
+#act-txtadd{
+    padding-top: 10px;
+    font-size: 20px;
+    color: gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 #act-box{
     border: 1px solid rgb(172, 171, 171);
     border-radius: 5px;
     background-color: #ffffff;
-}
-
-#center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#act-txtadd{
-    text-align: left;
-    padding-top: 30px;
-    font-size: 20px;
-    color: gray;
-}
-
-#act-box-inner{
     padding: 20px;
 }
 #act-box:hover{
     box-shadow: 0px 5px 5px #d3d2d2
 }
-
 #act-jobname{
     font-weight: bold;
 }
-
 #act-salary{
     background-color: #f3f3f3;
+    text-align: center;
     padding: 5px;
     border-radius: 5px;
-    display: inline-block;
 }
-
 #act-location{
     background-color: #f3f3f3;
     padding: 5px;
     border-radius: 5px;
-    width: 100px;
+    text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; 
 }
-
-.act-image{
-    height: 90px;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#act-button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
 }
-
+#act-button:hover{
+    color: white;
+    background-color: rgb(219, 219, 219);
+}
+#act-button:active{
+    color: white;
+    background-color: rgb(219, 219, 219);
+}
+.act-image{
+    width: 90px;
+    border-radius: 50%;
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
 #act-posted{
     font-size: 15px;
     font-style: italic;
@@ -1252,7 +1342,7 @@ a:hover[id=profileNav-inactive] {
 }
 
 @media (max-width: 978px) {
-    #post-job-main, #act-main {
+    #post-job-main, #act-main{ 
         padding-left: 0;
         padding-right: 0;
     }
@@ -1279,6 +1369,39 @@ dt{
     color: #8f0b89;
 }
 
+/*Bookmark page*/
+#book-viewbutton {
+    color: #f3f3f3;
+    padding: 0.65rem 1.45rem;
+    background-color: #8f0b89;
+    border-radius: 200px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#book-viewbutton:hover {
+    filter: brightness(110%);
+}
+#book-bmarkbutton{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgb(172, 171, 171);
+    float: right;
+    margin-top: 5px;
+}
+#book-bmarkbutton:hover{
+    color: white;
+    background-color: rgb(172, 171, 171);
+}
+#book-bmarkbutton:focus{
+    color: white;
+    background-color: rgb(172, 171, 171);
+}
+.no-margin{
+    margin: 0;
+}
 /* ------------------------------------------------------- */
 
 

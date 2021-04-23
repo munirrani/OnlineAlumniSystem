@@ -100,16 +100,130 @@
                 <div class="container">
                     <form class="row">
                         <div class="col-md m-1 gx-0">
-                            <input class="form-control me-2" type="search" placeholder="Search Job">
-                        </div>
-                        <div class="col-md-5 m-1 gx-0">
                             <input class="form-control me-2" type="search" placeholder="Location">
                         </div>
-                        <div class="col-md-auto m-1 gx-0">
-                            <button type="submit" id="search-button" class="btn me-2"><img id="search-img" src="img/search-icon.png"></button>
-                            <a href="jobs-bookmark.html"><img id="bookmark-img" src="img/bookmark-icon.png"></a>
+                        <div class="col-md-5 m-1 gx-0 input-group">
+                            <input class="form-control me-2" type="search" placeholder="Search Job">
+                            <span class="input-group-text" id="basic-addon2"><img id="search-img" src="img/search-icon.png"></span>
                         </div>
                     </form>
+                </div>
+                <div class="container">
+                    <div class="btn-group mar-5">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Salary
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                            <div class="slidecontainer">
+                                <label>Minimum Monthly Salary</label>
+                                <p>MYR: <span id="demo"></span></p>
+                                <input type="range" min="0" max="16000" value="50" class="slider" id="myRange">
+                            </div>
+                            <hr>
+                            <div>
+                                <button id="cancelBtn">Cancel</button>
+                                <button id="applyBtn">Apply</button>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="btn-group mar-5">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Job Type
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Full-time
+                                </label>
+                              </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Part-time
+                                </label>
+                              </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Contract
+                                </label>
+                              </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Internship
+                                </label>
+                              </div>
+                            </li>
+                            <hr>
+                            <div>
+                                <button id="cancelBtn">Cancel</button>
+                                <button id="applyBtn">Apply</button>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="btn-group mar-5">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Experience 
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Internship
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Entry Level
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Associate
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Mid-Senior Level
+                                    </label>
+                                </div>
+                            </li>
+                            <hr>
+                            <div>
+                                <button id="cancelBtn">Cancel</button>
+                                <button id="applyBtn">Apply</button>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="btn-group mar-5">
+                        <p id="sortby"> | &nbsp; Sort By: </p>
+                    </div>
+                    <div class="btn-group mar-5">
+                        <select id="sortSelected">
+                            <option class="sort-content" value="1">Date</option>
+                            <option class="sort-content" value="2">Relevance</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,6 +407,6 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/jobs.js"></script>
+    <script type="text/javascript" src="js/sortJob.js"></script>
 </body>
 </html>

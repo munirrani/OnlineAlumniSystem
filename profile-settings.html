@@ -78,10 +78,13 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="profile.html">Profile</a>
-                                    <a href="jobs-bookmark.html">Bookmark</a>
-                                    <a href="jobs-activity.html">Job Activity</a>
+                                    <a class="index-chosen-dropdown"  href="profile-settings.html">Settings & Privacy</a>
+                                    <hr class="no-margin">
                                     <a href="alumnisearch.html">Search Alumni</a>
-                                    <a class="index-chosen-dropdown"  href="profile-settings.html">Settings</a>
+                                    <hr class="no-margin">
+                                    <a href="jobs-activity.html">Job Activity</a>
+                                    <a href="jobs-bookmark.html">Bookmarks</a>
+                                    <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
                                 </div>
                             </div>
@@ -93,17 +96,28 @@
 
         <main>
             <div class="container mt-3">
-                <ul class="nav nav-tabs">
-                    <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
-                    </li>
-                    <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
-                    </li>
-                    <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile-settings.html">Settings & Privacy</a>
-                    </li>
-                </ul>
+                <div class="row">
+                    <div class="col-md-3 gx-0">
+                        <ul class="nav nav-tabs">
+                            <li id="inactive" class="nav-item">
+                                <a id="profileNav-inactive" class="nav-link"href="profile.html">Profile</a>
+                            </li>
+                            <li id="inactive" class="nav-item">
+                                <a id="profileNav-inactive" class="nav-link active" aria-current="page"  href="profile-settings.html">Settings & Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md gx-0">
+                        <ul class="nav nav-tabs">
+                            <li id="profileNav" class="nav-item">
+                                <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
+                            </li>
+                            <li id="profileNav" class="nav-item">
+                                <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             
             <div class="container" style = "margin-top: 20px;">
@@ -156,8 +170,8 @@
                                                 <label for="newUsername"><h6 class="mt-2 mb-4">New username</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <input class="purplemodalinput" type="text" class="form-control" id="newUsername">
-                                                <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px;">Confirm username</button>
+                                                <input type="text" class="form-control" id="newUsername">
+                                                <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px">Confirm username</button>
                                             </div>
                                         </div>
                                     </div>
