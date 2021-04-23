@@ -1,4 +1,4 @@
-const alumniProfiles = [
+let alumniProfiles = [
   {
     name: "Fahad",
     currentPos: "UX Designer at Google",
@@ -76,6 +76,9 @@ const alumniProfiles = [
     bio: "Hey, I am the Machine Learning Master",
   },
 ];
+
+let addAlumniProf = JSON.parse(sessionStorage.addAlumniAll);
+Array.prototype.push.apply(alumniProfiles,addAlumniProf);
 
 const alumniList = document.querySelector("#alumniList");
 
@@ -157,8 +160,4 @@ function showProfile(name) {
 }
 
 displayAlumni(alumniProfiles);
-
-
-
-
 
