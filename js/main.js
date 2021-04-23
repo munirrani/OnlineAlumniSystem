@@ -60,6 +60,9 @@ $(function () {
 // Making sure the contact-us form shows modal after submit
 $('#contact-form').submit(function (e) {
   $('#confirmation-modal').modal('show');
+
+
+  document.querySelector("#contact-form").reset();
   e.preventDefault();
 });
 // 
