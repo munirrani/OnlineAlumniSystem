@@ -363,6 +363,7 @@ footer {
     text-decoration: none;
 }
 #event-main a:hover {
+    color: white;
 }
 .event-meta {
     font-size: small;
@@ -399,6 +400,7 @@ footer {
 .page-nav:hover {
     color: white;
     background-color: #cc67c7;
+    text-decoration: none;
 }
 
 .event-row {
@@ -452,6 +454,10 @@ footer {
 
 .event-mode {
     visibility: hidden;
+}
+
+:host ::ng-deep .ck-editor__editable_classic {
+    min-height: 500px;
 }
 
 .event-label {

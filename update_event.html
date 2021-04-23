@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
     <script type="text/javascript" src="js/map.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
     <title>Update Event | FSKTM Alumni</title>
 </head>
 
@@ -144,8 +145,6 @@
                                             <div class="col-sm">
                                                 <label class="form-label" for="description">Description</label>
                                                 <textarea name="description" class="form-control" id="description" cols="25" rows="10"></textarea>
-                                                <i class="fas fa-check-circle icon"></i>
-                                                <i class="fas fa-exclamation-circle icon"></i>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
@@ -176,6 +175,13 @@
                                         <button class="event-btn mx-3" type="submit">Update Event</button>
                                     </div>
                                 </form>
+                                <script>
+                                    ClassicEditor
+                                        .create( document.querySelector( '#description' ) )
+                                        .catch( error => {
+                                            console.error( error );
+                                        } );
+                                </script>
                             </div>
                         </div>
                     </div>
