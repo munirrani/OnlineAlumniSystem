@@ -104,7 +104,8 @@
                     <div class="event-text">
                         <h4>Lorem, ipsum dolor.</h4>
                         <p class="event-meta">
-                            Date | Mode <a href="update_event.html"><button class="btn btn-danger event-meta mx-2">Delete Event</button></a>
+                            Date | Mode 
+                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et dignissimos expedita quam adipisci. Aspernatur, optio distinctio est aperiam alias deleniti natus odio voluptatibus ullam perspiciatis in animi laboriosam 
                             sunt nam veritatis quos cupiditate quod nesciunt eius, voluptate ipsa molestias consectetur quasi! Cum odit sed, maiores fuga exercitationem quas
@@ -120,7 +121,8 @@
                     <div class="event-text">
                         <h4>Lorem, ipsum dolor.</h4>   
                         <p class="event-meta">
-                            Date | Mode <a href="update_event.html"><button class="btn btn-danger event-meta mx-2">Delete Event</button></a>
+                            Date | Mode 
+                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem doloribus eaque enim quia voluptas fugiat ducimus aspernatur, quod dignissimos perferendis deleniti reprehenderit itaque ea fuga quae reiciendis dolores illo sunt!</p>
                     </div>
@@ -133,7 +135,8 @@
                     <div class="event-text">
                         <h4>Lorem, ipsum dolor.</h4> 
                         <p class="event-meta">
-                            Date | Mode <a href="update_event.html"><button class="btn btn-danger event-meta mx-2">Delete Event</button></a>
+                            Date | Mode 
+                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem doloribus eaque enim quia voluptas fugiat ducimus aspernatur, quod dignissimos perferendis deleniti reprehenderit itaque ea fuga quae reiciendis dolores illo sunt!</p>
                     </div>
@@ -146,7 +149,8 @@
                     <div class="event-text">
                         <h4>Lorem, ipsum dolor.</h4>  
                         <p class="event-meta">
-                            Date | Mode <a href="update_event.html"><button class="btn btn-danger event-meta mx-2">Delete Event</button></a>
+                            Date | Mode 
+                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
@@ -159,7 +163,8 @@
                     <div class="event-text">
                         <h4>Lorem, ipsum dolor.</h4>
                         <p class="event-meta">
-                            Date | Mode <a href="update_event.html"><button class="btn btn-danger event-meta mx-2">Delete Event</button></a>
+                            Date | Mode 
+                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
                         </p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos dignissimos porro, cumque repudiandae beatae eos laborum obcaecati inventore! Culpa natus neque ipsam facilis perferendis dicta impedit temporibus qui assumenda commodi!</p>
                     </div>
@@ -172,7 +177,8 @@
                     <div class="event-text">
                         <h4>Lorem, ipsum dolor.</h4>
                         <p class="event-meta">
-                            Date | Mode <a href="update_event.html"><button class="btn btn-danger event-meta mx-2">Delete Event</button></a>
+                            Date | Mode 
+                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
                         </p>
                         <p>Lorem, eos laborum obcaecati inventore! Culpa natus neque ipsam facilis perferendis dicta impedit temporibus qui assumenda commodi!</p>
                     </div>
@@ -190,6 +196,24 @@
                         <a href="" class="col page-nav">-2</a>
                         <a href="" class="col page-nav">-1</a>
                         <a href="" class="col page-nav">Next</a>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            You're about to delete this event. Are you sure?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary btn-danger">Delete</button>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -266,7 +290,7 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/eventAdmin.js"></script>
+    <!-- <script type="text/javascript" src="js/eventAdmin.js"></script> -->
 </body>
 
 </html>
