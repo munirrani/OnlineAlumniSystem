@@ -105,24 +105,12 @@ for (i = 0; i < coll.length; i++) {
 }
 // 
 
-//Salary Slider
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-
-
 let password = document.querySelector("#password");
 let confirmpw = document.querySelector("#confirmpw");
 let enrollmentYear = document.querySelector("#enrolYear");
 let gradYear = document.querySelector("#gradYear");
 let errortextreg = document.querySelector("#error-text-reg");
 let registerAccount = document.querySelector("#registerAccount");
-
 
 let checkpw = function () {
   if (password.value == "" && confirmpw.value == "") {
@@ -148,7 +136,6 @@ let checkpw = function () {
     return true;
   }
 }
-
 let checkGradYear = function() {
   if(enrollmentYear.value >= gradYear.value) {
       // errortextreg.classList.add("error-reg-text");
@@ -162,14 +149,10 @@ let checkGradYear = function() {
   }
 };
 
-
-
 registerAccount.onsubmit = function(e) {
   e.preventDefault();
   if(checkpw() && checkGradYear()) {
 
-
-    // sessionStorage.setItem("addAlumniAll", JSON.stringify(addAlumni));
 
     var existingEntries = JSON.parse(sessionStorage.getItem("addAlumniAll"));
     if(existingEntries == null) existingEntries = [];
@@ -196,7 +179,6 @@ registerAccount.onsubmit = function(e) {
     existingEntries.push(addAlumni);
     sessionStorage.setItem("addAlumniAll", JSON.stringify(existingEntries));
 
-
     window.location.href = "request.html";
   }else {
     if(!checkpw()){
@@ -207,6 +189,20 @@ registerAccount.onsubmit = function(e) {
     return false;
   }
 };
+
+// Salary Slider
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+
+
+
 
 
 
