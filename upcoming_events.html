@@ -39,8 +39,7 @@
         <nav class=" navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
             <div class="container h5">
                 <a class="navbar-brand" href="index.html">
-                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
-                        id="logo-img">
+                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block" id="logo-img">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -52,16 +51,16 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
-                        <li class="nav-item">
-                            <div class="dropdown">
+                        <li class="navbar-nav nav-item">
+                            <div class="navbar-nav dropdown">
                                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b class="index-chosen-dropdown">Events</b>
+                                    <b class="index-chosen-dropdown">Events</b>
                                 </button>
-                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                   <li><a class="dropdown-item nav-link index-chosen-dropdown" href="upcoming_events.html">Upcoming Events</a></li>
                                   <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
                                 </ul>
-                              </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
@@ -76,13 +75,11 @@
                             <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
                         </li>
                     </ul>
-                    <div class="fl-right">
-                        <div class="d-flex gap-2">
-                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
-                                    type="button">Login</button></a>
-                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
-                                    type="button">Register</button></a>
-                            <div class="dropdown nav-prof-bar">
+                    <div class="navbar-nav fl-right">
+                        <div class="row d-flex gap-2" style="width: 100%; display: inline;">
+                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar" type="button">Login</button></a>
+                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar" type="button">Register</button></a>
+                            <div class="navbar-nav dropdown nav-prof-bar">
                                 <button onclick="myFunction()" id="profilebtn" class="btn">
                                     <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                                 </button>
