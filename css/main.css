@@ -387,6 +387,9 @@ footer {
     font-size: small;
     font-family: 'Hammersmith One', sans-serif;
 }
+.responsive-disabled {
+    display: none;
+}
 .event-text {
     padding-right: 1.5em;
 }
@@ -543,6 +546,16 @@ footer {
 }
 
 @media (max-width: 730px) {
+    .responsive-disabled {
+        display: inline-block;
+    }
+
+    #event-section {
+        width: 100%;
+        padding: 1.5em;
+        margin-top: 0.5em;
+    }
+
     .event-buttons {
         width: 100%;
         margin: auto;

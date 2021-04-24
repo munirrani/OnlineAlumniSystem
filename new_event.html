@@ -16,7 +16,7 @@
     <title>New Event | FSKTM Alumni</title>
 </head>
 
-<body> 
+<body>
     <div class="container-fluid p-0 m-0">
         <header>
             <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
@@ -47,21 +47,23 @@
                         </li>
                         <li class="navbar-nav nav-item">
                             <div class="navbar-nav dropdown">
-                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b class="index-chosen-dropdown">Events</b>
+                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <b class="index-chosen-dropdown">Events</b>
                                 </button>
                                 <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
-                                  <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
-                                  <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
+                                    <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming
+                                            Events</a></li>
+                                    <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
                                 </ul>
-                              </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
                         </li>
                         <li class="nav-item nav-hide-logged">
                             <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                          </li>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html"><b>About</b></a>
                         </li>
@@ -102,11 +104,9 @@
         <main>
             <div class="register">
                 <div class="row shadow-lg">
-                    <!--Picture on the left-->
                     <div class="col-sm-4 left-col d-flex reg-pic">
                         <img src="img/balloons.svg" class="img-fluid" alt="">
                     </div>
-                    <!--Form on the right-->
                     <div class="col-sm-8 right-col">
                         <div class="container form-reg-container">
                             <div class="row">
@@ -119,7 +119,8 @@
                                     <div class="row event-row">
                                         <div class="col-sm">
                                             <label class="form-label" for="eventTitle">Event Title</label>
-                                            <input class="form-control" id="eventTitle" type="text" name="eventTitle" placeholder="" required>
+                                            <input class="form-control" id="eventTitle" type="text" name="eventTitle"
+                                                placeholder="" required>
                                             <i class="fas fa-check-circle icon"></i>
                                             <i class="fas fa-exclamation-circle icon"></i>
                                             <small class="error-msg">Error Message</small>
@@ -129,8 +130,9 @@
                                     <div class="row mt-2 event-row">
                                         <div class="col-sm event-row">
                                             <label class="form-label" for="startDate">Start Date</label>
-                                            <div class="input-group event-date" >
-                                                <input type="date" class="form-control" id="startDate" placeholder="" required>
+                                            <div class="input-group event-date">
+                                                <input type="date" class="form-control" id="startDate" placeholder=""
+                                                    required>
                                             </div>
                                             <i class="fas fa-check-circle icon"></i>
                                             <i class="fas fa-exclamation-circle icon"></i>
@@ -139,7 +141,8 @@
                                         <div class="col-sm event-row">
                                             <label class="form-label" for="endDate">End Date</label>
                                             <div class="input-group event-date">
-                                                <input type="date" class="form-control" id="endDate" placeholder="" required>
+                                                <input type="date" class="form-control" id="endDate" placeholder=""
+                                                    required>
                                             </div>
                                             <i class="fas fa-check-circle icon"></i>
                                             <i class="fas fa-exclamation-circle icon"></i>
@@ -150,7 +153,8 @@
                                     <div class="row event-row" style="margin-top: -1.5em;">
                                         <div class="col-sm">
                                             <label class="form-label" for="description">Description</label>
-                                            <textarea name="description" class="form-control" id="description" cols="25" rows="10"></textarea>
+                                            <textarea name="description" class="form-control" id="description" cols="25"
+                                                rows="10"></textarea>
                                             <small class="error-msg">Error Message</small>
                                         </div>
                                     </div>
@@ -168,11 +172,13 @@
                                     <div class="row mt-4 event-row">
                                         <label class="form-label" for="eventMode">Mode</label>
                                         <div class="col radio-label">
-                                            <input type="radio" class="event-mode" id="physical" name="eventMode" value="physical" required>
+                                            <input type="radio" class="event-mode" id="physical" name="eventMode"
+                                                value="physical" required>
                                             <label class="event-label" for="physical">Physical</label>
                                         </div>
                                         <div class="col radio-label">
-                                            <input type="radio" class="event-mode" id="virtual" name="eventMode" value="virtual" required>
+                                            <input type="radio" class="event-mode" id="virtual" name="eventMode"
+                                                value="virtual" required>
                                             <label class="event-label" for="virtual">Virtual</label>
                                         </div>
                                     </div>
@@ -183,10 +189,10 @@
                                 </form>
                                 <script>
                                     ClassicEditor
-                                        .create( document.querySelector( '#description' ) )
-                                        .catch( error => {
-                                            console.error( error );
-                                        } );
+                                        .create(document.querySelector('#description'))
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
                                 </script>
                             </div>
                         </div>
