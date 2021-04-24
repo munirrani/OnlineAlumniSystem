@@ -34,6 +34,7 @@ body {
     display: none;
 }
 #topNavbar {
+    font-family: 'Hammersmith One', sans-serif;
     background-color: #8f0b89;
     font-weight: 800;
     width: 100%;
@@ -146,8 +147,13 @@ footer {
         padding: 0.2rem 1rem;
         font-size: 1.2rem;
     }
-    body {
+    /* body {
         background-size: 200% 200%;
+    } */
+    #home-container.container-fluid {
+        max-width: 100vw !important;
+        padding-left: 0px;
+        padding-right: 0px;
     }
     .jumbotron-button{
         border-radius: 15px;
@@ -178,8 +184,8 @@ footer {
         margin-top: 30px;
     }
     .reg-pic img{
-        height: auto;
-        width: auto;
+        height: auto !important;
+        width: auto !important;
     }
     /*Profile Page*/
     #right-col {
@@ -187,6 +193,11 @@ footer {
         padding-right: 0px !important;  
     }
     /*Event Page*/
+    #event-main {
+        width: 100% !important;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
     .event-img , .top-reg-text{
         text-align: center;
     }
@@ -792,9 +803,9 @@ footer {
     background-color: #fff;
     font-family: 'Hammersmith One', sans-serif;
     border-radius: 10px;
-    max-width: 40%;
+    max-width: 60%;
     height: auto;
-    padding: 25px;
+    padding: 40px 10px;
 }
 /* .request-page .rowreq{
     max-height: 18rem;
