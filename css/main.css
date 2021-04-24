@@ -340,6 +340,10 @@ footer {
     align-items: center;
     text-align: center;
 }
+.event-buttons {
+    width: 100%;
+    margin: auto;
+}
 
 #event-main {
     border-radius: 0.5em;
