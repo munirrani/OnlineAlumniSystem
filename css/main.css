@@ -1626,6 +1626,20 @@ dt{
     margin: 0px;
     padding-top: 20px;
 }
+
+.page-nav-alumni {
+    background-color: transparent;
+    justify-content: center;
+    padding: 0.5em 1em; 
+    border-radius: 0.5em;
+    max-width: 20em;
+    color: white;
+}
+.page-nav-alumni:hover {
+    color: white;
+    background-color: #cc67c7;
+    text-decoration: none;
+}
 /* ------------------------------------------------------- */
 
 
