@@ -1186,6 +1186,29 @@ a:hover[id=profileNav-inactive] {
     margin: 5px;
 }
 
+#basic-addon2-btn {
+    border-radius: 20px;
+}
+
+#basic-addon2-btn:hover {
+    filter: brightness(80%);
+}
+
+.search-loc {
+    flex: 1;
+}
+
+.search-job {
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .search-container {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
 /*Post job*/
 #post-job-main {
     background-color: white;

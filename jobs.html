@@ -97,16 +97,16 @@
                     <h1 id="job-heading">JOBS OPPORTUNITY</h1>
                     <p id="job-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                 </div>
-                <div class="container">
-                    <form class="row">
-                        <div class="col-md m-1 gx-0">
-                            <input class="form-control me-2" type="search" placeholder="Location">
-                        </div>
-                        <div class="col-md-5 m-1 gx-0 input-group">
-                            <input class="form-control me-2" type="search" placeholder="Search Job">
-                            <span class="input-group-text" id="basic-addon2"><img id="search-img" src="img/search-icon.png"></span>
-                        </div>
-                    </form>
+                <div class="search-container">
+                    <div class="search-loc mar-5">
+                        <input type="text" class="form-control" placeholder="Location">
+                    </div>
+                    <div class="search-job mar-5">
+                        <input type="text" class="form-control" placeholder="Search Job">
+                    </div>
+                    <div class="mar-5">
+                        <button class="input-group-text" id="basic-addon2-btn"><img id="search-img" src="img/search-icon.png"></button>
+                    </div>
                 </div>
                 <div class="container">
                     <div class="btn-group mar-5">
@@ -114,7 +114,6 @@
                             Salary
                         </button>
                         <ul class="dropdown-menu">
-                            
                             <div class="slidecontainer">
                                 <label>Minimum Monthly Salary</label>
                                 <p>MYR: <span id="demo"></span></p>
