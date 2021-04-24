@@ -323,7 +323,6 @@ footer {
 .dropdown-toggle::after {
     content: none;
 }
-
 .menu-back {
     background-color: #f3f3f3;
 }
@@ -338,18 +337,15 @@ footer {
     background-color: #f3f3f3;
     box-shadow: 10em;
 }
-
 #upcoming-events {
     margin-bottom: 1.5em;
     padding-left: 2em;
     font-family: 'Hammersmith One', sans-serif;
     display: inline-block;
 }
-
 #event-creation {
     margin-top: -1em;
 }
-
 .vertical-event-card {
     border: 0px;
     display: grid;
@@ -361,12 +357,14 @@ footer {
     align-items: center;
     background-color: #f3f3f3;
 }
-#event-main a {
+.event-title {
     color: black;
-    text-decoration: none;
 }
-#event-main a:hover {
-    color: white;
+.event-title:hover {
+    color: rgb(145, 141, 141);
+}
+#event-main a {
+    text-decoration: none;
 }
 .event-meta {
     font-size: small;
@@ -379,19 +377,6 @@ footer {
     display: grid;
     place-items: center;
 }
-.event-date input[type="date"]::-webkit-calendar-picker-indicator {
-    background: transparent;
-    bottom: 0;
-    color: transparent;
-    cursor: pointer;
-    height: auto;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: auto;
-}
-
 .page-nav {
     justify-content: center;
     padding: 0.5em 1em; 
@@ -405,64 +390,37 @@ footer {
     background-color: #cc67c7;
     text-decoration: none;
 }
+.page-nav a:hover {
+    color: white;
+    background-color: #cc67c7;
+    text-decoration: none;
+}
 
 .event-row {
     position: relative;
     margin-bottom: 2em;
 }
-
+.event-date input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
 .description-row {
     margin-top: -1.5em;
 }
-
-.icon {
-    position: absolute;
-    top: 2.7em;
-    right: 1.3em;
-    visibility: hidden;
-}
-
-.error-msg {
-    position:absolute;
-    visibility: hidden;
-}
-
-.success input{
-    border-color: #2ecc71;
-}
-
-.success i.fa-check-circle {
-    color: #2ecc71;
-    visibility: visible;
-}
-
-.error input {
-    border-color: #e74c3c;
-}
-
-.error small {
-    visibility: visible;
-    font-size: small;
-    color: #e74c3c;
-}
-
-.error i.fa-exclamation-circle {
-    color: #e74c3c;
-    visibility: visible;
-}
-
 .mode-container {
     align-items: center;
 }
-
 .event-mode {
     visibility: hidden;
 }
-
-:host ::ng-deep .ck-editor__editable_classic {
-    min-height: 500px;
-}
-
 .event-label {
     display: inline-block;
     margin-bottom: 5px;
@@ -476,7 +434,6 @@ footer {
     margin: auto;
     margin-top: -3em;
 }
-
 .event-label:before {
     content: "";
     float: left;
@@ -487,21 +444,48 @@ footer {
     background: #f3f3f3;    
     margin-right: 20px;
 }
-
 .event-mode:checked + .event-label {
     background-color: #aa2aa4;
     color:white;
 }
-
 .radio-label {
     margin-top: -0.5em;
 }
-
 .event-mode:checked + .event-label:before {
     height: 20px;
     width: 20px;
     border: 6px solid #f3f3f3;
     background-color: #aa2aa4;
+}
+
+.icon {
+    position: absolute;
+    top: 2.7em;
+    right: 1.3em;
+    visibility: hidden;
+}
+.error-msg {
+    position:absolute;
+    visibility: hidden;
+}
+.error input {
+    border-color: #e74c3c;
+}
+.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+.error small {
+    visibility: visible;
+    font-size: small;
+    color: #e74c3c;
+}
+.success input{
+    border-color: #2ecc71;
+}
+.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
 }
 
 .event-btn {
@@ -515,9 +499,30 @@ footer {
     border: none;
     transition: 0.25s;
 }
-
 .event-btn:hover {
     box-shadow: 0 0 15px #c532be;
+}
+
+#event-section {
+    text-align: left;
+    align-items: center;
+    border-radius: 0.5em;
+    margin: auto;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    padding: 3.5em 3.5em 2em;
+    width: 80%;
+    background-color: #f3f3f3;
+    box-shadow: 10em;
+}
+#article-title {
+    margin-bottom: 1em;
+}
+#event-article {
+
+}
+.article-img {
+    padding: 2em;
 }
 
 @media (max-width: 730px) {
@@ -534,7 +539,12 @@ footer {
         display: inline-block;
 
     }
+
+    .event-main {
+        padding: 1.7em 1.5em 1em;
+    }
 }
+
 /* ------------------------------------------------------- */
 
 
