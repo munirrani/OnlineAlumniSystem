@@ -341,8 +341,7 @@ footer {
     text-align: center;
 }
 .event-buttons {
-    width: 100%;
-    margin: auto;
+    /*Don't delete this!*/
 }
 
 #event-main {
@@ -544,6 +543,11 @@ footer {
 }
 
 @media (max-width: 730px) {
+    .event-buttons {
+        width: 100%;
+        margin: auto;
+    }
+
     .vertical-event-card {
         display: block;
         grid-template-columns: 1fr;
