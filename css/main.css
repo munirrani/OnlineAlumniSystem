@@ -129,8 +129,8 @@ footer {
         white-space: normal;
     }
     .navbar-nav {
-        align-items: center;
-        align-content: center;
+        align-items: initial;
+        align-content: initial;
     }
     .fl-right {
         float: right;
@@ -337,8 +337,6 @@ footer {
 }
 .menu-back {
     background-color: #f3f3f3;
-    align-items: center;
-    text-align: center;
 }
 .event-buttons {
     /*Don't delete this!*/
@@ -558,6 +556,7 @@ footer {
 
     .event-buttons {
         width: 100%;
+        align-items: center;
         margin: auto;
     }
 
