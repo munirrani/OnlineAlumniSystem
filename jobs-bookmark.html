@@ -79,11 +79,9 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="profile.html">Profile</a>
-                                    <hr class="no-margin">
                                     <a href="profile-settings.html">Settings & Privacy</a>
                                     <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
-                                    <hr class="no-margin">
                                     <a class="index-chosen-dropdown" href="jobs-bookmark.html">Bookmarks</a>
                                     <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
@@ -97,28 +95,20 @@
 
         <main>
             <div class="container mt-3">
-                <div class="row">
-                    <div class="col-md-3 gx-0">
-                        <ul class="nav nav-tabs">
-                            <li id="inactive" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
-                            </li>
-                            <li id="inactive" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md gx-0">
-                        <ul class="nav nav-tabs">
-                            <li id="profileNav" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
-                            </li>
-                            <li id="profileNav" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link  active" aria-current="page" href="jobs-bookmark.html">Bookmarks</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <ul class="nav nav-tabs">
+                    <li id="inactive" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li id="inactive" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                    </li>
+                    <li id="profileNav" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
+                    </li>
+                    <li id="profileNav" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link  active" aria-current="page" href="jobs-bookmark.html">Bookmarks</a>
+                    </li>
+                </ul>
             </div>
 
             <div class="container" style="margin-top: 20px;">
@@ -129,8 +119,8 @@
                                 <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="act-profileImg" class="shadow"></a>
                             </div>
                             <div class="col-md-8">
-                                <h2 id="profile-name" style="margin-bottom: 0px; padding-top: 20px;">Haney</h2>
-                                <p id="profile-bio" style="margin-top: 0px;">Software Engineering</p>
+                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"></h2>
+                                <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
                             </div>
                             <div class="col-md">
                                 <h2 id="act-count">5</h2>
@@ -243,6 +233,10 @@
             </div>
         </main>
 
+        <script>
+            document.getElementById("userName1").innerHTML=localStorage.getItem("userName");
+        </script>
+
         <footer class="page-footer shadow">
             <div class="container text-center text-md-left mt-4">
                 <div class="row align-items-center">
@@ -314,6 +308,7 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>
 
 </html>

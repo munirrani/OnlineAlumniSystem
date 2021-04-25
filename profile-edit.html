@@ -79,11 +79,9 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a class="index-chosen-dropdown" href="profile.html">Profile</a>
-                                    <hr class="no-margin">
                                     <a href="profile-settings.html">Settings & Privacy</a>
                                     <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
-                                    <hr class="no-margin">
                                     <a href="jobs-bookmark.html">Bookmarks</a>
                                     <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
@@ -96,28 +94,20 @@
 
         <main>
             <div class="container mt-3">
-                <div class="row">
-                    <div class="col-md-3 gx-0">
-                        <ul class="nav nav-tabs">
-                            <li id="inactive" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile.html">Profile</a>
-                            </li>
-                            <li id="inactive" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md gx-0">
-                        <ul class="nav nav-tabs">
-                            <li id="profileNav" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
-                            </li>
-                            <li id="profileNav" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <ul class="nav nav-tabs">
+                    <li id="inactive" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile.html">Profile</a>
+                    </li>
+                    <li id="inactive" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                    </li>
+                    <li id="profileNav" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
+                    </li>
+                    <li id="profileNav" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                    </li>
+                </ul>
             </div>
 
             <div class="container" style="margin-top: 20px;">
@@ -152,14 +142,13 @@
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <h2 id="profile-name">Haney</h2>
+                                        <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
                                             <div class="container">
                                                 <form>
-                                                    <textarea class="form-control" id="bio"
-                                                        placeholder="Add a Bio">Web Developer at Haney and Humaira' Sdn Bhd</textarea>
+                                                    <textarea class="form-control" id="bio" placeholder="Add a Bio">Web Developer at Haney and Humaira' Sdn Bhd</textarea>
                                                     <div class="container mt-3">
-                                                        <button id="editbutton" class="btn shadow" type="button">Update
+                                                        <button id="editbutton" class="btn shadow" onclick="updateInfo()" type="button">Update
                                                             Bio</button>
                                                     </div>
                                                 </form>
@@ -187,8 +176,8 @@
                                                 <h6 class="mb-0">Full Name</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple"
-                                                    placeholder="Full Name" value="Humaira' Binti Ahmad Shuhemi">
+                                                <input type="text" class="form-control purplemodalinput" id="fullName"
+                                                    placeholder="Full Name">
                                             </div>
                                         </div>
                                         <hr>
@@ -197,8 +186,8 @@
                                                 <h6 class="mb-0">Current Position</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple"
-                                                    placeholder="Current Position" value="Software Officer">
+                                                <input type="text" class="form-control purplemodalinput" id="currentPosition"
+                                                    placeholder="Current Position">
                                             </div>
                                         </div>
                                         <hr>
@@ -206,9 +195,8 @@
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Email</h6>
                                             </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Email"
-                                                    value="humairas00@yahoo.com">
+                                            <div class="col-sm-9 text-secondary"> 
+                                                <input type="text" class="form-control purplemodalinput" id="email" placeholder="Email">
                                             </div>
                                         </div>
                                         <hr>
@@ -217,8 +205,7 @@
                                                 <h6 class="mb-0">Phone</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Phone"
-                                                    value="018-2469011">
+                                                <input type="text" class="form-control purplemodalinput" id="phone" placeholder="Phone" >
 
                                             </div>
                                         </div>
@@ -228,8 +215,8 @@
                                                 <h6 class="mb-0">Enrollment Year</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple"
-                                                    placeholder="Enrollment Year" value="2019/2020">
+                                                <input type="text" class="form-control purplemodalinput" id="enrollYear"
+                                                    placeholder="Enrollment Year">
                                             </div>
                                         </div>
                                         <hr>
@@ -238,8 +225,8 @@
                                                 <h6 class="mb-0">Department</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple"
-                                                    placeholder="Department" value="Software Engineering">
+                                                <input type="text" class="form-control purplemodalinput" id="department"
+                                                    placeholder="Department">
                                             </div>
                                         </div>
                                         <hr>
@@ -248,8 +235,7 @@
                                                 <h6 class="mb-0">Level</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple" placeholder="Level"
-                                                    value="Degree">
+                                                <input type="text" class="form-control purplemodalinput" id="level" placeholder="Level">
                                             </div>
                                         </div>
                                         <hr>
@@ -258,15 +244,16 @@
                                                 <h6 class="mb-0">Address</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" id="purple"
-                                                    placeholder="Address" value="Selangor, Malaysia">
+                                                <input type="text" class="form-control purplemodalinput" id="address"
+                                                    placeholder="Address">
                                                 <div class="d-flex gap-2 mt-4">
                                                     <a href="profile.html"><button
                                                             class="btn shadow confirmbuttonModalSetting"
                                                             type="button">Cancel</button></a>
-                                                    <a href="profile.html"><button id="updatebutton" class="btn shadow" type="button">Update
+                                                    <a href="profile.html"><button id="updatebutton" class="btn shadow" type="button" onclick="updateInfo()">Update
                                                         Information</button></a>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </form>
@@ -276,8 +263,41 @@
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
     </main>
+
+    <script>
+        function updateInfo(){
+            var a = document.getElementById("fullName").value;
+            localStorage.setItem("fullName",a);
+            var b = document.getElementById("currentPosition").value;
+            localStorage.setItem("currentPosition",b);
+            var c = document.getElementById("email").value;
+            localStorage.setItem("email",c);
+            var d = document.getElementById("phone").value;
+            localStorage.setItem("phone",d);
+            var e = document.getElementById("enrollYear").value;
+            localStorage.setItem("enrollYear",e);
+            var f = document.getElementById("department").value;
+            localStorage.setItem("department",f);
+            var g = document.getElementById("level").value;
+            localStorage.setItem("level",g);
+            var h = document.getElementById("address").value;
+            localStorage.setItem("address",h);
+            var i = document.getElementById("bio").value;
+            localStorage.setItem("bio",i);
+        }
+        document.getElementById("fullName").value = localStorage.getItem("fullName");
+        document.getElementById("currentPosition").value = localStorage.getItem("currentPosition");
+        document.getElementById("email").value = localStorage.getItem("email");
+        document.getElementById("phone").value = localStorage.getItem("phone");
+        document.getElementById("enrollYear").value = localStorage.getItem("enrollYear");
+        document.getElementById("department").value = localStorage.getItem("department");
+        document.getElementById("level").value = localStorage.getItem("level");
+        document.getElementById("address").value = localStorage.getItem("address");
+        document.getElementById("bio").value = localStorage.getItem("bio");
+        document.getElementById("userName1").innerHTML=localStorage.getItem("userName");
+    </script>
 
     <footer class="page-footer shadow">
         <div class="container text-center text-md-left mt-4">

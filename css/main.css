@@ -900,12 +900,12 @@ a:hover[id=profileNav-inactive] {
     font-family: 'Hammersmith One', sans-serif;
     text-align: center;
 }
-#profile-name{
+.profile-name{
     color: white;
     margin-bottom: 20px;
     font-family: 'Hammersmith One', sans-serif;
 }
-#profile-bio { 
+#bio1 { 
     color: white;
     margin-bottom: 20px;
 }
@@ -913,7 +913,7 @@ a:hover[id=profileNav-inactive] {
 #profileNav { 
     color: white;
 }
-#profileImg{
+#profileImg {
     border: 2px solid white ;
     border-radius: 50%;
     width:250px;
@@ -938,7 +938,7 @@ a:hover[id=profileNav-inactive] {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
-.form-control[class="purplemodalinput"]:focus  {
+.purplemodalinput:focus  {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
@@ -1022,6 +1022,11 @@ a:hover[id=profileNav-inactive] {
 .index-chosen-dropdown {
     font-weight: 800 !important;
     color: black !important;
+}
+a[id="no-blue"]{
+    text-decoration: none;
+    color: #8f0b89;
+
 }
 /* ------------------------------------------------------- */
 
@@ -1125,6 +1130,14 @@ a:hover[id=profileNav-inactive] {
     border-radius: 50%;
     border: 1px solid rgb(172, 171, 171);
     margin-top: 20px;
+}
+
+.bmark-hide-logged {
+    display: none;
+}
+
+.bmark-hide1-logged {
+    display: none;
 }
 
 #job-bmark:hover{
@@ -1342,7 +1355,9 @@ a:hover[id=profileNav-inactive] {
     padding: 20px;
 }
 #act-box:hover{
-    box-shadow: 0px 5px 5px #d3d2d2
+    box-shadow: 0px 5px 5px #d3d2d2;
+    cursor: pointer;
+    
 }
 #act-jobname{
     font-weight: bold;
