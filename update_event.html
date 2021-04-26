@@ -16,7 +16,7 @@
     <title>Update Event | FSKTM Alumni</title>
 </head>
 
-<body> 
+<body>
     <div class="container-fluid p-0 m-0">
         <header>
             <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
@@ -29,6 +29,7 @@
                 </div>
             </nav>
         </header>
+
         <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
             <div class="container h5">
                 <a class="navbar-brand" href="index.html">
@@ -42,34 +43,38 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <hr>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="navbar-nav nav-item">
                             <div class="dropdown">
-                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b class="index-chosen-dropdown">Events</b>
+                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <b class="index-chosen-dropdown">Events</b>
                                 </button>
-                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
-                                  <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
-                                  <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming
+                                            Events</a></li>
+                                    <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
                                 </ul>
-                              </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
-                        </li>
-                        <li class="nav-item nav-hide-logged">
-                            <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                          </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html"><b>About</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
-                        </li>
+                            </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
+                            </li>
+                            <li class="nav-item nav-hide-logged">
+                                <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html"><b>About</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
+                            </li>
                     </ul>
-                    <div class="fl-right">
+                    <hr>
+                    <div class="fl-right event-buttons navbar-nav">
                         <div class="d-flex gap-2">
                             <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
                                     type="button">Login</button></a>
@@ -81,10 +86,11 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="profile.html">Profile</a>
-                                    <a href="jobs-bookmark.html">Bookmark</a>
+                                    <a href="profile-settings.html">Settings & Privacy</a>
+                                    <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="alumnisearch.html">Search Alumni</a>
-                                    <a href="profile-settings.html">Settings</a>
+                                    <a href="jobs-bookmark.html">Bookmarks</a>
+                                    <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
                                 </div>
                             </div>
@@ -108,80 +114,71 @@
                                 <hr>
                             </div>
                             <div class="row mt-3">
-                                <form action="">
+                                <form action="" method="POST">
                                     <form action="" class="form" id="form">
                                         <div class="row event-row">
                                             <div class="col-sm">
                                                 <label class="form-label" for="eventTitle">Event Title</label>
-                                                <input class="form-control" id="eventTitle" type="text" name="eventTitle" placeholder="" required>
-                                                <i class="fas fa-check-circle icon"></i>
-                                                <i class="fas fa-exclamation-circle icon"></i>
+                                                <input class="form-control" id="eventTitle" type="text"
+                                                    name="eventTitle" placeholder="" required>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
-    
+
                                         <div class="row mt-2 event-row">
                                             <div class="col-sm event-row">
                                                 <label class="form-label" for="startDate">Start Date</label>
-                                                <div class="input-group event-date" >
-                                                    <input type="date" class="form-control" id="startDate" placeholder="" required>
+                                                <div class="input-group event-date">
+                                                    <input type="date" class="form-control" id="startDate"
+                                                        placeholder="" required>
                                                 </div>
-                                                <i class="fas fa-check-circle icon"></i>
-                                                <i class="fas fa-exclamation-circle icon"></i>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                             <div class="col-sm event-row">
                                                 <label class="form-label" for="endDate">End Date</label>
                                                 <div class="input-group event-date">
-                                                    <input type="date" class="form-control" id="endDate" placeholder="" required>
+                                                    <input type="date" class="form-control" id="endDate" placeholder=""
+                                                        required>
                                                 </div>
-                                                <i class="fas fa-check-circle icon"></i>
-                                                <i class="fas fa-exclamation-circle icon"></i>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
-    
+
                                         <div class="row event-row" style="margin-top: -1.5em;">
                                             <div class="col-sm">
                                                 <label class="form-label" for="description">Description</label>
-                                                <textarea name="description" class="form-control" id="description" cols="25" rows="10"></textarea>
+                                                <textarea name="description" class="form-control" id="description"
+                                                    cols="25" rows="10"></textarea>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
-    
+
                                         <div class="row mt-4 event-row">
                                             <div class="col-sm">
                                                 <label class="form-label" for="eventImg">Event Image</label>
                                                 <input class="form-control" type="file" name="eventImg" id="eventImg">
-                                                <i class="fas fa-check-circle icon"></i>
-                                                <i class="fas fa-exclamation-circle icon"></i>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
-    
+
                                         <div class="row mt-4 event-row">
                                             <label class="form-label" for="eventMode">Mode</label>
                                             <div class="col radio-label">
-                                                <input type="radio" class="event-mode" id="physical" name="eventMode" value="physical" required>
+                                                <input type="radio" class="event-mode" id="physical" name="eventMode"
+                                                    value="physical" required>
                                                 <label class="event-label" for="physical">Physical</label>
                                             </div>
                                             <div class="col radio-label">
-                                                <input type="radio" class="event-mode" id="virtual" name="eventMode" value="virtual" required>
+                                                <input type="radio" class="event-mode" id="virtual" name="eventMode"
+                                                    value="virtual" required>
                                                 <label class="event-label" for="virtual">Virtual</label>
                                             </div>
                                         </div>
 
-                                    <div class="row form-reg-submit mt-2 justify-content-center">
-                                        <button class="event-btn mx-3" type="submit">Update Event</button>
-                                    </div>
-                                </form>
-                                <script>
-                                    ClassicEditor
-                                        .create( document.querySelector( '#description' ) )
-                                        .catch( error => {
-                                            console.error( error );
-                                        } );
-                                </script>
+                                        <div class="row form-reg-submit mt-2 justify-content-center">
+                                            <button class="event-btn mx-3" type="submit">Update Event</button>
+                                        </div>
+                                    </form>
                             </div>
                         </div>
                     </div>
@@ -261,6 +258,13 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/eventValidator.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>

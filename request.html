@@ -39,16 +39,17 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <hr>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="navbar-nav nav-item">
                             <div class="dropdown">
                                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <b>Events</b>
                                 </button>
-                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming
                                             Events</a></li>
                                     <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
@@ -68,7 +69,8 @@
                             <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
                         </li>
                     </ul>
-                    <div class="fl-right">
+                    <hr>
+                    <div class="fl-right event-buttons navbar-nav">
                         <div class="d-flex gap-2">
                             <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
                                     type="button">Login</button></a>
@@ -80,10 +82,11 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="profile.html">Profile</a>
-                                    <a href="jobs-bookmark.html">Bookmark</a>
+                                    <a href="profile-settings.html">Settings & Privacy</a>
+                                    <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="alumnisearch.html">Search Alumni</a>
-                                    <a href="profile-settings.html">Settings</a>
+                                    <a href="jobs-bookmark.html">Bookmarks</a>
+                                    <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
                                 </div>
                             </div>
@@ -99,7 +102,7 @@
             <div class="request-page shadow-lg">
                 <div class="row rowreq">
                     <div class="col d-flex text-center justify-content-center align-items-center">
-                        <p class="h4">Thank you for your registration!<br>
+                        <p class="h3" style="text-transform: uppercase; font-family: 'Hammersmith One', sans-serif;">Thank you for your registration!<br>
                             Your request to join the <span style="color: #8f0b89; font-weight: 800;">Alumni Portal</span> has been sent to the Admin.<br>
                             You will be informed through your registered e-mail upon <span style="color: green; font-weight: 800;">successful acceptance</span> of your request.</p>
                     </div>

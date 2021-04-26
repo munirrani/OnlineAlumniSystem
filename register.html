@@ -41,16 +41,17 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <hr>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="navbar-nav nav-item">
                             <div class="dropdown">
                                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <b>Events</b>
                                 </button>
-                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming
                                             Events</a></li>
                                     <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
@@ -70,7 +71,8 @@
                             <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
                         </li>
                     </ul>
-                    <div class="fl-right">
+                    <hr>
+                    <div class="fl-right event-buttons navbar-nav">
                         <div class="d-flex gap-2">
                             <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
                                     type="button">Login</button></a>
@@ -82,10 +84,11 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="profile.html">Profile</a>
-                                    <a href="jobs-bookmark.html">Bookmark</a>
+                                    <a href="profile-settings.html">Settings & Privacy</a>
+                                    <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="alumnisearch.html">Search Alumni</a>
-                                    <a href="profile-settings.html">Settings</a>
+                                    <a href="jobs-bookmark.html">Bookmarks</a>
+                                    <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
                                 </div>
                             </div>
@@ -102,7 +105,7 @@
                 <div class="row shadow-lg">
                     <div class="col-sm-4 left-col d-flex reg-pic">
 
-                        <img src="img/registeralumnisvg-02.svg" alt="">
+                        <img class="" src="img/registeralumnisvg-02.svg" alt="">
 
                     </div>
                     <div class="col-sm-8 right-col">
@@ -129,15 +132,16 @@
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="lastname">Last Name</label>
-                                            <input class="form-control" type="text" id="lastname" name="lastname" placeholder=""
-                                                required>
+                                            <input class="form-control" type="text" id="lastname" name="lastname"
+                                                placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm">
                                             <label class="form-label" for="age">Age</label>
                                             <div class="input-group">
-                                                <input id="age" type="number" class="form-control" placeholder="" required min="16" max="100">
+                                                <input id="age" type="number" class="form-control" placeholder=""
+                                                    required min="16" max="100">
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -149,16 +153,20 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row mt-2">
                                         <div class="col-sm">
-                                            <label class="form-label" for="enrolYear">Enrolment Year</label>
+                                            <label class="form-label" for="enrolYear">Enrol-Year</label>
                                             <div class="input-group">
-                                                <input id="enrolYear" type="number" class="form-control" placeholder="" required min="1980" max="2099">
+                                                <input id="enrolYear" class="form-control form-select datepickeryear"
+                                                    placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
-                                            <label class="form-label" for="gradYear">Graduation Year</label>
+                                            <label class="form-label" for="gradYear">Grad-Year</label>
                                             <div class="input-group">
-                                                <input id="gradYear" type="number" class="form-control" placeholder="" required min="1980" max="2099" onkeyup='checkGradYear()'>
+                                                <input id="gradYear" class="form-control form-select datepickeryear"
+                                                    placeholder="" required onselect='checkGradYear()'>
                                             </div>
                                         </div>
                                     </div>
@@ -166,9 +174,9 @@
                                         <div class="col-sm">
                                             <label class="form-label" for="email">Email</label>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i
-                                                        class="far fa-envelope"></i></span>
-                                                <input id="email" type="email" class="form-control" placeholder="" required>
+                                                <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                                                <input id="email" type="email" class="form-control" placeholder=""
+                                                    required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -357,6 +365,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+        rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
         integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
         crossorigin="anonymous"></script>
@@ -364,6 +375,17 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script type="text/javascript">
+
+        $(".datepickeryear").datepicker({
+            format: "yyyy",
+            viewMode: "years",
+            minViewMode: "years",
+            autoclose: true,
+        });
+
+    </script>
 
 </body>
 

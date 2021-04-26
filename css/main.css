@@ -34,6 +34,7 @@ body {
     display: none;
 }
 #topNavbar {
+    font-family: 'Hammersmith One', sans-serif;
     background-color: #8f0b89;
     font-weight: 800;
     width: 100%;
@@ -128,7 +129,8 @@ footer {
         white-space: normal;
     }
     .navbar-nav {
-        text-align: end;
+        align-items: initial;
+        align-content: initial;
     }
     .fl-right {
         float: right;
@@ -145,8 +147,13 @@ footer {
         padding: 0.2rem 1rem;
         font-size: 1.2rem;
     }
-    body {
+    /* body {
         background-size: 200% 200%;
+    } */
+    #home-container.container-fluid {
+        max-width: 100vw !important;
+        padding-left: 0px;
+        padding-right: 0px;
     }
     .jumbotron-button{
         border-radius: 15px;
@@ -177,8 +184,8 @@ footer {
         margin-top: 30px;
     }
     .reg-pic img{
-        height: auto;
-        width: auto;
+        height: auto !important;
+        width: auto !important;
     }
     /*Profile Page*/
     #right-col {
@@ -186,6 +193,11 @@ footer {
         padding-right: 0px !important;  
     }
     /*Event Page*/
+    #event-main {
+        width: 100% !important;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
     .event-img , .top-reg-text{
         text-align: center;
     }
@@ -323,9 +335,11 @@ footer {
 .dropdown-toggle::after {
     content: none;
 }
-
 .menu-back {
     background-color: #f3f3f3;
+}
+.event-buttons {
+    /*Don't delete this!*/
 }
 
 #event-main {
@@ -338,18 +352,15 @@ footer {
     background-color: #f3f3f3;
     box-shadow: 10em;
 }
-
 #upcoming-events {
     margin-bottom: 1.5em;
     padding-left: 2em;
     font-family: 'Hammersmith One', sans-serif;
     display: inline-block;
 }
-
 #event-creation {
     margin-top: -1em;
 }
-
 .vertical-event-card {
     border: 0px;
     display: grid;
@@ -361,16 +372,21 @@ footer {
     align-items: center;
     background-color: #f3f3f3;
 }
-#event-main a {
+.event-title {
     color: black;
-    text-decoration: none;
 }
-#event-main a:hover {
-    color: white;
+.event-title:hover {
+    color: rgb(145, 141, 141);
+}
+#event-main a {
+    text-decoration: none;
 }
 .event-meta {
     font-size: small;
     font-family: 'Hammersmith One', sans-serif;
+}
+.responsive-disabled {
+    display: none;
 }
 .event-text {
     padding-right: 1.5em;
@@ -379,19 +395,6 @@ footer {
     display: grid;
     place-items: center;
 }
-.event-date input[type="date"]::-webkit-calendar-picker-indicator {
-    background: transparent;
-    bottom: 0;
-    color: transparent;
-    cursor: pointer;
-    height: auto;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: auto;
-}
-
 .page-nav {
     justify-content: center;
     padding: 0.5em 1em; 
@@ -405,64 +408,37 @@ footer {
     background-color: #cc67c7;
     text-decoration: none;
 }
+.page-nav a:hover {
+    color: white;
+    background-color: #cc67c7;
+    text-decoration: none;
+}
 
 .event-row {
     position: relative;
     margin-bottom: 2em;
 }
-
+.event-date input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
 .description-row {
     margin-top: -1.5em;
 }
-
-.icon {
-    position: absolute;
-    top: 2.7em;
-    right: 1.3em;
-    visibility: hidden;
-}
-
-.error-msg {
-    position:absolute;
-    visibility: hidden;
-}
-
-.success input{
-    border-color: #2ecc71;
-}
-
-.success i.fa-check-circle {
-    color: #2ecc71;
-    visibility: visible;
-}
-
-.error input {
-    border-color: #e74c3c;
-}
-
-.error small {
-    visibility: visible;
-    font-size: small;
-    color: #e74c3c;
-}
-
-.error i.fa-exclamation-circle {
-    color: #e74c3c;
-    visibility: visible;
-}
-
 .mode-container {
     align-items: center;
 }
-
 .event-mode {
     visibility: hidden;
 }
-
-:host ::ng-deep .ck-editor__editable_classic {
-    min-height: 500px;
-}
-
 .event-label {
     display: inline-block;
     margin-bottom: 5px;
@@ -476,7 +452,6 @@ footer {
     margin: auto;
     margin-top: -3em;
 }
-
 .event-label:before {
     content: "";
     float: left;
@@ -487,21 +462,50 @@ footer {
     background: #f3f3f3;    
     margin-right: 20px;
 }
-
 .event-mode:checked + .event-label {
     background-color: #aa2aa4;
     color:white;
 }
-
 .radio-label {
     margin-top: -0.5em;
 }
-
 .event-mode:checked + .event-label:before {
     height: 20px;
     width: 20px;
     border: 6px solid #f3f3f3;
     background-color: #aa2aa4;
+}
+
+.icon {
+    position: absolute;
+    top: 2.7em;
+    right: 1.3em;
+    visibility: hidden;
+}
+.error-msg {
+    position:absolute;
+    visibility: hidden;
+}
+.error input {
+    border-color: #e74c3c;
+    background-color: #faedeb;
+}
+.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+.error small {
+    visibility: visible;
+    font-size: small;
+    color: #e74c3c;
+}
+.success input{
+    border-color: #2ecc71;
+    background-color: #e4f7eb;
+}
+.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
 }
 
 .event-btn {
@@ -515,12 +519,49 @@ footer {
     border: none;
     transition: 0.25s;
 }
-
 .event-btn:hover {
     box-shadow: 0 0 15px #c532be;
 }
 
+#event-section {
+    text-align: left;
+    align-items: center;
+    border-radius: 0.5em;
+    margin: auto;
+    margin-top: 3em;
+    margin-bottom: 4em;
+    padding: 3.5em 3.5em 2em;
+    width: 70%;
+    background-color: #f3f3f3;
+    box-shadow: 10em;
+}
+#article-title {
+    margin-bottom: 1em;
+}
+#event-article {
+
+}
+.article-img {
+    padding: 2em;
+}
+
 @media (max-width: 730px) {
+    .responsive-disabled {
+        display: inline-block;
+    }
+
+    #event-section {
+        width: 100%;
+        padding: 1.5em;
+        margin-top: 0.5em;
+    }
+
+    .event-buttons {
+        width: 100%;
+        align-items: center;
+        margin: auto;
+    }
+
     .vertical-event-card {
         display: block;
         grid-template-columns: 1fr;
@@ -534,7 +575,12 @@ footer {
         display: inline-block;
 
     }
+
+    .event-main {
+        padding: 1.7em 1.5em 1em;
+    }
 }
+
 /* ------------------------------------------------------- */
 
 
@@ -779,9 +825,9 @@ footer {
     background-color: #fff;
     font-family: 'Hammersmith One', sans-serif;
     border-radius: 10px;
-    max-width: 40%;
+    max-width: 60%;
     height: auto;
-    padding: 25px;
+    padding: 40px 10px;
 }
 /* .request-page .rowreq{
     max-height: 18rem;
@@ -855,12 +901,12 @@ a:hover[id=profileNav-inactive] {
     font-family: 'Hammersmith One', sans-serif;
     text-align: center;
 }
-#profile-name{
+.profile-name{
     color: white;
     margin-bottom: 20px;
     font-family: 'Hammersmith One', sans-serif;
 }
-#profile-bio { 
+#bio1 { 
     color: white;
     margin-bottom: 20px;
 }
@@ -868,7 +914,7 @@ a:hover[id=profileNav-inactive] {
 #profileNav { 
     color: white;
 }
-#profileImg{
+#profileImg {
     border: 2px solid white ;
     border-radius: 50%;
     width:250px;
@@ -893,7 +939,7 @@ a:hover[id=profileNav-inactive] {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
-.form-control[class="purplemodalinput"]:focus  {
+.purplemodalinput:focus  {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
@@ -977,6 +1023,11 @@ a:hover[id=profileNav-inactive] {
 .index-chosen-dropdown {
     font-weight: 800 !important;
     color: black !important;
+}
+a[id="no-blue"]{
+    text-decoration: none;
+    color: #8f0b89;
+
 }
 /* ------------------------------------------------------- */
 
@@ -1080,6 +1131,14 @@ a:hover[id=profileNav-inactive] {
     border-radius: 50%;
     border: 1px solid rgb(172, 171, 171);
     margin-top: 20px;
+}
+
+.bmark-hide-logged {
+    display: none;
+}
+
+.bmark-hide1-logged {
+    display: none;
 }
 
 #job-bmark:hover{
@@ -1297,7 +1356,9 @@ a:hover[id=profileNav-inactive] {
     padding: 20px;
 }
 #act-box:hover{
-    box-shadow: 0px 5px 5px #d3d2d2
+    box-shadow: 0px 5px 5px #d3d2d2;
+    cursor: pointer;
+    
 }
 #act-jobname{
     font-weight: bold;

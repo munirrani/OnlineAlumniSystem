@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
     <script type="text/javascript" src="js/map.js"></script>
-    <title>Bookmark | FSKTM Alumni</title>
+    <title>Event | FSKTM Alumni</title>
+    <style>
+        .modal {
+            height: 100%;
+            vertical-align: middle;
+            overflow: unsets;
+        }
+
+        .modal-dialog {
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,14 +31,12 @@
             <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
                 <div class="container h4">
                     <div class="mx-auto order-0">
-                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and
-                            Information
-                            Technology Alumni</a>
+                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and Information Technology Alumni</a>
                     </div>
                 </div>
             </nav>
         </header>
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
+        <nav class=" navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
             <div class="container h5">
                 <a class="navbar-brand" href="index.html">
                     <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
@@ -46,9 +56,9 @@
                         <li class="navbar-nav nav-item">
                             <div class="dropdown">
                                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b>Events</b>
+                                  <b class="index-chosen-dropdown">Events</b>
                                 </button>
-                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                   <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
                                   <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
                                 </ul>
@@ -83,160 +93,66 @@
                                     <a href="profile-settings.html">Settings & Privacy</a>
                                     <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
-                                    <a class="index-chosen-dropdown" href="jobs-bookmark.html">Bookmarks</a>
+                                    <a href="jobs-bookmark.html">Bookmarks</a>
                                     <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </nav>
 
         <main>
-            <div class="container mt-3">
-                <ul class="nav nav-tabs">
-                    <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
-                    </li>
-                    <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
-                    </li>
-                    <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
-                    </li>
-                    <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link  active" aria-current="page" href="jobs-bookmark.html">Bookmarks</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="container" style="margin-top: 20px;">
-                <div class="main-body">
-                    <div id="act-header" class="shadow-lg">
-                        <div class="row">
-                            <div class="col-md-auto">
-                                <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="act-profileImg" class="shadow"></a>
-                            </div>
-                            <div class="col-md-8">
-                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"></h2>
-                                <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
-                            </div>
-                            <div class="col-md">
-                                <h2 id="act-count">5</h2>
-                                <p id="act-uploads">Bookmarks</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="act-main" class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <h2 id = "act-txtheading">BOOKMARKS</h2>
-                            </div>
-                            <div>
-                                <div id="act-posted">
-                                    Bookmarked on 21 April 2021
-                                </div>
-                                <div id="act-box" class="row">
-                                    <div class="col-md-4">
-                                        <img src="img/icon.jpg" class="act-image">
-                                        <h6 id="act-jobname">
-                                            Senior Branch Manager
-                                        </h6>
-                                        <h6 id="job-company">
-                                            Highspeed Studios
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h6 id="act-salary">
-                                            RM 1000 - RM2000
-                                        </h6>
-                                    </div>
-                                    <div class="col-md">
-                                        <h6 id="act-location">
-                                            Wangsa Maju, Kuala Lumpur 
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <button type="button" id="book-bmarkbutton" class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
-                                        <a href="jobs-details.html"><button type="button" id="book-viewbutton" class="btn">View</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr> 
-                            <div>
-                                <div id="act-posted">
-                                    Bookmarked on 21 April 2021
-                                </div>
-                                <div id="act-box" class="row">
-                                    <div class="col-md-4">
-                                        <img src="img/icon.jpg" class="act-image">
-                                        <h6 id="act-jobname">
-                                            Senior Branch Manager
-                                        </h6>
-                                        <h6 id="job-company">
-                                            Highspeed Studios
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h6 id="act-salary">
-                                            RM 1000 - RM2000
-                                        </h6>
-                                    </div>
-                                    <div class="col-md">
-                                        <h6 id="act-location">
-                                            Wangsa Maju, Kuala Lumpur 
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <button type="button" id="book-bmarkbutton" class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
-                                        <a href="jobs-details.html"><button type="button" id="book-viewbutton" class="btn">View</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr> 
-                            <div>
-                                <div id="act-posted">
-                                    Bookmarked on 21 April 2021
-                                </div>
-                                <div id="act-box" class="row">
-                                    <div class="col-md-4">
-                                        <img src="img/icon.jpg" class="act-image">
-                                        <h6 id="act-jobname">
-                                            Senior Branch Manager
-                                        </h6>
-                                        <h6 id="job-company">
-                                            Highspeed Studios
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h6 id="act-salary">
-                                            RM 1000 - RM2000
-                                        </h6>
-                                    </div>
-                                    <div class="col-md">
-                                        <h6 id="act-location">
-                                            Wangsa Maju, Kuala Lumpur 
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <button type="button" id="book-bmarkbutton" class="btn"><img id="search-img" src="img/bookmark-icon.png"></button>
-                                        <a href="jobs-details.html"><button type="button" id="book-viewbutton" class="btn">View</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr> 
-                        </div>
-                        
-                    </div>
+            <div id="event-section">
+                <div>
+                    <h4 id="article-title event-title">Lorem ipsum dolor sit.</h4>
+                    <p class="event-meta">Date | Mode</p>
                 </div>
+                <article class="event-article">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque delectus amet eligendi, culpa quae sapiente ab dolorum beatae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis earum unde doloremque quos repudiandae sunt aliquid vitae suscipit neque in!
+                    </p>
+                    <div class="article-img">
+                        <img class="img-fluid" src="img/philipp-a-urlich-cpncept216.jpg" alt="Image related to event">
+                    </div>
+                    <p>
+                        Lorem ipsum, dolor sit <span style="font-weight: bold;"> amet consectetur adipisicing elit. Quam nemo laboriosam sit, </span> nihil tempore, magni harum fugit fugiat dicta <span style="font-style: italic;"> blanditiis in similique ullam molestiae error illum</span> accusantium! Voluptates, commodi nulla.
+                    </p>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </article>
             </div>
         </main>
-
-        <script>
-            document.getElementById("userName1").innerHTML=localStorage.getItem("userName");
-        </script>
 
         <footer class="page-footer shadow">
             <div class="container text-center text-md-left mt-4">
@@ -295,7 +211,7 @@
             <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
                 <p>Copyright &copy; FSKTM 2021
                 </p>
-                Designed by Haney & Humaira'
+                Designed by Irfan
             </div>
         </footer>
     </div>
@@ -309,7 +225,5 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>
-
 </html>

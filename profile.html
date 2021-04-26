@@ -39,15 +39,16 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <hr>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="navbar-nav nav-item">
                             <div class="dropdown">
                                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                   <b>Events</b>
                                 </button>
-                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                   <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
                                   <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
                                 </ul>
@@ -66,7 +67,8 @@
                             <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
                         </li>
                     </ul>
-                    <div class="fl-right">
+                    <hr>
+                    <div class="fl-right event-buttons navbar-nav">
                         <div class="d-flex gap-2">
                             <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
                                     type="button">Login</button></a>
@@ -77,10 +79,8 @@
                                     <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
-                                    <a class="index-chosen-dropdown"  href="profile.html">Profile</a>
+                                    <a class="index-chosen-dropdown" href="profile.html">Profile</a>
                                     <a href="profile-settings.html">Settings & Privacy</a>
-                                    <hr class="no-margin">
-                                    <a href="alumnisearch.html">Search Alumni</a>
                                     <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
                                     <a href="jobs-bookmark.html">Bookmarks</a>
@@ -96,28 +96,20 @@
 
         <main>
             <div class="container mt-3">
-                <div class="row">
-                    <div class="col-md-3 gx-0">
-                        <ul class="nav nav-tabs">
-                            <li id="inactive" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile.html">Profile</a>
-                            </li>
-                            <li id="inactive" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md gx-0">
-                        <ul class="nav nav-tabs">
-                            <li id="profileNav" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
-                            </li>
-                            <li id="profileNav" class="nav-item">
-                                <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <ul class="nav nav-tabs">
+                    <li id="inactive" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile.html">Profile</a>
+                    </li>
+                    <li id="inactive" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                    </li>
+                    <li id="profileNav" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
+                    </li>
+                    <li id="profileNav" class="nav-item">
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                    </li>
+                </ul>
             </div>
 
             <div class="container" style="margin-top: 20px;">
@@ -129,10 +121,10 @@
                                     <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="profileImg"
                                             class="shadow"></a>
                                     <div class="mt-3">
-                                        <h2 id="profile-name">Haney</h2>
+                                        <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
                                             <div class="container">
-                                                <p id="profile-bio">Web Developer at Haney & Humaira' Sdn Bhd</p>
+                                                <p id="bio1"></p>
                                             </div>
                                         </div>
                                         <div class="container">
@@ -140,7 +132,7 @@
                                                 <hr class="profileBio-line">
                                             </div>
                                         </div>
-                                        <a href="profile-edit.html"><button id="editbutton" class="btn shadow" type="button">Edit Profile</button></a>
+                                        <a href="profile-edit.html"><button id="editbutton" class="btn shadow" type="button" onclick="tryFunction()">Edit Profile</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -155,8 +147,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Full Name</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Humaira' Binti Ahmad Shuhemi
+                                        <div class="col-sm-9 text-secondary" id="fullName1">
                                         </div>
                                     </div>
                                     <hr>
@@ -164,8 +155,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Current Position</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Software Officer
+                                        <div class="col-sm-9 text-secondary" id="currentPosition1">
                                         </div>
                                     </div>
                                     <hr>
@@ -173,8 +163,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Email</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            humairas00@yahoo.com
+                                        <div class="col-sm-9 text-secondary" id="email1">
                                         </div>
                                     </div>
                                     <hr>
@@ -182,8 +171,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Phone</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            018-2469011
+                                        <div class="col-sm-9 text-secondary" id="phone1">
                                         </div>
                                     </div>
                                     <hr>
@@ -191,8 +179,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Enrollment Year</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            2019/2020
+                                        <div class="col-sm-9 text-secondary" id="enrollYear1">
                                         </div>
                                     </div>
                                     <hr>
@@ -200,8 +187,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Department</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Software Engineering
+                                        <div class="col-sm-9 text-secondary" id="department1">
                                         </div>
                                     </div>
                                     <hr>
@@ -209,8 +195,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Level</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Degree
+                                        <div class="col-sm-9 text-secondary" id="level1">
                                         </div>
                                     </div>
                                     <hr>
@@ -218,8 +203,7 @@
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Address</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            Selangor, Malaysia
+                                        <div class="col-sm-9 text-secondary" id="address1">
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +213,20 @@
                 </div>
             </div>
         </main>
-
+        
+        <script>
+            document.getElementById("fullName1").innerHTML=localStorage.getItem("fullName");
+            document.getElementById("currentPosition1").innerHTML=localStorage.getItem("currentPosition");
+            document.getElementById("email1").innerHTML=localStorage.getItem("email");
+            document.getElementById("phone1").innerHTML=localStorage.getItem("phone");
+            document.getElementById("enrollYear1").innerHTML=localStorage.getItem("enrollYear");
+            document.getElementById("department1").innerHTML=localStorage.getItem("department");
+            document.getElementById("level1").innerHTML=localStorage.getItem("level");
+            document.getElementById("address1").innerHTML=localStorage.getItem("address");
+            document.getElementById("bio1").innerHTML=localStorage.getItem("bio");
+            document.getElementById("userName1").innerHTML=localStorage.getItem("userName");
+        </script>
+    
         <footer class="page-footer shadow">
             <div class="container text-center text-md-left mt-4">
                 <div class="row align-items-center">
@@ -301,6 +298,7 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>
 
 </html>

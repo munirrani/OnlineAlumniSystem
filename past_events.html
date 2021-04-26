@@ -41,15 +41,16 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <hr>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="navbar-nav nav-item">
                             <div class="dropdown">
                                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                   <b class="index-chosen-dropdown">Events</b>
                                 </button>
-                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
+                                <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                   <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
                                   <li><a class="dropdown-item nav-link index-chosen-dropdown" href="past_events.html">Past Events</a></li>
                                 </ul>
@@ -68,7 +69,8 @@
                             <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
                         </li>
                     </ul>
-                    <div class="fl-right">
+                    <hr>
+                    <div class="fl-right event-buttons navbar-nav">
                         <div class="d-flex gap-2">
                             <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
                                     type="button">Login</button></a>
@@ -80,10 +82,11 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="profile.html">Profile</a>
-                                    <a href="jobs-bookmark.html">Bookmark</a>
+                                    <a href="profile-settings.html">Settings & Privacy</a>
+                                    <hr class="no-margin">
                                     <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="alumnisearch.html">Search Alumni</a>
-                                    <a href="profile-settings.html">Settings</a>
+                                    <a href="jobs-bookmark.html">Bookmarks</a>
+                                    <hr class="no-margin">
                                     <a href="#" id="logoutbutton">Log Out</a>
                                 </div>
                             </div>
@@ -102,118 +105,153 @@
 
                 <div class="vertical-event-card">
                     <div class="event-text">
-                        <h4>Lorem, ipsum dolor.</h4>
+                        <a href="event.html" class="event-title">
+                            <h4>Lorem, ipsum dolor.</h4>
+                        </a>
                         <p class="event-meta">
-                            Date | Mode 
-                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
+                            Date | Mode
+                            <br class="responsive-disabled" style="clear: both;">
+                            <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                                    Event</button></a>
+                            <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                                data-bs-target="#warning">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et dignissimos expedita quam adipisci. Aspernatur, optio distinctio est aperiam alias deleniti natus odio voluptatibus ullam perspiciatis in animi laboriosam 
                             sunt nam veritatis quos cupiditate quod nesciunt eius, voluptate ipsa molestias consectetur quasi! Cum odit sed, maiores fuga exercitationem quas
-                            fugiat dolore necessitatibus aliquam recusandae facere facilis et. Est, cupiditate! Ratione illo facere placeat tempora repellat nostrum amet impedit aut
-                            harum blanditiis. Veritatis odio, vitae autem dolor sit reprehenderit sed optio. Earum!</p>
                     </div>
                     <div class="event-img">
-                        <img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt="">
+                        <a href="event.html"><img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt=""></a>
                     </div>
                 </div>
 
                 <div class="vertical-event-card">
                     <div class="event-text">
-                        <h4>Lorem, ipsum dolor.</h4>   
+                        <a href="event.html" class="event-title">
+                            <h4>Lorem, ipsum dolor.</h4>
+                        </a>
                         <p class="event-meta">
-                            Date | Mode 
-                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
+                            Date | Mode
+                            <br class="responsive-disabled" style="clear: both;">
+                            <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                                    Event</button></a>
+                            <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                                data-bs-target="#warning">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem doloribus eaque enim quia voluptas fugiat ducimus aspernatur, quod dignissimos perferendis deleniti reprehenderit itaque ea fuga quae reiciendis dolores illo sunt!</p>
                     </div>
                     <div class="event-img">
-                        <img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt="">
+                        <a href="event.html"><img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt=""></a>
                     </div>
                 </div>
 
                 <div class="vertical-event-card">
                     <div class="event-text">
-                        <h4>Lorem, ipsum dolor.</h4> 
+                        <a href="event.html" class="event-title">
+                            <h4>Lorem, ipsum dolor.</h4>
+                        </a>
                         <p class="event-meta">
-                            Date | Mode 
-                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
+                            Date | Mode
+                            <br class="responsive-disabled" style="clear: both;">
+                            <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                                    Event</button></a>
+                            <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                                data-bs-target="#warning">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem doloribus eaque enim quia voluptas fugiat ducimus aspernatur, quod dignissimos perferendis deleniti reprehenderit itaque ea fuga quae reiciendis dolores illo sunt!</p>
                     </div>
                     <div class="event-img">
-                        <img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt="">
+                        <a href="event.html"><img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt=""></a>
                     </div>
                 </div>
 
                 <div class="vertical-event-card">
                     <div class="event-text">
-                        <h4>Lorem, ipsum dolor.</h4>  
+                        <a href="event.html" class="event-title">
+                            <h4>Lorem, ipsum dolor.</h4>
+                        </a>
                         <p class="event-meta">
-                            Date | Mode 
-                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
+                            Date | Mode
+                            <br class="responsive-disabled" style="clear: both;">
+                            <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                                    Event</button></a>
+                            <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                                data-bs-target="#warning">Delete Event</button>
                         </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                     <div class="event-img">
-                        <img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt="">
+                        <a href="event.html"><img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt=""></a>
                     </div>
                 </div>
                 
                 <div class="vertical-event-card">
                     <div class="event-text">
-                        <h4>Lorem, ipsum dolor.</h4>
+                        <a href="event.html" class="event-title">
+                            <h4>Lorem, ipsum dolor.</h4>
+                        </a>
                         <p class="event-meta">
-                            Date | Mode 
-                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
+                            Date | Mode
+                            <br class="responsive-disabled" style="clear: both;">
+                            <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                                    Event</button></a>
+                            <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                                data-bs-target="#warning">Delete Event</button>
                         </p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos dignissimos porro, cumque repudiandae beatae eos laborum obcaecati inventore! Culpa natus neque ipsam facilis perferendis dicta impedit temporibus qui assumenda commodi!</p>
                     </div>
                     <div class="event-img">
-                        <img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt="">
+                        <a href="event.html"><img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt=""></a>
                     </div>
                 </div>
 
                 <div class="vertical-event-card">
                     <div class="event-text">
-                        <h4>Lorem, ipsum dolor.</h4>
+                        <a href="event.html" class="event-title">
+                            <h4>Lorem, ipsum dolor.</h4>
+                        </a>
                         <p class="event-meta">
-                            Date | Mode 
-                            <button class="btn event-meta btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Event</button>
+                            Date | Mode
+                            <br class="responsive-disabled" style="clear: both;">
+                            <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                                    Event</button></a>
+                            <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                                data-bs-target="#warning">Delete Event</button>
                         </p>
                         <p>Lorem, eos laborum obcaecati inventore! Culpa natus neque ipsam facilis perferendis dicta impedit temporibus qui assumenda commodi!</p>
                     </div>
                     <div class="event-img">
-                        <img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt="">
+                        <a href="event.html"><img src="img/philipp-a-urlich-cpncept216.jpg" class="img-fluid rounded-3" width="500" height="280" alt=""></a>
                     </div>
                 </div>
 
-                <div class="text-center">
+                <div class="text-center mt-3">
                     <div class="row justify-content-md-center mx-auto btn-group">
-                        <a href="" class="col page-nav">Previous</a>
-                        <a href="" class="col page-nav">-5</a>
-                        <a href="" class="col page-nav">-4</a>
-                        <a href="" class="col page-nav">-3</a>
-                        <a href="" class="col page-nav">-2</a>
-                        <a href="" class="col page-nav">-1</a>
-                        <a href="" class="col page-nav">Next</a>
+                        <a href="#" class="col page-nav page-nav-text">Previous</a>
+                        <a href="#" class="col page-nav page-nav-text">-5</a>
+                        <a href="#" class="col page-nav page-nav-text">-4</a>
+                        <a href="#" class="col page-nav page-nav-text">-3</a>
+                        <a href="#" class="col page-nav page-nav-text">-2</a>
+                        <a href="#" class="col page-nav page-nav-text">-1</a>
+                        <a href="#" class="col page-nav page-nav-text">Next</a>
                     </div>
                 </div>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
                     <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="warning">Warning!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                You're about to delete this event. Are you sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-danger">Delete</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            You're about to delete this event. Are you sure?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-primary btn-danger">Delete</button>
-                        </div>
-                      </div>
                     </div>
                 </div>
             </div>
