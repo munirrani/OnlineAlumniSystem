@@ -488,6 +488,7 @@ footer {
 }
 .error input {
     border-color: #e74c3c;
+    background-color: #faedeb;
 }
 .error i.fa-exclamation-circle {
     color: #e74c3c;
@@ -500,6 +501,7 @@ footer {
 }
 .success input{
     border-color: #2ecc71;
+    background-color: #e4f7eb;
 }
 .success i.fa-check-circle {
     color: #2ecc71;
