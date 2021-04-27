@@ -9,7 +9,7 @@ Specifications:<br>
 
 Group members:<br>
 
-| **Name** | **Student_ID** | **Feature** |
+| **Names** | **Student_IDs** | **Features** |
 | :------------- | ----------: | :----------- |
 | Fahad Aqeel Thakur | 17205336 | Basic site page and Search alumni and view the alumni profile, home page, contact us, about us |
 | Haney binti Iskandar | 17178460 | Manage user profile |
