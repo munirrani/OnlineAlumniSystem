@@ -340,6 +340,7 @@ footer {
 }
 .event-buttons {
     /*Don't delete this!*/
+    /* IS IT BECUZ U R GEH? */
 }
 
 #event-main {
@@ -687,7 +688,7 @@ footer {
     font-size: 16px;
     height: auto;
     padding: 10px;
-    @include box-sizing(border-box);
+    /* @include box-sizing(border-box); */
     transition: 0.4s;
 }
 .form-signin .form-control:focus {
