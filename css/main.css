@@ -1731,7 +1731,52 @@ dt{
 /* Admin Page */
 /* ------------------------------------------------------- */
 
+.jumbotron-admin-profile {
+    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.6) 100%), url(../img/admin-alumni-profile.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: .4rem;
+    width: auto;
+    height: 500px;
+    color: white;
+}
 
+.jumbotron-admin-event {
+    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.6) 100%), url(../img/admin-events.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: .4rem;
+    width: auto;
+    height: 500px;
+    color: white;
+}
 
+.admin-welcome-cards{
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+.admin-welcome-cards:hover{
+    z-index: 1;
+    transform: scale(1.05);
+}
+
+.btn-admin{
+    color: #f3f3f3;
+    background-color: #8f0b89;
+    border-radius: 3rem;
+}
+
+.btn-admin:hover{
+    filter: brightness(110%);
+}
+
+.btn-admin a{
+    color: #f3f3f3;
+    text-decoration: none;
+}
 
 /* ------------------------------------------------------- */

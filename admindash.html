@@ -22,7 +22,7 @@
         <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
           <div class="container h4">
             <div class="mx-auto order-0">
-              <a class="navbar-brand" href="index.html"
+              <a class="navbar-brand" href="admindash.html"
                 >Faculty of Computer Science and Information Technology
                 Alumni</a
               >
@@ -30,94 +30,88 @@
           </div>
         </nav>
       </header>
-      <nav
-        class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg"
-        id="botNavbar"
-      >
+      <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
         <div class="container h5">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="img/FSKTM-Vector.svg"
-              alt=""
-              width="150"
-              height="150"
-              class="d-inline-block"
-              id="logo-img"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse justify-content-between"
-            id="navbarSupportedContent"
-          >
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html"
-                  ><b>Home</b></a
-                >
-              </li>
-              <li class="nav-item">
-                <div class="dropdown">
-                  <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    <b>Events</b>
-                  </button>
-                  <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
-                    <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
-                  </ul>
+            <a class="navbar-brand" href="admindash.html">
+                <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
+                    id="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <hr>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="admindash.html"><b>Dashboard</b></a>
+                    </li>
+                    <li class="navbar-nav nav-item">
+                        <div class="dropdown">
+                            <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                              <b>Update Events</b>
+                            </button>
+                            <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
+                              <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
+                              <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
+                            </ul>
+                          </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html"><b>Manage Profiles</b></a>
+                    </li>
+                    <li class="nav-item nav-hide-logged">
+                        <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="fl-right event-buttons navbar-nav">
+                    <div class="d-flex gap-2">
+                        <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
+                                type="button">Login</button></a>
+                        <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
+                                type="button">Register</button></a>
+                        <div class="dropdown nav-prof-bar">
+                            <button onclick="myFunction()" id="profilebtn" class="btn">
+                                <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
+                            </button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="profile.html">Profile</a>
+                                <a href="profile-settings.html">Settings & Privacy</a>
+                                <hr class="no-margin">
+                                <a href="jobs-activity.html">Job Activity</a>
+                                <a href="jobs-bookmark.html">Bookmarks</a>
+                                <hr class="no-margin">
+                                <a href="#" id="logoutbutton">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
-              </li>
-              <li class="nav-item nav-hide-logged">
-                <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"><b>About</b></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
-              </li>
-            </ul>
-            <div class="fl-right">
-              <div class="d-flex gap-2">
-                  <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
-                          type="button">Login</button></a>
-                  <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
-                          type="button">Register</button></a>
-                  <div class="dropdown nav-prof-bar">
-                      <button onclick="myFunction()" id="profilebtn" class="btn">
-                          <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
-                      </button>
-                      <div id="myDropdown" class="dropdown-content">
-                        <a href="profile.html">Profile</a>
-                        <a href="jobs-bookmark.html">Bookmark</a>
-                        <a href="jobs-activity.html">Job Activity</a>
-                        <a href="alumnisearch.html">Search Alumni</a>
-                        <a href="profile-settings.html">Settings</a>
-                        <a href="#" id="logoutbutton">Log Out</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </div>
+            </div>
         </div>
-      </nav>    
+    </nav>    
 
       
 
         <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h1 class="display-6" id="alumni-search-heading">Welcome Admin! What would you like to do today?</h1>
+                  </div>
+                <div class="row">
+                    <div class="col-lg">
+                            <div class="jumbotron-admin-profile admin-welcome-cards d-flex justify-content-center align-items-center">
+                                <button class="btn btn-lg btn-admin shadow"><a href="#">Manage Profiles</a></button>
+                            </div>
+                    </div>
+                    <div class="col-lg">
+                            <div class="jumbotron-admin-event admin-welcome-cards d-flex justify-content-center align-items-center">
+                                <button class="btn btn-lg btn-admin shadow"><a href="#">Update Events</a></button>
+                            </div>
+                    </div>
+                </div>
+            </div>
             
             
         </main>
