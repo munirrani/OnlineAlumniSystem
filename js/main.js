@@ -7,7 +7,6 @@ let navbuttonbar = document.querySelectorAll(".nav-button-bar");
 let myDropdown = document.querySelector("#myDropdown");
 let dropdowns = document.querySelector(".dropdown-content");
 var coll = document.getElementsByClassName("collapsible");
-let loggedin = false;
 
 
 // Everytime any page is load, It will check whether the user if logged in or not and display personalized navbar
@@ -29,22 +28,14 @@ function topthingy() {
 };
 // 
 
-// when submitting the login form page , loggedin will be true then sent user to profile.html
-$('#submitloggin').submit(function (e) {
-  e.preventDefault();
-  loggedin = true;
-  sessionStorage.setItem("loggedin", loggedin);
-  window.location.href = "profile.html";
-});
-// 
+  // when clicking the logout button it will set loggedin to false and sent user to homepage
+  logoutbutton.onclick = function() {
+    let loggedin = false;
+    sessionStorage.setItem("loggedin", loggedin);
+    window.location.href = "index.html";
+  };
+  // 
 
-// when clicking the logout button it will set loggedin to false and sent user to homepage
-logoutbutton.onclick = function() {
-  loggedin = false;
-  sessionStorage.setItem("loggedin", loggedin);
-  window.location.href = "index.html";
-};
-// 
 
 
 // Transition transparent effect when the page is scrolled for the Navbar
@@ -63,8 +54,6 @@ $(function () {
 // Making sure the contact-us form shows modal after submit
 $('#contact-form').submit(function (e) {
   $('#confirmation-modal').modal('show');
-
-
   document.querySelector("#contact-form").reset();
   e.preventDefault();
 });
