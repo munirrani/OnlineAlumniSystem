@@ -99,7 +99,8 @@
           </div>
           <div class="col-lg">
             <div class="jumbotron-admin-event admin-welcome-cards d-flex justify-content-center align-items-center">
-              <button class="btn btn-lg btn-admin shadow"><a href="admin-upcoming_events.html">Update Events</a></button>
+              <button class="btn btn-lg btn-admin shadow"><a href="admin-upcoming_events.html">Update
+                  Events</a></button>
             </div>
           </div>
         </div>
@@ -145,7 +146,15 @@
         }
       }
     };
-//
+    //
+    let logoutbutton = document.querySelector("#logoutbutton");
+    // when clicking the logout button it will set loggedin to false and sent user to homepage
+    logoutbutton.onclick = function () {
+      let loggedin = false;
+      sessionStorage.setItem("loggedin", loggedin);
+      window.location.href = "index.html";
+    };
+  //
   </script>
 </body>
 
