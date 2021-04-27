@@ -1,4 +1,4 @@
-# FCSIT ONLINE ALUMNI SYSTEM
+# FCSIT WEB ALUMNI SYSTEM
 
 Specifications:<br>
 
