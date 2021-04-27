@@ -774,6 +774,8 @@ footer {
 .form-reg-container {
     max-width: 80%;
     margin: 80px auto 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .form-reg-heading {
     margin-bottom: 50px;
