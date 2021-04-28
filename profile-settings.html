@@ -155,22 +155,22 @@
                                             </div>
                                         </div>
                                     </button>
-                                    <div class="content">
+                                    <div class="content mb-35">
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <label for="userName"><h6 class="mt-2 mb-4">New username</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <input type="text" class="form-control" id="userName">
-                                                <a href="profile-settings.html" id="no-blue">
-                                                    <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px" onclick="confirmChange()">
-                                                    Confirm username</button></a>
+                                                <form action="profile-settings.html">
+                                                    <input type="text" class="form-control purplemodalinput" id="userName" required>
+                                                        <button class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px" onclick="confirmChange()">
+                                                        Confirm username</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="row" style="margin-top: 20px;">
+                                    <div class="row">
                                         <h5 class="mb-0" style="font-weight: bold;">Change password</h5>
                                     </div>
                                     <hr>
@@ -184,7 +184,7 @@
                                             </div>
                                         </div>
                                     </button>
-                                    <div class="content">
+                                    <div class="content mb-35">
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
@@ -208,7 +208,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>
                                     <div class="row">
                                         <h5 class="mb-0" style="font-weight: bold;">Delete account</h5>
                                     </div>
@@ -225,32 +224,33 @@
                                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                              <form autocomplete="off">
-                                                <div class="mb-3">
-                                                    <div id="deleteAcc" class="alert">
-                                                        <span class="closebtn"></span> 
-                                                        <strong>Warning!</strong> Your account may be deleted. 
-                                                        <br>You could lose all your account data.
-                                                    </div> 
-                                                </div>
-                                                <div class="mb-3">
-                                                  <label for="usernameModalSettings" class="col-form-label">Your username or email:</label>
-                                                  <input type="text" class="form-control purplemodalinput" id="usernameModalSettings">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="verifydelete" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
-                                                    <input type="text" class="form-control purplemodalinput" id="verifydelete">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
-                                                    <input type="password" class="form-control purplemodalinput" id="passwordModalSettings">
-                                                </div>
-                                              </form>
+                                                <form action="index.html" autocomplete="off">
+                                                    <div class="mb-3">
+                                                        <div id="deleteAcc" class="alert">
+                                                            <span class="closebtn"></span> 
+                                                            <strong>Warning!</strong> Your account may be deleted. 
+                                                            <br>You could lose all your account data.
+                                                        </div> 
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="usernameModalSettings" class="col-form-label">Your username or email:</label>
+                                                        <input type="text" class="form-control purplemodalinput" id="usernameModalSettings" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="verifydelete" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
+                                                        <input type="text" class="form-control purplemodalinput" id="verifydelete" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
+                                                        <input type="password" class="form-control purplemodalinput" id="passwordModalSettings" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn confirmbuttonModalSetting" onclick="deleteAcc()">Delete this account</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div class="modal-footer">
-                                              <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                              <button type="button" id="confirmbuttonmodal" class="btn confirmbuttonModalSetting">Delete this account</button>
-                                            </div>
+                                            
                                           </div>
                                         </div>
                                     </div>
@@ -263,15 +263,22 @@
         </main>
     </div>
         <script>
+            function deleteAcc(){
+                let loggedin = false;
+                sessionStorage.setItem("loggedin", loggedin);
+            }
             function confirmChange(){
                 var a = document.getElementById("userName").value;
-                localStorage.setItem("userName",a);
-                document.getElementById("userName1").innerHTML= a;
-                document.getElementById("userName2").innerHTML= a;
+                if(a!==""){
+                    sessionStorage.setItem("userName",a);
+                    document.getElementById("userName1").innerHTML= a;
+                    document.getElementById("userName2").innerHTML= a;
+                }
             }
-            document.getElementById("bio1").innerHTML=localStorage.getItem("bio");
-            document.getElementById("userName1").innerHTML=localStorage.getItem("userName");
-            document.getElementById("userName2").innerHTML= localStorage.getItem("userName");
+            document.getElementById("bio1").innerHTML=sessionStorage.getItem("bio");
+            document.getElementById("userName1").innerHTML=sessionStorage.getItem("userName");
+            document.getElementById("userName2").innerHTML= sessionStorage.getItem("userName");
+
         </script>
         
         <footer class="page-footer shadow">

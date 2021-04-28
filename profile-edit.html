@@ -136,7 +136,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" id="confirmbutton"
-                                                            class="btn shadow">Upload</button>
+                                                            class="btn shadow confirmbuttonModalSetting">Upload</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -168,93 +168,85 @@
 
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
-                                    <form autocomplete="off">
+                                    <form autocomplete="off" action="profile.html" >
                                         <div class="row">
                                             <h2 id="profile-heading"> PERSONAL INFORMATION</h2>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Full Name</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="text" class="form-control purplemodalinput" id="fullName"
-                                                    placeholder="Full Name">
+                                                    placeholder="Full Name" required>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
+                                        <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Current Position</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="text" class="form-control purplemodalinput" id="currentPosition"
-                                                    placeholder="Current Position">
+                                                    placeholder="Current Position" required>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
+                                        <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Email</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary"> 
-                                                <input type="text" class="form-control purplemodalinput" id="email" placeholder="Email">
+                                                <input type="text" class="form-control purplemodalinput" id="email" placeholder="Email" required>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
+                                        <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Phone</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="phone" placeholder="Phone" >
+                                                <input type="text" class="form-control purplemodalinput" id="phone" placeholder="Phone" required>
 
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
+                                        <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Enrollment Year</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="text" class="form-control purplemodalinput" id="enrollYear"
-                                                    placeholder="Enrollment Year">
+                                                    placeholder="Enrollment Year" required>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
+                                        <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Department</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="text" class="form-control purplemodalinput" id="department"
-                                                    placeholder="Department">
+                                                    placeholder="Department" required>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
+                                        <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Level</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="level" placeholder="Level">
+                                                <input type="text" class="form-control purplemodalinput" id="level" placeholder="Level" required>
                                             </div>
                                         </div>
-                                        <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Address</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="text" class="form-control purplemodalinput" id="address"
-                                                    placeholder="Address">
-                                                <div class="d-flex gap-2 mt-4">
+                                                    placeholder="Address" required>
+                                                <div class="d-flex gap-2 mt-5">
                                                     <a href="profile.html"><button
                                                             class="btn shadow confirmbuttonModalSetting"
                                                             type="button">Cancel</button></a>
-                                                    <a href="profile.html"><button id="updatebutton" class="btn shadow" type="button" onclick="updateInfo()">Update
-                                                        Information</button></a>
+                                                    <button id="updatebutton" class="btn shadow" type="submit" onclick="updateInfo()">Update
+                                                        Information</button>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </form>
@@ -270,34 +262,34 @@
     <script>
         function updateInfo(){
             var a = document.getElementById("fullName").value;
-            localStorage.setItem("fullName",a);
+            sessionStorage.setItem("fullName",a);
             var b = document.getElementById("currentPosition").value;
-            localStorage.setItem("currentPosition",b);
+            sessionStorage.setItem("currentPosition",b);
             var c = document.getElementById("email").value;
-            localStorage.setItem("email",c);
+            sessionStorage.setItem("email",c);
             var d = document.getElementById("phone").value;
-            localStorage.setItem("phone",d);
+            sessionStorage.setItem("phone",d);
             var e = document.getElementById("enrollYear").value;
-            localStorage.setItem("enrollYear",e);
+            sessionStorage.setItem("enrollYear",e);
             var f = document.getElementById("department").value;
-            localStorage.setItem("department",f);
+            sessionStorage.setItem("department",f);
             var g = document.getElementById("level").value;
-            localStorage.setItem("level",g);
+            sessionStorage.setItem("level",g);
             var h = document.getElementById("address").value;
-            localStorage.setItem("address",h);
+            sessionStorage.setItem("address",h);
             var i = document.getElementById("bio").value;
-            localStorage.setItem("bio",i);
+            sessionStorage.setItem("bio",i);
         }
-        document.getElementById("fullName").value = localStorage.getItem("fullName");
-        document.getElementById("currentPosition").value = localStorage.getItem("currentPosition");
-        document.getElementById("email").value = localStorage.getItem("email");
-        document.getElementById("phone").value = localStorage.getItem("phone");
-        document.getElementById("enrollYear").value = localStorage.getItem("enrollYear");
-        document.getElementById("department").value = localStorage.getItem("department");
-        document.getElementById("level").value = localStorage.getItem("level");
-        document.getElementById("address").value = localStorage.getItem("address");
-        document.getElementById("bio").value = localStorage.getItem("bio");
-        document.getElementById("userName1").innerHTML=localStorage.getItem("userName");
+        document.getElementById("fullName").value = sessionStorage.getItem("fullName");
+        document.getElementById("currentPosition").value = sessionStorage.getItem("currentPosition");
+        document.getElementById("email").value = sessionStorage.getItem("email");
+        document.getElementById("phone").value = sessionStorage.getItem("phone");
+        document.getElementById("enrollYear").value = sessionStorage.getItem("enrollYear");
+        document.getElementById("department").value = sessionStorage.getItem("department");
+        document.getElementById("level").value = sessionStorage.getItem("level");
+        document.getElementById("address").value = sessionStorage.getItem("address");
+        document.getElementById("bio").value = sessionStorage.getItem("bio");
+        document.getElementById("userName1").innerHTML=sessionStorage.getItem("userName");
     </script>
 
     <footer class="page-footer shadow">
