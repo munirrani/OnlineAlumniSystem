@@ -1048,6 +1048,22 @@ a[id="no-blue"]{
     color: #8f0b89;
 
 }
+/* .experience-body {
+    background: #f3f3f3;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#exp-prof-header {
+    font-family: 'Hammersmith One', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+#head-col-table {
+    background: #8f0b89;
+    color: #f3f3f3;
+} */
 /* ------------------------------------------------------- */
 
 
@@ -1979,6 +1995,21 @@ h6.height{
 @media screen and (max-width:990px){
     .counter{ margin-bottom: 40px; 
     width: auto;}
+}
+
+.breadcrumb a {
+    font-family: 'Hammersmith one', sans-serif;
+    font-weight: 800;
+    font-size: larger;
+    color: #fa07ee !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-admin-current {
+    font-family: 'Hammersmith one', sans-serif;
+    font-weight: 800;
+    font-size: larger;
+    color: white !important;
 }
 
 /* ------------------------------------------------------- */
