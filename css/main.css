@@ -1755,9 +1755,10 @@ dt{
     background-size: cover;
     border-radius: .4rem;
     width: auto;
-    height: 500px;
+    height: 600px;
     color: white;
 }
+
 
 .jumbotron-admin-event {
     margin-top: 1rem;
@@ -1767,7 +1768,7 @@ dt{
     background-size: cover;
     border-radius: .4rem;
     width: auto;
-    height: 500px;
+    height: 600px;
     color: white;
 }
 
