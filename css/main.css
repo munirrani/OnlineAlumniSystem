@@ -862,6 +862,9 @@ footer {
 
 /* PROFILE & SETTING PAGE */
 /* ------------------------------------------------------- */
+.mb-35{
+    margin-bottom: 35px;
+}
 #updatebutton { 
     color: #f3f3f3;
     background-color: #8f0b89;
@@ -957,7 +960,7 @@ a:hover[id=profileNav-inactive] {
 }
 .purplemodalinput:focus  {
     border-color: #ca81c7;
-    box-shadow: 0 0 10px #ca81c7;
+    box-shadow: 0 0 5px #ca81c7;
 }
 #formFile:focus {
     border-color: #ca81c7;
@@ -1074,7 +1077,14 @@ a[id="no-blue"]{
     color: white;
     text-align: center;
 }
+#MYR{
+    font-weight: bold;
+    font-size: 20px;
+    color: #8f0b89;
+    font-family: 'Hammersmith One', sans-serif;
+    margin-top: 15px;
 
+}
 #search-button {
     width: 40; 
     height: 40; 
@@ -1096,10 +1106,14 @@ a[id="no-blue"]{
     padding: 5px;
     background-color: #f3f3f3;
 }
-
+#job-posted{
+    margin-left: 10px;
+    font-size: small;
+    color: #4d4d4d;
+}
 .job-box{
     border: 1px solid rgb(172, 171, 171);
-    margin: 10px 5px 10px 5px;
+    margin: 0px 5px 30px 5px;
     padding-bottom: 10px;
     border-radius: 20px;
     background-color: #f3f3f3;
@@ -1154,6 +1168,22 @@ a[id="no-blue"]{
 }
 
 .bmark-hide1-logged {
+    display: none;
+}
+
+.bmark-hide2-logged {
+    display: none;
+}
+
+.bmark-hide3-logged {
+    display: none;
+}
+
+.bmark-hide4-logged {
+    display: none;
+}
+
+.bmark-hide5-logged {
     display: none;
 }
 
@@ -1411,11 +1441,11 @@ a[id="no-blue"]{
     background-color: rgb(219, 219, 219);
 }
 .act-image{
-    width: 90px;
+    width: 80px;
     border-radius: 50%;
     float: left;
-    padding-right: 20px;
-    padding-bottom: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
 #act-posted{
     font-size: 15px;
@@ -1440,10 +1470,9 @@ a[id="no-blue"]{
 }
 
 #details-image {
-    height: 100px; 
-    width: 100px; 
+    height: 120px; 
+    width: 120px; 
     border-radius: 50%; 
-    border: 1px solid #8f0b89;
 }
 
 .pd-20 {
@@ -1492,7 +1521,9 @@ dt{
     margin-bottom: 10px;
     margin-top: 10px;
 }
-
+h6.height{
+    line-height: 1.5;
+}
 #details-left-col-icons {
     width: 20px; 
     float: left; 
