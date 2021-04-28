@@ -113,6 +113,8 @@
                                                 <label class="form-label" for="eventTitle">Event Title</label>
                                                 <input class="form-control purplemodalinput" id="eventTitle" type="text"
                                                     name="eventTitle" placeholder="" required>
+                                                <input class="form-control" id="eventTitle" type="text"
+                                                    name="eventTitle" value="" required>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
@@ -141,6 +143,8 @@
                                                 <label class="form-label" for="description">Description</label>
                                                 <textarea name="description" class="form-control purplemodalinput" id="description"
                                                     cols="25" rows="10"></textarea>
+                                                <textarea name="description" class="form-control" id="description" cols="25" rows="10">
+                                                </textarea>
                                                 <small class="error-msg">Error Message</small>
                                             </div>
                                         </div>
@@ -196,13 +200,7 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/eventValidator.js"></script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#description'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+    <script type="text/javascript" src="js/eventFiller.js"></script>
     <script>
         // The navbar profile dropdown
         function myFunction() {
@@ -232,5 +230,4 @@
       //
     </script>
 </body>
-
 </html>
