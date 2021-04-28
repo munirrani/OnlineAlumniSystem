@@ -340,6 +340,7 @@ footer {
 }
 .event-buttons {
     /*Don't delete this!*/
+    /* IS IT BECUZ U R GEH? */
 }
 
 #event-main {
@@ -687,7 +688,7 @@ footer {
     font-size: 16px;
     height: auto;
     padding: 10px;
-    @include box-sizing(border-box);
+    /* @include box-sizing(border-box); */
     transition: 0.4s;
 }
 .form-signin .form-control:focus {
@@ -706,6 +707,15 @@ footer {
     margin-bottom: 20px;
     border-radius: 23px;
     padding: 15px;
+}
+.form-signin select {
+    color: #8f0b89;
+    margin-bottom: 20px;
+    border-radius: 23px;
+    padding: 5px;
+}
+.form-signin select:focus {
+    color: #8f0b89;
 }
 .bottom-log{
     display: grid;
@@ -732,6 +742,10 @@ footer {
     text-decoration: none;
     font-weight: 800;
     color: #8f0b89;
+}
+#login-warning-modal-button {
+    background: #aa2aa4;
+    color: white;
 }
 /* ------------------------------------------------------- */
 
@@ -760,6 +774,8 @@ footer {
 .form-reg-container {
     max-width: 80%;
     margin: 80px auto 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .form-reg-heading {
     margin-bottom: 50px;
@@ -1739,9 +1755,10 @@ dt{
     background-size: cover;
     border-radius: .4rem;
     width: auto;
-    height: 500px;
+    height: 600px;
     color: white;
 }
+
 
 .jumbotron-admin-event {
     margin-top: 1rem;
@@ -1751,7 +1768,7 @@ dt{
     background-size: cover;
     border-radius: .4rem;
     width: auto;
-    height: 500px;
+    height: 600px;
     color: white;
 }
 

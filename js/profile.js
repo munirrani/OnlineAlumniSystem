@@ -1,6 +1,8 @@
 let alumniProfiles = [
   {
     name: "Fahad",
+    age: 21,
+    Gender: "Male",
     currentPos: "UX Designer at Google",
     email: "example@mail.com",
     phone: "0123456789",
