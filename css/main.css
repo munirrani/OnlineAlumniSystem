@@ -1796,4 +1796,19 @@ dt{
     text-decoration: none;
 }
 
+.breadcrumb a {
+    font-family: 'Hammersmith one', sans-serif;
+    font-weight: 800;
+    font-size: larger;
+    color: #fa07ee !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-admin-current {
+    font-family: 'Hammersmith one', sans-serif;
+    font-weight: 800;
+    font-size: larger;
+    color: white !important;
+}
+
 /* ------------------------------------------------------- */
