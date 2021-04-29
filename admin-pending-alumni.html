@@ -148,7 +148,7 @@
             <div id="modal-content-admin-alumni" class="modal-content shadow">
 
               <div class="modal-header mb-3">
-                <h4 class="modal-title" id="modal-title" style="color: black;">Reject Alumni Registration</h4>
+                <h4 class="modal-title" id="modal-title" style="color: black;">Pending Alumni Registration</h4>
                 <button onclick=resetDialogs() type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="container modal-container-alumni">
@@ -197,6 +197,7 @@
     crossorigin="anonymous"></script>
   <!-- <script type="text/javascript" src="js/main.js"></script> -->
   <script>
+    document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
     // The navbar profile dropdown
     function myFunction() {
       myDropdown.classList.toggle("show");

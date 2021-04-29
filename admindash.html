@@ -103,13 +103,13 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-lg">
             <div class="jumbotron-admin-profile admin-welcome-cards d-flex justify-content-center align-items-center">
-              <button class="btn btn-lg btn-admin shadow"><a href="admin-profile-dash.html">Manage Profiles</a></button>
+              <a href="admin-profile-dash.html"><button class="btn btn-lg btn-admin shadow">Manage Profiles</button></a>
             </div>
           </div>
           <div class="col-lg">
             <div class="jumbotron-admin-event admin-welcome-cards d-flex justify-content-center align-items-center">
-              <button class="btn btn-lg btn-admin shadow"><a href="admin-events-dash.html">Manage
-                  Events</a></button>
+              <a href="admin-events-dash.html"><button class="btn btn-lg btn-admin shadow">Manage
+                  Events</button></a>
             </div>
           </div>
         </div>
@@ -137,6 +137,10 @@
     crossorigin="anonymous"></script>
   <!-- <script type="text/javascript" src="js/main.js"></script> -->
   <script>
+
+    document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
+
+
     // The navbar profile dropdown
     function myFunction() {
       myDropdown.classList.toggle("show");
