@@ -1901,6 +1901,15 @@ h6.height{
 .linkedin-icon, .github-icon {
     color: black !important;
 }
+#exp-alumni-modal {
+    color:#8f0b89;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#modal-table-alumni thead tr {
+    background: #8f0b89;
+}
 /* ------------------------------------------------------- */
 
 
@@ -2011,6 +2020,11 @@ h6.height{
 
 .btn-admin:hover{
     filter: brightness(110%);
+    color: #f3f3f3;
+}
+
+.button-in-profile-dash .btn-admin {
+    color: black;
 }
 
 .btn-admin a{
