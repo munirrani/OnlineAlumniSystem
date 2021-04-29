@@ -82,7 +82,10 @@ for(var i = 0; i < eventData.length; i++)
     var currentCard = 
         '<div class="vertical-event-card"> <div class="event-text">' + 
         '<a href="' + eventData[i].eventPage + '" class="event-title"><h4>' + eventData[i].title + '</h4></a>' +
-        '<p class="event-meta">' + date(eventData[i].startDate, eventData[i].endDate) + ' | ' + eventData[i].mode + '</p>' + eventData[i].description + 
+        '<p class="event-meta">' + date(eventData[i].startDate, eventData[i].endDate) + ' | ' + eventData[i].mode + 
+        '<br class="responsive-disabled" style="clear: both;"> <a href="update_event.html"><button class="btn btn-dark event-meta">Update' +
+        'Event</button></a><button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#warning">Delete Event</button>' +
+        '</p>' + eventData[i].description + 
         '</div> <div class="event-img"> <a href="' + eventData[i].eventPage + '"><img src="' + eventData[i].img + '" class="img-fluid rounded-3" width="500" height="280" alt=""></a> </div> </div>';
 
     wholeSection += currentCard;
@@ -116,6 +119,11 @@ const searchBar = document.querySelector("#alumni-search-bar")
                     </a>
                     <p class="event-meta">
                         ${date(event.startDate, event.endDate)} | ${event.mode}
+                    <br class="responsive-disabled" style="clear: both;">
+                    <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                        Event</button></a>
+                    <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                        data-bs-target="#warning">Delete Event</button>
                     </p>
                     ${event.description}
                 </div>

@@ -370,6 +370,17 @@ footer {
     font-family: 'Hammersmith One', sans-serif;
     display: inline-block;
 }
+#event-searchbar {
+    border: 0px;
+    display: grid;
+    margin: auto;
+    width: 80%;
+    align-self: center;
+    margin-top: 0.5em;
+    padding-bottom: 3em;
+    align-items: center;
+    background-color: #f3f3f3;
+}
 #event-creation {
     margin-top: -1em;
 }

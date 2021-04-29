@@ -12,32 +12,28 @@ var eventData =
 [
     {
         eventPage: "event.html",
-        title: "CDL ASIA DIGITAL CHALLENGE 2021 IS BACK!",
-        startDate: "2021-4-7",
-        endDate: "2021-4-7",
-        img: "img/um_dtc.png",
+        title: "Pendidikan Sepanjang Hayat Bersama UMCCed",
+        startDate: "2020-8-22",
+        endDate: "2020-8-22",
+        img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
         mode: "Virtual",
-        description: 
-            "<p>✅To expose contestants to emerging technologies, data analytics, design, and the use of office application tools.<br>" + 
-            "✅To gain valuable experience in an international competition.<br>" + 
-            "✅3 rounds of competition; Preliminary, National and Grand Final<br>" +
-            "✅Winner who can win prizes worth up to USD $150</p>"
+        description: ""
     },
     {
         eventPage: "event.html",
-        title: "Majlis Bacaan Yassin",
+        title: "Keselamatan Siber Di Kalangan Kanak-Kanak",
         startDate: "2021-4-16",
         endDate: "2021-4-16",
-        img: "img/Bacaan-Yassin.jpg",
+        img: "img/unnamed.png",
         mode: "Virtual",
-        description: ""
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem doloribus eaque enim quia voluptas fugiat ducimus aspernatur, quod dignissimos perferendis deleniti reprehenderit itaque ea fuga quae reiciendis dolores illo sunt!"
     },
     {   
         eventPage: "event.html",
         title: "SE Innovation Day",
         startDate: "2021-4-17",
         endDate: "2021-4-17",
-        img: "img/Nixser.png",
+        img: "img/sports_event.png",
         mode: "Physical",
         description: 
             "<p>In conjunction to our SE Innovation Day, we will have a competition where we will award the best FYP-2 projects. The top 3 SE Projects who are selected as the WINNERS of FYP Competition will be invited to give a sharing session on the event day.</p>"
@@ -56,7 +52,7 @@ var eventData =
         title: "Saringan Kesihatan",
         startDate: "2021-4-21",
         endDate: "2021-4-22",
-        img: "img/sports_event.png",
+        img: "img/Nixser.png",
         mode: "Physical",
         description: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sapiente neque, voluptas ab ullam deleniti eaque ea magnam" +
             "tempora fuga inventore eum reprehenderit porro distinctio numquam repellat labore, quas ipsum.</p>"
@@ -80,10 +76,13 @@ var wholeSection = "";
 for(var i = 0; i < eventData.length; i++)
 {
     var currentCard = 
-        '<div class="vertical-event-card"> <div class="event-text">' + 
-        '<a href="' + eventData[i].eventPage + '" class="event-title"><h4>' + eventData[i].title + '</h4></a>' +
-        '<p class="event-meta">' + date(eventData[i].startDate, eventData[i].endDate) + ' | ' + eventData[i].mode + '</p>' + eventData[i].description + 
-        '</div> <div class="event-img"> <a href="' + eventData[i].eventPage + '"><img src="' + eventData[i].img + '" class="img-fluid rounded-3" width="500" height="280" alt=""></a> </div> </div>';
+    '<div class="vertical-event-card"> <div class="event-text">' + 
+    '<a href="' + eventData[i].eventPage + '" class="event-title"><h4>' + eventData[i].title + '</h4></a>' +
+    '<p class="event-meta">' + date(eventData[i].startDate, eventData[i].endDate) + ' | ' + eventData[i].mode + 
+    '<br class="responsive-disabled" style="clear: both;"> <a href="update_event.html"><button class="btn btn-dark event-meta">Update' +
+    'Event</button></a><button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#warning">Delete Event</button>' +
+    '</p>' + eventData[i].description + 
+    '</div> <div class="event-img"> <a href="' + eventData[i].eventPage + '"><img src="' + eventData[i].img + '" class="img-fluid rounded-3" width="500" height="280" alt=""></a> </div> </div>';
 
     wholeSection += currentCard;
 }
@@ -116,7 +115,13 @@ const searchBar = document.querySelector("#alumni-search-bar")
                     </a>
                     <p class="event-meta">
                         ${date(event.startDate, event.endDate)} | ${event.mode}
+                    <br class="responsive-disabled" style="clear: both;">
+                    <a href="update_event.html"><button class="btn btn-dark event-meta">Update
+                            Event</button></a>
+                    <button class="btn event-meta btn-danger ms-1" data-bs-toggle="modal"
+                        data-bs-target="#warning">Delete Event</button>
                     </p>
+                    
                     ${event.description}
                 </div>
                 <div class="event-img">
