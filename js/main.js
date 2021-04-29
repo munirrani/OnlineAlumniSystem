@@ -39,8 +39,6 @@ function topthingy() {
       document.querySelector("#profileImg").src = sessionStorage.getItem("image");
     } 
     document.querySelector("#profileIcon").src = sessionStorage.getItem("image");
-    document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
-    document.querySelector("#act-profileImg").classList.add("imgcoverobject");
     document.querySelector("#profileIcon").classList.add("imgcoverobject");
     document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>${usernameDropdown}</strong>`;
 

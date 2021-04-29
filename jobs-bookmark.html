@@ -285,6 +285,8 @@
 
         <script>
             document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
+            document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
+            document.querySelector("#act-profileImg").classList.add("imgcoverobject");
         </script>
 
         <footer class="page-footer shadow">

@@ -1803,6 +1803,8 @@ h6.height{
 #alumni-modal .contact-box{
     background: #f3f3f3;
     border-radius: 20px;
+    border-bottom: solid 5px #8f0b89;
+    border-top: solid 5px #8f0b89;
     width: 100%;
 }
 .body-alumni-card-modal{
