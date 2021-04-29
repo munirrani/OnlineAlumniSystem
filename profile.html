@@ -46,9 +46,10 @@
                         </li>
                         <li class="navbar-nav nav-item">
                             <div class="dropdown">
-                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b>Events</b>
-                                  <i class="fa fa-angle-down"></i>
+                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <b>Events</b>
+                                    <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming
@@ -82,6 +83,8 @@
                                     <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
+                                    <a href="profile.html" id="dropdown-username"></a>
+                                    <hr class="no-margin">
                                     <a class="index-chosen-dropdown" href="profile.html">Profile</a>
                                     <a href="profile-settings.html">Settings & Privacy</a>
                                     <hr class="no-margin">
@@ -310,9 +313,6 @@
             </div>
         </main>
         <script>
-            function showDiv() {
-            document.getElementById('welcomeDiv').style.display = "block";
-            }
         const formEl = document.querySelector("form");
         const tbodyEl = document.querySelector("tbody");
         const tableEl = document.querySelector("table");
@@ -332,18 +332,16 @@
                 </tr>
             `;
         }
-    
         function onDeleteRow(e) {
             if (!e.target.classList.contains("deleteBtn")) {
             return;
             }
-    
             const btn = e.target;
             btn.closest("tr").remove();
         }
-    
         formEl.addEventListener("submit", onAddWebsite);
         tableEl.addEventListener("click", onDeleteRow);
+                
         </script>
         <script>
             document.getElementById("fullName1").innerHTML = sessionStorage.getItem("fullName");
@@ -423,7 +421,6 @@
             <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
                 <p>Copyright &copy; FSKTM 2021
                 </p>
-                Designed by Haney & Humaira'
             </div>
         </footer>
     </div>

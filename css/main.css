@@ -81,6 +81,13 @@ body {
 #logbutton:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
 }
+#dropdown-username {
+    background: #8f0b89;
+    color: white;
+}
+#myDropdown a:last-child {
+    border-bottom: solid #8f0b89 10px;
+}
 /* ------------------------------------------------------- */
 
 
@@ -215,6 +222,7 @@ footer {
     .form-reg-submit{
         justify-content: center;
     }
+
 }
 /* ------------------------------------------------------- */
 
@@ -572,6 +580,11 @@ footer {
     .vertical-event-card {
         display: block;
         grid-template-columns: 1fr;
+        border-radius: 0.5em;
+        width: 95%;
+        margin-bottom: 2em;
+        padding: 1em; 
+        border: 1px rgb(180, 172, 172) solid;
     }
 
     .event-text {
@@ -581,10 +594,6 @@ footer {
     .event-btn {
         display: inline-block;
 
-    }
-
-    .event-main {
-        padding: 1.7em 1.5em 1em;
     }
 }
 
@@ -964,6 +973,10 @@ a:hover[id=profileNav-inactive] {
     border-radius: 50%;
     width:250px;
     height:250px;
+    object-fit: cover !important;
+}
+.imgcoverobject {
+    object-fit: cover !important;
 }
 #profilebtn:focus { 
     outline: none;
@@ -971,6 +984,7 @@ a:hover[id=profileNav-inactive] {
 }
 #profileIcon {
     border: 1px solid #8f0b89;
+    object-fit: cover !important;
 }
 .form-control[id=bio] {
     color: white;
@@ -1781,6 +1795,9 @@ h6.height{
      border: #8f0b89;
      border-style: solid;
      border-radius: 50%;
+     object-fit: cover;
+     height: 100px;
+     width: 100px;
  }
  .alumni-card-view-profile-button {
     color: #f3f3f3;
@@ -1834,6 +1851,8 @@ h6.height{
 #alumni-modal .contact-box{
     background: #f3f3f3;
     border-radius: 20px;
+    border-bottom: solid 5px #8f0b89;
+    border-top: solid 5px #8f0b89;
     width: 100%;
 }
 .body-alumni-card-modal{
@@ -1843,6 +1862,8 @@ h6.height{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     width: 100%;
+    max-height: 320px;
+    object-fit: cover;
 }
 #right-col-alumni-modal {
     margin-right: 0px !important;

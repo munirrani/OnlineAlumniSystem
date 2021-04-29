@@ -79,6 +79,8 @@
                   <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                 </button>
                 <div id="myDropdown" class="dropdown-content">
+                  <a href="profile.html" id="dropdown-username"></a>
+                  <hr class="no-margin">
                   <a href="admin-profile-settings.html">Settings & Privacy</a>
                   <hr class="no-margin">
                   <a href="#" id="logoutbutton">Log Out</a>
@@ -97,12 +99,13 @@
           <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-background">
             <ol class="breadcrumb">
               <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
-              <li class="breadcrumb-item breadcrumb-admin"> <a href="admin-profile-dash.html">Profiles Dashboard</a></li>
+              <li class="breadcrumb-item breadcrumb-admin"> <a href="admin-profile-dash.html">Profiles Dashboard</a>
+              </li>
               <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Approved Profiles</li>
             </ol>
           </nav>
         </div>
-        
+
         <div class="row justify-content-center">
           <h1 class="display-4" id="alumni-search-heading">APPROVED ALUMNI PROFILES</h1>
         </div>
@@ -161,12 +164,12 @@
                         <hr>
                         <div class="row">
                           <div class="col col-card-alumni-val">
-                            <input type="text" id="modal-profile-level" class="lead admin-edit-input"></input> 
+                            <input type="text" id="modal-profile-level" class="lead admin-edit-input"></input>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col col-card-alumni-val">
-                            <input type="text" id="modal-profile-position" class="lead admin-edit-input"></input> 
+                            <input type="text" id="modal-profile-position" class="lead admin-edit-input"></input>
                           </div>
                         </div>
                         <div class="row">
@@ -257,19 +260,22 @@
                         </div>
                       </div>
                     </div>
-                    
+
                   </div>
                   <div class="row mt-3 d-flex justify-content-center">
-                      <button onclick="showConfirmModal()" class="btn btn-lg shadow btn-admin green alumni-card-view-profile-button" data-bs-dismiss="modal">Update Profile</button>
+                    <button onclick="showConfirmModal()"
+                      class="btn btn-lg shadow btn-admin green alumni-card-view-profile-button"
+                      data-bs-dismiss="modal">Update Profile</button>
                   </div>
-                  
+
                 </div>
               </div>
 
             </div>
           </div>
         </div>
-        <div class="modal fade admin-delete" id="alumni-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade admin-delete" id="alumni-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div id="modal-content-admin-alumni" class="modal-content shadow">
 
@@ -278,51 +284,54 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="container modal-container-alumni">
-                  <p id="delete-confirm-text" class="lead";"></p>
-                  <div class="d-flex gap-2 justify-content-center">
-                    <button class="btn btn-admin red shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Delete Profile</button>
-                    <button class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Cancel</button>
-                  </div>
-                  
-              </div>
-
-                  </div>
+                <p id="delete-confirm-text" class="lead" ;"></p>
+                <div class="d-flex gap-2 justify-content-center">
+                  <button class="btn btn-admin red shadow admin-profile-btn" data-bs-dismiss="modal"
+                    style="color: black;">Delete Profile</button>
+                  <button class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal"
+                    style="color: black;">Cancel</button>
                 </div>
-              </div>
 
-              <div class="modal fade admin-update-confirm" id="alumni-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                  <div id="modal-content-admin-alumni" class="modal-content shadow">
-      
-                    <div class="modal-header mb-3">
-                      <h4 class="modal-title" id="modal-title" style="color: black;">Profile Update</h4>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="container modal-container-alumni">
-                        <p id="delete-confirm-text" class="lead";">The alumni profile was updated!</p>
-                        <div class="d-flex gap-2 justify-content-center">
-                          <button class="btn btn-admin shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Close</button>
-                        </div>
-                        
-                    </div>
-      
-                        </div>
-                      </div>
-                    </div>
+              </div>
 
             </div>
           </div>
         </div>
-      </div>
 
-    </main>
+        <div class="modal fade admin-update-confirm" id="alumni-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div id="modal-content-admin-alumni" class="modal-content shadow">
 
-    <footer class="page-footer shadow-lg">
-      <div class="footer-copyright text-center py-3" style="background-color: #f3f3f3; font-weight: 800;">
-        <p>Copyright &copy; FSKTM 2021</p>
-        Designed by Hafiz & Fahad
+              <div class="modal-header mb-3">
+                <h4 class="modal-title" id="modal-title" style="color: black;">Profile Update</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="container modal-container-alumni">
+                <p id="delete-confirm-text" class="lead" ;">The alumni profile was updated!</p>
+                <div class="d-flex gap-2 justify-content-center">
+                  <button class="btn btn-admin shadow admin-profile-btn" data-bs-dismiss="modal"
+                    style="color: black;">Close</button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
-    </footer>
+  </div>
+  </div>
+  </div>
+
+  </main>
+
+  <footer class="page-footer shadow-lg">
+    <div class="footer-copyright text-center py-3" style="background-color: #f3f3f3; font-weight: 800;">
+      <p>Copyright &copy; FSKTM 2021</p>
+    </div>
+  </footer>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"

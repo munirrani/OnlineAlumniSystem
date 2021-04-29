@@ -15,13 +15,14 @@ var defaultprofile = {
     bio: "Add bio and social media",
     linkedin: "",
     github: "",
+    image: "img/haney.jpeg",
     userName: "Haney"
 };
 var keys = Object.keys(defaultprofile);
 var values = Object.values(defaultprofile);
 
 if (sessionStorage.getItem("fullName") === null){
-    for (var i=0; i<17; i++){
+    for (var i=0; i<19; i++){
         sessionStorage.setItem(keys[i],values[i]);
     } 
     for (var i=0; i<17; i++){
