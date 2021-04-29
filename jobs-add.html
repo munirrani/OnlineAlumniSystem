@@ -287,13 +287,38 @@
                                         </label>
                                     </div>
                                     <div class="d-flex gap-2 mt-4">
-                                        <a href="jobs-activity.html"><button id="editbutton" class="btn shadow"
-                                                type="button">Cancel</button></a>
-                                        <button id="updatebutton" class="btn shadow" type="submit">Post Job</button>
+                                        <button id="editbutton" class="btn shadow" data-bs-toggle="modal" data-bs-target="#cancel" type="button">Cancel</button>
+                                        <button id="updatebutton" class="btn shadow" data-bs-toggle="modal" data-bs-target="#warning" type="submit">Post Job</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            Are you sure you wish to post this job advertisement?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
+                            <a href="jobs-activity.html"><button type="button" class="btn confirmbuttonModalSetting">Post Job</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="cancel" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            All changes made will be discarded. <br>Do you wish to continue?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
+                            <a href="jobs-activity.html"><button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button></a>
+                        </div>
                     </div>
                 </div>
             </div>

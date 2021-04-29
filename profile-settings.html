@@ -129,10 +129,9 @@
                                             <div class="container">
                                                 <p id="bio1"></p>
                                             </div>
-                                        </div>
-                                        <div class="container">
                                             <div class="container">
-                                                <hr class="profileBio-line">
+                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
+                                                <a id="github1" href=""><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -195,19 +194,21 @@
                                                 <label for="currentPass"><h6 class="mt-2 mb-4">Current password</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                <input type="password" class="form-control purplemodalinput" id="currentPass">
+                                                <input type="password" class="form-control" placeholder="" required/>
                                             </div>
                                             <div class="col-sm-3">
                                                 <label for="newPassModal"><h6 class="mt-2 mb-2">New password</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                <input type="password" class="form-control purplemodalinput" id="newPassModal">
+                                                <input id="password" type="password" class="form-control" placeholder=""
+                                                    onkeyup='checkpw()' required />
                                             </div>
                                             <div class="col-sm-3">
                                                 <label for="newPassConfirmModal"><h6 class="mt-2 mb-4">Re-enter password</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <input  type="password" class="form-control purplemodalinput" id="newPassConfirmModal">
+                                                <input id="confirmpw" type="password" class="form-control"
+                                                    placeholder="" onkeyup='checkpw()' required />
                                                 <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px;">Confirm password</button>
                                             </div>
                                         </div>
@@ -283,6 +284,8 @@
             document.getElementById("userName1").innerHTML=sessionStorage.getItem("userName");
             document.getElementById("userName2").innerHTML= sessionStorage.getItem("userName");
 
+            document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
+            document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
         </script>
         
         <footer class="page-footer shadow">
@@ -356,6 +359,7 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/defaultProfile.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
 </body>
 
 </html>

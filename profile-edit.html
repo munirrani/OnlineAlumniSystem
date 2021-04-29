@@ -121,36 +121,10 @@
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center" id="result">
-                                        <button type="button" id="uploadBtn" class="btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            <label for="file" style="cursor: pointer;">Upload Image</label>
-                                            <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
-                                        </button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Upload a Photo</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <form id="form" action="profile-edit.html">
-                                                    <div class="modal-body align-items-center">
-                                                        <div class="image-preview" id="imagePreview">
-                                                            <img src="" alt="Image Preview" class="image-preview__image">
-                                                            <span class="image-preview__default-text">Image Preview</span>
-                                                        </div>
-                                                        <br>
-                                                        <input class="form-control purplemodalinput" type="file" id="inpFile" onchange="loadFile(event)" style="display: none">
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" id="confirmbutton"
-                                                            class="btn shadow confirmbuttonModalSetting">Upload</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                    <div class="profile-pic-div">
+                                        <img src="img/icon.jpg" id="photo">
+                                        <input type="file" id="file">
+                                        <label for="file" id="uploadBtn">Change Photo</label>
                                     </div>
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"></h2>
@@ -170,15 +144,11 @@
                                                         </div>
                                                         <input type="url" class="form-control" id="github" placeholder="Github" aria-describedby="basic-addon1">
                                                     </div>
+                                                    <hr class="profileBio-line">
                                                     <div class="container mt-3">
-                                                        <button id="editbutton" class="btn shadow" type="submit">Update Bio</button>
+                                                        <button id="editbutton" class="btn shadow" type="submit">Update</button>
                                                     </div>
                                                 </form>
-                                            </div>
-                                        </div>
-                                        <div class="container">
-                                            <div class="container">
-                                                <hr class="profileBio-line">
                                             </div>
                                         </div>
                                     </div>
@@ -372,66 +342,31 @@
         document.getElementById("github").value = sessionStorage.getItem("github");
         document.getElementById("userName1").innerHTML=sessionStorage.getItem("userName");
 
-        // Preview Image
-        const inpFile = document.getElementById("inpFile");
-        const previewContainer = document.getElementById("imagePreview");
-        const previewImage = previewContainer.querySelector(".image-preview__image");
-        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+        // Upload Photo
+        const imgDiv = document.querySelector('.profile-pic-div');
+        const img = document.querySelector('#photo');
+        const file = document.querySelector('#file');
+        const uploadBtn = document.querySelector('#uploadBtn');
 
-        inpFile.addEventListener("change", function() {
-            const file = this.files[0];
-            
-            if (file) {
-                const reader = new FileReader();
+        document.querySelector("#file").addEventListener("change", window.onload = function() {
+            const reader = new FileReader();
 
-                previewDefaultText.style.display = "none";
-                previewImage.style.display = "block";
-
-                reader.addEventListener("load", function() {
-                    previewImage.setAttribute("src", this.result);
-                });
-
-                reader.readAsDataURL(file);
-            } 
-            else  {
-                previewDefaultText.style.display = null;
-                previewImage.style.display = null;
-                previewImage.setAttribute("src", "");
-            }
-        });
-
-        /* Upload Image
-        var form = document.getElementById("form");
-        var parentDiv = document.getElementById("result")
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            var reader = new FileReader();
-
-            var name = document.getElementById("inpFile").files[0].name;
-            reader.addEventListener("load", function() {
-                if (this.result && sessionStorage) {
-                    window.sessionStorage.setItem(name, this.result);
-                    showImages();
-                }
+            reader.addEventListener('load', () => {
+                sessionStorage.setItem("image", reader.result);
             });
 
-            reader.readAsDataURL(document.getElementById("inpFile").files[0]);
+            reader.readAsDataURL(this.files[0]);
+
+            window.location.reload();
         });
 
-        function showImages() {
-            let res = window.sessionStorage.getItem(window.sessionStorage.key(11));
-            var image = new Image();
-            image.src = res;
+        document.addEventListener("DOMContentLoaded", () => {
+            const recentImageDataUrl = sessionStorage.getItem("image");
 
-            parentDiv.appendChild(image);
-        }*/
-
-        // Upload Image
-        var loadFile = function(event) {
-        var image = document.getElementById('profileImg');
-        image.src = URL.createObjectURL(event.target.files[0]);
-    };
+            if (recentImageDataUrl) {
+                document.querySelector("#photo").setAttribute("src", recentImageDataUrl);
+            }
+        });
     </script>
 
     <footer class="page-footer shadow">
