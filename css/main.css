@@ -2029,7 +2029,7 @@ h6.height{
 }
 
 #modal-content-admin-alumni{
-    background-color:rgba(0, 0, 0, 0.8);
+    background-color:rgba(255, 255, 255, 0.95);
     border-radius: 28px;
     font-family: 'Hammersmith One', sans-serif;
     padding-bottom: 10px;
@@ -2039,4 +2039,14 @@ h6.height{
 #accept-modal, #reject-modal{
     display: none;
 }
+
+.admin-edit-input, .admin-edit-input:focus{
+    border: none;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
 /* ------------------------------------------------------- */

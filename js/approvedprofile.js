@@ -1,54 +1,33 @@
 let alumniProfiles = [
   {
-    name: "Evans",
-    age: 27,
+    name: "Fahad",
+    age: 21,
     Gender: "Male",
-    currentPos: "Twitter Senior Dev",
-    email: "example@mail.com",
-    phone: "0123456789",
-    enrollYear: "Batch of 2013",
-    graduationYear: "2017",
-    department: "Software Engineering",
-    level: "Degree",
-    address: "United States",
-    address1: "New York",
-    address2: "Manhattan City",
-    postcode: "123456", 
-    city: "Town city",
-    state: "New York",
-    course: "Computer Science",
-    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
-    bio: "Hey, I am a senior dev at Twitter!",
-    acceptance: "Pending"
-  },
-  {
-    name: "Putin",
-    currentPos: "System Admin @Privet Russia",
-    email: "example@mail.com",
-    phone: "0123456789",
-    enrollYear: "Batch of 2015",
-    graduationYear: "2019",
-    department: "Information Systems",
-    level: "Degree",
-    address: "Russia",
-    address1: "Street 913 Privet HQ",
-    address2: "Moscow",
-    postcode: "123456",
-    city: "Town city",
-    state: "Moscow",
-    course: "Computer Science",
-    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
-    bio: "Hey, I am a system admin at Privet Russia",
-    acceptance: "Pending"
-  },
-  {
-    name: "Jeff",
-    currentPos: "Accounts Admin Youtube",
+    currentPos: "UX Designer at Google",
     email: "example@mail.com",
     phone: "0123456789",
     enrollYear: "Batch of 2019",
     graduationYear: "2023",
-    department: "Information Systems",
+    department: "Software Engineering",
+    level: "Degree",
+    address: "Qatar",
+    address1: "Zone 25 Street 980 Building 9",
+    address2: "Doha-Qatar",
+    postcode: "123456", 
+    city: "Town city",
+    state: "Doha",
+    course: "Computer Science",
+    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    bio: "Hey, I am a UX Designer at Google",
+  },
+  {
+    name: "Hafiz",
+    currentPos: "Senior Branch Manager",
+    email: "example@mail.com",
+    phone: "0123456789",
+    enrollYear: "Batch of 2019",
+    graduationYear: "2023",
+    department: "Software Engineering",
     level: "Degree",
     address: "Malaysia",
     address1: "Lot 151, Jalan Tun Razak, Selangor",
@@ -58,11 +37,47 @@ let alumniProfiles = [
     state: "Selangor",
     course: "Computer Science",
     image: "https://bootdey.com/img/Content/avatar/avatar1.png",
-    bio: "Ma name is Jeff!",
-    acceptance: "Pending"
+    bio: "Hey, I am a Senior Branch Manager Twitter",
+  },
+  {
+    name: "Irfan",
+    currentPos: "Lead Android Developer",
+    email: "example@mail.com",
+    phone: "0123456789",
+    enrollYear: "Batch of 2019",
+    graduationYear: "2023",
+    department: "Software Engineering",
+    level: "Degree",
+    address: "Malaysia",
+    address1: "Lot 151, Jalan Tun Razak, Selangor",
+    address2: "Taman Negara",
+    postcode: "123456",
+    city: "Town city",
+    state: "Selangor",
+    course: "Computer Science",
+    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    bio: "Hey, I am a Lead Android Developer at Google",
+  },
+  {
+    name: "Danial",
+    currentPos: "Machine Learning Master",
+    email: "example@mail.com",
+    phone: "0123456789",
+    enrollYear: "Batch of 2019",
+    graduationYear: "2023",
+    department: "Artificial Intelligence",
+    level: "Degree",
+    address: "Malaysia",
+    address1: "Lot 151, Jalan Tun Razak, Selangor",
+    address2: "Taman Negara",
+    postcode: "123456",
+    city: "Town city",
+    state: "Selangor",
+    course: "Computer Science",
+    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    bio: "Hey, I am the Machine Learning Master",
   },
 ];
-
 
 
 const alumniList = document.querySelector("#alumniList");
@@ -110,10 +125,8 @@ const displayAlumni = (alumni) => {
                             <div class="col col-card-alumni-val"><p class="lead">${alumni.address}</p></div>
                           </div>
                         <div class="alumni-card-footer mt-1 mx-2 mb-3">
-
-                          <button onclick="showDialogApprove('${alumni.name}')" class="btn shadow btn-admin green"><i class="fa fa-check"></i> Approve
-                          </button>
-                          <button onclick="showDialogReject('${alumni.name}')" class="btn shadow btn-admin red"><i class="fa fa-close"></i> Reject
+                          <button onclick="showProfile('${alumni.name}')" class="btn shadow btn-admin  alumni-card-view-profile-button">Edit Alumni Profile</button>
+                          <button onclick="showDialogDelete('${alumni.name}')" class="btn shadow btn-admin red"><i class="fa fa-close"></i> Delete Profile
                           </button>
                         </div>
                       </div>
@@ -125,25 +138,38 @@ const displayAlumni = (alumni) => {
   alumniList.innerHTML = htmlString;
 };
 
-function showDialogApprove(name) {
-  document.querySelector("#accept-modal").style.display = "block";
+function showProfile(name) {
   let alumni = alumniProfiles.find((obj) => obj.name == name);
   $("#alumni-modal").modal("show");
-  document.querySelector("#accept-confirm-text").innerText = "Are you sure you would like to approve the alumni profile of "+alumni.name;
+  document.querySelector("#modal-profile-img").src = alumni.image;
+  document.querySelector("#modal-profile-name").innerText = alumni.name;
+  document.querySelector("#modal-profile-batch").value = alumni.enrollYear;
+  document.querySelector("#modal-profile-phone").value = alumni.phone;
+  document.querySelector("#modal-profile-level").value = alumni.level;
+  document.querySelector("#modal-profile-position").value = alumni.currentPos;
+  document.querySelector("#modal-profile-mail").value = alumni.email;
+  document.querySelector("#modal-profile-address").value = alumni.address;
+  document.querySelector("#modal-profile-address1").value = alumni.address1;
+  document.querySelector("#modal-profile-address2").value = alumni.address2;
+  document.querySelector("#modal-profile-postcode").value = "Postcode : "+alumni.postcode;
+  document.querySelector("#modal-profile-city").value = "City : "+alumni.city;
+  document.querySelector("#modal-profile-state").value = "State : "+alumni.state;
+  document.querySelector("#modal-profile-course").value = alumni.course;
+  document.querySelector("#modal-profile-dept").innerText = alumni.department;
+  document.querySelector("#modal-profile-major").value = alumni.department;
+  document.querySelector("#modal-profile-batch").value = alumni.enrollYear;
+  document.querySelector("#modal-profile-gradYear").value = "Graduation Year : "+alumni.graduationYear;
 }
 
-function showDialogReject(name) {
-  document.querySelector("#reject-modal").style.display = "block";
+function showDialogDelete(name){
   let alumni = alumniProfiles.find((obj) => obj.name == name);
-  $("#alumni-modal").modal("show");
-  document.querySelector("#reject-confirm-text").innerText = "Are you sure you would like to reject the alumni profile of "+alumni.name;
+  $(".admin-delete").modal("show");
+  document.querySelector("#delete-confirm-text").innerText = "Are you sure you want to delete "+alumni.name+"'s profile?";
 }
 
-function resetDialogs(){
-  document.querySelector("#reject-modal").style.display = "none";
-  document.querySelector("#accept-modal").style.display = "none";
+function showConfirmModal(){
+  $(".admin-update-confirm").modal("show");
 }
-
 
 displayAlumni(alumniProfiles);
 
