@@ -572,6 +572,11 @@ footer {
     .vertical-event-card {
         display: block;
         grid-template-columns: 1fr;
+        border-radius: 0.5em;
+        width: 95%;
+        margin-bottom: 2em;
+        padding: 1em; 
+        border: 1px rgb(180, 172, 172) solid;
     }
 
     .event-text {
@@ -581,10 +586,6 @@ footer {
     .event-btn {
         display: inline-block;
 
-    }
-
-    .event-main {
-        padding: 1.7em 1.5em 1em;
     }
 }
 
