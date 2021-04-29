@@ -6,6 +6,7 @@ let alumniProfiles = [
     currentPos: "Twitter Senior Dev",
     email: "example@mail.com",
     phone: "0123456789",
+    matricID: "12973653",
     enrollYear: "Batch of 2013",
     graduationYear: "2017",
     department: "Software Engineering",
@@ -26,6 +27,7 @@ let alumniProfiles = [
     currentPos: "System Admin @Privet Russia",
     email: "example@mail.com",
     phone: "0123456789",
+    matricID: "18736569",
     enrollYear: "Batch of 2015",
     graduationYear: "2019",
     department: "Information Systems",
@@ -46,6 +48,7 @@ let alumniProfiles = [
     currentPos: "Accounts Admin Youtube",
     email: "example@mail.com",
     phone: "0123456789",
+    matricID: "17205336",
     enrollYear: "Batch of 2019",
     graduationYear: "2023",
     department: "Information Systems",
@@ -101,7 +104,7 @@ const displayAlumni = (alumni) => {
                             <div class="col col-card-alumni-val"><p class="lead">${alumni.level}</p></div>
                           </div>
                           <div class="row">
-                            <div class="col col-card-alumni-val"><p class="lead">${alumni.currentPos}</p></div>
+                            <div class="col col-card-alumni-val"><p class="lead">Matric ID: ${alumni.matricID}</p></div>
                           </div>
                           <div class="row">
                             <div class="col col-card-alumni-val"><p class="lead">${alumni.email}</p></div>
