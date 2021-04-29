@@ -81,6 +81,13 @@ body {
 #logbutton:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
 }
+#dropdown-username {
+    background: #8f0b89;
+    color: white;
+}
+#myDropdown a:last-child {
+    border-bottom: solid #8f0b89 10px;
+}
 /* ------------------------------------------------------- */
 
 
