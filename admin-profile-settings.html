@@ -278,7 +278,6 @@
   <footer class="page-footer shadow-lg">
     <div class="footer-copyright text-center py-3" style="background-color: #f3f3f3; font-weight: 800;">
       <p>Copyright &copy; FSKTM 2021</p>
-      Designed by Haney & Humaira'
     </div>
   </footer>
 
@@ -293,6 +292,7 @@
     crossorigin="anonymous"></script>
   <!-- <script type="text/javascript" src="js/main.js"></script> -->
   <script>
+    document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
     // The navbar profile dropdown
     function myFunction() {
       myDropdown.classList.toggle("show");

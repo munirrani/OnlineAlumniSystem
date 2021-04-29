@@ -12,7 +12,7 @@ var defaultprofile = {
     city: "Gombak",
     state: "Selangor",
     country: "Malaysia",
-    bio: "Add Bio",
+    bio: "Add bio and social media",
     linkedin: "",
     github: "",
     image: "img/haney.jpeg",
@@ -27,6 +27,7 @@ if (sessionStorage.getItem("fullName") === null){
     } 
     for (var i=0; i<17; i++){
         document.getElementById(keys[i]+"1").innerHTML=sessionStorage.getItem(keys[i]);
+        window.location.reload();
     }
     document.getElementById("userName2").innerHTML=sessionStorage.getItem("userName");
 }

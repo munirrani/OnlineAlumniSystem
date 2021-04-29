@@ -125,8 +125,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="profileImg"
-                                            class="shadow"></a>
+                                    <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
@@ -134,10 +133,8 @@
                                                 <p id="bio1"></p>
                                             </div>
                                             <div class="container">
-                                                <p id="linkedin1"></p>
-                                            </div>
-                                            <div class="container">
-                                                <p id="github1"></p>
+                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
+                                                <a id="github1" href=""><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
                                             </div>
                                         </div>
                                         <div class="container">
@@ -250,44 +247,117 @@
             </div>
 
             <div class="container mt-4 shadow-lg" id="bottom-box">
-                <div class="col-md">
-                    <h2 class="mb-0" id="profile-heading">EXPERIENCE</h2>
+                <button type="button" class="collapsible mb-0" id="exp">
+                    <div class="row mt-4">
+                        <div class="col-md-1">
+                            <img src="img/add.png" id="act-addimg">
+                        </div>
+                        <div class="col-md">
+                            <h2 class="mb-0" id="profile-heading">EXPERIENCE</h2>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </button>
+                
+                <div class="content" id="exp">
+                    <form>
+                        <div class="row">
+                            <div class="input col-md my-2">
+                                <input type="text" class="form-control" name="comp" id="comp" placeholder="Company / Instituition" required/>
+                            </div>
+                            <div class="input col-md my-2">
+                                <input type="text" class="form-control" name="activity" id="activity" placeholder="Work / Activity" required/>
+                            </div>
+                            <div class="input col-md  my-2">
+                                <input type="text" class="form-control" name="position" id="position" placeholder="Position" required/>
+                            </div>
+                            <div class="input col-md-4 my-2">
+                                <input type="text" class="form-control" name="description" id="description" placeholder="Description" required/>
+                            </div>
+                            <div class="input col-md-auto my-2">
+                                <button type="submit" id="updatebutton" class="btn">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive-md">
+                    <table class="table content-table">
+                        <colgroup>
+                            <col span="1" style="width: 20%;">
+                            <col span="1" style="width: 20%;">
+                            <col span="1" style="width: 21%;">
+                            <col span="1" style="width: 31%;">
+                            <col span="1" style="width: 8%;">
+                         </colgroup>
+                        <thead>
+                          <tr>
+                            <th>Company / Instituition</th>
+                            <th>Work / Activity</th>
+                            <th>Position</th>
+                            <th>Description</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>University Malaya</td>
+                                <td>FSKTM MyTech Career Fair 2021</td>
+                                <td>Head of Technical Bureau</td>
+                                <td>Leading a 5-person team in handling the technical aspects of the MyTech
+                                    Career Fair and responsible for handling the platform for hosting the
+                                    event.</td>
+                                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
+                            </tr>
+                            <tr>
+                                <td>University Malaya</td>
+                                <td>PEKOM</td>
+                                <td>EXCO Software Engineering</td>
+                                <td>Provide constructive opinions on how to improve students' academic experience.</td>
+                                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
+                            </tr>
+                            <tr>
+                                <td>SWIFT</td>
+                                <td>Software Developer</td>
+                                <td>Part-time employee</td>
+                                <td>Work for 1 year and learned new skills.</td>
+                                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
         <script>
-            function showDiv() {
-                document.getElementById('welcomeDiv').style.display = "block";
+        const formEl = document.querySelector("form");
+        const tbodyEl = document.querySelector("tbody");
+        const tableEl = document.querySelector("table");
+        function onAddWebsite(e) {
+            e.preventDefault();
+            const company = document.getElementById("comp").value;
+            const activity = document.getElementById("activity").value;
+            const position = document.getElementById("position").value;
+            const description= document.getElementById("description").value;
+            tbodyEl.innerHTML += `
+                <tr>
+                <td>${company}</td>
+                <td>${activity}</td>
+                <td>${position}</td>
+                <td>${description}</td>
+                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
+                </tr>
+            `;
+        }
+        function onDeleteRow(e) {
+            if (!e.target.classList.contains("deleteBtn")) {
+            return;
             }
-            const formEl = document.querySelector("form");
-            const tbodyEl = document.querySelector("tbody");
-            const tableEl = document.querySelector("table");
-            function onAddWebsite(e) {
-                e.preventDefault();
-                const activity = document.getElementById("activity").value;
-                const position = document.getElementById("position").value;
-                const description = document.getElementById("description").value;
-                tbodyEl.innerHTML += `
-                              <tr>
-                                  <td>${activity}</td>
-                                  <td>${position}</td>
-                                  <td>${description}</td>
-                                  <td><button class="deleteBtn">Delete</button></td>
-                              </tr>
-                          `;
-            }
-
-            function onDeleteRow(e) {
-                if (!e.target.classList.contains("deleteBtn")) {
-                    return;
-                }
-
-                const btn = e.target;
-                btn.closest("tr").remove();
-            }
-
-            formEl.addEventListener("submit", onAddWebsite);
-            tableEl.addEventListener("click", onDeleteRow);
+            const btn = e.target;
+            btn.closest("tr").remove();
+        }
+        formEl.addEventListener("submit", onAddWebsite);
+        tableEl.addEventListener("click", onDeleteRow);
+                
         </script>
         <script>
             document.getElementById("fullName1").innerHTML = sessionStorage.getItem("fullName");
@@ -304,9 +374,10 @@
             document.getElementById("state1").innerHTML = sessionStorage.getItem("state");
             document.getElementById("country1").innerHTML = sessionStorage.getItem("country");
             document.getElementById("bio1").innerHTML = sessionStorage.getItem("bio");
-            document.getElementById("linkedin1").innerHTML = sessionStorage.getItem("linkedin");
-            document.getElementById("github1").innerHTML = sessionStorage.getItem("github");
             document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
+            
+            document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
+            document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
         </script>
 
         <footer class="page-footer shadow">
@@ -366,7 +437,6 @@
             <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
                 <p>Copyright &copy; FSKTM 2021
                 </p>
-                Designed by Haney & Humaira'
             </div>
         </footer>
     </div>

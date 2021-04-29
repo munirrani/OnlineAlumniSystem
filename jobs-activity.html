@@ -156,12 +156,12 @@
                                 <div id="act-posted">
                                     Posted on 21 April 2021
                                 </div>
-                                <div id="act-box" class="row" onclick="location.href='jobs-details.html'">
+                                <div id="act-box" class="row">
                                     <div class="col-md-4">
-                                        <img src="img/Swift.jpg" class="act-image">
-                                        <h6 id="act-jobname">
+                                        <a href="jobs-details.html"><img src="img/Swift.jpg" class="act-image"></a>
+                                        <a href="jobs-details.html" id="no-blue"><h6 id="act-jobname">
                                             Senior Software Engineer - JAVA
-                                        </h6>
+                                        </h6></a>
                                         <h6 id="job-company">
                                             S.W.I.F.T
                                         </h6>
@@ -177,8 +177,8 @@
                                         </h6>
                                     </div>
                                     <div class="col-md-auto">
-                                        <button type="button" id="act-button" class="btn"><img id="search-img"
-                                                src="img/delete.png"></button>
+                                        <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
+                                            data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
                                         <a href="jobs-edit.html"><button type="button" id="act-button" class="btn"><img
                                                     id="search-img" src="img/edit.png"></button></a>
                                     </div>
@@ -189,12 +189,12 @@
                                 <div id="act-posted">
                                     Posted on 21 April 2021
                                 </div>
-                                <div id="act-box" class="row" onclick="location.href='jobs-details1.html'">
+                                <div id="act-box" class="row">
                                     <div class="col-md-4">
-                                        <img src="img/Dell.png" class="act-image">
-                                        <h6 id="act-jobname">
+                                        <a href="jobs-details1.html"><img src="img/Dell.png" class="act-image"></a>
+                                        <a href="jobs-details1.html" id="no-blue"><h6 id="act-jobname">
                                             Software Engineer Senior Manager
-                                        </h6>
+                                        </h6></a>
                                         <h6 id="job-company">
                                             DELL
                                         </h6>
@@ -210,17 +210,28 @@
                                         </h6>
                                     </div>
                                     <div class="col-md-auto">
-                                        <button type="button" id="act-button" class="btn"><img id="search-img"
-                                                src="img/delete.png"></button>
+                                        <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
+                                            data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
                                         <a href="jobs-edit.html"><button type="button" id="act-button" class="btn"><img
                                                     id="search-img" src="img/edit.png"></button></a>
                                     </div>
                                 </div>
                             </div>
-
                             <hr>
                         </div>
-
+                    </div>
+                </div>
+                <div class="modal fade" id="warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                You're about to delete this job advertisement. <br>Are you sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
+                                <a href="jobs-activity.html"><button type="button" class="btn confirmbuttonModalSetting">Delete Job</button></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -288,7 +299,6 @@
             <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
                 <p>Copyright &copy; FSKTM 2021
                 </p>
-                Designed by Haney & Humaira'
             </div>
         </footer>
     </div>

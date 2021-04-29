@@ -103,13 +103,13 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-lg">
             <div class="jumbotron-admin-upcoming upcoming admin-welcome-cards d-flex justify-content-center align-items-center">
-              <button class="btn btn-lg btn-admin shadow"><a href="admin-upcoming_events.html">Upcoming Events</a></button>
+              <a href="admin-upcoming_events.html"><button class="btn btn-lg btn-admin shadow">Upcoming Events</button></a>
             </div>
           </div>
           <div class="col-lg">
             <div class="jumbotron-admin-past past admin-welcome-cards d-flex justify-content-center align-items-center">
-              <button class="btn btn-lg btn-admin shadow"><a href="admin-past_events.html">Past
-                  Events</a></button>
+              <a href="admin-past_events.html"><button class="btn btn-lg btn-admin shadow">Past
+                  Events</button></a>
             </div>
           </div>
         </div>
@@ -121,7 +121,6 @@
     <footer class="page-footer shadow-lg">
       <div class="footer-copyright text-center py-3" style="background-color: #f3f3f3; font-weight: 800;">
         <p>Copyright &copy; FSKTM 2021</p>
-        Designed by Hafiz & Fahad
       </div>
     </footer>
   </div>
@@ -138,6 +137,7 @@
     crossorigin="anonymous"></script>
   <!-- <script type="text/javascript" src="js/main.js"></script> -->
   <script>
+    document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
     // The navbar profile dropdown
     function myFunction() {
       myDropdown.classList.toggle("show");

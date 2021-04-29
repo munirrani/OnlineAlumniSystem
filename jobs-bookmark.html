@@ -148,12 +148,12 @@
                                     <div id="act-posted">
                                         Bookmarked on 21 April 2021
                                     </div>
-                                    <div id="act-box" class="row" onclick="location.href='jobs-details2.html'">
+                                    <div id="act-box" class="row">
                                         <div class="col-md-4">
-                                            <img src="img/Nixser.png" class="act-image">
-                                            <h6 id="act-jobname">
+                                            <a href="jobs.details2.html"><img src="img/Nixser.png" class="act-image"></a>
+                                            <a href="jobs.details2.html" id="no-blue"><h6 id="act-jobname">
                                                 Web Programmer
-                                            </h6>
+                                            </h6></a>
                                             <h6 id="job-company">
                                                 Nixser
                                             </h6>
@@ -169,8 +169,8 @@
                                             </h6>
                                         </div>
                                         <div class="col-md-auto">
-                                            <button type="button" id="book-bmarkbutton" class="btn"><img id="search-img"
-                                                    src="img/bookmark-icon.png"></button>
+                                            <button type="button" id="book-bmarkbutton" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" class="btn"><img id="search-img"
+                                                src="img/bookmark-icon.png"></button>
                                             <a href="jobs-details2.html"><button type="button" id="book-viewbutton"
                                                     class="btn">View</button></a>
                                         </div>
@@ -201,8 +201,8 @@
                                         </h6>
                                     </div>
                                     <div class="col-md-auto">
-                                        <button type="button" id="book-bmarkbutton" class="btn"><img id="search-img"
-                                                src="img/bookmark-icon.png"></button>
+                                        <button type="button" id="book-bmarkbutton" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" class="btn"><img id="search-img"
+                                            src="img/bookmark-icon.png"></button>
                                         <a href="jobs-details.html"><button type="button" id="book-viewbutton"
                                                 class="btn">View</button></a>
                                     </div>
@@ -234,8 +234,8 @@
                                         </h6>
                                     </div>
                                     <div class="col-md-auto">
-                                        <button type="button" id="book-bmarkbutton" class="btn"><img id="search-img"
-                                                src="img/bookmark-icon.png"></button>
+                                        <button type="button" id="book-bmarkbutton" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" class="btn"><img id="search-img"
+                                            src="img/bookmark-icon.png"></button>
                                         <a href="jobs-details.html"><button type="button" id="book-viewbutton"
                                                 class="btn">View</button></a>
                                     </div>
@@ -267,7 +267,7 @@
                                         </h6>
                                     </div>
                                     <div class="col-md-auto">
-                                        <button type="button" id="book-bmarkbutton" class="btn"><img id="search-img"
+                                        <button type="button" id="book-bmarkbutton" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" class="btn"><img id="search-img"
                                                 src="img/bookmark-icon.png"></button>
                                         <a href="jobs-details.html"><button type="button" id="book-viewbutton"
                                                 class="btn">View</button></a>
@@ -275,15 +275,28 @@
                                 </div>
                             </div>
                             <hr>
-
                         </div>
 
+                    </div>
+                </div>
+                <div class="modal fade bd-example-modal-sm" id="dialogModal" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body" style="text-align: center;">
+                                Bookmark removed!
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
 
         <script>
+            //modal
+            setTimeout(function(){
+                $('#dialogModal').modal('hide')
+            }, 1000);
+            //profile
             document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
             document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
             document.querySelector("#act-profileImg").classList.add("imgcoverobject");
@@ -346,7 +359,6 @@
             <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
                 <p>Copyright &copy; FSKTM 2021
                 </p>
-                Designed by Haney & Humaira'
             </div>
         </footer>
     </div>

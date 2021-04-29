@@ -286,7 +286,7 @@
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
                                                 <a href="jobs-details.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
-                                                <button type="button" id="job-bmark" class="btn bmark-hide-logged"><img id="search-img"
+                                                <button type="button" id="job-bmark" class="btn bmark-hide-logged" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
                                             </div>
                                         </div>
@@ -341,7 +341,7 @@
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
                                                 <a href="jobs-details1.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
-                                                <button type="button" id="job-bmark" class="btn bmark-hide1-logged"><img id="search-img"
+                                                <button type="button" id="job-bmark" class="btn bmark-hide1-logged" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
                                             </div>
                                         </div>
@@ -395,7 +395,7 @@
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
                                                 <a href="jobs-details2.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
-                                                <button type="button" id="job-bmark" class="btn bmark-hide2-logged"><img id="search-img"
+                                                <button type="button" id="job-bmark" class="btn bmark-hide2-logged" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
                                             </div>
                                         </div>
@@ -449,7 +449,7 @@
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
                                                 <a href="jobs-details.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
-                                                <button type="button" id="job-bmark" class="btn bmark-hide3-logged"><img id="search-img"
+                                                <button type="button" id="job-bmark" class="btn bmark-hide3-logged" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
                                             </div>
                                         </div>
@@ -503,7 +503,7 @@
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
                                                 <a href="jobs-details.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
-                                                <button type="button" id="job-bmark" class="btn bmark-hide4-logged"><img id="search-img"
+                                                <button type="button" id="job-bmark" class="btn bmark-hide4-logged" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
                                             </div>
                                         </div>
@@ -557,7 +557,7 @@
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
                                                 <a href="jobs-details.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
-                                                <button type="button" id="job-bmark" class="btn bmark-hide5-logged"><img id="search-img"
+                                                <button type="button" id="job-bmark" class="btn bmark-hide5-logged" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
                                             </div>
                                         </div>
@@ -590,7 +590,15 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-default" data-toggle="notify" data-placement="top" data-align="center" data-type="default" data-icon="ni ni-bell-55">Top Center</button>
+                    <div class="modal fade bd-example-modal-sm" id="dialogModal" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body" style="text-align: center;">
+                                    Bookmark added!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="text-center mt-3">
                         <div class="row justify-content-md-center mx-auto btn-group">
@@ -664,7 +672,6 @@
             <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
                 <p>Copyright &copy; FSKTM 2021
                 </p>
-                Designed by Haney & Humaira'
             </div>
         </footer>
     </div>
