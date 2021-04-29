@@ -16,7 +16,6 @@
         main {
           min-height: calc(100vh - 52px - 110px - 96px);
         }
-    
         footer {
           padding-top: 0px;
         }
@@ -59,6 +58,7 @@
                                 <button class="my-dropdown-toggle nav-link active" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <b>Manage Events</b>
+                                    <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item nav-link" href="admin-upcoming_events.html">Upcoming
@@ -100,6 +100,14 @@
                     </div>
                     <div class="col-sm-8 right-col">
                         <div class="container form-reg-container">
+                            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-background">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
+                                  <li class="breadcrumb-item breadcrumb-admin"><a href="admin-events-dash.html">Events-Dashboard</a></li>
+                                  <li class="breadcrumb-item breadcrumb-admin"><a href="admin-upcoming_events.html">Upcoming Events</a></li>
+                                  <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/New Event</li>
+                                </ol>
+                            </nav>
                             <div class="row">
                                 <h1 class="form-reg-heading">NEW EVENT</h1>
                                 <hr>

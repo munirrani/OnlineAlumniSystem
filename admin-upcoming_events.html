@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
+    <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <style>
         main {
           min-height: calc(100vh - 52px - 110px - 96px);
@@ -58,6 +59,7 @@
                                 <button class="my-dropdown-toggle nav-link active" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <b>Manage Events</b>
+                                    <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item nav-link" href="admin-upcoming_events.html">Upcoming
@@ -92,8 +94,15 @@
         </nav>
 
         <main>
-            <div id="event-main">
-
+            <div id="event-main" class="pt-3">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-background">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
+                      <li class="breadcrumb-item breadcrumb-admin"><a href="admin-events-dash.html">Events-Dashboard</a></li>
+                      <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Upcoming Events</li>
+                    </ol>
+                </nav>
+                
                 <div id="upcoming-events">
                     <h2>UPCOMING EVENTS</h2>
                     <a href="new_event.html"><button class="btn btn-success event-meta" id="event-creation">Create New

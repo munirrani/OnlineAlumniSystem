@@ -335,6 +335,9 @@ footer {
 .dropdown-toggle::after {
     content: none;
 }
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
 .menu-back {
     background-color: #f3f3f3;
 }
@@ -462,6 +465,9 @@ footer {
     border-radius: 50%;
     background: #f3f3f3;    
     margin-right: 20px;
+}
+.event-label:hover {
+    box-shadow: 0 0 15px #c532be;
 }
 .event-mode:checked + .event-label {
     background-color: #aa2aa4;
@@ -2035,11 +2041,16 @@ h6.height{
     width: auto;}
 }
 
+.breadcrumb{
+    padding: 7px;
+    margin: 0px;
+}
+
 .breadcrumb a {
     font-family: 'Hammersmith one', sans-serif;
     font-weight: 800;
     font-size: larger;
-    color: #fa07ee !important;
+    color: #8f0b89 !important;
     text-decoration: none !important;
 }
 
@@ -2047,7 +2058,33 @@ h6.height{
     font-family: 'Hammersmith one', sans-serif;
     font-weight: 800;
     font-size: larger;
-    color: white !important;
+    color: black !important;
+}
+
+.breadcrumb-background{
+    background: #f3f3f3;
+    border-radius: 10px;
+}
+
+#modal-content-admin-alumni{
+    background-color:rgba(255, 255, 255, 0.95);
+    border-radius: 28px;
+    font-family: 'Hammersmith One', sans-serif;
+    padding-bottom: 10px;
+    overflow: auto !important;
+}
+
+#accept-modal, #reject-modal{
+    display: none;
+}
+
+.admin-edit-input, .admin-edit-input:focus{
+    border: none;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 2px;
 }
 
 /* ------------------------------------------------------- */

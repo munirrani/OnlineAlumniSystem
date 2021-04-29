@@ -54,6 +54,7 @@
                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   <b>Manage Events</b>
+                  <i class="fa fa-angle-down"></i>
                 </button>
                 <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item nav-link" href="admin-upcoming_events.html">Upcoming Events</a></li>
@@ -88,6 +89,12 @@
 
     <main>
       <div class="container">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-background">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
+            <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Profiles Dashboard</li>
+          </ol>
+        </nav>
         <div class="jumbotron-events">
         <div class="row justify-content-center">
             <h1 class="display-5" id="alumni-search-heading">MANAGE ALUMNI PROFILES</h1>
@@ -132,12 +139,12 @@
       <div class="row align-items-center justify-content-center mt-3">
         <div class="col-lg">
           <div class="jumbotron-admin-approved upcoming admin-welcome-cards d-flex justify-content-center align-items-center">
-            <button class="btn btn-lg btn-admin green shadow admin-profile-btn"><a href="#">View Approved</a></button>
+            <button class="btn btn-lg btn-admin green shadow admin-profile-btn"><a href="admin-approved-alumni.html">View Approved</a></button>
           </div>
         </div>
         <div class="col-lg">
           <div class="jumbotron-admin-pending past admin-welcome-cards d-flex justify-content-center align-items-center">
-            <button class="btn btn-lg btn-admin yellow shadow admin-profile-btn"><a href="#">View Pending</a></button>
+            <button class="btn btn-lg btn-admin yellow shadow admin-profile-btn"><a href="admin-pending-alumni.html">View Pending</a></button>
           </div>
         </div>
         <div class="col-lg">

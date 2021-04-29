@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/main.css" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="icon" href="img/logo_um_without_text.png" type="image/png" />
+  <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
   <style>
     main {
       min-height: calc(100vh - 52px - 110px - 96px);
@@ -55,6 +56,7 @@
                 <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   <b>Manage Events</b>
+                  <i class="fa fa-angle-down"></i>
                 </button>
                 <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item nav-link" href="admin-upcoming_events.html">Upcoming
@@ -91,9 +93,18 @@
     <main>
 
       <div id="home-container" class="container-fluid">
-
+        <div class="container mb-3">
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-background">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
+              <li class="breadcrumb-item breadcrumb-admin"> <a href="admin-profile-dash.html">Profiles Dashboard</a></li>
+              <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Pending Profiles</li>
+            </ol>
+          </nav>
+        </div>
+        
         <div class="row justify-content-center">
-          <h1 class="display-4" id="alumni-search-heading">SEARCH ALUMNI PROFILES</h1>
+          <h1 class="display-4" id="alumni-search-heading">PENDING ALUMNI PROFILES</h1>
         </div>
 
         <div class="row justify-content-center">
@@ -129,123 +140,32 @@
             <a href="#" class="col page-nav-alumni page-nav-text">Next</a>
           </div>
         </div>
-
+        
         <div class="modal fade" id="alumni-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div id="modal-content-alumni" class="modal-content shadow">
+            <div id="modal-content-admin-alumni" class="modal-content shadow">
 
               <div class="modal-header mb-3">
-                <h4 class="modal-title" id="modal-title">Alumni Profile</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title" id="modal-title" style="color: black;">Reject Alumni Registration</h4>
+                <button onclick=resetDialogs() type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="container modal-container-alumni">
-                <div class="row justify-content-center">
-                  <div class="col-auto col-left-modal-alumni justify-content-center">
-                    <div class="contact-box center-version">
-                      <div class="body-alumni-card-modal">
-                        <img alt="image" id="modal-profile-img" src="#">
-                        <h1 id="modal-profile-name" class="m-b-xs profile-card-name mt-3" style="text-align: center;">
-                        </h1>
-                        <h4 id="modal-profile-dept" class="card-department-alumni pb-1"></h4>
-                        <hr>
-                        <div class="row">
-                          <div class="col col-card-alumni-val">
-                            <p id="modal-profile-level" class="lead"></p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col col-card-alumni-val">
-                            <p id="modal-profile-position" class="lead"></p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col col-card-alumni-val">
-                            <p id="modal-profile-mail" class="lead"></p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col col-card-alumni-val">
-                            <p id="modal-profile-phone" class="lead"></p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col col-card-alumni-val">
-                            <p id="modal-profile-address" class="lead"></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <div id="reject-modal">
+                  <p id="reject-confirm-text" class="lead";"></p>
+                  <div class="d-flex gap-2 justify-content-center">
+                    <button onclick=resetDialogs() class="btn btn-admin red shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Reject Profile</button>
+                    <button onclick=resetDialogs() class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Cancel</button>
                   </div>
-                  <div class="col-lg d-grid justify-content-center mt-3" id="right-col-alumni-modal">
-                    <div class="row contact-box d-flex" id="top-row-modal-alumni">
-                      <div class="row">
-                        <h1 class="display-6 text-center">Address</h1>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col">
-                          <p class="h4 text-end">Address line 1 </p>
-                        </div>
-                        :
-                        <div class="col">
-                          <p class="h4" id="modal-profile-address1"></p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <p class="h4 text-end">Address line 2 </p>
-                        </div>
-                        :
-                        <div class="col">
-                          <p class="h4" id="modal-profile-address2"></p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col text-center">
-                          <p class="h4" id="modal-profile-postcode"></p>
-                        </div>
-                        <div class="col text-center">
-                          <p class="h4" id="modal-profile-city"></p>
-                        </div>
-                        <div class="col text-center">
-                          <p class="h4" id="modal-profile-state"></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row contact-box mt-3 d-flex" id="bot-row-modal-alumni">
-                      <div class="row">
-                        <h1 class="display-6 text-center">Academic Background</h1>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col">
-                          <p class="h4 text-end">Course</p>
-                        </div>
-                        :
-                        <div class="col">
-                          <p class="h4" id="modal-profile-course">Computer Science</p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <p class="h4 text-end">Major</p>
-                        </div>
-                        :
-                        <div class="col">
-                          <p class="h4" id="modal-profile-major"></p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col text-center">
-                          <p class="h4" id="modal-profile-batch"></p>
-                        </div>
-                        <div class="col text-center">
-                          <p class="h4" id="modal-profile-gradYear"></p>
-                        </div>
-                      </div>
-                    </div>
+                </div>
+                <div id="accept-modal">
+                  <p id="accept-confirm-text" class="lead"></p>
+                  <div class="d-flex gap-2 justify-content-center">
+                    <button onclick=resetDialogs() class="btn btn-admin green shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Approve Profile</button>
+                    <button onclick=resetDialogs() class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Cancel</button>
+                  </div>
+                </div>
+                  
+              </div>
 
                   </div>
                 </div>
@@ -303,7 +223,7 @@
     };
                     //
   </script>
-  <script type="text/javascript" src="js/profile.js"></script>
+  <script type="text/javascript" src="js/pendingprofile.js"></script>
 </body>
 
 </html>
