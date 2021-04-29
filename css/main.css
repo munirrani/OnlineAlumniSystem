@@ -1750,6 +1750,9 @@ h6.height{
      border: #8f0b89;
      border-style: solid;
      border-radius: 50%;
+     object-fit: cover;
+     height: 100px;
+     width: 100px;
  }
  .alumni-card-view-profile-button {
     color: #f3f3f3;
@@ -1814,6 +1817,8 @@ h6.height{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     width: 100%;
+    max-height: 320px;
+    object-fit: cover;
 }
 #right-col-alumni-modal {
     margin-right: 0px !important;
