@@ -66,7 +66,7 @@ let alumniProfiles = [
     city: "Town city",
     state: "Selangor",
     course: "Computer Science",
-    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    image: "../img/irfanpic.jpg",
     bio: "Hey, I am a Lead Android Developer at Google",
     linkedin: "#",
     github: "#",
