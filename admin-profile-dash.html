@@ -138,20 +138,20 @@
             </div>
         </div>
       </div>
-      <div class="row align-items-center justify-content-center mt-3">
+      <div class="row align-items-center justify-content-center mt-3 button-in-profile-dash">
         <div class="col-lg">
           <div class="jumbotron-admin-approved upcoming admin-welcome-cards d-flex justify-content-center align-items-center">
-            <button class="btn btn-lg btn-admin green shadow admin-profile-btn"><a href="admin-approved-alumni.html">View Approved</a></button>
+            <a href="admin-approved-alumni.html"><button class="btn btn-lg btn-admin green shadow admin-profile-btn">View Approved</button></a>
           </div>
         </div>
         <div class="col-lg">
           <div class="jumbotron-admin-pending past admin-welcome-cards d-flex justify-content-center align-items-center">
-            <button class="btn btn-lg btn-admin yellow shadow admin-profile-btn"><a href="admin-pending-alumni.html">View Pending</a></button>
+            <a href="admin-pending-alumni.html"></a><button class="btn btn-lg btn-admin yellow shadow admin-profile-btn">View Pending</button></a>
           </div>
         </div>
         <div class="col-lg">
           <div class="jumbotron-admin-rejected past admin-welcome-cards d-flex justify-content-center align-items-center">
-            <button class="btn btn-lg btn-admin red shadow admin-profile-btn"><a href="admin-rejected-alumni.html">View Rejected</a></button>
+            <a href="admin-rejected-alumni.html"><button class="btn btn-lg btn-admin red shadow admin-profile-btn">View Rejected</button></a>
           </div>
         </div>
       </div>
@@ -180,6 +180,7 @@
     crossorigin="anonymous"></script>
   <!-- <script type="text/javascript" src="js/main.js"></script> -->
   <script>
+    document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
     // The navbar profile dropdown
     function myFunction() {
       myDropdown.classList.toggle("show");
