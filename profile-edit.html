@@ -116,11 +116,11 @@
                     <div id="round-corner-left" class="row gutters-sm shadow-lg">
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                    <button type="button" id="profilebtn" class="btn" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
-                                    </button>
+                                <div class="d-flex flex-column align-items-center text-center" id="result">
+                                        <button type="button" id="uploadBtn" class="btn" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
+                                        </button>
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
@@ -130,12 +130,17 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
-                                                <form>
-                                                    <div class="modal-body">
-                                                        <input class="form-control" type="file" id="formFile">
+                                                <form id="form" action="profile-edit.html">
+                                                    <div class="modal-body align-items-center">
+                                                        <div class="image-preview" id="imagePreview">
+                                                            <img src="" alt="Image Preview" class="image-preview__image">
+                                                            <span class="image-preview__default-text">Image Preview</span>
+                                                        </div>
+                                                        <br>
+                                                        <input class="form-control purplemodalinput" type="file" id="inpFile">
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" id="confirmbutton"
+                                                        <button type="submit" id="confirmbutton"
                                                             class="btn shadow confirmbuttonModalSetting">Upload</button>
                                                     </div>
                                                 </form>
@@ -147,9 +152,10 @@
                                         <div class="container">
                                             <div class="container">
                                                 <form>
-                                                    <textarea class="form-control" id="bio" placeholder="Add a Bio">Web Developer at Haney and Humaira' Sdn Bhd</textarea>
+                                                    <textarea class="form-control" id="bio" placeholder="Add a Bio"></textarea>
+                                                    
                                                     <div class="container mt-3">
-                                                        <button id="editbutton" class="btn shadow" onclick="updateInfo()" type="button">Update
+                                                        <button id="editbutton" class="btn shadow" onclick="updateBio()" type="button">Update
                                                             Bio</button>
                                                     </div>
                                                 </form>
@@ -168,7 +174,7 @@
 
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
-                                    <form autocomplete="off" action="profile.html" >
+                                    <form autocomplete="off" action="profile.html" method="POST" >
                                         <div class="row">
                                             <h2 id="profile-heading"> PERSONAL INFORMATION</h2>
                                         </div>
@@ -207,46 +213,81 @@
 
                                             </div>
                                         </div>
-                                        <div class="row mb-35">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Enrollment Year</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="enrollYear"
-                                                    placeholder="Enrollment Year" required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-35">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Department</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="department"
-                                                    placeholder="Department" required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-35">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Level</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="level" placeholder="Level" required>
-                                            </div>
-                                        </div>
+                                        <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Address</h6>
                                             </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="address"
-                                                    placeholder="Address" required>
-                                                <div class="d-flex gap-2 mt-5">
-                                                    <a href="profile.html"><button
-                                                            class="btn shadow confirmbuttonModalSetting"
-                                                            type="button">Cancel</button></a>
-                                                    <button id="updatebutton" class="btn shadow" type="submit" onclick="updateInfo()">Update
-                                                        Information</button>
-                                                </div>
+                                            <div class="col-sm-9 mb-35 text-secondary" >
+                                                <input type="text" class="form-control purplemodalinput" id="address" placeholder="No, Building No, Street Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Postal Code</h6>
+                                            </div>
+                                            <div class="col-sm mb-35 text-secondary">
+                                                <input type="text" class="form-control purplemodalinput" id="code" placeholder="Postal Code" required>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">City</h6>
+                                            </div>
+                                            <div class="col-sm mb-35 text-secondary">
+                                                <input type="text" class="form-control purplemodalinput" id="city" placeholder="City" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">State</h6>
+                                            </div>
+                                            <div class="col-sm mb-35 text-secondary">
+                                                <input type="text" class="form-control purplemodalinput" id="state" placeholder="State" required>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Country</h6>
+                                            </div>
+                                            <div class="col-sm  mb-35 text-secondary">
+                                                <input type="text" class="form-control purplemodalinput" id="country" placeholder="Country" required>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Enrollment Year</h6>
+                                            </div>
+                                            <div class="col-sm mb-35 text-secondary">
+                                                <input type="text" class="form-control purplemodalinput" id="enrollYear" placeholder="Year" required>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Graduation Year</h6>
+                                            </div>
+                                            <div class="col-sm text-secondary  mb-35">
+                                                <input type="text" class="form-control purplemodalinput" id="graduation" placeholder="Year" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Major</h6>
+                                            </div>
+                                            <div class="col-sm mb-35 text-secondary">
+                                                <input type="text" class="form-control purplemodalinput" id="department" placeholder="Course" required>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Level</h6>
+                                            </div>
+                                            <div class="col-sm mb-35 text-secondary">
+                                                <input type="text" class="form-control purplemodalinput" id="level" placeholder="Degree/Master/PhD" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <a href="profile.html"><button
+                                                        class="btn shadow confirmbuttonModalSetting"
+                                                        type="button">Cancel</button></a>
+                                                <button id="updatebutton" class="btn shadow" type="submit" onclick="updateInfo()">Update
+                                                    Information</button>
                                             </div>
                                         </div>
                                     </form>
@@ -260,6 +301,16 @@
     </main>
 
     <script>
+        function updateBio () {
+            var a = document.getElementById("bio").value;
+            sessionStorage.setItem("bio",a);
+            var b = document.getElementById("linkedin").value;
+            sessionStorage.setItem("linkedin",b);
+            var c = document.getElementById("github").value;
+            sessionStorage.setItem("github",c);
+            alert("Bio Updated")
+        }
+
         function updateInfo(){
             var a = document.getElementById("fullName").value;
             sessionStorage.setItem("fullName",a);
@@ -271,25 +322,95 @@
             sessionStorage.setItem("phone",d);
             var e = document.getElementById("enrollYear").value;
             sessionStorage.setItem("enrollYear",e);
-            var f = document.getElementById("department").value;
-            sessionStorage.setItem("department",f);
-            var g = document.getElementById("level").value;
-            sessionStorage.setItem("level",g);
-            var h = document.getElementById("address").value;
-            sessionStorage.setItem("address",h);
-            var i = document.getElementById("bio").value;
-            sessionStorage.setItem("bio",i);
+            var f = document.getElementById("graduation").value;
+            sessionStorage.setItem("graduation",f);
+            var g = document.getElementById("department").value;
+            sessionStorage.setItem("department",g);
+            var h = document.getElementById("level").value;
+            sessionStorage.setItem("level",h);
+            var i = document.getElementById("address").value;
+            sessionStorage.setItem("address",i);
+            var j = document.getElementById("code").value;
+            sessionStorage.setItem("code",j);
+            var k = document.getElementById("city").value;
+            sessionStorage.setItem("city",k);
+            var l = document.getElementById("state").value;
+            sessionStorage.setItem("state",l);
+            var m = document.getElementById("country").value;
+            sessionStorage.setItem("country",m);
         }
         document.getElementById("fullName").value = sessionStorage.getItem("fullName");
         document.getElementById("currentPosition").value = sessionStorage.getItem("currentPosition");
         document.getElementById("email").value = sessionStorage.getItem("email");
         document.getElementById("phone").value = sessionStorage.getItem("phone");
         document.getElementById("enrollYear").value = sessionStorage.getItem("enrollYear");
+        document.getElementById("graduation").value = sessionStorage.getItem("graduation");
         document.getElementById("department").value = sessionStorage.getItem("department");
         document.getElementById("level").value = sessionStorage.getItem("level");
         document.getElementById("address").value = sessionStorage.getItem("address");
+        document.getElementById("code").value = sessionStorage.getItem("code");
+        document.getElementById("city").value = sessionStorage.getItem("city");
+        document.getElementById("state").value = sessionStorage.getItem("state");
+        document.getElementById("country").value = sessionStorage.getItem("country");
         document.getElementById("bio").value = sessionStorage.getItem("bio");
+        document.getElementById("linkedin").value = sessionStorage.getItem("linkedin");
+        document.getElementById("github").value = sessionStorage.getItem("github");
         document.getElementById("userName1").innerHTML=sessionStorage.getItem("userName");
+
+        // Preview Image
+        const inpFile = document.getElementById("inpFile");
+        const previewContainer = document.getElementById("imagePreview");
+        const previewImage = previewContainer.querySelector(".image-preview__image");
+        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+        inpFile.addEventListener("change", function() {
+            const file = this.files[0];
+            
+            if (file) {
+                const reader = new FileReader();
+
+                previewDefaultText.style.display = "none";
+                previewImage.style.display = "block";
+
+                reader.addEventListener("load", function() {
+                    previewImage.setAttribute("src", this.result);
+                });
+
+                reader.readAsDataURL(file);
+            } 
+            else  {
+                previewDefaultText.style.display = null;
+                previewImage.style.display = null;
+                previewImage.setAttribute("src", "");
+            }
+        });
+
+        // Upload Image
+        var form = document.getElementById("form");
+        var parentDiv = document.getElementById("result")
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var reader = new FileReader();
+
+            var name = document.getElementById("inpFile").files[0].name;
+            reader.addEventListener("load", function() {
+                if (this.result && sessionStorage) {
+                    window.sessionStorage.setItem(name, this.result);
+                    showImages();
+                }
+            });
+
+            reader.readAsDataURL(document.getElementById("inpFile").files[0]);
+        });
+
+        function showImages() {
+            let res = window.sessionStorage.getItem(window.sessionStorage.key(11));
+            var image = new Image();
+            image.src = res;
+
+            parentDiv.appendChild(image);
+        }
     </script>
 
     <footer class="page-footer shadow">
