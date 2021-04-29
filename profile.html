@@ -46,9 +46,10 @@
                         </li>
                         <li class="navbar-nav nav-item">
                             <div class="dropdown">
-                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b>Events</b>
-                                  <i class="fa fa-angle-down"></i>
+                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <b>Events</b>
+                                    <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu menu-back" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming
@@ -254,19 +255,19 @@
                 </div>
             </div>
         </main>
-                      <script>
-                          function showDiv() {
-                            document.getElementById('welcomeDiv').style.display = "block";
-                            }
-                        const formEl = document.querySelector("form");
-                        const tbodyEl = document.querySelector("tbody");
-                        const tableEl = document.querySelector("table");
-                        function onAddWebsite(e) {
-                          e.preventDefault();
-                          const activity = document.getElementById("activity").value;
-                          const position = document.getElementById("position").value;
-                          const description= document.getElementById("description").value;
-                          tbodyEl.innerHTML += `
+        <script>
+            function showDiv() {
+                document.getElementById('welcomeDiv').style.display = "block";
+            }
+            const formEl = document.querySelector("form");
+            const tbodyEl = document.querySelector("tbody");
+            const tableEl = document.querySelector("table");
+            function onAddWebsite(e) {
+                e.preventDefault();
+                const activity = document.getElementById("activity").value;
+                const position = document.getElementById("position").value;
+                const description = document.getElementById("description").value;
+                tbodyEl.innerHTML += `
                               <tr>
                                   <td>${activity}</td>
                                   <td>${position}</td>
@@ -274,20 +275,20 @@
                                   <td><button class="deleteBtn">Delete</button></td>
                               </tr>
                           `;
-                        }
-                  
-                        function onDeleteRow(e) {
-                          if (!e.target.classList.contains("deleteBtn")) {
-                            return;
-                          }
-                  
-                          const btn = e.target;
-                          btn.closest("tr").remove();
-                        }
-                  
-                        formEl.addEventListener("submit", onAddWebsite);
-                        tableEl.addEventListener("click", onDeleteRow);
-                      </script>
+            }
+
+            function onDeleteRow(e) {
+                if (!e.target.classList.contains("deleteBtn")) {
+                    return;
+                }
+
+                const btn = e.target;
+                btn.closest("tr").remove();
+            }
+
+            formEl.addEventListener("submit", onAddWebsite);
+            tableEl.addEventListener("click", onDeleteRow);
+        </script>
         <script>
             document.getElementById("fullName1").innerHTML = sessionStorage.getItem("fullName");
             document.getElementById("currentPosition1").innerHTML = sessionStorage.getItem("currentPosition");

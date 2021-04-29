@@ -222,6 +222,7 @@ footer {
     .form-reg-submit{
         justify-content: center;
     }
+
 }
 /* ------------------------------------------------------- */
 
@@ -967,6 +968,10 @@ a:hover[id=profileNav-inactive] {
     border-radius: 50%;
     width:250px;
     height:250px;
+    object-fit: cover !important;
+}
+.imgcoverobject {
+    object-fit: cover !important;
 }
 #profilebtn:focus { 
     outline: none;
@@ -974,6 +979,7 @@ a:hover[id=profileNav-inactive] {
 }
 #profileIcon {
     border: 1px solid #8f0b89;
+    object-fit: cover !important;
 }
 .form-control[id=bio] {
     color: white;
