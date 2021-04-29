@@ -731,7 +731,6 @@ footer {
     justify-self: center;
     max-width: 125px;
     padding: 10px 35px;
-    margin-top: 15px;
     background: #aa2aa4;
     color: white;
     border-radius: 25px;
@@ -1755,12 +1754,9 @@ h6.height{
     border-radius: 20px;
     width: 100%;
 }
-/* .body-alumni-card-modal{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-} */
+.body-alumni-card-modal{
+    max-width: 20rem;
+}
 #alumni-modal img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -1792,6 +1788,15 @@ h6.height{
     color: white;
     background-color: #cc67c7;
     text-decoration: none;
+}
+.prof-icon-modal {
+    
+}
+.linkedin-icon {
+    margin-right: 15px;
+}
+.linkedin-icon, .github-icon {
+    color: black !important;
 }
 /* ------------------------------------------------------- */
 

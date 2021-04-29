@@ -3,6 +3,7 @@ let alumniProfiles = [
     name: "Fahad",
     age: 21,
     Gender: "Male",
+    status: "alumni",
     currentPos: "UX Designer at Google",
     email: "example@mail.com",
     phone: "0123456789",
@@ -13,15 +14,20 @@ let alumniProfiles = [
     address: "Qatar",
     address1: "Zone 25 Street 980 Building 9",
     address2: "Doha-Qatar",
-    postcode: "123456", 
+    postcode: "123456",
     city: "Town city",
     state: "Doha",
     course: "Computer Science",
-    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    image: "../img/fahadpic.jpg",
     bio: "Hey, I am a UX Designer at Google",
+    linkedin: "#",
+    github: "https://github.com/fahadthakur",
   },
   {
     name: "Hafiz",
+    age: 21,
+    Gender: "Male",
+    status: "alumni",
     currentPos: "Senior Branch Manager",
     email: "example@mail.com",
     phone: "0123456789",
@@ -36,11 +42,16 @@ let alumniProfiles = [
     city: "Town city",
     state: "Selangor",
     course: "Computer Science",
-    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    image: "../img/hafizpic.jpg",
     bio: "Hey, I am a Senior Branch Manager Twitter",
+    linkedin: "#",
+    github: "#",
   },
   {
     name: "Irfan",
+    age: 21,
+    Gender: "Male",
+    status: "alumni",
     currentPos: "Lead Android Developer",
     email: "example@mail.com",
     phone: "0123456789",
@@ -57,9 +68,14 @@ let alumniProfiles = [
     course: "Computer Science",
     image: "https://bootdey.com/img/Content/avatar/avatar1.png",
     bio: "Hey, I am a Lead Android Developer at Google",
+    linkedin: "#",
+    github: "#",
   },
   {
     name: "Danial",
+    age: 21,
+    Gender: "Male",
+    status: "alumni",
     currentPos: "Machine Learning Master",
     email: "example@mail.com",
     phone: "0123456789",
@@ -74,14 +90,39 @@ let alumniProfiles = [
     city: "Town city",
     state: "Selangor",
     course: "Computer Science",
-    image: "https://bootdey.com/img/Content/avatar/avatar1.png",
+    image: "../img/danialpic.jpg",
     bio: "Hey, I am the Machine Learning Master",
+    linkedin: "#",
+    github: "#",
+  },
+  {
+    name: "Munir",
+    age: 21,
+    Gender: "Male",
+    currentPos: "Head of Software Developtment",
+    email: "example@mail.com",
+    phone: "0123456789",
+    enrollYear: "Batch of 2019",
+    graduationYear: "2023",
+    department: "Software Engineering",
+    level: "Degree",
+    address: "Malaysia",
+    address1: "Lot 151, Jalan Jalan, Selangor",
+    address2: "Taman Jaya",
+    postcode: "172310",
+    city: "Damansara",
+    state: "Selangor",
+    course: "Computer Science",
+    image: "../img/munirpic.jpg",
+    bio: "Hey, I am Photographer and an avid Coder",
+    linkedin: "#",
+    github: "https://github.com/munirrani",
   },
 ];
 
 let addAlumniProf = JSON.parse(sessionStorage.getItem("addAlumniAll"));
 
-if(addAlumniProf != null) Array.prototype.push.apply(alumniProfiles,addAlumniProf);
+if (addAlumniProf != null) Array.prototype.push.apply(alumniProfiles, addAlumniProf);
 
 const alumniList = document.querySelector("#alumniList");
 
@@ -139,6 +180,22 @@ const displayAlumni = (alumni) => {
   alumniList.innerHTML = htmlString;
 };
 
+
+
+const displaySocialsAlumni = (alumni) => {
+  const htmlString = alumni.map((alumni) => {
+      return `
+      <a href="${alumni.linkedin}"><i class="fab fa-linkedin fa-2x linkedin"></i></a>
+      <a href="${alumni.github}"><i class="fab fa-github fa-2x"></i></a> 
+      `;
+    })
+    .join("");
+  document.querySelector("#social-prof-icon").innerHTML = htmlString;
+};
+
+
+
+
 function showProfile(name) {
   let alumni = alumniProfiles.find((obj) => obj.name == name);
   $("#alumni-modal").modal("show");
@@ -152,14 +209,16 @@ function showProfile(name) {
   document.querySelector("#modal-profile-address").innerText = alumni.address;
   document.querySelector("#modal-profile-address1").innerText = alumni.address1;
   document.querySelector("#modal-profile-address2").innerText = alumni.address2;
-  document.querySelector("#modal-profile-postcode").innerText = "Postcode : "+alumni.postcode;
-  document.querySelector("#modal-profile-city").innerText = "City : "+alumni.city;
-  document.querySelector("#modal-profile-state").innerText = "State : "+alumni.state;
+  document.querySelector("#modal-profile-postcode").innerText = "Postcode : " + alumni.postcode;
+  document.querySelector("#modal-profile-city").innerText = "City : " + alumni.city;
+  document.querySelector("#modal-profile-state").innerText = "State : " + alumni.state;
   document.querySelector("#modal-profile-course").innerText = alumni.course;
   document.querySelector("#modal-profile-dept").innerText = alumni.department;
   document.querySelector("#modal-profile-major").innerText = alumni.department;
   document.querySelector("#modal-profile-batch").innerText = alumni.enrollYear;
-  document.querySelector("#modal-profile-gradYear").innerText = "Graduation Year : "+alumni.graduationYear;
+  document.querySelector("#modal-profile-gradYear").innerText = "Graduation Year : " + alumni.graduationYear;
+  document.querySelector("#social-prof-icon").innerHTML = `<a href="${alumni.linkedin}"><i class="fab fa-linkedin fa-2x linkedin-icon"></i></a>
+  <a href="${alumni.github}"><i class="fab fa-github fa-2x github-icon"></i></a> `;
 }
 
 displayAlumni(alumniProfiles);
