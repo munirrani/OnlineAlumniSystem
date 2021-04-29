@@ -335,6 +335,9 @@ footer {
 .dropdown-toggle::after {
     content: none;
 }
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
 .menu-back {
     background-color: #f3f3f3;
 }
