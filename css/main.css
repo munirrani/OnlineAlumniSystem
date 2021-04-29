@@ -1997,11 +1997,16 @@ h6.height{
     width: auto;}
 }
 
+.breadcrumb{
+    padding: 7px;
+    margin: 0px;
+}
+
 .breadcrumb a {
     font-family: 'Hammersmith one', sans-serif;
     font-weight: 800;
     font-size: larger;
-    color: #fa07ee !important;
+    color: #8f0b89 !important;
     text-decoration: none !important;
 }
 
@@ -2009,7 +2014,12 @@ h6.height{
     font-family: 'Hammersmith one', sans-serif;
     font-weight: 800;
     font-size: larger;
-    color: white !important;
+    color: black !important;
+}
+
+.breadcrumb-background{
+    background: #f3f3f3;
+    border-radius: 10px;
 }
 
 /* ------------------------------------------------------- */
