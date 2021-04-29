@@ -100,13 +100,13 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
               <li class="breadcrumb-item breadcrumb-admin"> <a href="admin-profile-dash.html">Profiles Dashboard</a></li>
-              <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Pending Profiles</li>
+              <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Rejected Profiles</li>
             </ol>
           </nav>
         </div>
         
         <div class="row justify-content-center">
-          <h1 class="display-4" id="alumni-search-heading">PENDING ALUMNI PROFILES</h1>
+          <h1 class="display-4" id="alumni-search-heading">REJECTED ALUMNI PROFILES</h1>
         </div>
 
         <div class="row justify-content-center">
@@ -148,24 +148,15 @@
             <div id="modal-content-admin-alumni" class="modal-content shadow">
 
               <div class="modal-header mb-3">
-                <h4 class="modal-title" id="modal-title" style="color: black;">Pending Alumni Registration</h4>
-                <button onclick=resetDialogs() type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title" id="modal-title" style="color: black;">Reapprove Alumni Registration</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="container modal-container-alumni">
-                <div id="reject-modal">
-                  <p id="reject-confirm-text" class="lead";"></p>
-                  <div class="d-flex gap-2 justify-content-center">
-                    <button onclick=resetDialogs() class="btn btn-admin red shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Reject Profile</button>
-                    <button onclick=resetDialogs() class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Cancel</button>
-                  </div>
-                </div>
-                <div id="accept-modal">
                   <p id="accept-confirm-text" class="lead"></p>
                   <div class="d-flex gap-2 justify-content-center">
-                    <button onclick=resetDialogs() class="btn btn-admin green shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Approve Profile</button>
-                    <button onclick=resetDialogs() class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Cancel</button>
+                    <button class="btn btn-admin green shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Reapprove Profile</button>
+                    <button class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal" style="color: black;">Cancel</button>
                   </div>
-                </div>
                   
               </div>
 
@@ -224,7 +215,7 @@
     };
                     //
   </script>
-  <script type="text/javascript" src="js/pendingprofile.js"></script>
+  <script type="text/javascript" src="js/rejectedprofile.js"></script>
 </body>
 
 </html>
