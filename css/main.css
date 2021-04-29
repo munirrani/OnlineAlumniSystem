@@ -254,7 +254,7 @@ footer {
     margin-top: 1rem;
     padding: 2rem 2rem;
     margin-bottom: 2rem;
-    background: rgba(0,0,0,0.60);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: .4rem;
     color: white;
 }
@@ -865,6 +865,9 @@ footer {
 
 /* PROFILE & SETTING PAGE */
 /* ------------------------------------------------------- */
+.mb-35{
+    margin-bottom: 35px;
+}
 #updatebutton { 
     color: #f3f3f3;
     background-color: #8f0b89;
@@ -960,7 +963,7 @@ a:hover[id=profileNav-inactive] {
 }
 .purplemodalinput:focus  {
     border-color: #ca81c7;
-    box-shadow: 0 0 10px #ca81c7;
+    box-shadow: 0 0 5px #ca81c7;
 }
 #formFile:focus {
     border-color: #ca81c7;
@@ -1048,6 +1051,22 @@ a[id="no-blue"]{
     color: #8f0b89;
 
 }
+/* .experience-body {
+    background: #f3f3f3;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#exp-prof-header {
+    font-family: 'Hammersmith One', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+#head-col-table {
+    background: #8f0b89;
+    color: #f3f3f3;
+} */
 /* ------------------------------------------------------- */
 
 
@@ -1077,7 +1096,14 @@ a[id="no-blue"]{
     color: white;
     text-align: center;
 }
+#MYR{
+    font-weight: bold;
+    font-size: 20px;
+    color: #8f0b89;
+    font-family: 'Hammersmith One', sans-serif;
+    margin-top: 15px;
 
+}
 #search-button {
     width: 40; 
     height: 40; 
@@ -1099,10 +1125,14 @@ a[id="no-blue"]{
     padding: 5px;
     background-color: #f3f3f3;
 }
-
+#job-posted{
+    margin-left: 10px;
+    font-size: small;
+    color: #4d4d4d;
+}
 .job-box{
     border: 1px solid rgb(172, 171, 171);
-    margin: 10px 5px 10px 5px;
+    margin: 0px 5px 30px 5px;
     padding-bottom: 10px;
     border-radius: 20px;
     background-color: #f3f3f3;
@@ -1157,6 +1187,22 @@ a[id="no-blue"]{
 }
 
 .bmark-hide1-logged {
+    display: none;
+}
+
+.bmark-hide2-logged {
+    display: none;
+}
+
+.bmark-hide3-logged {
+    display: none;
+}
+
+.bmark-hide4-logged {
+    display: none;
+}
+
+.bmark-hide5-logged {
     display: none;
 }
 
@@ -1414,11 +1460,11 @@ a[id="no-blue"]{
     background-color: rgb(219, 219, 219);
 }
 .act-image{
-    width: 90px;
+    width: 80px;
     border-radius: 50%;
     float: left;
-    padding-right: 20px;
-    padding-bottom: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
 #act-posted{
     font-size: 15px;
@@ -1443,10 +1489,9 @@ a[id="no-blue"]{
 }
 
 #details-image {
-    height: 100px; 
-    width: 100px; 
+    height: 120px; 
+    width: 120px; 
     border-radius: 50%; 
-    border: 1px solid #8f0b89;
 }
 
 .pd-20 {
@@ -1495,7 +1540,9 @@ dt{
     margin-bottom: 10px;
     margin-top: 10px;
 }
-
+h6.height{
+    line-height: 1.5;
+}
 #details-left-col-icons {
     width: 20px; 
     float: left; 
@@ -1754,7 +1801,7 @@ dt{
     margin-top: 1rem;
     padding: 2rem 2rem;
     margin-bottom: 2rem;
-    background: linear-gradient(180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.6) 100%), url(../img/admin-alumni-profile.jpg) no-repeat center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 100%), url(../img/admin-alumni-profile.jpg) no-repeat center;
     background-size: cover;
     border-radius: .4rem;
     width: auto;
@@ -1767,13 +1814,74 @@ dt{
     margin-top: 1rem;
     padding: 2rem 2rem;
     margin-bottom: 2rem;
-    background: linear-gradient(180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.6) 100%), url(../img/admin-events.jpg) no-repeat center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 100%), url(../img/admin-events.jpg) no-repeat center;
     background-size: cover;
     border-radius: .4rem;
     width: auto;
     height: 600px;
     color: white;
 }
+
+.jumbotron-admin-upcoming {
+    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%), url(../img/upcoming-event-dash.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: .4rem;
+    width: auto;
+    height: 600px;
+    color: white;
+}
+
+.jumbotron-admin-past {
+    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.25) 100%), url(../img/past-events-dash.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: .4rem;
+    width: auto;
+    height: 600px;
+    color: white;
+}
+
+.jumbotron-admin-approved {
+    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 100%), url(../img/approved.png) no-repeat center;
+    background-size: cover;
+    border-radius: .4rem;
+    width: auto;
+    height: 600px;
+    color: white;
+}
+
+.jumbotron-admin-pending {
+    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 100%), url(../img/pending.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: .4rem;
+    width: auto;
+    height: 600px;
+    color: white;
+}
+
+.jumbotron-admin-rejected {
+    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 100%), url(../img/rejected.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: .4rem;
+    width: auto;
+    height: 600px;
+    color: white;
+}
+
 
 .admin-welcome-cards{
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
@@ -1797,6 +1905,114 @@ dt{
 .btn-admin a{
     color: #f3f3f3;
     text-decoration: none;
+}
+
+.btn-admin.green{
+    background-color: #8AC248;
+}
+
+.btn-admin.yellow{
+    background-color: #eccf4f;
+}
+
+.btn-admin.red{
+    background-color: #FD6D4B;
+}
+
+.admin-profile-btn a{
+    color: black;
+} 
+
+.counter{
+    font-family: 'Hammersmith One', sans-serif;
+    background: #f3f3f3;
+    text-align: center;
+    width: 300px;
+    min-height: 215px;
+    padding: 10px 15px;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+.counter:before{
+    content: '';
+    background-color: #9DD662;
+    height: 105px;
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.counter .counter-icon{
+    color: #fff;
+    background: #7CA936;
+    font-size: 50px;
+    line-height: 90px;
+    width: 120px;
+    height: 100px;
+    margin: 0 auto 10px;
+    border-radius: 10px 10px 0 0;
+    transform: translateY(-20px);
+    position: relative;
+    clip-path: polygon(0% 0%, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+.counter .counter-icon:before{
+    content: "";
+    background: #8AC248;
+    width: 120px;
+    height: 90px;
+    border-radius: 10px 10px 0 0;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    clip-path: polygon(0% 0%, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+
+.counter h3{
+    color: #333;
+    font-size:25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+}
+.counter .counter-value{
+    color: #7CA936;
+    font-size: 30px;
+    font-weight: 600;
+    display: block;
+}
+.counter.yellow:before{ background-color: #eccf4f; }
+.counter.yellow .counter-icon{ background-color: #bda123; }
+.counter.yellow .counter-icon:before{ background-color: #e2bf4c; }
+.counter.yellow .counter-value{ color: #fac636; }
+.counter.red:before{ background-color: #FD6D4B; }
+.counter.red .counter-icon{ background-color: #D14026; }
+.counter.red .counter-icon:before{ background-color: #EA5736; }
+.counter.red .counter-value{ color: #EA5736; }
+
+@media screen and (max-width:990px){
+    .counter{ margin-bottom: 40px; 
+    width: auto;}
+}
+
+.breadcrumb a {
+    font-family: 'Hammersmith one', sans-serif;
+    font-weight: 800;
+    font-size: larger;
+    color: #fa07ee !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-admin-current {
+    font-family: 'Hammersmith one', sans-serif;
+    font-weight: 800;
+    font-size: larger;
+    color: white !important;
 }
 
 /* ------------------------------------------------------- */

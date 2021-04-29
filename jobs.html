@@ -105,7 +105,25 @@
                 </div>
                 <div class="search-container">
                     <div class="search-loc mar-5">
-                        <input type="text" class="form-control" placeholder="Location">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Location</option>
+                            <option value="1">Johor</option>
+                            <option value="2">Kedah</option>
+                            <option value="3">Kelantan</option>
+                            <option value="4">Kuala Lumpur</option>
+                            <option value="5">Labuan</option>
+                            <option value="6">Melaka</option>
+                            <option value="7">Negeri Sembilan</option>
+                            <option value="8">Pahang</option>
+                            <option value="9">Penang</option>
+                            <option value="10">Perak</option>
+                            <option value="11">Perlis</option>
+                            <option value="12">Putrajaya</option>
+                            <option value="13">Selangor</option>
+                            <option value="14">Sabah</option>
+                            <option value="15">Sarawak</option>
+                            <option value="16">Terengganu</option>
+                          </select>
                     </div>
                     <div class="search-job mar-5">
                         <input type="text" class="form-control" placeholder="Search Job">
@@ -121,11 +139,11 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Salary
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="text-align: center;">
                             <div class="slidecontainer">
                                 <label>Minimum Monthly Salary</label>
-                                <p>MYR: <span id="demo"></span></p>
-                                <input type="range" min="0" max="16000" value="50" class="slider" id="myRange">
+                                <p id="MYR">RM <span id="demo"></span></p>
+                                <input type="range" min="200" max="20000" value="200" step="100" class="slider" id="myRange">
                             </div>
                             <hr>
                             <div>
@@ -243,16 +261,23 @@
                     <div>
                         <div class="row justify-content-center">
                             <div class="col-md-6">
+                                <div class="row">
+                                    <h6 id="job-posted">
+                                        <img src="img/time.png" width="15px"
+                                        style="float: left; margin-right: 5px;" >
+                                        Posted 5 days ago
+                                    </h6>
+                                </div>
                                 <div class="job-box">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md">
-                                                <img src="img/icon.jpg" class="job-image">
+                                                <img src="img/Swift.jpg" class="job-image">
                                                 <h6 id="job-name">
-                                                    Senior Branch Manager
+                                                    Senior Software Engineer - JAVA
                                                 </h6>
                                                 <h6 id="job-company">
-                                                    Highspeed Studios
+                                                    S.W.I.F.T
                                                 </h6>
                                             </div>
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
@@ -269,7 +294,7 @@
                                                 <img src="img/RM.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    RM1000
+                                                    RM10000
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Monthly salary
@@ -279,31 +304,39 @@
                                                 <img src="img/location.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    Wangsa Maju, Kuala Lumpur
+                                                    Kuala Lumpur
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Location
                                                 </h6>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="row">
+                                    <h6 id="job-posted">
+                                        <img src="img/time.png" width="15px"
+                                        style="float: left; margin-right: 5px;" >
+                                        Posted 5 days ago
+                                    </h6>
+                                </div>
                                 <div class="job-box">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md">
-                                                <img src="img/icon.jpg" class="job-image">
+                                                <img src="img/Dell.png" class="job-image">
                                                 <h6 id="job-name">
-                                                    Senior Branch Manager
+                                                    Software Engineer Senior Manager
                                                 </h6>
                                                 <h6 id="job-company">
-                                                    Highspeed Studios
+                                                    DELL
                                                 </h6>
                                             </div>
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
-                                                <a href="jobs-details.html"><button type="button" id="viewbutton"
+                                                <a href="jobs-details1.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
                                                 <button type="button" id="job-bmark" class="btn bmark-hide1-logged"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
@@ -316,7 +349,7 @@
                                                 <img src="img/RM.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    RM1000
+                                                    RM5200
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Monthly salary
@@ -326,7 +359,7 @@
                                                 <img src="img/location.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    Wangsa Maju, Kuala Lumpur
+                                                    Cyberjaya, Selangor
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Location
@@ -337,20 +370,27 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="row">
+                                    <h6 id="job-posted">
+                                        <img src="img/time.png" width="15px"
+                                        style="float: left; margin-right: 5px;" >
+                                        Posted 5 days ago
+                                    </h6>
+                                </div>
                                 <div class="job-box">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md">
-                                                <img src="img/icon.jpg" class="job-image">
+                                                <img src="img/Nixser.png" class="job-image">
                                                 <h6 id="job-name">
-                                                    Senior Branch Manager
+                                                    Web Programmer
                                                 </h6>
                                                 <h6 id="job-company">
-                                                    Highspeed Studios
+                                                    Nixser
                                                 </h6>
                                             </div>
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
-                                                <a href="jobs-details.html"><button type="button" id="viewbutton"
+                                                <a href="jobs-details2.html"><button type="button" id="viewbutton"
                                                         class="btn">View</button></a>
                                                 <button type="button" id="job-bmark" class="btn bmark-hide2-logged"><img id="search-img"
                                                         src="img/bookmark-icon.png"></button>
@@ -363,7 +403,7 @@
                                                 <img src="img/RM.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    RM1000
+                                                    RM2400
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Monthly salary
@@ -373,7 +413,7 @@
                                                 <img src="img/location.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    Wangsa Maju, Kuala Lumpur
+                                                    Johor Bahru, Johor
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Location
@@ -384,16 +424,23 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="row">
+                                    <h6 id="job-posted">
+                                        <img src="img/time.png" width="15px"
+                                        style="float: left; margin-right: 5px;" >
+                                        Posted 5 days ago
+                                    </h6>
+                                </div>
                                 <div class="job-box">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md">
-                                                <img src="img/icon.jpg" class="job-image">
+                                                <img src="img/randstad.png" class="job-image">
                                                 <h6 id="job-name">
-                                                    Senior Branch Manager
+                                                    .NET Developer
                                                 </h6>
                                                 <h6 id="job-company">
-                                                    Highspeed Studios
+                                                    Randstad Malaysia
                                                 </h6>
                                             </div>
                                             <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
@@ -410,7 +457,7 @@
                                                 <img src="img/RM.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    RM1000
+                                                    RM8000
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Monthly salary
@@ -420,7 +467,115 @@
                                                 <img src="img/location.png" width="20px"
                                                     style="float: left; margin: 5px 20px 20px 0px;">
                                                 <h6 id="job-company">
-                                                    Wangsa Maju, Kuala Lumpur
+                                                    Kuala Lumpur
+                                                </h6>
+                                                <h6 id="job-company">
+                                                    Location
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <h6 id="job-posted">
+                                        <img src="img/time.png" width="15px"
+                                        style="float: left; margin-right: 5px;" >
+                                        Posted 5 days ago
+                                    </h6>
+                                </div>
+                                <div class="job-box">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md">
+                                                <img src="img/Bullmart.png" class="job-image">
+                                                <h6 id="job-name">
+                                                    Internship For Node JS Developer
+                                                </h6>
+                                                <h6 id="job-company">
+                                                    Bullmart Sdn. Bhd.
+                                                </h6>
+                                            </div>
+                                            <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
+                                                <a href="jobs-details.html"><button type="button" id="viewbutton"
+                                                        class="btn">View</button></a>
+                                                <button type="button" id="job-bmark" class="btn bmark-hide4-logged"><img id="search-img"
+                                                        src="img/bookmark-icon.png"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-4 offset-md-2">
+                                                <img src="img/RM.png" width="20px"
+                                                    style="float: left; margin: 5px 20px 20px 0px;">
+                                                <h6 id="job-company">
+                                                    RM200
+                                                </h6>
+                                                <h6 id="job-company">
+                                                    Monthly salary
+                                                </h6>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <img src="img/location.png" width="20px"
+                                                    style="float: left; margin: 5px 20px 20px 0px;">
+                                                <h6 id="job-company">
+                                                    KL City, Kuala Lumpur
+                                                </h6>
+                                                <h6 id="job-company">
+                                                    Location
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <h6 id="job-posted">
+                                        <img src="img/time.png" width="15px"
+                                        style="float: left; margin-right: 5px;" >
+                                        Posted 5 days ago
+                                    </h6>
+                                </div>
+                                <div class="job-box">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md">
+                                                <img src="img/rw.png" class="job-image">
+                                                <h6 id="job-name">
+                                                    IT Manager
+                                                </h6>
+                                                <h6 id="job-company">
+                                                    Robert Walters
+                                                </h6>
+                                            </div>
+                                            <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
+                                                <a href="jobs-details.html"><button type="button" id="viewbutton"
+                                                        class="btn">View</button></a>
+                                                <button type="button" id="job-bmark" class="btn bmark-hide5-logged"><img id="search-img"
+                                                        src="img/bookmark-icon.png"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-4 offset-md-2">
+                                                <img src="img/RM.png" width="20px"
+                                                    style="float: left; margin: 5px 20px 20px 0px;">
+                                                <h6 id="job-company">
+                                                    RM5700
+                                                </h6>
+                                                <h6 id="job-company">
+                                                    Monthly salary
+                                                </h6>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <img src="img/location.png" width="20px"
+                                                    style="float: left; margin: 5px 20px 20px 0px;">
+                                                <h6 id="job-company">
+                                                    Kuala Lumpur
                                                 </h6>
                                                 <h6 id="job-company">
                                                     Location
@@ -518,7 +673,6 @@
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/sortJob.js"></script>
     <script>
         // Salary Slider
         var slider = document.getElementById("myRange");

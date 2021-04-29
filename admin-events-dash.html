@@ -63,7 +63,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin-alumnisearch.html"><b>Manage Profiles</b></a>
+              <a class="nav-link" href="admin-profile-dash.html"><b>Manage Profiles</b></a>
             </li>
           </ul>
           <hr>
@@ -90,16 +90,22 @@
     <main>
       <div class="container">
         <div class="row justify-content-center">
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
+              <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">Events-Dashboard</li>
+            </ol>
+          </nav>
           <h1 class="display-5" id="alumni-search-heading">Welcome Admin! What would you like to do today?</h1>
         </div>
         <div class="row align-items-center justify-content-center">
           <div class="col-lg">
-            <div class="jumbotron-admin-event admin-welcome-cards d-flex justify-content-center align-items-center">
+            <div class="jumbotron-admin-upcoming upcoming admin-welcome-cards d-flex justify-content-center align-items-center">
               <button class="btn btn-lg btn-admin shadow"><a href="admin-upcoming_events.html">Upcoming Events</a></button>
             </div>
           </div>
           <div class="col-lg">
-            <div class="jumbotron-admin-event admin-welcome-cards d-flex justify-content-center align-items-center">
+            <div class="jumbotron-admin-past past admin-welcome-cards d-flex justify-content-center align-items-center">
               <button class="btn btn-lg btn-admin shadow"><a href="admin-past_events.html">Past
                   Events</a></button>
             </div>

@@ -1,5 +1,4 @@
 window.onload = topthingy;
-
 let logoutbutton = document.querySelector("#logoutbutton");
 let navprofbar = document.querySelector(".nav-prof-bar");
 let navbarlogged = document.querySelector(".nav-hide-logged");
@@ -8,6 +7,13 @@ let myDropdown = document.querySelector("#myDropdown");
 let dropdowns = document.querySelector(".dropdown-content");
 var coll = document.getElementsByClassName("collapsible");
 
+// Bookmarks
+let bmarklogged = document.querySelector(".bmark-hide-logged");
+let bmark1logged = document.querySelector(".bmark-hide1-logged");
+let bmark2logged = document.querySelector(".bmark-hide2-logged");
+let bmark3logged = document.querySelector(".bmark-hide3-logged");
+let bmark4logged = document.querySelector(".bmark-hide4-logged");
+let bmark5logged = document.querySelector(".bmark-hide5-logged");
 
 // Everytime any page is load, It will check whether the user if logged in or not and display personalized navbar
 function topthingy() {
@@ -18,6 +24,13 @@ function topthingy() {
     });
     navprofbar.style.display = "inline-block";
     navbarlogged.style.display = "block";
+    //bookmarks
+    bmarklogged.style.display = "inline-block";
+    bmark1logged.style.display = "inline-block";
+    bmark2logged.style.display = "inline-block";
+    bmark3logged.style.display = "inline-block";
+    bmark4logged.style.display = "inline-block";
+    bmark5logged.style.display = "inline-block";
   }else {
     navbarlogged.style.display = "none";
     navprofbar.style.display = "none";
@@ -28,13 +41,15 @@ function topthingy() {
 };
 // 
 
-  // when clicking the logout button it will set loggedin to false and sent user to homepage
+  // when clicking the logout button it will set loggedin to false and send user to homepage
   logoutbutton.onclick = function() {
     let loggedin = false;
     sessionStorage.setItem("loggedin", loggedin);
     window.location.href = "index.html";
   };
   // 
+ 
+ 
 
 
 
