@@ -466,6 +466,9 @@ footer {
     background: #f3f3f3;    
     margin-right: 20px;
 }
+.event-label:hover {
+    box-shadow: 0 0 15px #c532be;
+}
 .event-mode:checked + .event-label {
     background-color: #aa2aa4;
     color:white;
