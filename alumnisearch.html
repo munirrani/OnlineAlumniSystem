@@ -43,7 +43,8 @@
             </li>
             <li class="navbar-nav nav-item">
               <div class="navbar-nav dropdown">
-                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+                  data-bs-toggle="dropdown" aria-expanded="false">
                   <b>Events</b>
                   <i class="fa fa-angle-down"></i>
                 </button>
@@ -85,7 +86,7 @@
                   <a href="jobs-bookmark.html">Bookmarks</a>
                   <hr class="no-margin">
                   <a href="#" id="logoutbutton">Log Out</a>
-              </div>
+                </div>
               </div>
             </div>
           </div>
@@ -126,32 +127,43 @@
 
         <div class="text-center mt-3">
           <div class="row justify-content-md-center mx-auto btn-group">
-              <a href="#" class="col page-nav-alumni page-nav-text">Previous</a>
-              <a href="#" class="col page-nav-alumni page-nav-text">1</a>
-              <a href="#" class="col page-nav-alumni page-nav-text">2</a>
-              <a href="#" class="col page-nav-alumni page-nav-text">3</a>
-              <a href="#" class="col page-nav-alumni page-nav-text">4</a>
-              <a href="#" class="col page-nav-alumni page-nav-text">Next</a>
+            <a href="#" class="col page-nav-alumni page-nav-text">Previous</a>
+            <a href="#" class="col page-nav-alumni page-nav-text">1</a>
+            <a href="#" class="col page-nav-alumni page-nav-text">2</a>
+            <a href="#" class="col page-nav-alumni page-nav-text">3</a>
+            <a href="#" class="col page-nav-alumni page-nav-text">4</a>
+            <a href="#" class="col page-nav-alumni page-nav-text">Next</a>
           </div>
-      </div>
+        </div>
 
+
+        <!-- Modal Starts -->
         <div class="modal fade" id="alumni-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div id="modal-content-alumni" class="modal-content shadow">
 
+              <!-- Modal Header -->
               <div class="modal-header mb-3">
                 <h4 class="modal-title" id="modal-title">Alumni Profile</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <!--  -->
+
+
               <div class="container modal-container-alumni">
                 <div class="row justify-content-center">
+
+                  <!-- Profile Card -->
                   <div class="col-auto col-left-modal-alumni justify-content-center">
-                    <div class="contact-box center-version">
+                    <div class="contact-box center-version shadow">
                       <div class="body-alumni-card-modal">
                         <img alt="image" id="modal-profile-img" src="#">
                         <h1 id="modal-profile-name" class="m-b-xs profile-card-name mt-3" style="text-align: center;">
                         </h1>
                         <h4 id="modal-profile-dept" class="card-department-alumni pb-1"></h4>
+                        <div class="prof-icon-modal d-flex justify-content-center" id="social-prof-icon">
+                      
+                        </div>
                         <hr>
                         <div class="row">
                           <div class="col col-card-alumni-val">
@@ -181,7 +193,13 @@
                       </div>
                     </div>
                   </div>
+                  <!-- Profile Card -->
+
+
+                  <!-- Right Col -->
                   <div class="col-lg d-grid justify-content-center mt-3" id="right-col-alumni-modal">
+
+                    <!-- Top Row -->
                     <div class="row contact-box d-flex" id="top-row-modal-alumni">
                       <div class="row">
                         <h1 class="display-6 text-center">Address</h1>
@@ -218,6 +236,9 @@
                         </div>
                       </div>
                     </div>
+                    <!-- Top Row -->
+
+                    <!-- Bot Row -->
                     <div class="row contact-box mt-3 d-flex" id="bot-row-modal-alumni">
                       <div class="row">
                         <h1 class="display-6 text-center">Academic Background</h1>
@@ -251,14 +272,23 @@
                         </div>
                       </div>
                     </div>
+                    <!-- Bot Row -->
 
                   </div>
+                  <!-- Right Col -->
+
                 </div>
               </div>
 
             </div>
           </div>
         </div>
+        <!-- Modal Ends -->
+
+
+
+
+
       </div>
 
     </main>
