@@ -912,7 +912,13 @@ footer {
     border-style: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 10px 50px 20px 50px;
+    padding: 10px 50px 0px 50px;
+}
+#bottom-box {
+    background-color: #f3f3f3;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px 50px 0px 50px;
 }
 #round-corner-left {
     border-bottom-left-radius: 10px;
@@ -942,6 +948,17 @@ a:hover[id=profileNav-inactive] {
     margin-bottom: 20px;
 }
 
+#linkedin::placeholder, #github::placeholder {
+    color: whitesmoke;
+    opacity: 50%;
+}
+
+#linkedin1, #github1 {
+    margin-left: 50px;
+    color: white;
+    text-align: left;
+}
+
 #profileNav { 
     color: white;
 }
@@ -965,8 +982,17 @@ a:hover[id=profileNav-inactive] {
 }
 .form-control[id=bio]::placeholder {
     color: whitesmoke;
+    opacity: 50%;
 }
 .form-control[id=bio]:focus {
+    border-color: #ca81c7;
+    box-shadow: 0 0 10px #ca81c7;
+}
+.form-control[id=linkedin], .form-control[id=github] {
+    color: white;
+    background-color: transparent;
+}
+.form-control[id=linkedin]:focus, .form-control[id=github]:focus {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
@@ -1046,6 +1072,14 @@ a:hover[id=profileNav-inactive] {
     transition: max-height 0.2s ease-out;
     background-color: rgb(235, 235, 235);
 }
+#exp{
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
 #deleteAcc.alert {
     padding: 20px;
     background-color: #f44336;
@@ -1058,8 +1092,12 @@ a:hover[id=profileNav-inactive] {
 a[id="no-blue"]{
     text-decoration: none;
     color: #8f0b89;
-
 }
+
+#bio-icons {
+    height: 30px;
+}
+
 /* .experience-body {
     background: #f3f3f3;
     color: black;
@@ -2062,3 +2100,19 @@ h6.height{
 }
 
 /* ------------------------------------------------------- */
+.image-preview {
+    margin: auto;
+    border-radius: 50%;
+    width:250px;
+    height:250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: gray;
+}
+
+.image-preview__image {
+    display: none;
+    width: 100%;
+}
