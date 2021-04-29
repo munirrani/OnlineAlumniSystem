@@ -121,6 +121,7 @@
                                 <div class="d-flex flex-column align-items-center text-center" id="result">
                                         <button type="button" id="uploadBtn" class="btn" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
+                                            <label for="file" style="cursor: pointer;">Upload Image</label>
                                             <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
                                         </button>
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -139,7 +140,7 @@
                                                             <span class="image-preview__default-text">Image Preview</span>
                                                         </div>
                                                         <br>
-                                                        <input class="form-control purplemodalinput" type="file" id="inpFile">
+                                                        <input class="form-control purplemodalinput" type="file" id="inpFile" onchange="loadFile(event)" style="display: none">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submit" id="confirmbutton"
@@ -153,12 +154,22 @@
                                         <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
                                             <div class="container">
-                                                <form>
-                                                    <textarea class="form-control" id="bio" placeholder="Add a Bio"></textarea>
-                                                    
+                                                <form onsubmit="updateBio()" action="profile-edit.html" method="POST">
+                                                    <textarea class="form-control mb-3" id="bio" placeholder="Add a Bio"></textarea>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1"><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons"></span>
+                                                        </div>
+                                                        <input type="url" class="form-control" id="linkedin" placeholder="LinkedIn" aria-describedby="basic-addon1">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1"><img src="img/github.png" alt="Github" id="bio-icons"></span>
+                                                        </div>
+                                                        <input type="url" class="form-control" id="github" placeholder="Github" aria-describedby="basic-addon1">
+                                                    </div>
                                                     <div class="container mt-3">
-                                                        <button id="editbutton" class="btn shadow" onclick="updateBio()" type="button">Update
-                                                            Bio</button>
+                                                        <button id="editbutton" class="btn shadow" type="submit">Update Bio</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -310,7 +321,7 @@
             sessionStorage.setItem("linkedin",b);
             var c = document.getElementById("github").value;
             sessionStorage.setItem("github",c);
-            alert("Bio Updated")
+            alert("Bio updated")
         }
 
         function updateInfo(){
@@ -387,7 +398,7 @@
             }
         });
 
-        // Upload Image
+        /* Upload Image
         var form = document.getElementById("form");
         var parentDiv = document.getElementById("result")
         form.addEventListener("submit", function(event) {
@@ -412,7 +423,13 @@
             image.src = res;
 
             parentDiv.appendChild(image);
-        }
+        }*/
+
+        // Upload Image
+        var loadFile = function(event) {
+        var image = document.getElementById('profileImg');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
     </script>
 
     <footer class="page-footer shadow">

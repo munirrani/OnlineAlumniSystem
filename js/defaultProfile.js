@@ -12,7 +12,7 @@ var defaultprofile = {
     city: "Gombak",
     state: "Selangor",
     country: "Malaysia",
-    bio: "Add Bio",
+    bio: "Add bio and social media",
     linkedin: "",
     github: "",
     userName: "Haney"

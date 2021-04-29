@@ -911,7 +911,7 @@ footer {
     background-color: #f3f3f3;
     border-style: none;
     border-radius: 10px;
-    padding: 10px 50px 0px 50px;
+    padding: 20px 50px 20px 50px;
 }
 #round-corner-left {
     border-bottom-left-radius: 10px;
@@ -941,13 +941,17 @@ a:hover[id=profileNav-inactive] {
     margin-bottom: 20px;
 }
 
+#linkedin, #github {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
 #linkedin::placeholder, #github::placeholder {
     color: whitesmoke;
     opacity: 50%;
 }
 
 #linkedin1, #github1 {
-    margin-left: 50px;
     color: white;
     text-align: left;
 }
@@ -1068,9 +1072,39 @@ a:hover[id=profileNav-inactive] {
 #exp{
     background-color: transparent;
     cursor: pointer;
-    width: 100%;
     border: none;
     outline: none;
+    margin-bottom: 30px;
+    padding: 0;
+}
+.content-table{
+    border-collapse: collapse;
+    width: 100%;   
+    table-layout: fixed;
+}
+.content-table thead tr{
+    background-color: #8f0b8898;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table thead{
+    border-radius: 10px 10px 0 0;
+}
+
+.content-table th, .content-table td{
+    padding: 20px;
+    word-wrap: break-word;
+}
+.content-table tbody tr{
+    border-bottom: 1px solid hsla(0, 0%, 66%, 0.815);
+}
+.content-table tbody{
+    background-color: #ffffff;
+}
+.content-table tbody tr:last-of-type{
+    border-bottom: #8f0b89;
 }
 
 #deleteAcc.alert {
@@ -1089,6 +1123,16 @@ a[id="no-blue"]{
 
 #bio-icons {
     height: 30px;
+}
+
+#bio-icons-prof {
+    width: 50px;
+    padding: 10px;
+}
+
+#basic-addon1 {
+    background-color: transparent;
+    border: none;
 }
 
 /* .experience-body {
@@ -1441,7 +1485,7 @@ a[id="no-blue"]{
     width: 40px;
     margin-right: 20px;
     float: left;
-    border-radius: 50%;
+    border-radius: 30%;
 }
 #act-addimg:hover{
     background-color: white
