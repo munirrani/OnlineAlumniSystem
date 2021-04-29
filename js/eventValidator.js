@@ -10,7 +10,8 @@ var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = today.getFullYear();
 today = yyyy + "-" + mm + "-" + dd;
 
-eventTitle.addEventListener("input", function() {
+eventTitle.addEventListener("input", function() 
+{
     const eventTitleValue = eventTitle.value.trim();
     if(eventTitleValue.length <= 6) 
         setErrorFor(eventTitle, "Event title must be descriptive");
@@ -19,25 +20,33 @@ eventTitle.addEventListener("input", function() {
 });
 
 var datePlaceholder = today;
-startDate.addEventListener("input", function() {
+startDate.addEventListener("input", function() 
+{
     const startDateValue = startDate.value;
     datePlaceholder = startDateValue
     if(startDateValue < today)
-        setErrorFor(startDate, "Must be bigger than, or equal to, today's date");
+        setErrorFor(startDate, "Please select an appropriate start date");
     else
         setSuccessFor(startDate);
+    checkEndDate();
 });
 
-endDate.addEventListener("input", function() {
-    const endDateValue = endDate.value;
-    if(endDateValue < datePlaceholder || endDateValue < today)
-        setErrorFor(endDate, "Must be greater than, or equal to, start date");
-    else
-        setSuccessFor(endDate)
-});
+function checkEndDate() 
+{
+    endDate.addEventListener("input", function() {
+        const endDateValue = endDate.value;
+        if(endDateValue < datePlaceholder || endDateValue < today)
+            setErrorFor(endDate, "Please select an appropriate end date");
+        else
+            setSuccessFor(endDate)
+    });
+}
+
+checkEndDate();
 
 // Problematic
-description.addEventListener("input", function() {
+description.addEventListener("input", function() 
+{
     const descriptionValue = description.value.innerText.trim();
     console.log(descriptionValue)
     if(descriptionValue.length <= 6) 
@@ -46,7 +55,8 @@ description.addEventListener("input", function() {
         setSuccessFor(description);
 });
 
-eventImg.addEventListener("input", function() {
+eventImg.addEventListener("input", function() 
+{
     const eventImgValue = eventImg.value;
     var imgFormat = ["jpg", "png", "jpeg", "svg"];
     if(imgFormat.indexOf(eventImgValue.split('.').pop()) !== -1)
