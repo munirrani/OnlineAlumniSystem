@@ -81,6 +81,13 @@ body {
 #logbutton:focus {
     box-shadow: 0 0 0 .2rem rgba(143, 11, 137, 0.5);
 }
+#dropdown-username {
+    background: #8f0b89;
+    color: white;
+}
+#myDropdown a:last-child {
+    border-bottom: solid #8f0b89 10px;
+}
 /* ------------------------------------------------------- */
 
 
@@ -215,6 +222,7 @@ footer {
     .form-reg-submit{
         justify-content: center;
     }
+
 }
 /* ------------------------------------------------------- */
 
@@ -732,7 +740,6 @@ footer {
     justify-self: center;
     max-width: 125px;
     padding: 10px 35px;
-    margin-top: 15px;
     background: #aa2aa4;
     color: white;
     border-radius: 25px;
@@ -907,7 +914,13 @@ footer {
     border-style: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 10px 50px 20px 50px;
+    padding: 10px 50px 0px 50px;
+}
+#bottom-box {
+    background-color: #f3f3f3;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px 50px 0px 50px;
 }
 #round-corner-left {
     border-bottom-left-radius: 10px;
@@ -937,6 +950,17 @@ a:hover[id=profileNav-inactive] {
     margin-bottom: 20px;
 }
 
+#linkedin::placeholder, #github::placeholder {
+    color: whitesmoke;
+    opacity: 50%;
+}
+
+#linkedin1, #github1 {
+    margin-left: 50px;
+    color: white;
+    text-align: left;
+}
+
 #profileNav { 
     color: white;
 }
@@ -945,6 +969,10 @@ a:hover[id=profileNav-inactive] {
     border-radius: 50%;
     width:250px;
     height:250px;
+    object-fit: cover !important;
+}
+.imgcoverobject {
+    object-fit: cover !important;
 }
 #profilebtn:focus { 
     outline: none;
@@ -952,6 +980,7 @@ a:hover[id=profileNav-inactive] {
 }
 #profileIcon {
     border: 1px solid #8f0b89;
+    object-fit: cover !important;
 }
 .form-control[id=bio] {
     color: white;
@@ -960,8 +989,17 @@ a:hover[id=profileNav-inactive] {
 }
 .form-control[id=bio]::placeholder {
     color: whitesmoke;
+    opacity: 50%;
 }
 .form-control[id=bio]:focus {
+    border-color: #ca81c7;
+    box-shadow: 0 0 10px #ca81c7;
+}
+.form-control[id=linkedin], .form-control[id=github] {
+    color: white;
+    background-color: transparent;
+}
+.form-control[id=linkedin]:focus, .form-control[id=github]:focus {
     border-color: #ca81c7;
     box-shadow: 0 0 10px #ca81c7;
 }
@@ -1041,6 +1079,14 @@ a:hover[id=profileNav-inactive] {
     transition: max-height 0.2s ease-out;
     background-color: rgb(235, 235, 235);
 }
+#exp{
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
 #deleteAcc.alert {
     padding: 20px;
     background-color: #f44336;
@@ -1053,8 +1099,12 @@ a:hover[id=profileNav-inactive] {
 a[id="no-blue"]{
     text-decoration: none;
     color: #8f0b89;
-
 }
+
+#bio-icons {
+    height: 30px;
+}
+
 /* .experience-body {
     background: #f3f3f3;
     color: black;
@@ -1754,14 +1804,13 @@ h6.height{
 #alumni-modal .contact-box{
     background: #f3f3f3;
     border-radius: 20px;
+    border-bottom: solid 5px #8f0b89;
+    border-top: solid 5px #8f0b89;
     width: 100%;
 }
-/* .body-alumni-card-modal{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-} */
+.body-alumni-card-modal{
+    max-width: 20rem;
+}
 #alumni-modal img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -1793,6 +1842,15 @@ h6.height{
     color: white;
     background-color: #cc67c7;
     text-decoration: none;
+}
+.prof-icon-modal {
+    
+}
+.linkedin-icon {
+    margin-right: 15px;
+}
+.linkedin-icon, .github-icon {
+    color: black !important;
 }
 /* ------------------------------------------------------- */
 
@@ -2029,4 +2087,41 @@ h6.height{
     border-radius: 10px;
 }
 
+#modal-content-admin-alumni{
+    background-color:rgba(255, 255, 255, 0.95);
+    border-radius: 28px;
+    font-family: 'Hammersmith One', sans-serif;
+    padding-bottom: 10px;
+    overflow: auto !important;
+}
+
+#accept-modal, #reject-modal{
+    display: none;
+}
+
+.admin-edit-input, .admin-edit-input:focus{
+    border: none;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
 /* ------------------------------------------------------- */
+.image-preview {
+    margin: auto;
+    border-radius: 50%;
+    width:250px;
+    height:250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: gray;
+}
+
+.image-preview__image {
+    display: none;
+    width: 100%;
+}

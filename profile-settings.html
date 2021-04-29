@@ -81,6 +81,8 @@
                                     <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
+                                    <a href="profile.html" id="dropdown-username"></a>
+                  <hr class="no-margin">
                                     <a href="profile.html">Profile</a>
                                     <a class="index-chosen-dropdown" href="profile-settings.html">Settings & Privacy</a>
                                     <hr class="no-margin">
@@ -164,7 +166,7 @@
                                                 <label for="userName"><h6 class="mt-2 mb-4">New username</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <form action="profile-settings.html">
+                                                <form action="profile-settings.html" method="POST">
                                                     <input type="text" class="form-control purplemodalinput" id="userName" required>
                                                         <button class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px" onclick="confirmChange()">
                                                         Confirm username</button>
