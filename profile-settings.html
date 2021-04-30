@@ -256,7 +256,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="index.html" autocomplete="off">
+                                                    <form action="index.html" autocomplete="off" method="POST">
                                                         <div class="mb-3">
                                                             <div id="deleteAcc" class="alert">
                                                                 <span class="closebtn"></span>
@@ -307,6 +307,7 @@
         function deleteAcc() {
             let loggedin = false;
             sessionStorage.setItem("loggedin", loggedin);
+            window.location.href = "index.html";
         }
         function confirmChange() {
             var a = document.getElementById("userName").value;
