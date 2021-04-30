@@ -46,22 +46,24 @@
                         </li>
                         <li class="navbar-nav nav-item">
                             <div class="dropdown">
-                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b>Events</b>
-                                  <i class="fa fa-angle-down"></i>
+                                <button class="my-dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <b>Events</b>
+                                    <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming Events</a></li>
-                                  <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
+                                    <li><a class="dropdown-item nav-link" href="upcoming_events.html">Upcoming
+                                            Events</a></li>
+                                    <li><a class="dropdown-item nav-link" href="past_events.html">Past Events</a></li>
                                 </ul>
-                              </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
                         </li>
                         <li class="nav-item nav-hide-logged">
                             <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                          </li>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html"><b>About</b></a>
                         </li>
@@ -82,7 +84,7 @@
                                 </button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="profile.html" id="dropdown-username"></a>
-                  <hr class="no-margin">
+                                    <hr class="no-margin">
                                     <a href="profile.html">Profile</a>
                                     <a class="index-chosen-dropdown" href="profile-settings.html">Settings & Privacy</a>
                                     <hr class="no-margin">
@@ -102,10 +104,11 @@
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link"href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"  href="profile-settings.html">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"
+                            href="profile-settings.html">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
@@ -115,14 +118,15 @@
                     </li>
                 </ul>
             </div>
-            
-            <div class="container" style = "margin-top: 20px;">
+
+            <div class="container" style="margin-top: 20px;">
                 <div class="main-body">
                     <div id="round-corner-left" class="row gutters-sm shadow-lg">
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow"></a>
+                                    <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="profileImg"
+                                            class="shadow"></a>
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
@@ -130,8 +134,10 @@
                                                 <p id="bio1"></p>
                                             </div>
                                             <div class="container">
-                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
-                                                <a id="github1" href=""><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
+                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn"
+                                                        id="bio-icons-prof"></a>
+                                                <a id="github1" href=""><img src="img/github.png" alt="Github"
+                                                        id="bio-icons-prof"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -142,7 +148,7 @@
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h2 id = "profile-heading">SETTINGS AND PRIVACY</h2>
+                                        <h2 id="profile-heading">SETTINGS AND PRIVACY</h2>
                                     </div>
                                     <div class="row">
                                         <h5 class="mb-0" style="font-weight: bold;">Change username</h5>
@@ -162,12 +168,16 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <label for="userName"><h6 class="mt-2 mb-4">New username</h6></label>
+                                                <label for="userName">
+                                                    <h6 class="mt-2 mb-4">New username</h6>
+                                                </label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <form>
-                                                    <input type="text" class="form-control purplemodalinput" id="userName" required>
-                                                        <button class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px" onclick="confirmChange()">
+                                                <form method="POST">
+                                                    <input type="text" class="form-control purplemodalinput"
+                                                        id="userName" required>
+                                                    <button class="btn confirmbuttonModalSetting" type="submit"
+                                                        style="margin-top: 15px" onclick="confirmChange()">
                                                         Confirm username</button>
                                                 </form>
                                             </div>
@@ -189,28 +199,36 @@
                                     </button>
                                     <div class="content mb-35">
                                         <hr>
-                                        <form onSubmit = "return checkPassword(this)">
+                                        <form onSubmit="return checkPassword(this)" method="POST">
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <label for="currentPass"><h6 class="mt-2 mb-4">Current password</h6></label>
+                                                    <label for="currentPass">
+                                                        <h6 class="mt-2 mb-4">Current password</h6>
+                                                    </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                    <input type="password" class="form-control" placeholder="" required/>
+                                                    <input type="password" class="form-control" placeholder=""
+                                                        required />
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <label for="newPassModal"><h6 class="mt-2 mb-2">New password</h6></label>
+                                                    <label for="newPassModal">
+                                                        <h6 class="mt-2 mb-2">New password</h6>
+                                                    </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                    <input id="password" type="password" class="form-control" placeholder=""
-                                                    name = password1 required />
+                                                    <input id="password" type="password" class="form-control"
+                                                        placeholder="" name=password1 required />
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <label for="newPassConfirmModal"><h6 class="mt-2 mb-4">Re-enter password</h6></label>
+                                                    <label for="newPassConfirmModal">
+                                                        <h6 class="mt-2 mb-4">Re-enter password</h6>
+                                                    </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-4">
                                                     <input id="confirmpw" type="password" class="form-control"
-                                                        placeholder="" name = password2 required />
-                                                    <button class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px;">Confirm password</button>
+                                                        placeholder="" name=password2 required />
+                                                    <button class="btn confirmbuttonModalSetting" type="submit"
+                                                        style="margin-top: 15px;">Confirm password</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -220,45 +238,61 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <h6 style="margin-bottom: 20px;">Please be certain before you delete your account. </h6>
+                                        <h6 style="margin-bottom: 20px;">Please be certain before you delete your
+                                            account. </h6>
                                     </div>
-                                    <button type="button" class="btn shadow confirmbuttonModalSetting"  style="margin-bottom: 20px;"data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your account</button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <button type="button" class="btn shadow confirmbuttonModalSetting"
+                                        style="margin-bottom: 20px;" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your
+                                        account</button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete account?</h5>
-                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Are you sure you want
+                                                        to delete account?</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="index.html" autocomplete="off">
+                                                        <div class="mb-3">
+                                                            <div id="deleteAcc" class="alert">
+                                                                <span class="closebtn"></span>
+                                                                <strong>Warning!</strong> Your account may be deleted.
+                                                                <br>You could lose all your account data.
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="usernameModalSettings"
+                                                                class="col-form-label">Your username or email:</label>
+                                                            <input type="text" class="form-control purplemodalinput"
+                                                                id="usernameModalSettings" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="verifydelete" class="col-form-label">To verify,
+                                                                type <i>delete my account</i> below:</label>
+                                                            <input type="text" class="form-control purplemodalinput"
+                                                                id="verifydelete" pattern="delete my account" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="passwordModalSettings"
+                                                                class="col-form-label">Confirm your password:</label>
+                                                            <input type="password" class="form-control purplemodalinput"
+                                                                id="passwordModalSettings" required>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" id="cancelbuttonmodal"
+                                                                class="btn confirmbuttonModalSetting"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="submit" class="btn confirmbuttonModalSetting"
+                                                                onclick="deleteAcc()">Delete this account</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
                                             </div>
-                                            <div class="modal-body">
-                                                <form action="index.html" autocomplete="off">
-                                                    <div class="mb-3">
-                                                        <div id="deleteAcc" class="alert">
-                                                            <span class="closebtn"></span> 
-                                                            <strong>Warning!</strong> Your account may be deleted. 
-                                                            <br>You could lose all your account data.
-                                                        </div> 
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="usernameModalSettings" class="col-form-label">Your username or email:</label>
-                                                        <input type="text" class="form-control purplemodalinput" id="usernameModalSettings" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="verifydelete" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
-                                                        <input type="text" class="form-control purplemodalinput" id="verifydelete" pattern="delete my account" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
-                                                        <input type="password" class="form-control purplemodalinput" id="passwordModalSettings" required>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                                        <button type="submit" class="btn confirmbuttonModalSetting" onclick="deleteAcc()">Delete this account</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            
-                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -269,107 +303,107 @@
             </div>
         </main>
     </div>
-        <script>
-            function deleteAcc(){
-                let loggedin = false;
-                sessionStorage.setItem("loggedin", loggedin);
+    <script>
+        function deleteAcc() {
+            let loggedin = false;
+            sessionStorage.setItem("loggedin", loggedin);
+        }
+        function confirmChange() {
+            var a = document.getElementById("userName").value;
+            if (a !== "") {
+                sessionStorage.setItem("userName", a);
+                document.getElementById("userName1").innerHTML = a;
+                document.getElementById("userName2").innerHTML = a;
             }
-            function confirmChange(){
-                var a = document.getElementById("userName").value;
-                if(a!==""){
-                    sessionStorage.setItem("userName",a);
-                    document.getElementById("userName1").innerHTML= a;
-                    document.getElementById("userName2").innerHTML= a;
-                }
+        }
+        document.getElementById("bio1").innerHTML = sessionStorage.getItem("bio");
+        document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
+        document.getElementById("userName2").innerHTML = sessionStorage.getItem("userName");
+
+        document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
+        document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
+    </script>
+    <script>
+        // Function to check Whether both passwords
+        // is same or not.
+        function checkPassword(form) {
+            password1 = form.password1.value;
+            password2 = form.password2.value;
+
+            if (password1 != password2) {
+                alert("\nNew password did not match: Please try again.")
+                return false;
             }
-            document.getElementById("bio1").innerHTML=sessionStorage.getItem("bio");
-            document.getElementById("userName1").innerHTML=sessionStorage.getItem("userName");
-            document.getElementById("userName2").innerHTML= sessionStorage.getItem("userName");
 
-            document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
-            document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
-        </script>
-        <script>
-            // Function to check Whether both passwords
-            // is same or not.
-            function checkPassword(form) {
-                password1 = form.password1.value;
-                password2 = form.password2.value;
-  
-                if (password1 != password2) {
-                    alert ("\nNew password did not match: Please try again.")
-                    return false;
-                }
-  
-                // If same return True.
-                else {
-                    alert("Your password is changed")
-                    return true;
-                }
+            // If same return True.
+            else {
+                alert("Your password is changed")
+                return true;
             }
-        </script>
-        
-        <footer class="page-footer shadow">
-            <div class="container text-center text-md-left mt-4">
-                <div class="row align-items-center">
-                    <div class="col-md-4 mx-auto mb-4">
-                        <a href="index.html">
-                            <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
-                        </a>
-                        <br>
-                        <br>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
-                            & Information Technology made the university one of the pioneers in computer usage in
-                            Malaysia. Since its establishment, the Faculty of Computer Science and Information
-                            Technology
-                            has been led by a number of distinguished persons.</p>
-                    </div>
+        }
+    </script>
 
-                    <div class="col-md-3 mx-auto mb-4">
-                        <h2 class="text-uppercase">Links</h2>
-                        <br>
-                        <h5>
-                            <ul class="list-unstyled lh-5 footer-link">
-                                <li class="my-2 pt-2">
-                                    <a href="about.html" class="text-dark">About</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="contact.html" class="text-dark">Contact Us</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="events.html" class="text-dark">Upcoming Events</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="jobs.html" class="text-dark">Search Jobs</a>
-                                </li>
-                            </ul>
-                        </h5>
-                    </div>
+    <footer class="page-footer shadow">
+        <div class="container text-center text-md-left mt-4">
+            <div class="row align-items-center">
+                <div class="col-md-4 mx-auto mb-4">
+                    <a href="index.html">
+                        <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
+                    </a>
+                    <br>
+                    <br>
+                    <br>
+                    <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
+                        & Information Technology made the university one of the pioneers in computer usage in
+                        Malaysia. Since its establishment, the Faculty of Computer Science and Information
+                        Technology
+                        has been led by a number of distinguished persons.</p>
+                </div>
 
-                    <div class="col-md-4 mx-auto mb-4">
-                        <h2 class="text-uppercase">Location</h2>
-                        <div class="d-flex justify-content-center">
-                            <div id="map"></div>
-                        </div>
-                        <script
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
-                            async></script>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
-                            Federal Territory of Kuala Lumpur, Malaysia
-                        </p>
+                <div class="col-md-3 mx-auto mb-4">
+                    <h2 class="text-uppercase">Links</h2>
+                    <br>
+                    <h5>
+                        <ul class="list-unstyled lh-5 footer-link">
+                            <li class="my-2 pt-2">
+                                <a href="about.html" class="text-dark">About</a>
+                            </li>
+                            <li class="my-2 pt-2">
+                                <a href="contact.html" class="text-dark">Contact Us</a>
+                            </li>
+                            <li class="my-2 pt-2">
+                                <a href="events.html" class="text-dark">Upcoming Events</a>
+                            </li>
+                            <li class="my-2 pt-2">
+                                <a href="jobs.html" class="text-dark">Search Jobs</a>
+                            </li>
+                        </ul>
+                    </h5>
+                </div>
+
+                <div class="col-md-4 mx-auto mb-4">
+                    <h2 class="text-uppercase">Location</h2>
+                    <div class="d-flex justify-content-center">
+                        <div id="map"></div>
                     </div>
+                    <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
+                        async></script>
+                    <br>
+                    <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
+                        Federal Territory of Kuala Lumpur, Malaysia
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
-                <p>Copyright &copy; FSKTM 2021
-                </p>
-            </div>
-        </footer>
-    
-       
+        <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
+            <p>Copyright &copy; FSKTM 2021
+            </p>
+        </div>
+    </footer>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"

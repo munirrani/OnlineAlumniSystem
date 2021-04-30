@@ -156,7 +156,8 @@
                                                     </div>
                                                     <hr class="profileBio-line">
                                                     <div class="container mt-3">
-                                                        <button id="editbutton" class="btn shadow" type="submit">Update</button>
+                                                        <button id="editbutton" class="btn shadow"
+                                                            type="submit">Update</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -169,7 +170,7 @@
 
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
-                                    <form autocomplete="off" action="profile.html">
+                                    <form autocomplete="off" action="profile.html" method="POST">
                                         <div class="row">
                                             <h2 id="profile-heading"> PERSONAL INFORMATION</h2>
                                         </div>
@@ -318,8 +319,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" id="" class="btn btn-danger"
-                        onclick="discardbutton()">Discard</button>
+                    <button type="button" id="" class="btn btn-danger" onclick="discardbutton()">Discard</button>
                     <!-- <button type="button" class="btn btn-primary btn-danger">Okay</button> -->
                 </div>
             </div>
@@ -328,7 +328,7 @@
 
     <script>
 
-        function cancelEdit () {
+        function cancelEdit() {
             $('#edit-profile-cancel-warning').modal('show');
         }
 
@@ -400,7 +400,7 @@
         const file = document.querySelector('#file');
         const uploadBtn = document.querySelector('#uploadBtn');
 
-        document.querySelector("#file").addEventListener("change", window.onload = function() {
+        document.querySelector("#file").addEventListener("change", window.onload = function () {
             const reader = new FileReader();
 
             reader.addEventListener('load', () => {
