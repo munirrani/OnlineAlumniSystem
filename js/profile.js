@@ -1,3 +1,4 @@
+let curpos = sessionStorage.getItem("currentPosition");
 let alumniProfiles = [
   {
     name: "Fahad",
@@ -122,7 +123,7 @@ let alumniProfiles = [
     name: "Haney",
     age: 21,
     Gender: "Female",
-    currentPos: "-",
+    currentPos: curpos,
     email: "huha@gmail.com",
     phone: "012-3456789",
     enrollYear: "Batch of 2019",
@@ -142,6 +143,8 @@ let alumniProfiles = [
     github: "https://github.com/haneyiskdr",
   },
 ];
+
+
 
 let addAlumniProf = JSON.parse(sessionStorage.getItem("addAlumniAll"));
 
