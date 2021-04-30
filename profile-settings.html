@@ -189,29 +189,31 @@
                                     </button>
                                     <div class="content mb-35">
                                         <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <label for="currentPass"><h6 class="mt-2 mb-4">Current password</h6></label>
+                                        <form onSubmit = "return checkPassword(this)">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <label for="currentPass"><h6 class="mt-2 mb-4">Current password</h6></label>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary mt-2 mb-2">
+                                                    <input type="password" class="form-control" placeholder="" required/>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label for="newPassModal"><h6 class="mt-2 mb-2">New password</h6></label>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary mt-2 mb-2">
+                                                    <input id="password" type="password" class="form-control" placeholder=""
+                                                    name = password1 required />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label for="newPassConfirmModal"><h6 class="mt-2 mb-4">Re-enter password</h6></label>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary mt-2 mb-4">
+                                                    <input id="confirmpw" type="password" class="form-control"
+                                                        placeholder="" name = password2 required />
+                                                    <button class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px;">Confirm password</button>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                <input type="password" class="form-control" placeholder="" required/>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <label for="newPassModal"><h6 class="mt-2 mb-2">New password</h6></label>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                <input id="password" type="password" class="form-control" placeholder=""
-                                                    onkeyup='checkpw()' required />
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <label for="newPassConfirmModal"><h6 class="mt-2 mb-4">Re-enter password</h6></label>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <input id="confirmpw" type="password" class="form-control"
-                                                    placeholder="" onkeyup='checkpw()' required />
-                                                <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px;" onclick="alert('Your password is changed')">Confirm password</button>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                     <div class="row">
                                         <h5 class="mb-0" style="font-weight: bold;">Delete account</h5>
@@ -286,6 +288,25 @@
 
             document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
             document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
+        </script>
+        <script>
+            // Function to check Whether both passwords
+            // is same or not.
+            function checkPassword(form) {
+                password1 = form.password1.value;
+                password2 = form.password2.value;
+  
+                if (password1 != password2) {
+                    alert ("\nNew password did not match: Please try again.")
+                    return false;
+                }
+  
+                // If same return True.
+                else {
+                    alert("Your password is changed")
+                    return true;
+                }
+            }
         </script>
         
         <footer class="page-footer shadow">
