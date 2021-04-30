@@ -165,7 +165,7 @@
                                                 <label for="userName"><h6 class="mt-2 mb-4">New username</h6></label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <form action="profile-settings.html" method="POST">
+                                                <form>
                                                     <input type="text" class="form-control purplemodalinput" id="userName" required>
                                                         <button class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px" onclick="confirmChange()">
                                                         Confirm username</button>
@@ -209,7 +209,7 @@
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
                                                 <input id="confirmpw" type="password" class="form-control"
                                                     placeholder="" onkeyup='checkpw()' required />
-                                                <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px;">Confirm password</button>
+                                                <button class="btn confirmbuttonModalSetting" type="button" style="margin-top: 15px;" onclick="alert('Your password is changed')">Confirm password</button>
                                             </div>
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="verifydelete" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
-                                                        <input type="text" class="form-control purplemodalinput" id="verifydelete" required>
+                                                        <input type="text" class="form-control purplemodalinput" id="verifydelete" pattern="delete my account" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
