@@ -133,7 +133,7 @@
                                         <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
                                             <div class="container">
-                                                <form onsubmit="updateBio()" action="profile-edit.html" method="POST">
+                                                <form onsubmit="updateBio()" action="profile-edit.html">
                                                     <textarea class="form-control mb-3" id="bio"
                                                         placeholder="Add a Bio"></textarea>
                                                     <div class="input-group mb-3">
@@ -169,7 +169,7 @@
 
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
-                                    <form autocomplete="off" action="profile.html" method="POST">
+                                    <form autocomplete="off" action="profile.html">
                                         <div class="row">
                                             <h2 id="profile-heading"> PERSONAL INFORMATION</h2>
                                         </div>
@@ -345,7 +345,7 @@
             sessionStorage.setItem("linkedin", b);
             var c = document.getElementById("github").value;
             sessionStorage.setItem("github", c);
-            alert("Bio updated")
+            alert("Updated")
         }
 
         function updateInfo() {
