@@ -92,23 +92,22 @@ const eventContainer = document.querySelector("#event-container");
 eventContainer.innerHTML = wholeSection;
 
 const searchBar = document.querySelector("#alumni-search-bar")
-.addEventListener("keyup", (e) => {
-    const searchString = e.target.value.toLowerCase();
-    const filteredEventData = eventData.filter((event) => {
-      return (
-        event.title.toLowerCase().includes(searchString) ||
-        event.mode.toLowerCase().includes(searchString) ||
-        event.description.toLowerCase().includes(searchString)
-      );
+    .addEventListener("keyup", (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const filteredEventData = eventData.filter((event) => {
+            return (
+                event.title.toLowerCase().includes(searchString) ||
+                event.mode.toLowerCase().includes(searchString) ||
+                event.description.toLowerCase().includes(searchString)
+            );
+        });
+        displayEvent(filteredEventData);
     });
-    displayEvent(filteredEventData);
-  });
 
-  document.querySelector
-  const displayEvent = (event) => {
+const displayEvent = (event) => {
     const htmlString = event
-      .map((event) => {
-        return `
+        .map((event) => {
+            return `
             <div class="vertical-event-card">
                 <div class="event-text">
                     <a href="${event.eventPage}" class="event-title">
@@ -124,7 +123,7 @@ const searchBar = document.querySelector("#alumni-search-bar")
                 </div>
             </div>
             `;
-      })
-      .join("");
+        })
+        .join("");
     eventContainer.innerHTML = htmlString;
-  };
+};
