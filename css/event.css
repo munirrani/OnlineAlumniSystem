@@ -1,0 +1,17 @@
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(134, 131, 131);
+}
+.event-text {
+    width: 90%;
+    margin: auto;
+}
+.event-table {
+    width: 90%;
+    border: 1px solid black;
+    margin: auto;
+}
