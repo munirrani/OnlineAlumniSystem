@@ -1,3 +1,35 @@
+const eventList = document.querySelector("#event-list");
+const highlighted = document.querySelector("#highlighted-section");
+var eventData =  
+[
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit, amet consectetur.",
+        startDate: "2021-4-1",
+        endDate: "2021-4-3",
+        img: "img/Bacaan-Yassin.jpg",
+        mode: "Virtual",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit, amet consectetur adipisicing.",
+        startDate: "2021-4-7",
+        endDate: "2021-4-7",
+        img: "img/upcoming-event-dash.jpg",
+        mode: "Virtual",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad sunt impedit odio! Dignissimos dolor minus deserunt eum sapiente tempore id consequatur ea libero fugit eveniet architecto et maxime, quod illum!"
+    },
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit",
+        startDate: "2021-4-16",
+        endDate: "2021-4-17",
+        img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
+        mode: "Physical",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum alias saepe ullam deserunt impedit corrupti voluptas totam illum? Adipisci?"
+    }
+];
 function date(startDate, endDate)
 {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -8,90 +40,76 @@ function date(startDate, endDate)
     else
         return months[startDateValues[1]] + " " + startDateValues[2] + ", " + startDateValues[0] + " - " + months[endDateValues[1]] + " " + endDateValues[2] + ", " + endDateValues[0];
 }
-var eventData =  
-[
-    {
-        eventPage: "event.html",
-        title: "CDL ASIA DIGITAL CHALLENGE 2021 IS BACK!",
-        startDate: "2021-4-7",
-        endDate: "2021-4-7",
-        img: "img/um_dtc.png",
-        mode: "Virtual",
-        description: 
-            "<p>✅To expose contestants to emerging technologies, data analytics, design, and the use of office application tools.<br>" + 
-            "✅To gain valuable experience in an international competition.<br>" + 
-            "✅3 rounds of competition; Preliminary, National and Grand Final<br>" +
-            "✅Winner who can win prizes worth up to USD $150</p>"
-    },
-    {
-        eventPage: "event.html",
-        title: "Majlis Bacaan Yassin",
-        startDate: "2021-4-16",
-        endDate: "2021-4-16",
-        img: "img/Bacaan-Yassin.jpg",
-        mode: "Virtual",
-        description: ""
-    },
-    {   
-        eventPage: "event.html",
-        title: "SE Innovation Day",
-        startDate: "2021-4-17",
-        endDate: "2021-4-17",
-        img: "img/Nixser.png",
-        mode: "Physical",
-        description: 
-            "<p>In conjunction to our SE Innovation Day, we will have a competition where we will award the best FYP-2 projects. The top 3 SE Projects who are selected as the WINNERS of FYP Competition will be invited to give a sharing session on the event day.</p>"
-    },
-    {
-        eventPage: "event.html",
-        title: "UM3MT Competition (Faculty Level)",
-        startDate: "2021-4-18",
-        endDate: "2021-4-20",
-        img: "img/hackathon.png",
-        mode: "Virtual",
-        description: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aperiam maiores iusto reiciendis!</p>"
-    },
-    {
-        eventPage: "event.html",
-        title: "Saringan Kesihatan",
-        startDate: "2021-4-21",
-        endDate: "2021-4-22",
-        img: "img/sports_event.png",
-        mode: "Physical",
-        description: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sapiente neque, voluptas ab ullam deleniti eaque ea magnam" +
-            "tempora fuga inventore eum reprehenderit porro distinctio numquam repellat labore, quas ipsum.</p>"
-    },
-    {
-        eventPage: "event.html",
-        title: "Cyber Crime Hands-on Workshop: Introduction to Blockchain, Cryptocurrency & Computer Penetration",
-        startDate: "2021-4-27",
-        endDate: "2021-4-30",
-        img: "img/MyTech.jpg",
-        mode: "Virtual",
-        description:
-            "<p><span>Tajuk :&nbsp; Persidangan Kebangsaan Jenayah Komersil : Ancaman dan Pendekatan Teknologi Siber 2019<br>" +
-            "Anjuran Universiti Malaya dan Polis Diraja Malaysia<br>" +
-            "Tempat : FSKTM<br>" +
-            "<a data-saferedirecturl='https://www.google.com/url?q=https://umconference.um.edu.my/jkom2019&amp;source=gmail&amp;ust=1570767604220000&amp;usg=AFQjCNHOrIeALjBI8pRoAQ2gq3Tss0AyAw' href='https://umconference.um.edu.my/jkom2019' target='_blank'>https://umconference.um.edu.<wbr />my/jkom2019</a></span></p>"
-    }
-];
 
-var wholeSection = "";
-for(var i = 0; i < eventData.length; i++)
+highlighted.innerHTML = 
+    `<div class="row g-0 highlighted-event">
+        <div class="col-md-4">
+            <a href="${eventData[0].eventPage}">
+                <img id="highlighted-event-img" class="img-fluid rounded-4" src="${eventData[0].img}" alt="" width="540" height="340">
+            </a>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="card-body">
+                <div id="highlighted-event-text">
+                    <div>
+                        <div class="mb-3">
+                            <h4>Highlighted event</h4>
+                        </div>
+                        <!-- TODO: Decide whether to change the order of these things -->
+                        <div id="highlighted-event-header" class="mb-3">
+                            <span class="text-muted">${date(eventData[0].startDate, eventData[0].endDate)}</span>
+                            <a href="${eventData[0].eventPage}"><h3 class="mb-0">${eventData[0].title}</h3></a>
+                            <span class="text-muted">${eventData[0].mode}</span>
+                        </div>
+                        <article>
+                            ${eventData[0].description}
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+var events = "";
+for(var i = 1; i < eventData.length; i++)
 {
     var currentCard = 
-        '<div class="vertical-event-card"> <div class="event-text">' + 
-        '<a href="' + eventData[i].eventPage + '" class="event-title"><h4>' + eventData[i].title + '</h4></a>' +
-        '<p class="event-meta">' + date(eventData[i].startDate, eventData[i].endDate) + ' | ' + eventData[i].mode + '</p>' + eventData[i].description + 
-        '</div> <div class="event-img"> <a href="' + eventData[i].eventPage + '"><img src="' + eventData[i].img + '" class="img-fluid rounded-3" width="500" height="280" alt=""></a> </div> </div>';
+        '<li>' +
+            '<div class="my-event-card card mt-4">' +
+                '<div class="row g-0">' +
+                    '<div class="col-md-8">' +
+                        '<div class="card-body">' +
+                            '<div class="mb-4">' +
+                                '<p class="mb-0">' +
+                                    '<small class="text-muted">' + date(eventData[i].startDate, eventData[i].endDate) + '</small>' +
+                                    '<a href="' + eventData[i].eventPage + '"><h4 class="event-title card-title mb-0">' + eventData[i].title + '</h4></a>' +
+                                    '<small class="text-muted">' + eventData[i].mode + '</small>' +
+                                '</p>' +
+                            '</div>' +
 
-    wholeSection += currentCard;
+                            '<article class="card-text">' +
+                                eventData[i].description +
+                            '</article>' +
+                        '</div>' +
+                    '</div>' +
+                    '<!-- Implementing this was a bitch but its really about knowing where to apply which class and how many divs do you need to nest -->' +
+                    '<figure class="col-md-4 mb-0 event-img-container" >' +
+                        '<div class="event-img-align">' +
+                            '<a href="' + eventData[i].eventPage + '">' +
+                                '<img class="img-fluid rounded-3 event-img" src="' + eventData[i].img + '" alt="">' +
+                            '</a>' +
+                        '</div>' +
+                    '</figure>' +
+                '</div>' +
+            '</div>' +
+        '</li>';
+
+    events += currentCard;
 }
+eventList.innerHTML = events;
 
-const eventContainer = document.querySelector("#event-container");
-eventContainer.innerHTML = wholeSection;
-
-const searchBar = document.querySelector("#alumni-search-bar")
+const searchBar = document.querySelector("#search-bar")
     .addEventListener("keyup", (e) => {
         const searchString = e.target.value.toLowerCase();
         const filteredEventData = eventData.filter((event) => {
@@ -108,22 +126,35 @@ const displayEvent = (event) => {
     const htmlString = event
         .map((event) => {
             return `
-            <div class="vertical-event-card">
-                <div class="event-text">
-                    <a href="${event.eventPage}" class="event-title">
-                        <h4>${event.title}</h4>
-                    </a>
-                    <p class="event-meta">
-                        ${date(event.startDate, event.endDate)} | ${event.mode}
-                    </p>
-                    ${event.description}
+            <li> 
+                <div class="my-event-card card mt-4">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <p class="mb-0">
+                                        <small class="text-muted">${date(event.startDate, event.endDate)}</small>
+                                        <a href=""><h4 class="event-title card-title mb-0">${event.title}</h4></a>
+                                        <small class="text-muted">${event.mode}</small>
+                                    </p>
+                                </div>
+
+                                <article class="card-text">
+                                    ${event.description}
+                                </article>
+                            </div>
+                        </div>
+                        <figure class="col-md-4 mb-0 event-img-container" >
+                            <div class="event-img-align">
+                                <a href="">
+                                    <img class="img-fluid rounded-3 event-img" src="${event.img}" alt="">
+                                </a>
+                            </div>
+                        </figure>
+                    </div>
                 </div>
-                <div class="event-img">
-                    <a href="${event.eventPage}"><img src="${event.img}" class="img-fluid rounded-3" width="500" height="280" alt=""></a>
-                </div>
-            </div>
-            `;
+            </li>`;
         })
         .join("");
-    eventContainer.innerHTML = htmlString;
+    eventList.innerHTML = htmlString;
 };

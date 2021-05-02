@@ -359,7 +359,7 @@ footer {
     margin: auto;
     margin-top: 4em;
     margin-bottom: 4em;
-    padding: 3.5em 3em 2em;
+    padding: 1em 1.2em 2em;
     width: 90%;
     background-color: #f3f3f3;
     box-shadow: 10em;
@@ -413,10 +413,6 @@ footer {
 }
 .event-text {
     padding-right: 1.5em;
-}
-.event-img {
-    display: grid;
-    place-items: center;
 }
 .page-nav {
     justify-content: center;
