@@ -118,11 +118,14 @@
         width: 96%;
         padding: 1em;
     }
-    .event-card {
+    .my-event-card {
         min-height: unset;
         max-height: unset;
         border: 1px black solid;
         margin: 1em;
+    }
+    .limit-text {
+        -webkit-line-clamp: 3;
     }
     .event-img-container {
         display: none;

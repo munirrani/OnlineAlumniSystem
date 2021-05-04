@@ -88,9 +88,9 @@ for(var i = 1; i < eventData.length; i++)
                                 '</p>' +
                             '</div>' +
 
-                            '<article class="card-text">' +
+                            '<p class="card-text limit-text">' +
                                 eventData[i].description +
-                            '</article>' +
+                            '</p>' +
                         '</div>' +
                     '</div>' +
                     '<!-- Implementing this was a bitch but its really about knowing where to apply which class and how many divs do you need to nest -->' +

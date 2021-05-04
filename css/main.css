@@ -357,7 +357,6 @@ footer {
 #event-main {
     border-radius: 0.5em;
     margin: auto;
-    margin-top: 4em;
     margin-bottom: 4em;
     padding: 1em 1.2em 2em;
     width: 90%;
@@ -552,7 +551,7 @@ footer {
     margin: auto;
     margin-top: 3em;
     margin-bottom: 4em;
-    padding: 3.5em 3.5em 2em;
+    padding: 2em 3.5em 2em;
     width: 70%;
     background-color: #f3f3f3;
     box-shadow: 10em;
@@ -568,14 +567,19 @@ footer {
 }
 
 @media (max-width: 730px) {
+    #event-main {
+        padding-top: 0;
+    }
+
     .responsive-disabled {
         display: inline-block;
     }
 
     #event-section {
         width: 100%;
-        padding: 1.5em;
-        margin-top: 0.5em;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 1em;
     }
 
     .event-buttons {
@@ -793,13 +797,11 @@ footer {
     border-bottom-left-radius: 0;
 }
 .form-reg-container {
-    max-width: 80%;
-    margin: 80px auto 0px;
+    max-width: 90%;
     padding-left: 0px;
     padding-right: 0px;
 }
 .form-reg-heading {
-    margin-bottom: 50px;
     font-family: 'Hammersmith One', sans-serif;
 }
 .form-reg-check {

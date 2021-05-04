@@ -6,12 +6,15 @@ a {
 a:hover {
     color: rgb(134, 131, 131);
 }
+#title-separator {
+    margin-bottom: 1.5em;
+}
 .event-text {
     width: 90%;
     margin: auto;
 }
 .event-table {
     width: 90%;
-    border: 1px solid black;
+    border: 1px black solid;
     margin: auto;
 }

@@ -1,0 +1,24 @@
+#event-admin-page-intro {
+    background-color: rgb(82, 82, 241);
+    color: #ffffff;
+    padding: 3.5em;
+}
+.meta-text {
+    font-size: 1rem;
+}
+#event-table {
+    width: 90%;
+    margin: auto;
+    background-color: #e7e7e7;
+    padding: 1.5em;
+}
+.warning {
+    display: grid;
+}
+@media (max-width: 730px) {
+    #event-admin-page-intro {
+        padding: 1em;
+        width: 100%;
+        margin: auto;
+    }
+}
