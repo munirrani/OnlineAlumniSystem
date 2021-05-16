@@ -28,13 +28,22 @@ let eventData = [
 ];
 
 $(document).ready(function () {
-    $('#my-table').DataTable({
+    $('#my-table').DataTable( {
+        responsive: true,
+        dom: 'Bfrtip',
         buttons: [
             {
-                text: "Create new event"
-            }
-        ]
-    });
+                init: function(api, node, config) {
+                    $(node).removeClass('dt-button')
+                },
+                text: 'Add new event',
+                className: "btn btn-success",
+                action: function() {
+                    window.location.href = "event_creation.html";
+                }
+            },
+        ],
+    } );
 });
 
 html += 
