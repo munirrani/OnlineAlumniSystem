@@ -39,7 +39,7 @@ $(document).ready(function () {
                 text: 'Add new event',
                 className: "btn btn-success",
                 action: function() {
-                    window.location.href = "event_creation.html";
+                    window.location.href = "event_creation.php";
                 }
             },
         ],

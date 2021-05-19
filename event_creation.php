@@ -2,15 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
+    <?php include_once("php/head.php")?>
+
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
     <style>
         main {
@@ -25,61 +18,7 @@
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <header>
-            <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
-                <div class="container h4">
-                    <div class="mx-auto order-0">
-                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and
-                            Information
-                            Technology Alumni</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
-            <div class="container h5">
-                <a class="navbar-brand" href="admindash.html">
-                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
-                        id="logo-img">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                        <hr>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="admindash.html"><b>Dashboard</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="event_admin.html"><b>Manage Events</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin-profile-dash.html"><b>Manage Profiles</b></a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="fl-right event-buttons navbar-nav">
-                        <div class="d-flex gap-2">
-                            <div class="dropdown">
-                                <button onclick="myFunction()" id="profilebtn" class="btn">
-                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
-                                </button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <a href="profile.html" id="dropdown-username"></a>
-                  <hr class="no-margin">
-                                    <a href="admin-profile-settings.html">Settings & Privacy</a>
-                                    <hr class="no-margin">
-                                    <a href="#" id="logoutbutton">Log Out</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <?php include_once("php/admin_heading.php")?>
 
         <main id="event-section">
             <div class="container form-reg-container">
@@ -154,22 +93,11 @@
             </div>
         </main>
 
-        <footer class="page-footer shadow-lg">
-            <div class="footer-copyright text-center py-3" style="background-color: #f3f3f3; font-weight: 800;">
-                <p>Copyright &copy; FSKTM 2021</p>
-            </div>
-        </footer>
+        <?php include_once("php/admin_footer.php")?>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous">
-        </script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <?php include_once("php/scripts.php")?>
+
     <script type="text/javascript" src="js/eventValidator.js"></script>
     <script>
         // The navbar profile dropdown
