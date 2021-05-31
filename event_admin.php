@@ -36,8 +36,9 @@
                 </nav>
                 
                 <section id="event-admin-page-intro" class="rounded-3">
-                    <h2 class="mb-0">Event management</h2>
+                    <h2 id="page-title" class="mb-0">Event management</h2>
                     <span class="meta-text">Where events are managed</span>
+                    <hr>
                 </section>
 
                 <section id="event-table">

@@ -6,10 +6,11 @@
     color: white;
 }
 #event-admin-page-intro {
-    background-color: rgb(82, 82, 241);
-    color: #ffffff;
-    padding: 3.5em;
-    margin-bottom: 2em;
+    padding: 1.2em 3.5em;
+    margin-bottom: 0.5em;
+}
+#page-title {
+    font-family: 'Hammersmith One', sans-serif;
 }
 .meta-text {
     font-size: 1rem;
@@ -28,7 +29,7 @@
 }
 @media (max-width: 730px) {
     #event-admin-page-intro {
-        padding: 3em;
+        padding: 1em;
         width: 100%;
         margin: auto;
         margin-bottom: 1em;

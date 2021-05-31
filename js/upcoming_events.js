@@ -28,6 +28,51 @@ var eventData =
         img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
         mode: "Physical",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum alias saepe ullam deserunt impedit corrupti voluptas totam illum? Adipisci?"
+    },
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit",
+        startDate: "2021-4-16",
+        endDate: "2021-4-17",
+        img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
+        mode: "Physical",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum alias saepe ullam deserunt impedit corrupti voluptas totam illum? Adipisci?"
+    },
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit",
+        startDate: "2021-4-16",
+        endDate: "2021-4-17",
+        img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
+        mode: "Physical",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum alias saepe ullam deserunt impedit corrupti voluptas totam illum? Adipisci?"
+    },
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit",
+        startDate: "2021-4-16",
+        endDate: "2021-4-17",
+        img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
+        mode: "Physical",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum alias saepe ullam deserunt impedit corrupti voluptas totam illum? Adipisci?"
+    },
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit",
+        startDate: "2021-4-16",
+        endDate: "2021-4-17",
+        img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
+        mode: "Physical",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum alias saepe ullam deserunt impedit corrupti voluptas totam illum? Adipisci?"
+    },
+    {
+        eventPage: "event.html",
+        title: "Lorem ipsum dolor sit",
+        startDate: "2021-4-16",
+        endDate: "2021-4-17",
+        img: "img/Pendidikan Sepanjang Hayat Bersama UMCCed.png",
+        mode: "Physical",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsum alias saepe ullam deserunt impedit corrupti voluptas totam illum? Adipisci?"
     }
 ];
 function date(startDate, endDate)
@@ -112,7 +157,7 @@ eventList.innerHTML = events;
 const searchBar = document.querySelector("#search-bar")
     .addEventListener("keyup", (e) => {
         const searchString = e.target.value.toLowerCase();
-        const filteredEventData = eventData.filter((event) => {
+        const filteredEventData = eventData.slice(1, eventData.length).filter((event) => {
             return (
                 event.title.toLowerCase().includes(searchString) ||
                 event.mode.toLowerCase().includes(searchString) ||

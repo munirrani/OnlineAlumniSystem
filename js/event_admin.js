@@ -6,24 +6,18 @@ let eventData = [
         startDate: "Start",
         endDate: "End",
         mode: "Physical",
-        updatePath: "",
-        deletePath: ""
     },
     {
         title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel corporis temporibus laudantium reprehenderit ",
         startDate: "Start",
         endDate: "End",
         mode: "Virtual",
-        updatePath: "",
-        deletePath: ""
     },
     {
         title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel corporis temporibus laudantium reprehenderit optio consectetur corrupti sint? Debitis, dolor quam.",
         startDate: "Start",
         endDate: "End",
         mode: "Physical",
-        updatePath: "",
-        deletePath: ""
     }
 ];
 
@@ -67,8 +61,12 @@ for(let i = 0; i < eventData.length; i++)
             <td>${eventData[i].startDate}</td>
             <td>${eventData[i].endDate}</td>
             <td>${eventData[i].mode}</td>
-            <td class="dt-center"><a href="event_creation.html"><button class="btn btn-primary">Update</button></a></td>
-            <td class="dt-center"><a href="#"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></a></td>
+            <td class="dt-center"><a href="event_creation.php"><button class="btn btn-primary">Update</button></a></td>
+            <td class="dt-center">
+                <form action="">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                </form>
+            </td>
         </tr>`;
 }
 html += `</tbody>`;

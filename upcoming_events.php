@@ -16,8 +16,9 @@
         <main>
             <div id="event-main">
                 <section id="event-page-intro" class="rounded-3">
-                    <h2 class="mb-0">Upcoming Events</h2>
+                    <h2 id="page-title" class="mb-0">Upcoming Events</h2>
                     <span class="meta-text">Events that will occur</span>
+                    <hr>
                 </section>
             
                 <section id="highlighted-section" class="card">
@@ -31,8 +32,16 @@
             
                     <ul id="event-list" class="mb-0">
                     </ul>
+
+                    <div id="loader-container">
+                        <form action="">
+                            <button id="load-events" class="m-0">
+                                More Events
+                            </button>
+                        </form>
+                    </div>
                 </section>
-                </div>
+            </div>
         </main>
 
         <?php include_once("php/footer.php")?>
