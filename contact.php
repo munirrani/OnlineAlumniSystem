@@ -21,7 +21,7 @@
             </div>
             <div class="col cont-right">
               <div class="contact-us">
-                <h4 class="sent-notification"></h4>
+                
                 <form id="contact-form">
                   <h1 class="contact-us-heading">CONTACT US</h1>
                   <input type="text" id="contact-name" class="form-control mb-4 shadow" name="name"
@@ -38,7 +38,7 @@
                     </button>
                   
 
-                  <!-- <div class="modal fade" id="confirmation-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  <div class="modal fade" id="confirmation-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
@@ -59,7 +59,7 @@
                         </div>
                       </div>
                     </div>
-                  </div> -->
+                  </div>
                 </form>
               </div>
             </div>
@@ -92,7 +92,7 @@
                        body: body.val()
                    }, success: function (response) {
                         $('#contact-form')[0].reset();
-                        $('.sent-notification').text("Message Sent Successfully.");
+                        $('#confirmation-modal').modal('show');
                    }
                 });
             }
@@ -107,7 +107,7 @@
 
             return true;
         }
-    </script>
+  </script>
 </body>
 
 </html>
