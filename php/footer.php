@@ -2,7 +2,7 @@
     <div class="container text-center text-md-left mt-4">
         <div class="row align-items-center">
             <div class="col-md-4 mx-auto mb-4">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
                 </a>
                 <br>
@@ -23,7 +23,7 @@
                             <a href="about.html" class="text-dark">About</a>
                         </li>
                         <li class="my-2 pt-2">
-                            <a href="contact.html" class="text-dark">Contact Us</a>
+                            <a href="contact.php" class="text-dark">Contact Us</a>
                         </li>
                         <li class="my-2 pt-2">
                             <a href="events.html" class="text-dark">Events</a>

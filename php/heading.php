@@ -2,7 +2,7 @@
     <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
         <div class="container h4">
             <div class="mx-auto order-0">
-                <a class="navbar-brand" href="index.html">Faculty of Computer Science and Information Technology
+                <a class="navbar-brand" href="index.php">Faculty of Computer Science and Information Technology
                     Alumni</a>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <hr>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/index.html') echo ' active'?>" aria-current="page" href="index.html"><b>Home</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/index.php') echo ' active'?>" aria-current="page" href="index.php"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/upcoming_events.php') echo ' active'?>" href="upcoming_events.php"><b>Events</b></a>
@@ -39,7 +39,7 @@
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.html') echo ' active'?>" href="about.html"><b>About</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/contact.html') echo ' active'?>" href="contact.html"><b>Contact Us</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/contact.php') echo ' active'?>" href="contact.php"><b>Contact Us</b></a>
                 </li>
             </ul>
             <hr>
