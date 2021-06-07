@@ -45,9 +45,9 @@
             <hr>
             <div class="navbar-nav fl-right event-buttons">
                 <div class="d-flex gap-2">
-                    <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
+                    <a href="login.php"><button id="logbutton" class="btn shadow nav-button-bar"
                             type="button">Login</button></a>
-                    <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
+                    <a href="register.php"><button id="regbutton" class="btn shadow nav-button-bar"
                             type="button">Register</button></a>
                     <div class="navbar-nav dropdown nav-prof-bar">
                         <button onclick="myFunction()" id="profilebtn" class="btn">
