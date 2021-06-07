@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
@@ -18,79 +17,7 @@
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <header>
-            <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
-                <div class="container h4">
-                    <div class="mx-auto order-0">
-                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and
-                            Information
-                            Technology Alumni</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <nav class=" navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
-            <div class="container h5">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
-                        id="logo-img">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                        <hr>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="upcoming_events.html"><b>Events</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
-                        </li>
-                        <li class="nav-item nav-hide-logged">
-                            <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html"><b>About</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="fl-right event-buttons navbar-nav">
-                        <div class="d-flex gap-2">
-                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
-                                    type="button">Login</button></a>
-                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
-                                    type="button">Register</button></a>
-                            <div class="dropdown nav-prof-bar">
-                                <button onclick="myFunction()" id="profilebtn" class="btn">
-                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
-                                </button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <a href="profile.html" id="dropdown-username"></a>
-                  <hr class="no-margin">
-                                    <a href="profile.html">Profile</a>
-                                    <a href="profile-settings.html">Settings & Privacy</a>
-                                    <hr class="no-margin">
-                                    <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="jobs-bookmark.html">Bookmarks</a>
-                                    <hr class="no-margin">
-                                    <a href="#" id="logoutbutton">Log Out</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </nav>
+        <?php include_once("php/heading.php") ?>
 
         <main>
 
@@ -120,21 +47,18 @@
                                     <div class="row">
                                         <div class="col-sm">
                                             <label class="form-label" for="firstname">First Name</label>
-                                            <input class="form-control" id="firstname" type="text" name="firstname"
-                                                placeholder="" required>
+                                            <input class="form-control" id="firstname" type="text" name="firstname" placeholder="" required>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="lastname">Last Name</label>
-                                            <input class="form-control" type="text" id="lastname" name="lastname"
-                                                placeholder="" required>
+                                            <input class="form-control" type="text" id="lastname" name="lastname" placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm">
                                             <label class="form-label" for="age">Age</label>
                                             <div class="input-group">
-                                                <input id="age" type="number" class="form-control" placeholder=""
-                                                    required min="16" max="100">
+                                                <input id="age" type="number" class="form-control" placeholder="" required min="16" max="100">
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -151,15 +75,13 @@
                                         <div class="col-sm">
                                             <label class="form-label" for="enrolYear">Enrol-Year</label>
                                             <div class="input-group">
-                                                <input id="enrolYear" class="form-control form-select datepickeryear"
-                                                    placeholder="" required>
+                                                <input id="enrolYear" class="form-control form-select datepickeryear" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="gradYear">Grad-Year</label>
                                             <div class="input-group">
-                                                <input id="gradYear" class="form-control form-select datepickeryear"
-                                                    placeholder="" required onselect='checkGradYear()'>
+                                                <input id="gradYear" class="form-control form-select datepickeryear" placeholder="" required onselect='checkGradYear()'>
                                             </div>
                                         </div>
                                     </div>
@@ -168,15 +90,13 @@
                                             <label class="form-label" for="email">Email</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="far fa-envelope"></i></span>
-                                                <input id="email" type="email" class="form-control" placeholder=""
-                                                    required>
+                                                <input id="email" type="email" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="matricid">Student Matric ID</label>
                                             <div class="input-group">
-                                                <span class="input-group-text" id="matricid"><i
-                                                        class="far fa-id-card"></i></span>
+                                                <span class="input-group-text" id="matricid"><i class="far fa-id-card"></i></span>
                                                 <input type="text" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
@@ -186,8 +106,7 @@
                                             <label class="form-label" for="currentPos">Current Position</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
-                                                <input id="currentPos" type="text" class="form-control" placeholder=""
-                                                    required>
+                                                <input id="currentPos" type="text" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -205,8 +124,7 @@
                                         <div class="col-sm">
                                             <label class="form-label" for="department">Department</label>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i
-                                                        class="fas fa-user-graduate"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-user-graduate"></i></span>
                                                 <select class="form-control" id="department" required>
                                                     <option value="SE">Software Engineering</option>
                                                     <option value="AI">Artificial Intelligence</option>
@@ -222,16 +140,14 @@
                                             <label class="form-label" for="password">Password</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                                <input id="password" type="password" class="form-control" placeholder=""
-                                                    onkeyup='checkpw()' required />
+                                                <input id="password" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="confirmpw">Confirm Password</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                                <input id="confirmpw" type="password" class="form-control"
-                                                    placeholder="" onkeyup='checkpw()' required />
+                                                <input id="confirmpw" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                     </div>
@@ -239,8 +155,7 @@
                                         <div class="col-sm">
                                             <label class="form-label" for="address">Address</label>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i
-                                                        class="fas fa-map-marker-alt"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                                 <input id="address" type="text" class="form-control" placeholder="">
                                             </div>
                                         </div>
@@ -516,35 +431,30 @@
                                             <label class="form-label" for="postcode">Post Code</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
-                                                <input id="postcode" type="number" class="form-control" placeholder=""
-                                                    min="1" required>
+                                                <input id="postcode" type="number" class="form-control" placeholder="" min="1" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="city">City</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-city"></i></span>
-                                                <input id="city" type="text" class="form-control" placeholder=""
-                                                    required>
+                                                <input id="city" type="text" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="state">State</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-sign"></i></span>
-                                                <input id="state" type="text" class="form-control" placeholder=""
-                                                    required>
+                                                <input id="state" type="text" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                     </div>
                                     <p class="h4" id="error-text-reg"></p>
                                     <div class="row form-reg-check">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"
-                                                required>
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" required>
                                             <label class="form-check-label" for="defaultCheck2">
-                                                I agree by all the <a href="#">Terms & Conditions</a> and <a
-                                                    href="#">Policy</a>
+                                                I agree by all the <a href="#">Terms & Conditions</a> and <a href="#">Policy</a>
                                             </label>
                                         </div>
                                     </div>
@@ -565,90 +475,18 @@
 
         </main>
 
-        <footer class="page-footer shadow">
-            <div class="container text-center text-md-left mt-4">
-                <div class="row align-items-center">
-                    <div class="col-md-4 mx-auto mb-4">
-                        <a href="index.html">
-                            <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
-                        </a>
-                        <br>
-                        <br>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
-                            & Information Technology made the university one of the pioneers in computer usage in
-                            Malaysia. Since its establishment, the Faculty of Computer Science and Information
-                            Technology
-                            has been led by a number of distinguished persons.</p>
-                    </div>
-
-                    <div class="col-md-3 mx-auto mb-4">
-                        <h2 class="text-uppercase">Links</h2>
-                        <br>
-                        <h5>
-                            <ul class="list-unstyled lh-5 footer-link">
-                                <li class="my-2 pt-2">
-                                    <a href="about.html" class="text-dark">About</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="contact.html" class="text-dark">Contact Us</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="events.html" class="text-dark">Upcoming Events</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="jobs.html" class="text-dark">Search Jobs</a>
-                                </li>
-                            </ul>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 mx-auto mb-4">
-                        <h2 class="text-uppercase">Location</h2>
-                        <div class="d-flex justify-content-center">
-                            <div id="map"></div>
-                        </div>
-                        <script
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
-                            async></script>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
-                            Federal Territory of Kuala Lumpur, Malaysia
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
-                <p>Copyright &copy; FSKTM 2021
-                </p>
-            </div>
-        </footer>
+        <?php include_once("php/footer.php")?>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
-        rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/register.js"></script>
     <script type="text/javascript">
-
         $(".datepickeryear").datepicker({
             format: "yyyy",
             viewMode: "years",
             minViewMode: "years",
             autoclose: true,
         });
-
     </script>
 
 </body>
