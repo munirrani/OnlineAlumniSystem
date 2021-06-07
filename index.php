@@ -48,71 +48,31 @@
                     <h2 class="display-5" style="text-align: center;">UPCOMING EVENTS</h2>
                     <br>
                     <div class="row">
-                        <div class="col-lg-3 d-flex align-items-stretch event-card">
-                            <div class="card">
-                                <a href="event.php"><img src="img/hackathon.png" class="card-img-top" alt="..."></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">FSKTM Annual Hackathon 2021</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">30th April 2021</h6>
-                                    <p class="card-text">Our annual FSKTM Hackathon now has an alumni category. Hope to
-                                        see you there. Learn more about the event by clicking
-                                        the link below!
-                                    </p>
-                                    <p class="event-info">
-                                        <a href="event.php" class="card-link">Learn More</a>
-                                    </p>
+
+                    <?php
+                        include_once("php/db_connect.php");
+                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, IMAGE FROM event ORDER BY START_DATE LIMIT 4";
+                        $resultset = mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+
+                        while($record = mysqli_fetch_assoc($resultset)){
+                            ?>
+                            <div class="col-lg-3 d-flex align-items-stretch event-card">
+                                <div class="card">
+                                    <a href="event.php"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $record['IMAGE']).'" class="card-img-top"/>'; ?></a>
+                                    <div class="card-body">
+                                        <h4 class="card-title"><?php echo $record['EVENT_TITLE']?></h4>
+                                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $record['START_DATE']?></h6>
+                                        <p class="card-text"><?php echo $record['MODE']?>
+                                        </p>
+                                        <p class="event-info">
+                                            <a href="event.php" class="card-link">Learn More</a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 d-flex align-items-stretch event-card">
-                            <div class="card">
-                                <a href="#"><img src="img/MyTech.jpg" class="card-img-top" alt="..."></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">MyTech Career Fair 2021</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">18th May 2021</h6>
-                                    <p class="card-text">Join the MyTech Career Fair 2021 and get amazing job
-                                        opportunities in Malaysia. Learn more about the event by clicking the link
-                                        below.
-                                    </p>
-                                    <p class="event-info">
-                                        <a href="#" class="card-link">Learn More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 d-flex align-items-stretch event-card">
-                            <div class="card">
-                                <a href="#"><img src="img/alumni_reunion.jpg" class="card-img-top" alt="..."></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Reunion Session</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">30th May 2021</h6>
-                                    <p class="card-text">Fancy meeting some of your old batch mates? Join us for the
-                                        reunion event at our faculty.
-                                        Learn more about the event by cliking the link below.
-                                    </p>
-                                    <p class="event-info">
-                                        <a href="#" class="card-link">Learn More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 d-flex align-items-stretch event-card">
-                            <div class="card">
-                                <a href="#"><img src="img/sports_event.png" class="card-img-top" alt="..."></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Alumni Sports Meet 2021</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">6th June 2021</h6>
-                                    <p class="card-text">Have a friendly competition among other alumnis in various
-                                        sports - futsal, basketball
-                                        and much more! Learn more about the event by clicking the link below.
-                                    </p>
-                                    <p class="event-info">
-                                        <a href="#" class="card-link">Learn More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <?php } ?>
+                    
+                    </div> 
                     <br>
                     <div class="d-flex align-items-center justify-content-center">
                         <p class="lead">
