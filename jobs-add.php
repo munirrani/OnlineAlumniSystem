@@ -21,7 +21,7 @@ include_once('php/db_connect.php');
                 <div id="post-job-main">
                     <h1 id="post-job-heading">POST NEW JOB</h1>
                     <div class="container mt-4">
-                        <form action="job-to-db.php" method="POST" autocomplete="off">
+                        <form enctype="multipart/form-​data" action="job-to-db.php" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title</h6>
@@ -230,7 +230,7 @@ include_once('php/db_connect.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                            <!--<a href="jobs-activity.php">--><button name="postJob" type="submit" class="btn confirmbuttonModalSetting">Post Job</button></a>
+                                            <!--<a href="jobs-activity.php">--><button name="postJob" type="submit" class="btn confirmbuttonModalSetting">Post Job</button>
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +243,7 @@ include_once('php/db_connect.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                            <!--<a href="jobs-activity.php">--><button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button></a>
+                                            <!--<a href="jobs-activity.php">--><button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button>
                                         </div>
                                     </div>
                                 </div>

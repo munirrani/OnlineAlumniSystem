@@ -32,7 +32,7 @@ if(isset($_POST['postJob'])) {
     $cmp_size = $cmp_size_min." - ".$cmp_size_max;
     echo $cmp_size;
 
-    $result = mysqli_query($conn, "INSERT INTO test (JOB_TITLE,JOB_DESCRIPTION,JOB_QUALIFICATION,JOB_SALARY_MIN,JOB_SALARY_MAX,JOB_SALARY_TYPE,JOB_TYPE,JOB_DATELINE,CMP_NAME,CMP_LOGO,CMP_ABOUT,CMP_ADDRESS,CMP_POSTAL,CMP_CITY,CMP_STATE,CMP_COUNTRY,CMP_EMPLOYEE,,CMP_WEBSITE) VALUES ('$job_title','$job_desc','$job_qual','$job_salary_min','$job_salary_max','$job_salary_type','$job_type','$job_dateline','$cmp_name','$cmp_logo','$cmp_about','$cmp_address','$cmp_postal','$cmp_city','$cmp_state','$cmp_country','$cmp_size','$cmp_email','$cmp_website')");
+    $result = mysqli_query($conn, "INSERT INTO job(JOB_TITLE,JOB_DESCRIPTION,JOB_QUALIFICATION,JOB_SALARY_MIN,JOB_SALARY_MAX,JOB_SALARY_TYPE,JOB_TYPE,JOB_DATELINE,CMP_NAME,CMP_LOGO,CMP_ABOUT,CMP_ADDRESS,CMP_POSTAL,CMP_CITY,CMP_STATE,CMP_COUNTRY,CMP_EMPLOYEE,CMP_EMAIL,CMP_WEBSITE) VALUES ('$job_title','$job_desc','$job_qual','$job_salary_min','$job_salary_max','$job_salary_type','$job_type','$job_dateline','$cmp_name','$cmp_logo','$cmp_about','$cmp_address','$cmp_postal','$cmp_city','$cmp_state','$cmp_country','$cmp_size','$cmp_email','$cmp_website')");
 	//$results = mysqli_query($conn, "INSERT INTO test (jobTitle,cmpName) VALUES ('$test','$test1')");
 
     //Step 4. Process the results.
