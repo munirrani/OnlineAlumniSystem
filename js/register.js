@@ -3,7 +3,6 @@ let confirmpw = document.querySelector("#confirmpw");
 let enrollmentYear = document.querySelector("#enrolYear");
 let gradYear = document.querySelector("#gradYear");
 let errortextreg = document.querySelector("#error-text-reg");
-// let registerAccount = document.querySelector("#registerAccount");
 
 let checkpw = function () {
   if (password.value == "" && confirmpw.value == "") {
