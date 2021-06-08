@@ -11,7 +11,7 @@
 
 <nav class=" navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
     <div class="container h5">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
             <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
                 id="logo-img">
         </a>
