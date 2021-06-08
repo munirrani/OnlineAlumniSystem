@@ -3,7 +3,7 @@ let confirmpw = document.querySelector("#confirmpw");
 let enrollmentYear = document.querySelector("#enrolYear");
 let gradYear = document.querySelector("#gradYear");
 let errortextreg = document.querySelector("#error-text-reg");
-let registerAccount = document.querySelector("#registerAccount");
+// let registerAccount = document.querySelector("#registerAccount");
 
 let checkpw = function () {
   if (password.value == "" && confirmpw.value == "") {
@@ -31,9 +31,6 @@ let checkpw = function () {
 }
 let checkGradYear = function() {
   if(enrollmentYear.value >= gradYear.value) {
-      // errortextreg.classList.add("error-reg-text");
-      // gradYear.classList.add("input-error");
-      // errortextreg.innerHTML = 'Gradutation Year must be bigger than Enrollment Year';
       return false;
   }else {
     // gradYear.classList.remove("input-error");
@@ -42,41 +39,17 @@ let checkGradYear = function() {
   }
 };
 
-registerAccount.onsubmit = function(e) {
-  e.preventDefault();
+let regCheck = function() {
   if(checkpw() && checkGradYear()) {
-    var existingEntries = JSON.parse(sessionStorage.getItem("addAlumniAll"));
-    if(existingEntries == null) existingEntries = [];
-    let addAlumni = {
-      name: document.querySelector("#firstname").value + " " + document.querySelector("#lastname").value,
-      currentPos: document.querySelector("#currentPos").value,
-      email: document.querySelector("#email").value,
-      phone: document.querySelector("#phonenum").value,
-      enrollYear: "Batch of " + document.querySelector("#enrolYear").value,
-      graduationYear: document.querySelector("#gradYear").value,
-      department: document.querySelector("#department").value,
-      level: document.querySelector("#level").value,
-      address: document.querySelector("#country").value,
-      address1: document.querySelector("#address").value,
-      address2: document.querySelector("#state").value,
-      postcode: document.querySelector("#postcode").value, 
-      city: document.querySelector("#city").value,
-      state: document.querySelector("#state").value,
-      course: "Computer Science",
-      image: "https://bootdey.com/img/Content/avatar/avatar1.png",
-      bio: "Hey, I am a UX Designer at Google",
-    }
-    sessionStorage.setItem("addAlumni", JSON.stringify(addAlumni));
-    existingEntries.push(addAlumni);
-    sessionStorage.setItem("addAlumniAll", JSON.stringify(existingEntries));
-
-    window.location.href = "request.html";
+    return true;
   }else {
-    if(!checkpw()){
-      alert("Confirm Password doesn't match with Password");
-    }else if(!checkGradYear()) {
-      alert("Gradutation Year must be bigger than Enrollment Year");
-    }
-    return false;
-  }
-};
+        if(!checkpw()){
+          alert("Confirm Password doesn't match with Password");
+        }else if(!checkGradYear()) {
+          alert("Gradutation Year must be bigger than Enrollment Year");
+        }
+        return false;
+      }
+}
+
+
