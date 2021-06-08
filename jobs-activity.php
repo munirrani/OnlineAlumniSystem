@@ -1,3 +1,20 @@
+<?php
+include_once("php/db_connect.php");
+//getting id from url
+
+//selecting data associated with this particular id
+$result = mysqli_query($conn, "SELECT * FROM test WHERE JOB_ID = 1");
+
+while($res = mysqli_fetch_array($result))
+{
+	$job_title = $res['JOB_TITLE'];
+	$cmp_logo = $res['CMP_LOGO'];
+	$cmp_name = $res['CMP_NAME'];
+    $job_salary = $res['JOB_SALARY'];
+	$cmp_state = $res['CMP_STATE'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,7 +147,7 @@
                     </div>
                     <div id="act-main" class="card mb-3">
                         <div class="card-body">
-                            <div class="row" id="act-addbox"><a href="jobs-add.html" style="text-decoration: none;">
+                            <div class="row" id="act-addbox"><a href="jobs-add.php" style="text-decoration: none;">
                                     <img src="img/add.png" id="act-addimg">
                                     <h6 id="act-txtadd">
                                         Add a new job vacancy
@@ -147,22 +164,22 @@
                                 </div>
                                 <div id="act-box" class="row">
                                     <div class="col-md-4">
-                                        <a href="jobs-details.html"><img src="img/Swift.jpg" class="act-image"></a>
+                                        <a href="jobs-details.html"><img src="img/<?php echo $cmp_logo?>" class="act-image"></a>
                                         <a href="jobs-details.html" id="no-blue"><h6 id="act-jobname">
-                                            Senior Software Engineer - JAVA
+                                            <?php echo $job_title?>
                                         </h6></a>
                                         <h6 id="job-company">
-                                            S.W.I.F.T
+                                        <?php echo $cmp_name?>
                                         </h6>
                                     </div>
                                     <div class="col-md-3">
                                         <h6 id="act-salary">
-                                            RM10000 - RM20000
+                                            <?php echo $job_salary?>
                                         </h6>
                                     </div>
                                     <div class="col-md">
                                         <h6 id="act-location">
-                                            Kuala Lumpur
+                                        <?php echo $cmp_state?>
                                         </h6>
                                     </div>
                                     <div class="col-md-auto">
@@ -303,5 +320,4 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>
-
 </html>
