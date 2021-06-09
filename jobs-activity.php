@@ -126,6 +126,7 @@ include_once("php/db_connect.php");
                                     </div>';
                                 }
                             }
+                            mysqli_close($conn);
                             ?>
                         </div>
                     </div>
