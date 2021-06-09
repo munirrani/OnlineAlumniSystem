@@ -44,6 +44,21 @@
           include_once("php/db_connect.php");
           $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, EMAIL, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Active' ORDER BY FULL_NAME";
           $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+          $number_of_results = mysqli_num_rows($resultset);
+          $result_per_page = 4;
+
+          $number_of_pages =  ceil($number_of_results/$result_per_page);
+
+          if(!isset($_GET['page'])){
+            $page = 1;
+          }else{
+            $page = $_GET['page'];
+          }
+
+          $starting_limit_number = ($page-1)*$result_per_page;
+
+          $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, EMAIL, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Active' ORDER BY FULL_NAME LIMIT ".$starting_limit_number.",".$result_per_page;
+          $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
 
           while ($record = mysqli_fetch_assoc($resultset)) {
           ?>
@@ -75,6 +90,8 @@
               </div>
             </div>
           </li>
+
+          <!-- Modal Starts -->
           <div class="modal fade alumni-modal" id="alumni-modal-<?php echo $record['ALUMNI_ID'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div id="modal-content-alumni" class="modal-content shadow">
@@ -189,20 +206,20 @@
           </ul>
         </div>
 
-        <!-- <div class="text-center mt-3">
-          <div class="row justify-content-md-center mx-auto btn-group">
-            <a href="#" class="col page-nav-alumni page-nav-text">Previous</a>
-            <a href="#" class="col page-nav-alumni page-nav-text">1</a>
-            <a href="#" class="col page-nav-alumni page-nav-text">2</a>
-            <a href="#" class="col page-nav-alumni page-nav-text">3</a>
-            <a href="#" class="col page-nav-alumni page-nav-text">4</a>
-            <a href="#" class="col page-nav-alumni page-nav-text">Next</a>
-          </div>
-        </div> -->
-
-
-        <!-- Modal Starts -->
         
+
+        
+        <!-- Pagination -->
+        <div class = "text-center mt-3">
+            <div class="row justify-content-md-center mx auto btn-group">
+              <?php              
+                for($page=1; $page<=$number_of_pages; $page++){
+                  echo '<a href="alumnisearch.php?page='. $page.'"class="col page-nav-alumni page-nav-text">'.$page.'</a>';
+                }
+              ?>    
+          </div>
+        </div> 
+        <!-- Pagination -->
 
 
 
