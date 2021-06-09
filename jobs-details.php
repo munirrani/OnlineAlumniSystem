@@ -15,7 +15,7 @@ include_once("php/db_connect.php");
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
         
-        $job_id = 15;
+        $job_id = $_GET['job_id'];
         $result = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
 
         while($res = mysqli_fetch_array($result)){
@@ -41,7 +41,6 @@ include_once("php/db_connect.php");
             $cmp_email = $res['CMP_EMAIL'];
             $cmp_website = $res['CMP_WEBSITE'];
         }
-        mysqli_close($conn);
         ?>
 
         <main>
@@ -59,12 +58,14 @@ include_once("php/db_connect.php");
                                 <hr>
                                 <div class="pd-20">
                                     <div>
+                                        <img src="img/location.png" id="details-left-col-icons">
                                         <div class="no-text-wrap">
                                             <h6 class="det-strong"><?php echo $cmp_city.", ".$cmp_state?></h6>
                                             <p id="details-small"><?php echo $cmp_address.", ".$cmp_postal.", ".$cmp_state.", ".$cmp_country?></p>
                                         </div>
                                     </div>
                                     <div>
+                                        <img src="img/people.png" id="details-left-col-icons">
                                         <div class="no-text-wrap">
                                             <h6 class="det-strong"><?php echo $cmp_size_min.' - '.$cmp_size_max?></h6>
                                             <p id="details-small">Employee</p>
@@ -74,7 +75,7 @@ include_once("php/db_connect.php");
                                         <img src="img/email.png" id="details-left-col-icons">
                                         <div class="no-text-wrap">
                                             <h6 class="det-strong">Email</h6>
-                                            <a href="mailto:swift@gmail.com" id="details-link">
+                                            <a href="mailto:<?php echo $cmp_email?>" id="details-link">
                                                 <p id="details-small"><?php echo $cmp_email?></p>
                                             </a>
                                         </div>
@@ -83,8 +84,16 @@ include_once("php/db_connect.php");
                                         <img src="img/website.png" id="details-left-col-icons">
                                         <div class="no-text-wrap">
                                             <h6 class="det-strong">Website</h6>
-                                            <a href="https://www.swift.com/" id="details-link">
-                                                <p id="details-small"><?php echo $cmp_website?></p>
+                                            <?php
+                                            if(empty($cmp_website)){
+                                                echo '
+                                                <p class="mb-0" id="details-small">-</p>';
+                                            }
+                                            else{
+                                                echo '<a href="'.$cmp_website.'" id="details-link">
+                                                      <p  class="mb-0" id="details-small">'.$cmp_website.'</p>';
+                                            }
+                                            ?>
                                             </a>
                                         </div>
                                     </div>
@@ -97,14 +106,20 @@ include_once("php/db_connect.php");
                             </div>
                         </div>
                         <?php
-                        /*
                         $result2 = mysqli_query($conn, "SELECT * FROM posttest WHERE JOB_ID = $job_id");
-
-                        while($res = mysqli_fetch_array($result)){
-                            $post_date = $res['POST_DATE'];
-                            $edit_date = $res['EDIT_DATE'];
+                        while($res2 = mysqli_fetch_array($result2)){
+                            $test_id = $res2['TEST_ID'];
+                            $post_date = $res2['POST_DATE'];
+                            $edit_date = $res2['EDIT_DATE'];
                         }
-                        mysqli_close($conn);*/
+                        $result3 = mysqli_query($conn, "SELECT TEST_NAME FROM test WHERE TEST_ID = $test_id");
+                        $res3 = mysqli_fetch_array($result3);
+                        $test_name = $res3['TEST_NAME'];
+                        mysqli_close($conn);
+
+                        $new_post_date = date("j F Y",strtotime($post_date));
+                        $new_edit_date = date("j F Y",strtotime($edit_date));
+                        $new_job_dateline = date("j F Y",strtotime($job_dateline));
                         ?>
                         <div class="col-md-9">
                             <div id="details-right-col-body" class="card mb-3">
@@ -112,18 +127,24 @@ include_once("php/db_connect.php");
                                     <div class="row mb-3">
                                         <div class="col-md-9">
                                             <h1><?php echo $job_title?></h1>
-                                            <h6 id="details-small">Posted by Admin on 11 Jan 2021</h6>
-                                            <h6 id="details-small">Recently edited on 20 Jan 2021</h6>
+                                            <h6 id="details-small"><?php echo "Posted by ".$test_name." on ".$new_post_date?></h6>
+                                            <?php
+                                            if($post_date != $edit_date){
+                                                echo '<h6 id="details-small">Recently edited on '.$new_edit_date.'</h6>';
+                                            }
+                                            ?>
                                         </div>
                                         <div class="col-md-3">
                                             <?php
                                             if (empty($job_link)){
-                                                echo '<a href='.$cmp_website.' <button type="button" id="viewbutton"
-                                                    class="btn">Apply</button></a>';
+                                                if(empty($cmp_website)){
+                                                }
+                                                else{
+                                                    echo '<a href='.$cmp_website.'><button type="button" id="viewbutton" class="btn">Apply</button></a>';
+                                                }
                                             }
                                             else{
-                                                echo '<a href='.$job_link.' <button type="button" id="viewbutton"
-                                                    class="btn">Apply</button></a>';  
+                                                echo '<a href='.$job_link.'><button type="button" id="viewbutton" class="btn">Apply</button></a>';
                                             }
                                             ?>
                                             <button type="button" id="job-bmark" class="btn bmark-hide-logged"><img
@@ -135,7 +156,7 @@ include_once("php/db_connect.php");
                                             <img src="img/RM.png" id="details-right-col-icon">
                                             <div class="no-text-wrap">
                                                 <h6 class="det-strong"><?php echo "RM".$job_salary_min." - RM".$job_salary_max?></h6>
-                                                <h6 id="details-small">Monthly salary</h6>
+                                                <h6 id="details-small"><?php echo $job_salary_type.' salary'?></h6>
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-5 py-3">
@@ -146,64 +167,20 @@ include_once("php/db_connect.php");
                                         <div class="col-md-4 pl-5 py-3">
                                             <img src="img/dateline.png" id="details-right-col-icon">
                                             <div>
-                                                <h6 class="det-strong"><?php echo $job_dateline?></h6>
+                                                <h6 class="det-strong"><?php echo $new_job_dateline?></h6>
                                                 <h6 id="details-small">Application dateline</h6>
                                             </div>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <h5>Job Description</h5>
-                                        <p><?php echo $job_desc?></p>
+                                        <h5 class="mb-3">Job Description</h5>
+                                        <div><?php echo $job_desc?></div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <h5>Qualifications</h5>
-                                        <dl>
-                                            <dt>Professional skills & competencies</dt>
-                                            <dd>
-                                                <ul>
-                                                    <li>Autonomous, driven, with strong ability to quickly adapt and
-                                                        respond to change.</li>
-                                                    <li>Customer oriented and quality mindset - we continually strive to
-                                                        deliver true customer value.</li>
-                                                    <li>Open-minded, solutions oriented, and a true team player -
-                                                        gaining energy through collaboration with others.</li>
-                                                    <li>Fluent in English (spoken and written).</li>
-                                                </ul>
-                                            </dd>
-                                            <dt>Technical skills & knowledge</dt>
-                                            <dd>
-                                                <ul>
-                                                    <li>Experienced full-stack / backend engineer.</li>
-                                                    <li>Expertise with Java 8 Programming language and frameworks (e.g.
-                                                        Spring, JEE).</li>
-                                                    <li>Experience in HTML, CSS, and JavaScript</li>
-                                                    <li>Experience in Datastore including data modelling.</li>
-                                                    <li>Good command of Linux operating system.</li>
-                                                    <li>Familiar with collaboration tools for source code management
-                                                        (ie: Git, Bitbucket) and backlog management (ie:Jira,
-                                                        Confluence)</li>
-                                                    <li>Knowledge of ElasticSearch is a plus.</li>
-                                                    <li>Knowledge of continuous delivery process and technologies (e.g.
-                                                        Docker, Jenkins, Ansible) is a plus.</li>
-                                                </ul>
-                                                About the role
-Software Engineer Senior Manager
-
-The Software Engineering team delivers next-generation software application enhancements and new products for a changing world. Working at the cutting edge, we design and develop software for platforms, peripherals, applications and diagnostics — all with the most advanced technologies, tools, software engineering methodologies and the collaboration of internal and external partners.
-
-Join us as a Software Engineer Senior Manager on our Engineering Development team in Malaysia to do the best work of your career and make a profound social impact.
-What you’ll achieve
-As a Senior Software Engineering Manager, you will direct the activities of a software development function for software application enhancements and new products. You will work with internal and external partners on the analysis, design, programming, debugging and modification of computer programs. You will:
-
-Participate in long-range planning and development of operational goals and engineering specifications
-Contribute to the modification, development and implementation of company practices and policies that affect subordinate employees
-Create schedules and work plans and be accountable for managing a budget
-Provide innovative solutions to complex problems and communicate progress toward project/program goals
-Liaise with senior management to report on project and program milestones and to present project needs
-                                            </dd>
-                                        </dl>
+                                        <h5 class="mb-3">Qualifications</h5>
+                                        <div><?php echo $job_qual?></div>
                                     </div>
                                 </div>
                             </div>

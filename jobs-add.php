@@ -14,14 +14,16 @@ include_once('php/db_connect.php');
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php")?>
+        <?php include_once("php/heading.php");
+        $test_id = $_GET['test_id'];
+        ?>
  
         <main>
             <div class="container">
                 <div id="post-job-main">
                     <h1 id="post-job-heading">POST NEW JOB</h1>
                     <div class="container mt-4">
-                        <form enctype="multipart/form-​data" action="job-to-db.php" method="POST" autocomplete="off">
+                        <form enctype="multipart/form-​data" action="job-to-db.php?test_id=<?php echo $test_id?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title<span id="red"> *</span></h6>
@@ -36,8 +38,8 @@ include_once('php/db_connect.php');
                                     <h6 class="mb-0">Job Description<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm">
-                                    <textarea name="job_desc" class="form-control purplemodalinput" id="description1"
-                                        placeholder="Job Details, Responsibilities" rows="5" required></textarea>
+                                    <textarea name="job_desc" class="form-control purplemodalinput" id="description"
+                                        placeholder="Job Details, Responsibilities" rows="5" required> </textarea>
                                 </div>
                             </div>
                             <hr>
@@ -61,8 +63,8 @@ include_once('php/db_connect.php');
                                 </div>
                                 <div class="col-sm-9">
                                     <textarea name="job_qual" class="form-control purplemodalinput"
-                                        id="qualification1" placeholder="Required Skills, Experience" cols="25" rows="3"
-                                        required></textarea>
+                                        id="qualification" placeholder="Required Skills, Experience" cols="25" rows="3"
+                                        required> </textarea>
                                 </div>
                             </div>
                             <hr>
@@ -278,17 +280,17 @@ include_once('php/db_connect.php');
         };
     </script>
     
-    <!--<script>
+    <script>
         ClassicEditor
-            .create(document.querySelector('#description1'))
+            .create(document.querySelector('#description'))
             .catch(error => {
                 console.error(error);
             });
         ClassicEditor
-            .create(document.querySelector('#qualification1'))
+            .create(document.querySelector('#qualification'))
             .catch(error => {
                 console.error(error);
             });
-    </script>-->
+    </script>
 </body>
 </html>

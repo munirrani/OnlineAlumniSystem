@@ -30,7 +30,7 @@
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/upcoming_events.php') echo ' active'?>" href="upcoming_events.php"><b>Events</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.html') echo ' active'?>" href="jobs.html"><b>Jobs</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.html') echo ' active'?>" href="jobs.php"><b>Jobs</b></a>
                 </li>
                 <li class="nav-item nav-hide-logged">
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/alumnisearch.php') echo ' active'?>" href="alumnisearch.php"><b>Search Alumni</b></a>
@@ -59,8 +59,8 @@
                             <a href="profile.html">Profile</a>
                             <a href="profile-settings.html">Settings & Privacy</a>
                             <hr class="no-margin">
-                            <a href="jobs-activity.html">Job Activity</a>
-                            <a href="jobs-bookmark.html">Bookmarks</a>
+                            <a href="jobs-activity.php">Job Activity</a>
+                            <a href="jobs-bookmark.php">Bookmarks</a>
                             <hr class="no-margin">
                             <a href="#" id="logoutbutton">Log Out</a>
                         </div>

@@ -16,7 +16,7 @@ include_once("php/db_connect.php");
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
         
-        $job_id = $_GET['job_id'];
+        $job_id = 15;
         $result = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
 
         while($res = mysqli_fetch_array($result)){

@@ -13,8 +13,9 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php");?> 
-
+        <?php include_once("php/heading.php");
+        $test_id = 5;
+        ?> 
         <main>
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
@@ -63,7 +64,7 @@ include_once("php/db_connect.php");
                     </div>
                     <div id="act-main" class="card mb-3">
                         <div class="card-body">
-                            <div class="row" id="act-addbox"><a href="jobs-add.php" style="text-decoration: none;">
+                            <div class="row" id="act-addbox"><a href="jobs-add.php?test_id=<?php echo $test_id?>" style="text-decoration: none;">
                                     <img src="img/add.png" id="act-addimg">
                                     <h6 id="act-txtadd">
                                         Add a new job vacancy
