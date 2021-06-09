@@ -16,7 +16,7 @@ include_once("php/db_connect.php");
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
         
-        $job_id = 45;
+        $job_id = 15;
         $result = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
 
         while($res = mysqli_fetch_array($result)){
@@ -28,6 +28,7 @@ include_once("php/db_connect.php");
             $job_salary_min = $res['JOB_SALARY_MIN'];
             $job_salary_max = $res['JOB_SALARY_MAX'];
             $job_dateline = $res['JOB_DATELINE'];
+            $job_link = $res['JOB_LINK'];
             $cmp_name = $res['CMP_NAME'];
             $cmp_about = $res['CMP_ABOUT'];
             $cmp_logo = $res['CMP_LOGO'];
@@ -41,6 +42,7 @@ include_once("php/db_connect.php");
             $cmp_email = $res['CMP_EMAIL'];
             $cmp_website = $res['CMP_WEBSITE'];
         }
+        mysqli_close($conn);
         ?> 
         <main>
             <div class="container">
@@ -50,7 +52,7 @@ include_once("php/db_connect.php");
                     <form enctype="multipart/form-​data" action="job-to-db.php?job_id=<?php echo $job_id;?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Job Title</h6>
+                                    <h6 class="mb-0">Job Title<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "job_title" type="text" class="form-control purplemodalinput" placeholder="Job Title" value="<?php echo $job_title?>" required>
@@ -59,17 +61,17 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Job Description</h6>
+                                    <h6 class="mb-0">Job Description<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm">
-                                    <textarea name="job_desc" class="form-control purplemodalinput" id="description"
+                                    <textarea name="job_desc" class="form-control purplemodalinput" id="description1"
                                         placeholder="Job Details, Responsibilities" rows="5" required><?php echo $job_desc?></textarea>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Job Type</h6>
+                                    <h6 class="mb-0">Job Type<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <select name="job_type" class="form-select purplemodalinput" required>
@@ -105,18 +107,18 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Qualifications</h6>
+                                    <h6 class="mb-0">Qualifications<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9">
                                     <textarea name="job_qual" class="form-control purplemodalinput"
-                                        id="qualification" placeholder="Required Skills, Experience" cols="25" rows="3"
+                                        id="qualification1" placeholder="Required Skills, Experience" cols="25" rows="3"
                                         required><?php echo $job_qual?></textarea>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Salary</h6>
+                                    <h6 class="mb-0">Salary<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-3 text-secondary">
                                     <select name = "job_salary_type" class="form-select purplemodalinput" required>
@@ -160,10 +162,19 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Application Deadline</h6>
+                                    <h6 class="mb-0">Application Deadline<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name="job_dateline" type="date" value="<?php echo $job_dateline?>" class="form-control purplemodalinput">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Application Link</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <input name="job_link" type="text" class="form-control purplemodalinput" value="<?php echo $job_link?>" placeholder="Provide link for job application">
                                 </div>
                             </div>
                             <br><br>
@@ -173,7 +184,7 @@ include_once("php/db_connect.php");
                             <br>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Company</h6>
+                                    <h6 class="mb-0">Company<span id="red">*</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name="cmp_name" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_name?>" placeholder="Company Name"
@@ -183,7 +194,7 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Company Logo</h6>
+                                    <h6 class="mb-0">Company Logo<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <div class="profile-pic-div">
@@ -200,17 +211,17 @@ include_once("php/db_connect.php");
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Min</span>
-                                    <input name = "cmp_size_min" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_min?>" placeholder="Employee" required>
+                                    <input name = "cmp_size_min" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_min?>" placeholder="Employee">
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Max</span>
-                                    <input name = "cmp_size_max" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_max?>" placeholder="Employee" required>
+                                    <input name = "cmp_size_max" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_max?>" placeholder="Employee">
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">About Company</h6>
+                                    <h6 class="mb-0">About Company<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm">
                                     <textarea name="cmp_about" class="form-control purplemodalinput" id="about" placeholder="About Company" rows="5" required><?php echo $cmp_about?></textarea>
@@ -219,7 +230,7 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address</h6>
+                                    <h6 class="mb-0">Address<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_address" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_address?>"
@@ -229,7 +240,7 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Postal Code</h6>
+                                    <h6 class="mb-0">Postal Code<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_postal" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_postal?>" placeholder="Postal Code"
@@ -239,7 +250,7 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">City</h6>
+                                    <h6 class="mb-0">City<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_city" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_city?>" placeholder="City"
@@ -249,7 +260,7 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">State</h6>
+                                    <h6 class="mb-0">State<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_state" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_state?>" placeholder="State" required>
@@ -258,7 +269,7 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Country</h6>
+                                    <h6 class="mb-0">Country<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_country" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_country?>" placeholder="Country"
@@ -268,7 +279,7 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Email Address</h6>
+                                    <h6 class="mb-0">Email Address<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name="cmp_email" type="email" class="form-control purplemodalinput" id="exampleFormControlInput1" value="<?php echo $cmp_email?>" placeholder="name@example.com">
@@ -330,7 +341,6 @@ include_once("php/db_connect.php");
     </div>
 
     <?php include_once("php/scripts.php")?>
-
     <script>
         function loadfile(event) {
             var output = document.getElementById('photo');
@@ -338,17 +348,17 @@ include_once("php/db_connect.php");
         };
     </script>
 
-    <!--<script>
+    <script>
         ClassicEditor
-            .create(document.querySelector('#description'))
+            .create(document.querySelector('#description1'))
             .catch(error => {
                 console.error(error);
             });
         ClassicEditor
-            .create(document.querySelector('#qualification'))
+            .create(document.querySelector('#qualification1'))
             .catch(error => {
                 console.error(error);
             });
-    </script>-->
+    </script>
 </body>
 </html>

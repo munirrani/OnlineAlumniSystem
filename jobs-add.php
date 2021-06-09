@@ -7,24 +7,26 @@ include_once('php/db_connect.php');
 
 <head>
     <?php include_once("php/head.php")?>
-    <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+    <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <title>Post New Job | FSKTM Alumni</title>
 </head>
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php")?>
-
+        <?php include_once("php/heading.php");
+        $test_id = $_GET['test_id'];
+        ?>
+ 
         <main>
             <div class="container">
                 <div id="post-job-main">
                     <h1 id="post-job-heading">POST NEW JOB</h1>
                     <div class="container mt-4">
-                        <form enctype="multipart/form-​data" action="job-to-db.php" method="POST" autocomplete="off">
+                        <form enctype="multipart/form-​data" action="job-to-db.php?test_id=<?php echo $test_id?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Job Title</h6>
+                                    <h6 class="mb-0">Job Title<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "job_title" type="text" class="form-control purplemodalinput" placeholder="Job Title" required>
@@ -33,49 +35,49 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Job Description</h6>
+                                    <h6 class="mb-0">Job Description<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm">
                                     <textarea name="job_desc" class="form-control purplemodalinput" id="description"
-                                        placeholder="Job Details, Responsibilities" rows="5" required></textarea>
+                                        placeholder="Job Details, Responsibilities" rows="5" required> </textarea>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Job Type</h6>
+                                    <h6 class="mb-0">Job Type<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <select name = "job_type" class="form-select purplemodalinput" required>
-                                        <option value="1">Full-time</option>
-                                        <option value="2">Part-time</option>
-                                        <option value="3">Internship</option>
-                                        <option value="4">Contract</option>
+                                        <option value="Full-time">Full-time</option>
+                                        <option value="Part-time">Part-time</option>
+                                        <option value="Internship">Internship</option>
+                                        <option value="Contract">Contract</option>
                                     </select>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Qualifications</h6>
+                                    <h6 class="mb-0">Qualifications<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9">
                                     <textarea name="job_qual" class="form-control purplemodalinput"
                                         id="qualification" placeholder="Required Skills, Experience" cols="25" rows="3"
-                                        required></textarea>
+                                        required> </textarea>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Salary</h6>
+                                    <h6 class="mb-0">Salary<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-3 text-secondary">
                                     <select name = "job_salary_type" class="form-select purplemodalinput" required>
-                                        <option value="1">Monthly</option>
-                                        <option value="2">Weekly</option>
-                                        <option value="3">Hourly</option>
-                                        <option value="3">Fixed Rate</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Weekly">Weekly</option>
+                                        <option value="Hourly">Hourly</option>
+                                        <option value="Fixed Rate">Fixed Rate</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-3 text-secondary">
@@ -90,10 +92,19 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Application Deadline</h6>
+                                    <h6 class="mb-0">Application Deadline<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name="job_dateline" type="date" class="form-control purplemodalinput">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Application Link</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input name="job_link" type="text" class="form-control purplemodalinput" placeholder="Provide link for job application">
                                 </div>
                             </div>
                             <br><br>
@@ -103,7 +114,7 @@ include_once('php/db_connect.php');
                             <br>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Company</h6>
+                                    <h6 class="mb-0">Company<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name="cmp_name" type="text" class="form-control purplemodalinput" placeholder="Company Name"
@@ -113,7 +124,7 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Company Logo</h6>
+                                    <h6 class="mb-0">Company Logo<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <div class="profile-pic-div">
@@ -130,17 +141,17 @@ include_once('php/db_connect.php');
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Min</span>
-                                    <input name = "cmp_size_min" type="text" class="form-control purplemodalinput" placeholder="Employee" required>
+                                    <input name = "cmp_size_min" type="text" class="form-control purplemodalinput" placeholder="Employee">
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Max</span>
-                                    <input name = "cmp_size_max" type="text" class="form-control purplemodalinput" placeholder="Employee" required>
+                                    <input name = "cmp_size_max" type="text" class="form-control purplemodalinput" placeholder="Employee">
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">About Company</h6>
+                                    <h6 class="mb-0">About Company<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm">
                                     <textarea name="cmp_about" class="form-control purplemodalinput" id="about"
@@ -150,7 +161,7 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address</h6>
+                                    <h6 class="mb-0">Address<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_address" type="text" class="form-control purplemodalinput"
@@ -160,7 +171,7 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Postal Code</h6>
+                                    <h6 class="mb-0">Postal Code<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_postal" type="text" class="form-control purplemodalinput" placeholder="Postal Code"
@@ -170,7 +181,7 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">City</h6>
+                                    <h6 class="mb-0">City<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_city" type="text" class="form-control purplemodalinput" placeholder="City"
@@ -180,7 +191,7 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">State</h6>
+                                    <h6 class="mb-0">State<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_state" type="text" class="form-control purplemodalinput" placeholder="State"
@@ -190,7 +201,7 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Country</h6>
+                                    <h6 class="mb-0">Country<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_country" type="text" class="form-control purplemodalinput" placeholder="Country"
@@ -200,7 +211,7 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Email Address</h6>
+                                    <h6 class="mb-0">Email Address<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input name = "cmp_email" type="email" class="form-control purplemodalinput" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -256,10 +267,8 @@ include_once('php/db_connect.php');
                     </div>
                 </div>
             </div>
-            
-            
-
         </main>
+
         <?php include_once("php/footer.php")?>
     </div>
 
@@ -270,7 +279,8 @@ include_once('php/db_connect.php');
             output.src = URL.createObjectURL(event.target.files[0]);
         };
     </script>
-    <!--<script>
+    
+    <script>
         ClassicEditor
             .create(document.querySelector('#description'))
             .catch(error => {
@@ -281,6 +291,6 @@ include_once('php/db_connect.php');
             .catch(error => {
                 console.error(error);
             });
-    </script>-->
+    </script>
 </body>
 </html>
