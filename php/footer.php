@@ -20,13 +20,13 @@
                 <h5>
                     <ul class="list-unstyled lh-5 footer-link">
                         <li class="my-2 pt-2">
-                            <a href="about.html" class="text-dark">About</a>
+                            <a href="about.php" class="text-dark">About</a>
                         </li>
                         <li class="my-2 pt-2">
                             <a href="contact.php" class="text-dark">Contact Us</a>
                         </li>
                         <li class="my-2 pt-2">
-                            <a href="events.html" class="text-dark">Events</a>
+                            <a href="upcoming_events.php" class="text-dark">Events</a>
                         </li>
                         <li class="my-2 pt-2">
                             <a href="jobs.html" class="text-dark">Search Jobs</a>

@@ -4,8 +4,6 @@
 <head>
     <?php include_once("php/head.php")?>
 
-    <link rel="stylesheet" href="css/event.css">
-
     <title>Contact Us | FSKTM Alumni</title>
 </head>
 <body>

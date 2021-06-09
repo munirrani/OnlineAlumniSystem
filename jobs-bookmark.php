@@ -1,14 +1,13 @@
 <?php
 include_once("php/db_connect.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php include_once("php/head.php")?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
-    <title>Job Activity | FSKTM Alumni</title>
+    <title>Bookmark | FSKTM Alumni</title>
 </head>
 
 <body>
@@ -25,11 +24,11 @@ include_once("php/db_connect.php");
                         <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="jobs-activity.html">Job Activity</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                        <a id="profileNav-inactive" class="nav-link  active" aria-current="page"
+                            href="jobs-bookmark.html">Bookmarks</a>
                     </li>
                 </ul>
             </div>
@@ -52,30 +51,22 @@ include_once("php/db_connect.php");
                             </div>
                             <div class="col-md-8">
                                 <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1">
-                                    Haney</h2>
+                                </h2>
                                 <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
                             </div>
                             <div class="col-md">
                                 <h2 id="act-count"><?php echo $post_count?></h2>
-                                <p id="act-uploads">Job Uploads</p>
+                                <p id="act-uploads">Bookmarks</p>
                             </div>
                         </div>
                     </div>
                     <div id="act-main" class="card mb-3">
                         <div class="card-body">
-                            <div class="row" id="act-addbox"><a href="jobs-add.php" style="text-decoration: none;">
-                                    <img src="img/add.png" id="act-addimg">
-                                    <h6 id="act-txtadd">
-                                        Add a new job vacancy
-                                    </h6>
-                                </a>
-                            </div>
-                            <hr>
                             <div class="row">
-                                <h2 id="act-txtheading">JOB ACTIVITY</h2>
+                                <h2 id="act-txtheading">BOOKMARKS</h2>
                             </div>
                             <?php
-                            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = 5");
+                            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE TEST_ID = 5");
                             while($res = mysqli_fetch_array($result)){
                                 $job_id = $res['JOB_ID'];
                                 $post_date = $res['POST_DATE'];
@@ -118,7 +109,7 @@ include_once("php/db_connect.php");
                                             <div class="col-md-auto">
                                                 <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
                                                     data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
-                                                <a href="jobs-edit.php?job_id='.$job_id.'"><button type="button" id="act-button" class="btn"><img
+                                                <a href="jobs-edit.html"><button type="button" id="act-button" class="btn"><img
                                                             id="search-img" src="img/edit.png"></button></a>
                                             </div>
                                         </div>
@@ -130,30 +121,30 @@ include_once("php/db_connect.php");
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+                <div class="modal fade bd-example-modal-sm" id="dialogModal" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-body" style="text-align: center; font-weight: bold">
-                                You're about to delete this job advertisement. <br>Are you sure?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                <a href="jobs-activity.html"><button type="button" class="btn confirmbuttonModalSetting">Delete Job</button></a>
+                            <div class="modal-body" style="text-align: center;">
+                                Bookmark removed!
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
+
         <script>
+            //modal
+            setTimeout(function(){
+                $('#dialogModal').modal('hide')
+            }, 1000);
+            //profile
             document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
             document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
             document.querySelector("#act-profileImg").classList.add("imgcoverobject");
         </script>
-
         <?php include_once("php/footer.php")?>  
     </div>
-
     <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>

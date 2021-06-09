@@ -4,8 +4,6 @@
 <head>
     <?php include_once("php/head.php")?>
 
-    <link rel="stylesheet" href="css/event.css">
-
     <title>Home | FSKTM Alumni</title>
 
 <body>
@@ -51,7 +49,7 @@
 
                     <?php
                         include_once("php/db_connect.php");
-                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, IMAGE FROM event ORDER BY START_DATE LIMIT 4";
+                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event ORDER BY START_DATE LIMIT 4";
                         $resultset = mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
 
                         while($record = mysqli_fetch_assoc($resultset)){
@@ -62,8 +60,11 @@
                                     <div class="card-body">
                                         <h4 class="card-title"><?php echo $record['EVENT_TITLE']?></h4>
                                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $record['START_DATE']?></h6>
-                                        <p class="card-text"><?php echo $record['MODE']?>
+                                        <p class="card-text"><?php echo 'Mode: '.$record['MODE']?>
+                                            <br>
+                                            <?php echo 'Venue: '.$record['LOCATION']?>
                                         </p>
+                                        
                                         <p class="event-info">
                                             <a href="event.php" class="card-link">Learn More</a>
                                         </p>
