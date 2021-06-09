@@ -57,10 +57,9 @@ function topthingy() {
   logoutbutton.onclick = function() {
     let loggedin = false;
     sessionStorage.setItem("loggedin", loggedin);
-    window.location.href = "index.html";
+    window.location.href = "index.php";
   };
   // 
- 
  
 
 
@@ -74,9 +73,6 @@ $(function () {
 });
 // 
 
-// This function checks the confirm password to the password entered in the register page
-
-// 
 
 
 
