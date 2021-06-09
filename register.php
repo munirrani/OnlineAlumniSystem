@@ -154,7 +154,7 @@
                                             <label class="form-label" for="confirmpw">Confirm Password</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                                <input id="confirmpw" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
+                                                <input id="confirmpw" name="confirmpw" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                     </div>
@@ -456,6 +456,30 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <?php
+                                        if(isset($_GET["error"])) {
+                                            if($_GET["error"] == "emptyinput") {
+                                                echo "<p>Fill in all fields!</p>";
+                                            }
+                                            else if($_GET["error"] == "invalidusername") {
+                                                echo "<p>Choose a proper username!</p>";
+                                            }
+                                            else if($_GET["error"] == "invalidemail") {
+                                                echo "<p>Choose a proper email!</p>";
+                                            }
+                                            else if($_GET["error"] == "passwordsdontmatch") {
+                                                echo "<p>Password doesn't match with confirm password!</p>";
+                                            }
+                                            else if($_GET["error"] == "stmtfailed") {
+                                                echo "<p>Something went wrong, try again!</p>";
+                                            }
+                                            else if($_GET["error"] == "usernametaken") {
+                                                echo "<p>Username already taken!</p>";
+                                            }
+                                        }
+                                    ?>
+
                                     <p class="h4" id="error-text-reg"></p>
                                     <div class="row form-reg-check">
                                         <div class="form-check">

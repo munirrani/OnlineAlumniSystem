@@ -33,7 +33,7 @@
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.html') echo ' active'?>" href="jobs.html"><b>Jobs</b></a>
                 </li>
                 <li class="nav-item nav-hide-logged">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/alumnisearch.html') echo ' active'?>" href="alumnisearch.html"><b>Search Alumni</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/alumnisearch.html') echo ' active'?>" href='alumnisearch.html'><b>Search Alumni</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.html') echo ' active'?>" href="about.html"><b>About</b></a>
