@@ -1828,7 +1828,7 @@ h6.height{
 .col-card-alumni-val {
     text-align: center;
 }
-#alumni-modal {
+.alumni-modal {
     justify-content: center;
 }
 .alumni-modal-fix {
@@ -1837,7 +1837,7 @@ h6.height{
 #home-container .show {
     display: flex !important;
 }
-#alumni-modal .modal-dialog {
+.alumni-modal .modal-dialog {
     max-width: 70%;
 }
 .container.modal-container-alumni {
@@ -1850,19 +1850,19 @@ h6.height{
     padding-bottom: 10px;
     overflow: auto !important;
 }
-#alumni-modal .modal-header {
+.alumni-modal .modal-header {
     border-bottom: 2px solid #fff;
     margin-bottom: 0 !important;
     padding-bottom: 3px;
 }
-#alumni-modal .modal-title{
+.alumni-modal .modal-title{
     color: #f3f3f3;
     margin-left: 1.8rem;
 }
-#alumni-modal .btn-close {
+.alumni-modal .btn-close {
     background: transparent url(../img/clear-button-01.svg) center/1em auto no-repeat;
 }
-#alumni-modal .contact-box{
+.alumni-modal .contact-box{
     background: #f3f3f3;
     border-radius: 20px;
     border-bottom: solid 5px #8f0b89;
@@ -1872,7 +1872,7 @@ h6.height{
 .body-alumni-card-modal{
     max-width: 20rem;
 }
-#alumni-modal img {
+.alumni-modal img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     width: 100%;
