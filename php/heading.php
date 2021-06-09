@@ -36,7 +36,7 @@
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/alumnisearch.html') echo ' active'?>" href="alumnisearch.html"><b>Search Alumni</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.html') echo ' active'?>" href="about.html"><b>About</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.php') echo ' active'?>" href="about.php"><b>About</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/contact.php') echo ' active'?>" href="contact.php"><b>Contact Us</b></a>
