@@ -22,16 +22,12 @@
           <div class="col-12 col-md-10 col-lg-8">
             <form class="card card-sm alumni-search-form" method="GET">
               <div class="card-body row no-gutters align-items-center">
-                <div class="col-auto">
-                  <i><img src="img/search_black_24dp.svg" alt=""></i>
+                <div class="col">
+                  <input id="alumni-search-bar" class="form-control form-control-lg form-control-borderless" name="search" type="search" placeholder="Search alumni profiles (Name / Department / Level of Study)">
                 </div>
                 <!--end of col-->
-                <div class="col">
-                  <input id="alumni-search-bar" class="form-control form-control-lg form-control-borderless" name="search" type="search" placeholder="Search alumni profiles">
-                </div>
-                <!--end of col-->
-                <div class="col">
-                  <input type="submit" name="submit">
+                <div class="col-1">
+                  <button type="submit" name="submit" class="jumbotron-button"><i><img src="img/search_black_24dp.svg" alt=""></i></button>
                 </div>
               </div>
             </form>
@@ -60,7 +56,7 @@
             $starting_limit_number = ($page - 1) * $result_per_page;
             if (isset($_GET["submit"])) {
               $str = $_GET["search"];
-              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, EMAIL, LEVEL, ALUMNI_IMG FROM alumni WHERE FULL_NAME = '$str'";
+              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, EMAIL, LEVEL, ALUMNI_IMG FROM alumni WHERE FULL_NAME LIKE '%$str%' OR DEPT LIKE '%$str%' OR LEVEL LIKE '%$str%'";
               $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
               showCard($resultset);
             } else {
@@ -205,6 +201,38 @@
 
                           </div>
                           <!-- Right Col -->
+                          <div class="container mt-4 shadow-lg" id="bottom-box">
+                            <h3 id="exp-alumni-modal">Experience and Recent Project</h3>
+                            <div style="overflow-x:auto">
+                              <table class="content-table" id="modal-table-alumni">
+                                <colgroup>
+                                  <col span="1" style="width: 20%;">
+                                  <col span="1" style="width: 20%;">
+                                  <col span="1" style="width: 21%;">
+                                  <col span="1" style="width: 31%;">
+                                  <col span="1" style="width: 8%;">
+                                </colgroup>
+                                <thead>
+                                  <tr>
+                                    <th>Company / Instituition</th>
+                                    <th>Work / Activity</th>
+                                    <th>Position</th>
+                                    <th>Description</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>SWIFT</td>
+                                    <td>Software Developer</td>
+                                    <td>Part-time employee</td>
+                                    <td>Work for 1 year in at SWIFT and gained new skills.</td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
 
 
 
