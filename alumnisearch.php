@@ -10,7 +10,6 @@
 <body>
   <div class="container-fluid p-0 m-0">
     <?php include_once("php/heading.php") ?>
-
     <main>
       <div id="home-container" class="container-fluid">
 
@@ -202,9 +201,10 @@
                           </div>
                           <!-- Right Col -->
                           <div class="container mt-4 shadow-lg" id="bottom-box">
+                          
                             <h3 id="exp-alumni-modal">Experience and Recent Project</h3>
                             <div style="overflow-x:auto">
-                              <table class="content-table" id="modal-table-alumni">
+                            <table class="content-table" id="modal-table-alumni">
                                 <colgroup>
                                   <col span="1" style="width: 20%;">
                                   <col span="1" style="width: 20%;">
@@ -222,13 +222,23 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td>SWIFT</td>
-                                    <td>Software Developer</td>
-                                    <td>Part-time employee</td>
-                                    <td>Work for 1 year in at SWIFT and gained new skills.</td>
+                                <?php
+                                include("php/db_connect.php");
+                                $experiencequery = "SELECT * FROM experience WHERE ALUMNI_ID = ".$record['ALUMNI_ID'];
+                                $experienceset = mysqli_query($conn, $experiencequery) or die("database error: " . mysqli_error($conn));
+                                while($experience = mysqli_fetch_assoc($experienceset)){                             
+                                ?>
+                                <tr>
+                                    <td><?php echo $experience['COMPANY']?></td>
+                                    <td><?php echo $experience['WORK_TITLE']?></td>
+                                    <td><?php echo $experience['POSITION']?></td>
+                                    <td><?php echo $experience['DESC']?></td>
                                     <td></td>
-                                  </tr>
+                                </tr>
+                                <?php } ?>
+                                
+                              
+                                  
                                 </tbody>
                               </table>
                             </div>
