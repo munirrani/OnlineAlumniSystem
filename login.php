@@ -59,7 +59,7 @@
                 echo "Please enter Username and Password!";
               } else if ($_GET["error"] == "chooserole") {
                 echo "Please Choose a Role!";
-              } else if ($_GET["error"] == "usernameexists") {
+              } else if ($_GET["error"] == "usernamedoesntexists") {
                 echo "Please enter the correct login info!";
               } else if ($_GET["error"] == "passwordWrong") {
                 echo "Please enter the correct password!";
