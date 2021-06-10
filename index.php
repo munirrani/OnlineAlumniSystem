@@ -49,7 +49,7 @@
 
                     <?php
                         include_once("php/db_connect.php");
-                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event ORDER BY START_DATE LIMIT 4";
+                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE LIMIT 4";
                         $resultset = mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
 
                         while($record = mysqli_fetch_assoc($resultset)){
