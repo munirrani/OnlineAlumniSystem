@@ -1,6 +1,7 @@
 <?php
 include_once('php/db_connect.php');
 echo "Running...";
+
 $job_title = mysqli_real_escape_string($conn, $_POST['job_title']);
 $job_desc = mysqli_real_escape_string($conn, $_POST['job_desc']);
 $job_type = mysqli_real_escape_string($conn, $_POST['job_type']);
@@ -23,20 +24,27 @@ $cmp_country = mysqli_real_escape_string($conn, $_POST['cmp_country']);
 $cmp_email = mysqli_real_escape_string($conn, $_POST['cmp_email']);
 $cmp_website = mysqli_real_escape_string($conn, $_POST['cmp_website']);
 
-if(isset($_POST['postJob'])) {	
+
+if(isset($_POST['postJob'])) {
     $test_id = $_GET['test_id'];
     $post_date = date("Y-m-d H:i:s");
 
+    //insert into job table
     $result = mysqli_query($conn, "INSERT INTO job(JOB_TITLE,JOB_DESCRIPTION,JOB_QUALIFICATION,JOB_SALARY_MIN,JOB_SALARY_MAX,JOB_SALARY_TYPE,JOB_TYPE,JOB_DATELINE,JOB_LINK,CMP_NAME,CMP_LOGO,CMP_ABOUT,CMP_ADDRESS,CMP_POSTAL,CMP_CITY,CMP_STATE,CMP_COUNTRY,CMP_SIZE_MIN,CMP_SIZE_MAX,CMP_EMAIL,CMP_WEBSITE) VALUES ('$job_title','$job_desc','$job_qual','$job_salary_min','$job_salary_max','$job_salary_type','$job_type','$job_dateline','$job_link','$cmp_name','$cmp_logo','$cmp_about','$cmp_address','$cmp_postal','$cmp_city','$cmp_state','$cmp_country','$cmp_size_min','$cmp_size_max','$cmp_email','$cmp_website')");
+    
+    if ($result) {
+        $last_job_id = mysqli_insert_id($conn);
+        echo "New record created successfully. Last inserted ID is: " . $last_job_id;
+      } 
+      else {
+        echo "Error";
+      }
 
-    /*$result1 = mysqli_query($conn, "SELECT * FROM job WHERE TEST_ID='$test_id'");
-    $res1 = mysqli_fetch_array($result1);
-    $job_id = $res1['JOB_ID'];*/
-	
-    $result2 = mysqli_query($conn, "INSERT INTO posttest (TEST_ID,POST_DATE,EDIT_DATE) VALUES ('$test_id','$post_date','$post_date')");
-    mysqli_close($conn);
+    //insert into posttest table
+    $result1 = mysqli_query($conn, "INSERT INTO posttest(TEST_ID,JOB_ID,POST_DATE,EDIT_DATE) VALUES ('$test_id','$last_job_id','$post_date','$post_date')");
 
     echo "<font color='green'>Data added successfully.";
+    mysqli_close($conn);
 
 }
 else if (isset($_POST['editJob'])){
@@ -57,4 +65,5 @@ else if (isset($_POST['editJob'])){
 	echo "<font color='green'>Data updated successfully.";
     mysqli_close($conn);
 }
+
 ?>

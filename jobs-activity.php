@@ -37,7 +37,7 @@ include_once("php/db_connect.php");
 
             <?php
             $post_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = 5");
+            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = $test_id");
             while($res = mysqli_fetch_array($result)){
                 $post_count++;
             }
@@ -76,7 +76,7 @@ include_once("php/db_connect.php");
                                 <h2 id="act-txtheading">JOB ACTIVITY</h2>
                             </div>
                             <?php
-                            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = 5");
+                            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = $test_id");
                             while($res = mysqli_fetch_array($result)){
                                 $job_id = $res['JOB_ID'];
                                 $post_date = $res['POST_DATE'];
@@ -91,15 +91,16 @@ include_once("php/db_connect.php");
                                     $job_salary_max = $res2['JOB_SALARY_MAX'];
                                     $job_salary = "RM".$job_salary_min." - RM".$job_salary_max;
                                     $cmp_state = $res2['CMP_STATE'];
+                                    $new_post_date = date("j F Y",strtotime($post_date));
                                     echo '
                                     <div>
                                         <div id="act-posted">
-                                            Posted on '.$post_date.'
+                                            Posted on '.$new_post_date.'
                                         </div>
                                         <div id="act-box" class="row">
                                             <div class="col-md-4">
-                                                <a href="jobs-details.html"><img src="img/'.$cmp_logo.'" class="act-image"></a>
-                                                <a href="jobs-details.html" id="no-blue"><h6 id="act-jobname">
+                                                <a href="jobs-details.php?job_id='.$job_id.'"><img src="img/'.$cmp_logo.'" class="act-image"></a>
+                                                <a href="jobs-details.php?job_id='.$job_id.'" id="no-blue"><h6 id="act-jobname">
                                                     '.$job_title.'
                                                 </h6></a>
                                                 <h6 id="job-company">
