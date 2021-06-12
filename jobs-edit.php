@@ -101,7 +101,7 @@ include_once("php/db_connect.php");
                                                   <option value="Contract" selected>Contract</option>';
                                         }
                                         ?>
-                                    </select>
+                                    </select> <?php echo ' selected'?>
                                 </div>
                             </div>
                             <hr>

@@ -106,20 +106,16 @@ include_once("php/db_connect.php");
                             </div>
                         </div>
                         <?php
-                        $result2 = mysqli_query($conn, "SELECT * FROM posttest WHERE JOB_ID = $job_id");
+                        $result2 = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
                         while($res2 = mysqli_fetch_array($result2)){
-                            $test_id = $res2['TEST_ID'];
+                            $alumni_id = $res2['ALUMNI_ID'];
                             $post_date = $res2['POST_DATE'];
                             $edit_date = $res2['EDIT_DATE'];
-                        }
-                        $result3 = mysqli_query($conn, "SELECT TEST_NAME FROM test WHERE TEST_ID = $test_id");
-                        $res3 = mysqli_fetch_array($result3);
-                        $test_name = $res3['TEST_NAME'];
-                        mysqli_close($conn);
 
-                        $new_post_date = date("j F Y",strtotime($post_date));
-                        $new_edit_date = date("j F Y",strtotime($edit_date));
-                        $new_job_dateline = date("j F Y",strtotime($job_dateline));
+                            $new_post_date = date("j F Y",strtotime($post_date));
+                            $new_edit_date = date("j F Y",strtotime($edit_date));
+                            $new_job_dateline = date("j F Y",strtotime($job_dateline));
+                        }
                         ?>
                         <div class="col-md-9">
                             <div id="details-right-col-body" class="card mb-3">
@@ -127,7 +123,7 @@ include_once("php/db_connect.php");
                                     <div class="row mb-3">
                                         <div class="col-md-9">
                                             <h1><?php echo $job_title?></h1>
-                                            <h6 id="details-small"><?php echo "Posted by ".$test_name." on ".$new_post_date?></h6>
+                                            <h6 id="details-small"><?php echo "Posted by ".$alumni_id." on ".$new_post_date?></h6>
                                             <?php
                                             if($post_date != $edit_date){
                                                 echo '<h6 id="details-small">Recently edited on '.$new_edit_date.'</h6>';
