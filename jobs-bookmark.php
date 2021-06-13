@@ -12,7 +12,9 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php");?> 
+        <?php include_once("php/heading.php");
+        $test_id = 5;
+        ?> 
 
         <main>
             <div class="container mt-3">
@@ -34,10 +36,10 @@ include_once("php/db_connect.php");
             </div>
 
             <?php
-            $post_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = 5");
+            $book_count = 0;
+            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $test_id");
             while($res = mysqli_fetch_array($result)){
-                $post_count++;
+                $book_count++;
             }
             ?>
 
@@ -55,7 +57,7 @@ include_once("php/db_connect.php");
                                 <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
                             </div>
                             <div class="col-md">
-                                <h2 id="act-count"><?php echo $post_count?></h2>
+                                <h2 id="act-count"><?php echo $book_count?></h2>
                                 <p id="act-uploads">Bookmarks</p>
                             </div>
                         </div>
@@ -66,12 +68,11 @@ include_once("php/db_connect.php");
                                 <h2 id="act-txtheading">BOOKMARKS</h2>
                             </div>
                             <?php
-                            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE TEST_ID = 5");
+                            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $test_id");
                             while($res = mysqli_fetch_array($result)){
                                 $job_id = $res['JOB_ID'];
-                                $post_date = $res['POST_DATE'];
+                                $book_date = $res['BOOK_DATE'];
                                 $result2 = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
-                                $post_count++;
                                 
                                 while($res2 = mysqli_fetch_array($result2)){
                                     $job_title = $res2['JOB_TITLE'];
@@ -81,15 +82,16 @@ include_once("php/db_connect.php");
                                     $job_salary_max = $res2['JOB_SALARY_MAX'];
                                     $job_salary = "RM".$job_salary_min." - RM".$job_salary_max;
                                     $cmp_state = $res2['CMP_STATE'];
+                                    $new_book_date = date("j F Y",strtotime($book_date));
                                     echo '
-                                    <div>
+                                    <div id="div'.$job_id.'">
                                         <div id="act-posted">
-                                            Posted on '.$post_date.'
+                                            Bookmarked on '.$new_book_date.'
                                         </div>
                                         <div id="act-box" class="row">
                                             <div class="col-md-4">
-                                                <a href="jobs-details.html"><img src="img/'.$cmp_logo.'" class="act-image"></a>
-                                                <a href="jobs-details.html" id="no-blue"><h6 id="act-jobname">
+                                                <a href="jobs-details.php?job_id='.$job_id.'"><img src="img/'.$cmp_logo.'" class="act-image"></a>
+                                                <a href="jobs-details.php?job_id='.$job_id.'" id="no-blue"><h6 id="act-jobname">
                                                     '.$job_title.'
                                                 </h6></a>
                                                 <h6 id="job-company">
@@ -107,10 +109,7 @@ include_once("php/db_connect.php");
                                                 </h6>
                                             </div>
                                             <div class="col-md-auto">
-                                                <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
-                                                    data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
-                                                <a href="jobs-edit.html"><button type="button" id="act-button" class="btn"><img
-                                                            id="search-img" src="img/edit.png"></button></a>
+                                                <button type="button" id="act-button" class="btn"onclick="deleteBookmark('.$job_id.')"><img id="search-img" src="img/delete.png"></button>
                                             </div>
                                         </div>
                                         <hr>
@@ -135,6 +134,17 @@ include_once("php/db_connect.php");
         </main>
 
         <script>
+            //delete bookmark
+            function deleteBookmark(job_id) {
+            var x = document.getElementById("div"+job_id);
+            
+            if (x.style.display === "none") {
+                x.style.display = "block"; 
+            } 
+            else {
+                x.style.display = "none";
+            }
+            }
             //modal
             setTimeout(function(){
                 $('#dialogModal').modal('hide')

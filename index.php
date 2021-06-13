@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php")?>
+    <?php include_once("php/head.php") ?>
 
     <title>Home | FSKTM Alumni</title>
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php")?>
+        <?php include_once("php/heading.php") ?>
 
         <main>
             <div id="home-container" class="container-fluid">
@@ -29,8 +29,7 @@
                             <br>
                             <p class="lead">
                             <div class="d-flex gap-2">
-                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" href="register.html"
-                                    role="button">Register
+                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" href="register.html" role="button">Register
                                     Now!</a>
                                 <a class="btn jumbotron-button btn-lg" href="about.html" role="button">Learn more</a>
                             </div>
@@ -47,33 +46,43 @@
                     <br>
                     <div class="row">
 
-                    <?php
+                        <?php
                         include_once("php/db_connect.php");
-                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event ORDER BY START_DATE LIMIT 4";
-                        $resultset = mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE LIMIT 4";
+                        $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+                        $number_of_events = mysqli_num_rows($resultset);
 
-                        while($record = mysqli_fetch_assoc($resultset)){
-                            ?>
-                            <div class="col-lg-3 d-flex align-items-stretch event-card">
-                                <div class="card">
-                                    <a href="event.php"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $record['IMAGE']).'" class="card-img-top"/>'; ?></a>
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php echo $record['EVENT_TITLE']?></h4>
-                                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $record['START_DATE']?></h6>
-                                        <p class="card-text"><?php echo 'Mode: '.$record['MODE']?>
-                                            <br>
-                                            <?php echo 'Venue: '.$record['LOCATION']?>
-                                        </p>
-                                        
-                                        <p class="event-info">
-                                            <a href="event.php" class="card-link">Learn More</a>
-                                        </p>
+                        if ($number_of_events == 0) {
+                            echo '<div class="d-flex align-items-center justify-content-center">
+                            <p class="lead">
+                            <h4>There are no upcoming events at the moment. Check back soon for other exciting events.</h4>
+                            </p>
+                        </div>';
+                        }else{
+                            while ($record = mysqli_fetch_assoc($resultset)) {
+                                ?>
+                                    <div class="col-lg-3 d-flex align-items-stretch event-card">
+                                        <div class="card">
+                                            <a href="event.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($record['IMAGE']) . '" class="card-img-top"/>'; ?></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title"><?php echo $record['EVENT_TITLE'] ?></h4>
+                                                <h6 class="card-subtitle mb-2 text-muted"><?php echo $record['START_DATE'] ?></h6>
+                                                <p class="card-text"><?php echo 'Mode: ' . $record['MODE'] ?>
+                                                    <br>
+                                                    <?php echo 'Venue: ' . $record['LOCATION'] ?>
+                                                </p>
+        
+                                                <p class="event-info">
+                                                    <a href="event.php" class="card-link">Learn More</a>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-                    
-                    </div> 
+                                <?php } ?>
+        
+                        <?php } ?>
+                        
+                    </div>
                     <br>
                     <div class="d-flex align-items-center justify-content-center">
                         <p class="lead">
@@ -104,15 +113,13 @@
                             <br>
                         </div>
                         <div class="col-md-5 announcement-sec order-1 order-md-2">
-                            <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/um_dtc.png"
-                                alt="" height="110%" width="110%">
+                            <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/um_dtc.png" alt="" height="110%" width="110%">
                         </div>
                     </div>
                     <hr class="featurette-divider">
                     <div class="row featurette align-items-center">
                         <div class="col-md-5 announcement-sec">
-                            <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/um_qs.png"
-                                alt="" height="110%" width="110%">
+                            <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/um_qs.png" alt="" height="110%" width="110%">
                         </div>
                         <div class="col-md-7 announcement-sec">
                             <h2 class="featurette-heading display-7 mb-5"> Universiti Malaya Ranks 59th in the world in
@@ -137,10 +144,10 @@
             </div>
         </main>
 
-        <?php include_once("php/footer.php")?>
+        <?php include_once("php/footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php")?>
+    <?php include_once("php/scripts.php") ?>
 </body>
 
 </html>

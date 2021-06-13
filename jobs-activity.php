@@ -37,7 +37,7 @@ include_once("php/db_connect.php");
 
             <?php
             $post_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = 5");
+            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = $test_id");
             while($res = mysqli_fetch_array($result)){
                 $post_count++;
             }
@@ -76,57 +76,54 @@ include_once("php/db_connect.php");
                                 <h2 id="act-txtheading">JOB ACTIVITY</h2>
                             </div>
                             <?php
-                            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = 5");
+                            $result = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $test_id");
                             while($res = mysqli_fetch_array($result)){
                                 $job_id = $res['JOB_ID'];
+                                $job_title = $res2['JOB_TITLE'];
+                                $cmp_logo = $res2['CMP_LOGO'];
+                                $cmp_name = $res2['CMP_NAME'];
+                                $job_salary_min = $res2['JOB_SALARY_MIN'];
+                                $job_salary_max = $res2['JOB_SALARY_MAX'];
                                 $post_date = $res['POST_DATE'];
-                                $result2 = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
-                                $post_count++;
-                                
-                                while($res2 = mysqli_fetch_array($result2)){
-                                    $job_title = $res2['JOB_TITLE'];
-                                    $cmp_logo = $res2['CMP_LOGO'];
-                                    $cmp_name = $res2['CMP_NAME'];
-                                    $job_salary_min = $res2['JOB_SALARY_MIN'];
-                                    $job_salary_max = $res2['JOB_SALARY_MAX'];
-                                    $job_salary = "RM".$job_salary_min." - RM".$job_salary_max;
-                                    $cmp_state = $res2['CMP_STATE'];
-                                    echo '
-                                    <div>
-                                        <div id="act-posted">
-                                            Posted on '.$post_date.'
+                                $job_salary = "RM".$job_salary_min." - RM".$job_salary_max;
+                                $cmp_state = $res2['CMP_STATE'];
+                                $new_post_date = date("j F Y",strtotime($post_date));
+                                echo '
+                                <div>
+                                    <div id="act-posted">
+                                        Posted on '.$new_post_date.'
+                                    </div>
+                                    <div id="act-box" class="row">
+                                        <div class="col-md-4">
+                                            <a href="jobs-details.php?job_id='.$job_id.'"><img src="img/'.$cmp_logo.'" class="act-image"></a>
+                                            <a href="jobs-details.php?job_id='.$job_id.'" id="no-blue"><h6 id="act-jobname">
+                                                '.$job_title.'
+                                            </h6></a>
+                                            <h6 id="job-company">
+                                            '.$cmp_name.'
+                                            </h6>
                                         </div>
-                                        <div id="act-box" class="row">
-                                            <div class="col-md-4">
-                                                <a href="jobs-details.html"><img src="img/'.$cmp_logo.'" class="act-image"></a>
-                                                <a href="jobs-details.html" id="no-blue"><h6 id="act-jobname">
-                                                    '.$job_title.'
-                                                </h6></a>
-                                                <h6 id="job-company">
-                                                '.$cmp_name.'
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <h6 id="act-salary">
-                                                    '.$job_salary.'
-                                                </h6>
-                                            </div>
-                                            <div class="col-md">
-                                                <h6 id="act-location">
-                                                '.$cmp_state.'
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-auto">
-                                                <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
-                                                    data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
-                                                <a href="jobs-edit.php?job_id='.$job_id.'"><button type="button" id="act-button" class="btn"><img
-                                                            id="search-img" src="img/edit.png"></button></a>
-                                            </div>
+                                        <div class="col-md-3">
+                                            <h6 id="act-salary">
+                                                '.$job_salary.'
+                                            </h6>
                                         </div>
-                                        <hr>
-                                    </div>';
-                                }
+                                        <div class="col-md">
+                                            <h6 id="act-location">
+                                            '.$cmp_state.'
+                                            </h6>
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
+                                                data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
+                                            <a href="jobs-edit.php?job_id='.$job_id.'"><button type="button" id="act-button" class="btn"><img
+                                                        id="search-img" src="img/edit.png"></button></a>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>';
                             }
+                            
                             mysqli_close($conn);
                             ?>
                         </div>
