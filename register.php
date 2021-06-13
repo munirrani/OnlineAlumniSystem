@@ -42,8 +42,8 @@
                                         Information Technology Alumni</span>.</p>
                             </div>
                             <div class="row mt-3">
-                                <!-- onSubmit="return checkpw();" -->
-                                <form action="" id="registerAccount">
+
+                                <form action="request.php" method="POST" onsubmit="return regCheck();">
                                     <div class="row">
                                         <div class="col-sm">
                                             <label class="form-label" for="firstname">First Name</label>
@@ -58,13 +58,13 @@
                                         <div class="col-sm">
                                             <label class="form-label" for="age">Age</label>
                                             <div class="input-group">
-                                                <input id="age" type="number" class="form-control" placeholder="" required min="16" max="100">
+                                                <input id="age" type="number" name="age" class="form-control" placeholder="" required min="16" max="100">
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="gender">Gender</label>
                                             <div class="input-group">
-                                                <select class="form-control" id="gender" required>
+                                                <select class="form-control" name="gender" id="gender" required>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                 </select>
@@ -75,13 +75,13 @@
                                         <div class="col-sm">
                                             <label class="form-label" for="enrolYear">Enrol-Year</label>
                                             <div class="input-group">
-                                                <input id="enrolYear" class="form-control form-select datepickeryear" placeholder="" required>
+                                                <input id="enrolYear" class="form-control form-select datepickeryear" placeholder="" name="enrolYear" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="gradYear">Grad-Year</label>
                                             <div class="input-group">
-                                                <input id="gradYear" class="form-control form-select datepickeryear" placeholder="" required onselect='checkGradYear()'>
+                                                <input id="gradYear" class="form-control form-select datepickeryear" placeholder="" required name="gradYear" onselect='checkGradYear()'>
                                             </div>
                                         </div>
                                     </div>
@@ -90,14 +90,14 @@
                                             <label class="form-label" for="email">Email</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="far fa-envelope"></i></span>
-                                                <input id="email" type="email" class="form-control" placeholder="" required>
+                                                <input id="email" type="email" name="email" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="matricid">Student Matric ID</label>
                                             <div class="input-group">
                                                 <span class="input-group-text" id="matricid"><i class="far fa-id-card"></i></span>
-                                                <input type="text" class="form-control" placeholder="" required>
+                                                <input type="text" class="form-control" name="matricid" placeholder="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -106,14 +106,14 @@
                                             <label class="form-label" for="currentPos">Current Position</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
-                                                <input id="currentPos" type="text" class="form-control" placeholder="" required>
+                                                <input id="currentPos" type="text" name="currentPos" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="level">Level</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fa fa-level-up"></i></span>
-                                                <select class="form-control" id="level" required>
+                                                <select class="form-control" id="level" name="level" required>
                                                     <option value="foundation">Foundation</option>
                                                     <option value="degree">Degree</option>
                                                     <option value="master">Master</option>
@@ -125,7 +125,7 @@
                                             <label class="form-label" for="department">Department</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-user-graduate"></i></span>
-                                                <select class="form-control" id="department" required>
+                                                <select class="form-control" name="department" id="department" required>
                                                     <option value="SE">Software Engineering</option>
                                                     <option value="AI">Artificial Intelligence</option>
                                                     <option value="IS">Information System</option>
@@ -137,17 +137,24 @@
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm">
+                                            <label class="form-label" for="username">Username</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                <input id="username" type="text" name="username" class="form-control" placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
                                             <label class="form-label" for="password">Password</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                                <input id="password" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
+                                                <input id="password" type="password" name="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="confirmpw">Confirm Password</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                                <input id="confirmpw" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
+                                                <input id="confirmpw" name="confirmpw" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                     </div>
@@ -156,14 +163,14 @@
                                             <label class="form-label" for="address">Address</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                                                <input id="address" type="text" class="form-control" placeholder="">
+                                                <input id="address" type="text" name="address" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="phonenum">Phone Number</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                                <input id="phonenum" type="tel" class="form-control" placeholder="">
+                                                <input id="phonenum" type="tel" name="phonenum" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +179,7 @@
                                             <label class="form-label" for="country">Country</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fa fa-globe"></i></span>
-                                                <select class="form-control" id="country" required>
+                                                <select class="form-control" name="country" id="country" required>
                                                     <option value="Afganistan">Afghanistan</option>
                                                     <option value="Albania">Albania</option>
                                                     <option value="Algeria">Algeria</option>
@@ -431,24 +438,48 @@
                                             <label class="form-label" for="postcode">Post Code</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
-                                                <input id="postcode" type="number" class="form-control" placeholder="" min="1" required>
+                                                <input id="postcode" type="number" name="postcode" class="form-control" placeholder="" min="1" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="city">City</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-city"></i></span>
-                                                <input id="city" type="text" class="form-control" placeholder="" required>
+                                                <input id="city" type="text" name="city" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <label class="form-label" for="state">State</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-sign"></i></span>
-                                                <input id="state" type="text" class="form-control" placeholder="" required>
+                                                <input id="state" type="text" name="state" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <?php
+                                        if(isset($_GET["error"])) {
+                                            if($_GET["error"] == "emptyinput") {
+                                                echo "<p>Fill in all fields!</p>";
+                                            }
+                                            else if($_GET["error"] == "invalidusername") {
+                                                echo "<p>Choose a proper username!</p>";
+                                            }
+                                            else if($_GET["error"] == "invalidemail") {
+                                                echo "<p>Choose a proper email!</p>";
+                                            }
+                                            else if($_GET["error"] == "passwordsdontmatch") {
+                                                echo "<p>Password doesn't match with confirm password!</p>";
+                                            }
+                                            else if($_GET["error"] == "stmtfailed") {
+                                                echo "<p>Something went wrong, try again!</p>";
+                                            }
+                                            else if($_GET["error"] == "usernametaken") {
+                                                echo "<p>Username already taken!</p>";
+                                            }
+                                        }
+                                    ?>
+
                                     <p class="h4" id="error-text-reg"></p>
                                     <div class="row form-reg-check">
                                         <div class="form-check">
@@ -461,7 +492,7 @@
 
                                     <div class="row form-reg-submit mt-2">
                                         <button class="submitreg" type="submit">Create Account</button>
-                                        <p>Already have an account? <a href="login.html">Log in</a></p>
+                                        <p>Already have an account? <a href="login.php">Log in</a></p>
                                     </div>
 
                                 </form>
@@ -475,10 +506,15 @@
 
         </main>
 
-        <?php include_once("php/footer.php")?>
+        <?php include_once("php/footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php")?>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/register.js"></script>
     <script type="text/javascript">
         $(".datepickeryear").datepicker({

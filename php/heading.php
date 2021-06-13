@@ -11,7 +11,7 @@
 
 <nav class=" navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
     <div class="container h5">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
             <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
                 id="logo-img">
         </a>
@@ -30,13 +30,13 @@
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/upcoming_events.php') echo ' active'?>" href="upcoming_events.php"><b>Events</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.html') echo ' active'?>" href="jobs.html"><b>Jobs</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.html') echo ' active'?>" href="jobs.php"><b>Jobs</b></a>
                 </li>
                 <li class="nav-item nav-hide-logged">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/alumnisearch.html') echo ' active'?>" href="alumnisearch.html"><b>Search Alumni</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/alumnisearch.php') echo ' active'?>" href="alumnisearch.php"><b>Search Alumni</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.html') echo ' active'?>" href="about.html"><b>About</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.php') echo ' active'?>" href="about.php"><b>About</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/contact.php') echo ' active'?>" href="contact.php"><b>Contact Us</b></a>
@@ -59,8 +59,8 @@
                             <a href="profile.html">Profile</a>
                             <a href="profile-settings.html">Settings & Privacy</a>
                             <hr class="no-margin">
-                            <a href="jobs-activity.html">Job Activity</a>
-                            <a href="jobs-bookmark.html">Bookmarks</a>
+                            <a href="jobs-activity.php">Job Activity</a>
+                            <a href="jobs-bookmark.php">Bookmarks</a>
                             <hr class="no-margin">
                             <a href="#" id="logoutbutton">Log Out</a>
                         </div>
