@@ -29,9 +29,9 @@
                             <br>
                             <p class="lead">
                             <div class="d-flex gap-2">
-                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" href="register.html" role="button">Register
+                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" href="register.php" role="button">Register
                                     Now!</a>
-                                <a class="btn jumbotron-button btn-lg" href="about.html" role="button">Learn more</a>
+                                <a class="btn jumbotron-button btn-lg" href="about.php" role="button">Learn more</a>
                             </div>
                             </p>
                         </div>
