@@ -54,7 +54,6 @@ body {
     transition: background 0.25s;
 }
 #regbutton , #logbutton {
-    display: none;
     padding: 0.65rem 1.45rem;
 }
 #regbutton {
@@ -1069,6 +1068,7 @@ a:hover[id=profileNav-inactive] {
 }
 .show {
     display: block;
+    top: 4rem;
 }
 .collapsible { 
     background-color: white;

@@ -1,10 +1,9 @@
 window.onload = topthingy;
 let logoutbutton = document.querySelector("#logoutbutton");
-let navprofbar = document.querySelector(".nav-prof-bar");
-let navbarlogged = document.querySelector(".nav-hide-logged");
-let navbuttonbar = document.querySelectorAll(".nav-button-bar");
-let myDropdown = document.querySelector("#myDropdown");
-let dropdowns = document.querySelector(".dropdown-content");
+// let navprofbar = document.querySelector(".nav-prof-bar");
+// let navbarlogged = document.querySelector(".nav-hide-logged");
+// let navbuttonbar = document.querySelectorAll(".nav-button-bar");
+// let myDropdown = document.querySelector("#myDropdown");
 var coll = document.getElementsByClassName("collapsible");
 
 // Bookmarks
@@ -20,11 +19,11 @@ function topthingy() {
   let usernameDropdown = sessionStorage.getItem("userName");
   let loggedinval = sessionStorage.getItem("loggedin") === "true";
   if(loggedinval) {
-    navbuttonbar.forEach(element => {
-        element.style.display = "none";
-    });
-    navprofbar.style.display = "inline-block";
-    navbarlogged.style.display = "block";
+    // navbuttonbar.forEach(element => {
+    //     element.style.display = "none";
+    // });
+    // navprofbar.style.display = "inline-block";
+    // navbarlogged.style.display = "block";
     
     if(bmark1logged != null) {
     //bookmarks
@@ -38,27 +37,27 @@ function topthingy() {
     if (document.querySelector("#profileImg") != null) {
       document.querySelector("#profileImg").src = sessionStorage.getItem("image");
     } 
-    document.querySelector("#profileIcon").src = sessionStorage.getItem("image");
-    document.querySelector("#profileIcon").classList.add("imgcoverobject");
-    document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>${usernameDropdown}</strong>`;
+    // document.querySelector("#profileIcon").src = sessionStorage.getItem("image");
+    // document.querySelector("#profileIcon").classList.add("imgcoverobject");
+    // document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>${usernameDropdown}</strong>`;
 
 
   }else {
-    navbarlogged.style.display = "none";
-    navprofbar.style.display = "none";
-    navbuttonbar.forEach(element => {
-      element.style.display = "inline-block";
-  });
+    // navbarlogged.style.display = "none";
+    // navprofbar.style.display = "none";
+  //   navbuttonbar.forEach(element => {
+  //     element.style.display = "inline-block";
+  // });
   }
 };
 // 
 
   // when clicking the logout button it will set loggedin to false and send user to homepage
-  logoutbutton.onclick = function() {
-    let loggedin = false;
-    sessionStorage.setItem("loggedin", loggedin);
-    window.location.href = "index.php";
-  };
+  // logoutbutton.onclick = function() {
+  //   let loggedin = false;
+  //   sessionStorage.setItem("loggedin", loggedin);
+  //   window.location.href = "index.php";
+  // };
   // 
  
 
@@ -74,26 +73,20 @@ $(function () {
 // 
 
 
+let dropdowns = document.querySelector(".dropdown-content");
+let myDropdown = document.querySelector("#myDropdown");
 
-
-// The navbar profile dropdown
 function myFunction() {
-  myDropdown.classList.toggle("show");
+    myDropdown.classList.add("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
-  if (!event.target.matches(".dropbtn")) {
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
+    if (!event.target.matches(".dropbtn")) {
+      dropdowns.classList.remove("show");
     }
-  }
 };
-// 
+
+
 
 // Collapsible part of the Profile Page
 var i;
