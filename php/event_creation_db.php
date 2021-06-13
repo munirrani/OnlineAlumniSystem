@@ -4,9 +4,10 @@
     {
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            // TODO: add invited accounts && $_POST["invitedAccounts"]
-            // TODO: add admin id
-            // TODO: do validation of file
+            // TODO: Add invited accounts && $_POST["invitedAccounts"]
+            // TODO: Add admin id
+            // TODO: Do validation of file
+            // TODO: Store php array in IMAGE (actual filename and temporary filename)
             if(isset($_POST["eventTitle"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["description"]) && isset($_FILES["eventImg"]) && isset($_POST["eventMode"]) && isset($_POST["location"]))
             {
                 $eventTitle = mysqli_real_escape_string($conn, $_POST['eventTitle']);
@@ -19,7 +20,13 @@
                 $description = mysqli_real_escape_string($conn, $_POST['description']);
                 $todayDate = date('Y-m-d');
 
-                $sql =  "INSERT INTO event (EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, LOCATION, DESCRIPTION) VALUES ('$eventTitle', '$startDate', '$endDate', '$eventMode', '$eventImg', '$location', '$description')";
+                $fileExt = explode(".", $_FILES["eventImg"]["name"]);
+                $ext = strtolower(end($fileExt));
+                $imageName = uniqid("", true).".".$ext;
+                $imagePath = "uploads/images/".$imageName;
+                move_uploaded_file($_FILES['eventImg']['tmp_name'], "../".$imagePath);
+
+                $sql =  "INSERT INTO event (EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, LOCATION, DESCRIPTION) VALUES ('$eventTitle', '$startDate', '$endDate', '$eventMode', '$imagePath', '$location', '$description')";
                 $result = mysqli_query($conn, $sql);
                 // if($result === false)
                 //     echo mysqli_error($conn);

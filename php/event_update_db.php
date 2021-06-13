@@ -17,7 +17,10 @@
                 $description = mysqli_real_escape_string($conn, $_POST['description']);
                 $todayDate = date('Y-m-d');
 
-                $sql =  "UPDATE event SET START_DATE = '{$startDate}', END_DATE = '{$endDate}', MODE = '{$eventMode}', IMAGE = '{$eventImg}', LOCATION = '{$location}', DESCRIPTION = '{$description}' WHERE EVENT_TITLE = '{$eventTitle}'";
+                if(isset($_POST['eventImg']))
+                    $sql =  "UPDATE event SET START_DATE = '{$startDate}', END_DATE = '{$endDate}', MODE = '{$eventMode}', IMAGE = '{$eventImg}', LOCATION = '{$location}', DESCRIPTION = '{$description}' WHERE EVENT_TITLE = '{$eventTitle}'";
+                else
+                    $sql =  "UPDATE event SET START_DATE = '{$startDate}', END_DATE = '{$endDate}', MODE = '{$eventMode}', LOCATION = '{$location}', DESCRIPTION = '{$description}' WHERE EVENT_TITLE = '{$eventTitle}'";
                 $result = mysqli_query($conn, $sql);
                 // if($result === false)
                 //     echo mysqli_error($conn);

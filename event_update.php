@@ -9,6 +9,9 @@
         $result = mysqli_query($conn, $sql);
         $json = mysqli_fetch_assoc($result);
     }
+
+    $words = explode('/', $json['IMAGE']);
+    $fileName = end($words);
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +44,12 @@
                         <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
                         <li class="breadcrumb-item breadcrumb-admin"><a href="admin-events-dash.html">Events-Dashboard</a></li>
                         <li class="breadcrumb-item breadcrumb-admin"><a href="event_admin.php">Manage Events</a></li>
-                        <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/New Event</li>
+                        <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">Update Event</li>
                     </ol>
                 </nav>
                 
                 <div class="row mb-4">
-                    <h1 class="form-reg-heading">NEW EVENT</h1>
+                    <h1 class="form-reg-heading">UPDATE EVENT</h1>
                     <hr>
                 </div>
 
@@ -89,7 +92,8 @@
                             <div class="row mt-4 event-row p-0 m-0">
                                 <div class="col-sm">
                                     <label class="form-label" for="eventImg">Event Image</label>
-                                    <input class="form-control" type="file" name="eventImg" id="eventImg" required>
+                                    <input class="form-control" type="file" name="eventImg" id="eventImg">
+                                    <small class="mt-1"><span>Past image: <?php echo $fileName ?></span></small>
                                     <small class="error-msg">Error Message</small>
                                 </div>
                             </div>
@@ -106,7 +110,7 @@
                                 </div>
                             </div>
 
-                            <div class="row event-row p-0 m-0">
+                            <div class="row event-row p-0 m-0 mt-2">
                                 <div class="col-sm">
                                     <label class="form-label" for="location">Location</label>
                                     <textarea name="location" class="form-control" id="location" cols="25" rows="1"></textarea>
@@ -159,7 +163,6 @@
     </script>
 </body>
 
-<!-- <script type="text/javascript" src="js/eventFiller.js"></script> -->
 </html>
 
 <script>
