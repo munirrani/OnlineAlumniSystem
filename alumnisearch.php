@@ -3,6 +3,14 @@
 
 <head>
   <?php include_once("php/head.php") ?>
+
+  <?PHP
+
+  if (!isset($_SESSION["userid"])) {
+    header("location: index.php");
+  }
+
+  ?>
   <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
   <title>Alumni Search | FSKTM Alumni</title>
 </head>
@@ -201,10 +209,10 @@
                           </div>
                           <!-- Right Col -->
                           <div class="container mt-4 shadow-lg" id="bottom-box">
-                          
+
                             <h3 id="exp-alumni-modal">Experience and Recent Project</h3>
                             <div style="overflow-x:auto">
-                            <table class="content-table" id="modal-table-alumni">
+                              <table class="content-table" id="modal-table-alumni">
                                 <colgroup>
                                   <col span="1" style="width: 20%;">
                                   <col span="1" style="width: 20%;">
@@ -222,23 +230,23 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-                                include("php/db_connect.php");
-                                $experiencequery = "SELECT * FROM experience WHERE ALUMNI_ID = ".$record['ALUMNI_ID'];
-                                $experienceset = mysqli_query($conn, $experiencequery) or die("database error: " . mysqli_error($conn));
-                                while($experience = mysqli_fetch_assoc($experienceset)){                             
-                                ?>
-                                <tr>
-                                    <td><?php echo $experience['COMPANY']?></td>
-                                    <td><?php echo $experience['WORK_TITLE']?></td>
-                                    <td><?php echo $experience['POSITION']?></td>
-                                    <td><?php echo $experience['DESC']?></td>
-                                    <td></td>
-                                </tr>
-                                <?php } ?>
-                                
-                              
-                                  
+                                  <?php
+                                  include("php/db_connect.php");
+                                  $experiencequery = "SELECT * FROM experience WHERE ALUMNI_ID = " . $record['ALUMNI_ID'];
+                                  $experienceset = mysqli_query($conn, $experiencequery) or die("database error: " . mysqli_error($conn));
+                                  while ($experience = mysqli_fetch_assoc($experienceset)) {
+                                  ?>
+                                    <tr>
+                                      <td><?php echo $experience['COMPANY'] ?></td>
+                                      <td><?php echo $experience['WORK_TITLE'] ?></td>
+                                      <td><?php echo $experience['POSITION'] ?></td>
+                                      <td><?php echo $experience['DESC'] ?></td>
+                                      <td></td>
+                                    </tr>
+                                  <?php } ?>
+
+
+
                                 </tbody>
                               </table>
                             </div>
