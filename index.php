@@ -58,30 +58,31 @@
                             <h4>There are no upcoming events at the moment. Check back soon for other exciting events.</h4>
                             </p>
                         </div>';
-                        }else{
+                        } else {
                             while ($record = mysqli_fetch_assoc($resultset)) {
-                                ?>
-                                    <div class="col-lg-3 d-flex align-items-stretch event-card">
-                                        <div class="card">
-                                            <a href="event.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($record['IMAGE']) . '" class="card-img-top"/>'; ?></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title"><?php echo $record['EVENT_TITLE'] ?></h4>
-                                                <h6 class="card-subtitle mb-2 text-muted"><?php echo $record['START_DATE'] ?></h6>
-                                                <p class="card-text"><?php echo 'Mode: ' . $record['MODE'] ?>
-                                                    <br>
-                                                    <?php echo 'Venue: ' . $record['LOCATION'] ?>
-                                                </p>
-        
-                                                <p class="event-info">
-                                                    <a href="event.php" class="card-link">Learn More</a>
-                                                </p>
-                                            </div>
+                        ?>
+                                <div class="col-lg-3 d-flex align-items-stretch event-card">
+                                    <div class="card">
+                                       <a href="event.php"><img src="/OnlineAlumniSystem/<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
+                                        </a>
+                                        <div class="card-body">
+                                            <h4 class="card-title"><?php echo $record['EVENT_TITLE'] ?></h4>
+                                            <h6 class="card-subtitle mb-2 text-muted"><?php echo $record['START_DATE'] ?></h6>
+                                            <p class="card-text"><?php echo 'Mode: ' . $record['MODE'] ?>
+                                                <br>
+                                                <?php echo 'Venue: ' . $record['LOCATION'] ?>
+                                            </p>
+
+                                            <p class="event-info">
+                                                <a href="event.php" class="card-link">Learn More</a>
+                                            </p>
                                         </div>
                                     </div>
-                                <?php } ?>
-        
+                                </div>
+                            <?php } ?>
+
                         <?php } ?>
-                        
+
                     </div>
                     <br>
                     <div class="d-flex align-items-center justify-content-center">

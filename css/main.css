@@ -306,6 +306,13 @@ footer {
     font-weight: 800;
     color: #8f0b89;
 }
+.card-img-top{
+    max-width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center center;
+}
+
 .news-home-link{
     text-decoration: none;
     font-weight: 800;
