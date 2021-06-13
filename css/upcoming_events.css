@@ -76,8 +76,8 @@
 .my-event-card {
     background-color: #f3f3f3;
     border: 0px;
-    min-height: 15em;
-    max-height: 15em;
+    min-height: 13em;
+    max-height: 13em;
 }
 .event-title {
     box-sizing: unset;

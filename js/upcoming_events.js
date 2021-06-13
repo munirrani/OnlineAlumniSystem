@@ -1,6 +1,7 @@
+// TODO: Figure out how to make the pages of the event
 const eventList = document.querySelector("#event-list");
 const highlighted = document.querySelector("#highlighted-section");
-var eventData =  
+var eventData =
 [
     {
         eventPage: "event.html",
@@ -86,6 +87,10 @@ function date(startDate, endDate)
         return months[startDateValues[1]] + " " + startDateValues[2] + ", " + startDateValues[0] + " - " + months[endDateValues[1]] + " " + endDateValues[2] + ", " + endDateValues[0];
 }
 
+// ------------------------------------- //
+// Populate the page with event contents //
+// ------------------------------------- //
+
 highlighted.innerHTML = 
     `<div class="row g-0 highlighted-event">
         <div class="col-md-4">
@@ -115,13 +120,12 @@ highlighted.innerHTML =
             </div>
         </div>
     </div>`;
-
 var events = "";
 for(var i = 1; i < eventData.length; i++)
 {
     var currentCard = 
         '<li>' +
-            '<div class="my-event-card card mt-4">' +
+            '<div class="my-event-card card mt-3">' +
                 '<div class="row g-0">' +
                     '<div class="col-md-8">' +
                         '<div class="card-body">' +
@@ -154,6 +158,10 @@ for(var i = 1; i < eventData.length; i++)
 }
 eventList.innerHTML = events;
 
+// --------------------------- //
+// Search function of the page //
+// --------------------------- //
+
 const searchBar = document.querySelector("#search-bar")
     .addEventListener("keyup", (e) => {
         const searchString = e.target.value.toLowerCase();
@@ -166,7 +174,6 @@ const searchBar = document.querySelector("#search-bar")
         });
         displayEvent(filteredEventData);
     });
-
 const displayEvent = (event) => {
     const htmlString = event
         .map((event) => {

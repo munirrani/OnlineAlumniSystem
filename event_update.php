@@ -1,9 +1,16 @@
-<!-- 
-    TODO: Invite alumni to the event
-    TODO: Ability to insert image into the description
-    TODO: Get image of the event
-    TODO: Use location information somewhere 
--->
+<?php
+    require_once("php/db_connect.php");
+
+    $title = $_POST["EVENT_TITLE"];
+    $json = NULL;
+    if(isset($_POST["EVENT_TITLE"]))
+    {
+        $sql = "SELECT * FROM event WHERE EVENT_TITLE = '$title'";
+        $result = mysqli_query($conn, $sql);
+        $json = mysqli_fetch_assoc($result);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +27,7 @@
           padding-top: 0px;
         }
     </style>
-    <title>New Event | FSKTM Alumni</title>
+    <title>Update Event | FSKTM Alumni</title>
 </head>
 
 <body>
@@ -123,18 +130,6 @@
 
     <script type="text/javascript" src="js/eventValidator.js"></script>
     <script>
-        ClassicEditor
-        .create(document.querySelector('#description'), {
-            ckfinder: {
-                options: {resourceType: "Images"},
-                uploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    </script>
-    <script>
         // The navbar profile dropdown
         function myFunction() {
             myDropdown.classList.toggle("show");
@@ -166,3 +161,25 @@
 
 <!-- <script type="text/javascript" src="js/eventFiller.js"></script> -->
 </html>
+
+<script>
+    var event_details = <?php echo json_encode($json); ?>;
+
+    document.querySelector("#eventTitle").value = event_details['EVENT_TITLE'];
+    document.querySelector("#startDate").value = event_details['START_DATE'];
+    document.querySelector("#endDate").value = event_details['END_DATE'];
+    document.querySelector("#location").value = event_details["LOCATION"];
+
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .then(editor => {editor.setData(event_details['DESCRIPTION']);})
+        .catch(error => {console.error(error);});
+
+    var radioButtons = document.querySelectorAll(".event-mode");
+    for(var i = 0; i < radioButtons.length; i++)
+        if(radioButtons[i].value == event_details['MODE'])
+        {
+            radioButtons[i].checked = true;
+            break;
+        }
+</script>
