@@ -50,12 +50,12 @@
                     <hr>
                 </div>
 
-                <form class="form" id="form" method="POST" action="php/event_creation_db.php" enctype="multipart/form-data">
+                <form class="form" id="form" method="POST" action="php/event_update_db.php" enctype="multipart/form-data">
                     <div class="row event-row">
                         <div>
                             <div class="col-sm mb-3">
                                 <label class="form-label" for="eventTitle">Event Title</label>
-                                <input class="form-control" id="eventTitle" type="text" name="eventTitle" placeholder="" required>
+                                <input class="form-control" id="eventTitle" type="text" name="eventTitle" placeholder="" readonly="readonly">
                                 <small class="error-msg">Error Message</small>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="row mt-4 mb-4 event-row p-0 m-0">
-                                <label class="form-label" for="eventMode">Mode</label>
+                                <label class="form-label" for="eventMode" style="margin-bottom: 2em;">Mode</label>
                                 <div class="col radio-label">
                                     <input type="radio" class="event-mode" id="physical" name="eventMode" value="Physical" required>
                                     <label class="event-label" for="physical">Physical</label>
@@ -115,7 +115,7 @@
                             </div>
 
                             <div class="row form-reg-submit justify-content-center mt-2">
-                                <input class="submitreg" id="submit-event" type="submit" value="Create Event">
+                                <input class="submitreg" id="submit-event" type="submit" value="Update Event">
                             </div>  
                         </div>
                     </div>

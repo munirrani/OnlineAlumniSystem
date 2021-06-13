@@ -60,8 +60,8 @@
                     </form>
                 </td>
                 <td class="dt-center">
-                    <form action="">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <form method="POST" action="php/event_delete.php">
+                        <button class="btn btn-danger" name="EVENT_TITLE" type="submit" value="${eventData[i]['EVENT_TITLE']}">
                             Delete
                         </button>
                     </form>

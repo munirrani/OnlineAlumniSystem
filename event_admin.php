@@ -1,3 +1,6 @@
+<!-- 
+    TODO: Implement the modal for the delete function
+ -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -46,7 +49,7 @@
                         </table>
                     </section>
             
-                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                    <!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
                         <div class="modal-dialog warning">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -57,14 +60,14 @@
                                 <div class="modal-body">
                                     You're about to delete this event. Are you sure?
                                 </div>
-                                    
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                     <button type="button" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </main>
 

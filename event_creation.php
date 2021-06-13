@@ -3,6 +3,7 @@
     TODO: Ability to insert image into the description
     TODO: Get image of the event
     TODO: Use location information somewhere 
+    TODO: Fix the color of the submit button
 -->
 <!DOCTYPE html>
 <html lang="en">
