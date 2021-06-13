@@ -108,7 +108,7 @@ function loginUser($conn, $username, $password) {
         $_SESSION["userUsername"] = $usernameExists["USERNAME"]; 
         echo "<script>sessionStorage.setItem('loggedin', true);</script>";
         echo "<script>console.log(' ".  $_SESSION["userUsername"] ." ');</script>";
-        // echo "<script>window.location.href = '../index.php';</script>";
+        echo "<script>window.location.href = '../index.php';</script>";
     }
 
 
