@@ -63,7 +63,7 @@
                         ?>
                                 <div class="col-lg-3 d-flex align-items-stretch event-card">
                                     <div class="card">
-                                       <a href="event.php"><img src="<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
+                                       <a href="event.php"><img src="/<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
                                         </a>
                                         <div class="card-body">
                                             <h4 class="card-title"><?php echo $record['EVENT_TITLE'] ?></h4>
