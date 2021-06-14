@@ -43,7 +43,7 @@
 
             // Default value
             $reg_status = "Pending";
-            $bio = $github_id = $linkedin_id = $alumni_img_id = "";
+            $bio = $github_id = $linkedin_id = "";
 
 
             require_once 'php/validation.inc.php';
@@ -69,17 +69,18 @@
                 exit();
             }
 
+            //Default image icon
+            // Read the image bytes into the $data variable
+            $fh = fopen("img/icon.jpg", "r");
+            $alumni_img_id = addslashes(fread($fh, filesize("img/icon.jpg")));
+            fclose($fh);
 
             // Hash Password
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
             // Attempt insert query execution
-            $sqlreg = "INSERT INTO alumni (EMAIL,USERNAME,PASSWORD,FULL_NAME,AGE,GENDER,PHONE_NO,BIO,ADDRESS,COUNTRY,POSTCODE,CITY,STATE,REG_STATUS,ALUMNI_IMG_ID,MATRIC_ID,ENROL_YEAR,GRAD_YEAR,CURRENT_POS,LEVEL,DEPT,GITHUB_ID,LINKEDIN_ID) VALUES ('$email', '$username', '$hash', '$fullname', '$age', '$gender', '$phonenum', '$bio', '$address', '$country', '$postcode', '$city', '$state', '$reg_status', '$alumni_img_id', '$matricid', '$enrolYear', '$gradYear', '$currentPos', '$level', '$department', '$github_id', '$linkedin_id')";
-            if (mysqli_query($conn, $sqlreg)) {
-                echo ("<script>console.log('SAVED!');</script>");
-            } else {
-                echo ("<script>console.log('FAILED');</script>");
-            }
+            $sqlreg = "INSERT INTO alumni (EMAIL,USERNAME,PASSWORD,FULL_NAME,AGE,GENDER,PHONE_NO,BIO,ADDRESS,COUNTRY,POSTCODE,CITY,STATE,REG_STATUS,ALUMNI_IMG,MATRIC_ID,ENROL_YEAR,GRAD_YEAR,CURRENT_POS,LEVEL,DEPT,GITHUB_ID,LINKEDIN_ID) VALUES ('$email', '$username', '$hash', '$fullname', '$age', '$gender', '$phonenum', '$bio', '$address', '$country', '$postcode', '$city', '$state', '$reg_status', '$alumni_img_id', '$matricid', '$enrolYear', '$gradYear', '$currentPos', '$level', '$department', '$github_id', '$linkedin_id')";
+            mysqli_query($conn, $sqlreg) or die("database error: " . mysqli_error($conn));
 
 
             // Close connection
