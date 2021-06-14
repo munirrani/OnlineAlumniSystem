@@ -13,7 +13,13 @@
     <?php include_once("php/head.php")?>
 
     <link rel="stylesheet" href="css/event.css">
+    <?PHP
 
+    if (!isset($_GET['EVENT_TITLE'])) {
+        header("location: upcoming_events.php");
+    }
+
+    ?>
     <title>Event | FSKTM Alumni</title>
 </head>
 

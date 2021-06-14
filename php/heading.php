@@ -47,13 +47,6 @@
                 <li class="nav-item">
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/contact.php') echo ' active' ?>" href="contact.php"><b>Contact Us</b></a>
                 </li>
-                <?PHP
-                if (isset($_SESSION["userid"])) {
-                    echo '<li class="nav-item">';
-                    echo '<a class="nav-link" href="php/logout.php"><b>Log out</b></a>';
-                    echo '</li>';
-                }
-                ?>
             </ul>
             <hr>
             <div class="navbar-nav fl-right event-buttons">
