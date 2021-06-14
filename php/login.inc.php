@@ -8,6 +8,12 @@ if(isset($_POST["submit"])) {
     $password = $_POST["password"];
     $userperm = $_POST["userperm"];
 
+    if(isset($_POST["rememberMe"])) {
+        $remember = "remember";
+    }else {
+        $remember = "notremember";
+    }
+
     require_once 'validation.inc.php';
 
     if(emptyInputLogin($username, $password) !== false) {
@@ -20,11 +26,11 @@ if(isset($_POST["submit"])) {
         exit();
     }
     if(rolesAdmin($userperm) !== false) {
-        logAdmin($conn, $username, $password);
+        logAdmin($conn, $username, $password,$remember);
         exit();
     }
 
-    loginUser($conn, $username, $password);
+    loginUser($conn, $username, $password,$remember);
 }
 else {
     echo "<script>window.location.href = '../login.php';</script>";

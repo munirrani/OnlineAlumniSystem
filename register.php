@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>  
+<head>
     <?php include_once("php/head.php") ?>
     <?PHP
 
@@ -156,6 +156,15 @@
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                                 <input id="address" type="text" name="address" class="form-control" placeholder="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-sm">
+                                            <label class="form-label" for="postcode">Postcode</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
+                                                <input id="postcode" type="number" name="postcode" class="form-control" placeholder="" min="1" required>
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -426,15 +435,6 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm">
-                                            <label class="form-label" for="postcode">Postcode</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
-                                                <input id="postcode" type="number" name="postcode" class="form-control" placeholder="" min="1" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
                                         <div class="col-sm">
                                             <label class="form-label" for="city">City</label>
                                             <div class="input-group">
