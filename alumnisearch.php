@@ -160,12 +160,12 @@
 
 
                           <!-- Right Col -->
-                          <div class="col-lg d-grid justify-content-center mt-3" id="right-col-alumni-modal">
+                          <div class="col-lg d-grid justify-content-center" id="right-col-alumni-modal">
 
 
 
                             <!-- Bot Row -->
-                            <div class="row contact-box mt-3 d-flex" id="bot-row-modal-alumni">
+                            <div class="row contact-box d-flex" id="bot-row-modal-alumni">
                               <div class="row" id="bot-row-modal-alumni-header">
                                 <h1 class="display-6 text-center">Academic Background</h1>
                               </div>

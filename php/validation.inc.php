@@ -98,7 +98,7 @@ function emptyInputLogin($username, $password) {
 
 
 
-function loginUser($conn, $username, $password) {
+function loginUser($conn, $username, $password,$remember) {
     $usernameExists = usernameExists($conn,$username,$username);
 
     if($usernameExists === false) {
@@ -130,6 +130,8 @@ function loginUser($conn, $username, $password) {
         $_SESSION["userid"] = $usernameExists["ALUMNI_ID"]; 
         $_SESSION["userUsername"] = $usernameExists["USERNAME"]; 
         $_SESSION["alumniimg"] = $record["ALUMNI_IMG"];
+        $_SESSION["remember"] = $remember;
+        $_SESSION['LAST_ACTIVITY'] = time();
         echo "<script>sessionStorage.setItem('loggedin', true);</script>";
         echo "<script>window.location.href = '../index.php';</script>";
     }
@@ -163,7 +165,7 @@ function adminExists($conn,$username,$email) {
 
 
 
-function logAdmin($conn, $username, $password) {
+function logAdmin($conn, $username, $password,$remember) {
     $usernameExists = adminExists($conn,$username,$username);
 
     if($usernameExists === false) {
@@ -193,6 +195,8 @@ function logAdmin($conn, $username, $password) {
         $_SESSION["userid"] = $usernameExists["ADMIN_ID"]; 
         $_SESSION["userUsername"] = $usernameExists["ADMIN_USERNAME"]; 
         $_SESSION["alumniimg"] = $alumni_img_id;
+        $_SESSION["remember"] = $remember;
+        $_SESSION['LAST_ACTIVITY'] = time();
         echo "<script>sessionStorage.setItem('loggedin', true);</script>";
         echo "<script>window.location.href = '../admindash.php';</script>";
     }

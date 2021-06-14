@@ -32,7 +32,7 @@
 
           <div class="bottom-log">
             <label class="checkbox">
-              <input type="checkbox" id="rememberme" name="rememberMe"> Remember me
+              <input type="checkbox" id="rememberme" name="rememberMe" value="remember"> Remember me
             </label>
             <button class="submitlog" type="submit" name="submit">Login</button>
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>

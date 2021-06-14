@@ -1787,8 +1787,8 @@ h6.height{
     background-color: #f3f3f3;
     border: 1px solid #e7eaec;
     /* padding: 10px 23px !important; */
-    width: 23rem;
-    max-width: 23rem;
+    /* width: 23rem; */
+    /* max-width: 23rem; */
   }
 .the-alumni-cards .contact-box{
     color: inherit;
@@ -1804,6 +1804,7 @@ h6.height{
     display: block;
     background-color: #f3f3f3;
     text-align: center;
+    width: 21rem;
   }
 .the-alumni-cards .body-alumni-card img {
     max-width: 100px;
