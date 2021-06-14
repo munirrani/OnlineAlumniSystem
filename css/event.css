@@ -1,13 +1,8 @@
-a {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    color: rgb(134, 131, 131);
-}
 #title-separator {
     margin-bottom: 1.5em;
+}
+#event-section {
+    margin-top: 2em;
 }
 .event-text {
     width: 90%;
@@ -17,4 +12,14 @@ a:hover {
     width: 90%;
     border: 1px black solid;
     margin: auto;
+}
+.description {
+    width: 100%;
+    padding: 1em 6em;
+}
+
+@media (max-width: 730px) {
+    .description {
+        padding: 0em;
+    }
 }
