@@ -1266,6 +1266,7 @@ a[id="no-blue"]{
 
 .job-image{
     width: 80px;
+    height: 80px;
     border-radius: 50%;
     float: left;
     margin: 20px 20px 0px 0px
@@ -1580,6 +1581,7 @@ a[id="no-blue"]{
 }
 .act-image{
     width: 80px;
+    height: 80px;
     border-radius: 50%;
     float: left;
     margin-right: 20px;

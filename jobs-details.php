@@ -8,6 +8,7 @@ include_once("php/db_connect.php");
 <head>
     <?php include_once("php/head.php")?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/job.css">
     <title>FSKTM Alumni</title>
 </head>
 
@@ -23,7 +24,6 @@ include_once("php/db_connect.php");
             $job_desc = $res['JOB_DESCRIPTION'];
             $job_type = $res['JOB_TYPE'];
             $job_qual = $res['JOB_QUALIFICATION'];
-            $job_salary_type = $res['JOB_SALARY_TYPE'];
             $job_salary_min = $res['JOB_SALARY_MIN'];
             $job_salary_max = $res['JOB_SALARY_MAX'];
             $job_dateline = $res['JOB_DATELINE'];
@@ -152,7 +152,7 @@ include_once("php/db_connect.php");
                                             <img src="img/RM.png" id="details-right-col-icon">
                                             <div class="no-text-wrap">
                                                 <h6 class="det-strong"><?php echo "RM".$job_salary_min." - RM".$job_salary_max?></h6>
-                                                <h6 id="details-small"><?php echo $job_salary_type.' salary'?></h6>
+                                                <h6 id="details-small">Monthly salary</h6>
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-5 py-3">

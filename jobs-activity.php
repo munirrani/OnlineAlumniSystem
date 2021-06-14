@@ -8,13 +8,14 @@ include_once("php/db_connect.php");
 <head>
     <?php include_once("php/head.php")?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/job.css">
     <title>Job Activity | FSKTM Alumni</title>
 </head>
 
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-        $test_id = 5;
+        $alumni_id = 5;
         ?> 
         <main>
             <div class="container mt-3">
@@ -30,14 +31,14 @@ include_once("php/db_connect.php");
                             href="jobs-activity.html">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.php">Bookmarks</a>
                     </li>
                 </ul>
             </div>
 
             <?php
             $post_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM posttest WHERE TEST_ID = $test_id");
+            $result = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id");
             while($res = mysqli_fetch_array($result)){
                 $post_count++;
             }
@@ -64,7 +65,7 @@ include_once("php/db_connect.php");
                     </div>
                     <div id="act-main" class="card mb-3">
                         <div class="card-body">
-                            <div class="row" id="act-addbox"><a href="jobs-add.php?test_id=<?php echo $test_id?>" style="text-decoration: none;">
+                            <div class="row" id="act-addbox"><a href="jobs-add.php?alumni_id=<?php echo $alumni_id?>" style="text-decoration: none;">
                                     <img src="img/add.png" id="act-addimg">
                                     <h6 id="act-txtadd">
                                         Add a new job vacancy
@@ -76,17 +77,17 @@ include_once("php/db_connect.php");
                                 <h2 id="act-txtheading">JOB ACTIVITY</h2>
                             </div>
                             <?php
-                            $result = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $test_id");
+                            $result = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id ORDER BY EDIT_DATE DESC");
                             while($res = mysqli_fetch_array($result)){
                                 $job_id = $res['JOB_ID'];
-                                $job_title = $res2['JOB_TITLE'];
-                                $cmp_logo = $res2['CMP_LOGO'];
-                                $cmp_name = $res2['CMP_NAME'];
-                                $job_salary_min = $res2['JOB_SALARY_MIN'];
-                                $job_salary_max = $res2['JOB_SALARY_MAX'];
+                                $job_title = $res['JOB_TITLE'];
+                                $cmp_logo = $res['CMP_LOGO'];
+                                $cmp_name = $res['CMP_NAME'];
+                                $job_salary_min = $res['JOB_SALARY_MIN'];
+                                $job_salary_max = $res['JOB_SALARY_MAX'];
                                 $post_date = $res['POST_DATE'];
                                 $job_salary = "RM".$job_salary_min." - RM".$job_salary_max;
-                                $cmp_state = $res2['CMP_STATE'];
+                                $cmp_state = $res['CMP_STATE'];
                                 $new_post_date = date("j F Y",strtotime($post_date));
                                 echo '
                                 <div>

@@ -9,13 +9,14 @@ include_once("php/db_connect.php");
     <?php include_once("php/head.php")?>
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/job.css">
     <title>Jobs | FSKTM Alumni</title>
 </head>
 
 <body>
     <div class="container-fluid p-0 m-0">
     <?php include_once("php/heading.php");
-    $test_id = 5;
+    $alumni_id = 5;
 
     function Get($index, $defaultValue) {
         return isset($_GET[$index]) ? $_GET[$index] : $defaultValue;
@@ -29,10 +30,10 @@ include_once("php/db_connect.php");
             $query .= " CMP_STATE LIKE '%".$_GET["loc"]."%' AND";
         }
         if(isset($_GET["ms"])){
-            $query .= " JOB_SALARY_MIN >= ".$_GET["ms"]." AND";
+            $query .= " JOB_SALARY_MIN >= ".$_GET["ms"]."    ";
         }
         if(isset($_GET["ft"]) || isset($_GET["pt"]) || isset($_GET["ct"]) || isset($_GET["in"])){
-            $query .= " JOB_TYPE IN ('".Get('ft',"")."','".Get('pt',"")."','".Get('ct',"")."','".Get('in',"")."')    ";
+            $query .= " AND JOB_TYPE IN ('".Get('ft',"")."','".Get('pt',"")."','".Get('ct',"")."','".Get('in',"")."')    ";
         }
         if(isset($_GET["sort"])){
             if($_GET["sort"]=="Date"){
@@ -68,7 +69,7 @@ include_once("php/db_connect.php");
                     </div>
                     <div class="container">
                     <div class="btn-group mar-5">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button"
+                            <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php 
                                 if(isset($_GET["ms"])){
@@ -92,7 +93,7 @@ include_once("php/db_connect.php");
                             </ul>
                         </div>
                         <div class="btn-group mar-5">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button"
+                            <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Job Type
                             </button>
@@ -141,7 +142,7 @@ include_once("php/db_connect.php");
                                 <p id="sortby"> | &nbsp; Sort By: </p>
                             </div>
                             <div class="btn-group mar-5">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo Get("sort", "Date")?>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -170,7 +171,6 @@ include_once("php/db_connect.php");
                         while($res2 = mysqli_fetch_array($result2)){
                             $job_id = $res2['JOB_ID'];
                             $job_title = $res2['JOB_TITLE'];
-                            $job_salary_type = $res2['JOB_SALARY_TYPE'];
                             $cmp_logo = $res2['CMP_LOGO'];
                             $cmp_name = $res2['CMP_NAME'];
                             $job_salary_min = $res2['JOB_SALARY_MIN'];
@@ -215,7 +215,7 @@ include_once("php/db_connect.php");
                                                 RM '.$job_salary_min.'
                                             </h6>
                                             <h6 id="job-company">
-                                                '.$job_salary_type.' salary
+                                                Monthly salary
                                             </h6>
                                         </div>
                                         <div class="col-md-5">
