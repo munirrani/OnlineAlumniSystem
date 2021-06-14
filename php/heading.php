@@ -27,14 +27,14 @@
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/upcoming_events.php') echo ' active' ?>" href="upcoming_events.php"><b>Events</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.html') echo ' active' ?>" href="jobs.php"><b>Jobs</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.php') echo ' active' ?>" href="jobs.php"><b>Jobs</b></a>
                 </li>
                 <?PHP
                 if (isset($_SESSION["userid"])) {
                     echo '<li class="nav-item">';
                     echo '<a class="nav-link';
                     if ($_SERVER["PHP_SELF"] == "/OnlineAlumniSystem/alumnisearch.php") {
-                        echo 'active';
+                        echo ' active';
                     }
                     echo '"';
                     echo "href='alumnisearch.php'><b>Search Alumni</b></a>";
