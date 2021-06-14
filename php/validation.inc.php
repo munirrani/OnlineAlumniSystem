@@ -75,6 +75,16 @@ function checkRoles($userperm) {
     return $result;
 }
 
+function rolesAdmin($userperm) {
+    $result = false;
+    if($userperm == "admin"){
+        $result = true;
+    }else {
+        $result = false;
+    }
+    return $result;
+}
+
 
 function emptyInputLogin($username, $password) {
     $result = false;
@@ -86,16 +96,25 @@ function emptyInputLogin($username, $password) {
     return $result;
 }
 
+
+
 function loginUser($conn, $username, $password) {
     $usernameExists = usernameExists($conn,$username,$username);
-
 
     if($usernameExists === false) {
         echo "<script>window.location.href = '../login.php?error=usernamedoesntexists';</script>";
         echo "<script>console.log('username exists');</script>";
         exit();
     }
-
+    if($usernameExists["REG_STATUS"] === "Pending") {
+        echo "<script>window.location.href = '../login.php?error=pendingstatus';</script>";
+        exit();
+    }
+    if($usernameExists["REG_STATUS"] === "Rejected") {
+        echo "<script>window.location.href = '../login.php?error=rejectedstatus';</script>";
+        exit();
+    }
+    
     $verify = password_verify($password,$usernameExists["PASSWORD"]);
 
     if($verify === false) {
@@ -103,15 +122,85 @@ function loginUser($conn, $username, $password) {
         exit();
     }
     else if($verify === true) {
+
+        $sql = 'SELECT ALUMNI_IMG FROM alumni WHERE ALUMNI_ID = '.$usernameExists["ALUMNI_ID"];
+        $result = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+        $record = mysqli_fetch_assoc($result);
         session_start();
         $_SESSION["userid"] = $usernameExists["ALUMNI_ID"]; 
         $_SESSION["userUsername"] = $usernameExists["USERNAME"]; 
+        $_SESSION["alumniimg"] = $record["ALUMNI_IMG"];
         echo "<script>sessionStorage.setItem('loggedin', true);</script>";
         echo "<script>window.location.href = '../index.php';</script>";
     }
+}
 
+
+function adminExists($conn,$username,$email) {
+    $sqlusername = "SELECT * FROM admin WHERE ADMIN_USERNAME = ? OR ADMIN_EMAIL = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sqlusername)) {
+        echo "<script>window.location.href = '../register.php?error=stmtfailed';</script>";
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $username,$email);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }
+    else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
+
+
+function logAdmin($conn, $username, $password) {
+    $usernameExists = adminExists($conn,$username,$username);
+
+    if($usernameExists === false) {
+        echo "<script>window.location.href = '../login.php?error=usernamedoesntexists';</script>";
+        echo "<script>console.log('username exists');</script>";
+        exit();
+    }
+
+    // $verify = password_verify($password,$usernameExists["PASSWORD"]);
+
+    $verify = ($password === $usernameExists["PASSWORD"]);
+
+    if($verify === false) {
+        echo "<script>window.location.href = '../login.php?error=passwordWrong';</script>";
+        exit();
+    }
+    else if($verify === true) {
+
+        $fh = fopen("../img/icon.jpg", "r");
+        $alumni_img_id = addslashes(fread($fh, filesize("../img/icon.jpg")));
+        fclose($fh);
+
+        // $sql = 'SELECT ALUMNI_IMG FROM alumni WHERE ALUMNI_ID = '.$usernameExists["ALUMNI_ID"];
+        // $result = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+        // $record = mysqli_fetch_assoc($result);
+        session_start();
+        $_SESSION["userid"] = $usernameExists["ADMIN_ID"]; 
+        $_SESSION["userUsername"] = $usernameExists["ADMIN_USERNAME"]; 
+        $_SESSION["alumniimg"] = $alumni_img_id;
+        echo "<script>sessionStorage.setItem('loggedin', true);</script>";
+        echo "<script>window.location.href = '../admindash.php';</script>";
+    }
 
 }
+
+
+
 
 
 

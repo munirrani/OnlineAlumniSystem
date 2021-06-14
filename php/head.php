@@ -11,4 +11,5 @@ session_start();
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/job.css">
 <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
+<script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/map.js"></script>
