@@ -16,7 +16,7 @@ let bmark5logged = document.querySelector(".bmark-hide5-logged");
 
 // Everytime any page is load, It will check whether the user if logged in or not and display personalized navbar
 function topthingy() {
-  let usernameDropdown = sessionStorage.getItem("userName");
+  // let usernameDropdown = sessionStorage.getItem("userName");
   let loggedinval = sessionStorage.getItem("loggedin") === "true";
   if(loggedinval) {
     // navbuttonbar.forEach(element => {
@@ -34,9 +34,9 @@ function topthingy() {
     bmark4logged.style.display = "inline-block";
     bmark5logged.style.display = "inline-block";
     }
-    if (document.querySelector("#profileImg") != null) {
-      document.querySelector("#profileImg").src = sessionStorage.getItem("image");
-    } 
+    // if (document.querySelector("#profileImg") != null) {
+    //   document.querySelector("#profileImg").src = sessionStorage.getItem("image");
+    // } 
     // document.querySelector("#profileIcon").src = sessionStorage.getItem("image");
     // document.querySelector("#profileIcon").classList.add("imgcoverobject");
     // document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>${usernameDropdown}</strong>`;
