@@ -1,93 +1,42 @@
+<?php
+include_once("php/db_connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
-    <script type="text/javascript" src="js/map.js"></script>
+    <?php include_once("php/head.php")?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <title>Profile | FSKTM Alumni</title>
 </head>
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <header>
-            <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
-                <div class="container h4">
-                    <div class="mx-auto order-0">
-                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and
-                            Information
-                            Technology Alumni</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
-            <div class="container h5">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
-                        id="logo-img">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                        <hr>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="upcoming_events.html"><b>Events</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
-                        </li>
-                        <li class="nav-item nav-hide-logged">
-                            <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html"><b>About</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="fl-right event-buttons navbar-nav">
-                        <div class="d-flex gap-2">
-                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
-                                    type="button">Login</button></a>
-                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
-                                    type="button">Register</button></a>
-                            <div class="dropdown nav-prof-bar">
-                                <button onclick="myFunction()" id="profilebtn" class="btn">
-                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
-                                </button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <a href="profile.html" id="dropdown-username"></a>
-                                    <hr class="no-margin">
-                                    <a class="index-chosen-dropdown" href="profile.html">Profile</a>
-                                    <a href="profile-settings.html">Settings & Privacy</a>
-                                    <hr class="no-margin">
-                                    <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="jobs-bookmark.html">Bookmarks</a>
-                                    <hr class="no-margin">
-                                    <a href="#" id="logoutbutton">Log Out</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <?php include_once("php/heading.php");
+        
+        $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
+
+        while($res = mysqli_fetch_array($result)){
+            $username = $res['USERNAME'];
+            $bio = $res['BIO'];
+            $linkedIn = $res['LINKEDIN_ID'];
+            $github = $res['GITHUB_ID'];
+            $fullname = $res['FULL_NAME'];
+            $current_pos = $res['CURRENT_POS'];
+            $email = $res['EMAIL'];
+            $phone = $res['PHONE_NO'];
+            $address = $res['ADDRESS'];
+            $pos_code = $res['POSTCODE'];
+            $city = $res['CITY'];
+            $state = $res['STATE'];
+            $country = $res['COUNTRY'];
+            $enroll_year = $res['ENROLL_YEAR'];
+            $grad_year = $res['GRAD_YEAR'];
+            $major = $res['DEPT'];
+            $level = $res['LEVEL'];
+        }
+        ?>
 
         <main>
             <div class="container mt-3">

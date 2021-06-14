@@ -91,7 +91,7 @@ include_once("php/db_connect.php");
                                 $new_post_date = date("j F Y",strtotime($post_date));
                                 echo '
                                 <div>
-                                    <div id="act-posted">
+                                    <div id="div'.$job_id.'">
                                         Posted on '.$new_post_date.'
                                     </div>
                                     <div id="act-box" class="row">
@@ -138,7 +138,7 @@ include_once("php/db_connect.php");
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                <a href="jobs-activity.html"><button type="button" class="btn confirmbuttonModalSetting">Delete Job</button></a>
+                                <a href="jobs-activity.php"><button type="button" onclick="deleteBookmark($job_id)" class="btn confirmbuttonModalSetting">Delete Job</button></a>
                             </div>
                         </div>
                     </div>
@@ -146,6 +146,20 @@ include_once("php/db_connect.php");
             </div>
         </main>
         <script>
+            //delete job
+            function deleteBookmark(job_id) {
+            var x = document.getElementById("div"+job_id);
+            
+            if (x.style.display === "none") {
+                x.style.display = "block"; 
+            } 
+            else {
+                x.style.display = "none";
+            }
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "job-del-job.php?job_id="+job_id, true);
+            xhttp.send();
+            }
             document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
             document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
             document.querySelector("#act-profileImg").classList.add("imgcoverobject");

@@ -199,10 +199,8 @@ include_once("php/db_connect.php");
                                             </h6>
                                         </div>
                                         <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
-                                            <a href="jobs-details.php?job_id='.$job_id.'"><button type="button" id="viewbutton"
-                                                    class="btn">View</button></a>
-                                                <button type="button" id="job-bmark" class="btn" onclick="addBookmark('.$job_id.')"><img id="search-img"
-                                                        src="img/bookmark-icon.png"></button>
+                                            <a href="jobs-details.php?job_id='.$job_id.'"><button type="button" id="viewbutton" class="btn">View</button></a>
+                                            <button type="button" id="job-bmark" class="btn" onclick="addBookmark('.$job_id.')"><img id="search-img" src="img/bookmark-icon.png"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -269,24 +267,13 @@ include_once("php/db_connect.php");
     <script src="assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
 
     <script>
-        function showUser() {
-        var str ="hhy";
-        if (str == "") {
-            document.getElementById("jobDiv").innerHTML = "";
-            return;
-        } else {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("jobDiv").innerHTML = this.responseText;
-            }
-            };
-            xmlhttp.open("GET","getuser.php?loc="+<?php Get("loc", "")?>+"&ser="+<?php Get("ser", "")?>+"&ms="+<?php Get("ms", "")?>+"&ft="+<?php Get("ft", "")?>+"&pt="+<?php Get("pt", "")?>+"&ct="+<?php Get("ct", "")?>+"&in="+<?php Get("in", "")?>+"sort="+<?php Get("sort", "")?>,true);
-            xmlhttp.send();
+        //Add Bookmark to DB
+        function addBookmark(job_id) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "job-book-db.php?job_id="+job_id, true);
+            xhttp.send();
         }
-        }
-    </script>
-    <script>
         // Salary Slider
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
@@ -296,9 +283,6 @@ include_once("php/db_connect.php");
         slider.oninput = function () {
             output.innerHTML = this.value;
         }
-
-        function addBookmark(a){
-        };
     </script>
     <script type="text/javascript" src="js/searchLocation.js"></script>
 </body>

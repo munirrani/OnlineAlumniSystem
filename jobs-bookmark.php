@@ -69,7 +69,7 @@ include_once("php/db_connect.php");
                                 <h2 id="act-txtheading">BOOKMARKS</h2>
                             </div>
                             <?php
-                            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $alumni_id");
+                            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $alumni_id ORDER BY BOOK_DATE DESC");
                             while($res = mysqli_fetch_array($result)){
                                 $job_id = $res['JOB_ID'];
                                 $book_date = $res['BOOK_DATE'];
@@ -145,6 +145,9 @@ include_once("php/db_connect.php");
             else {
                 x.style.display = "none";
             }
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "job-del-book.php?job_id="+job_id, true);
+            xhttp.send();
             }
             //modal
             setTimeout(function(){
