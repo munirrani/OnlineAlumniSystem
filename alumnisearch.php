@@ -22,7 +22,7 @@
       <div id="home-container" class="container-fluid">
 
         <div class="row justify-content-center">
-          <h1 class="display-4" id="alumni-search-heading">SEARCH ALUMNI PROFILES</h1>
+          <h1 class="display-5" id="alumni-search-heading">SEARCH ALUMNI PROFILES</h1>
         </div>
 
         <div class="row justify-content-center">
@@ -33,7 +33,7 @@
                   <input id="alumni-search-bar" class="form-control form-control-lg form-control-borderless" name="search" type="search" placeholder="Search alumni profiles (Name / Department / Level of Study)">
                 </div>
                 <!--end of col-->
-                <div class="col-1">
+                <div class="col-md-1">
                   <button type="submit" name="submit" class="jumbotron-button"><i><img src="img/search_black_24dp.svg" alt=""></i></button>
                 </div>
               </div>
@@ -48,7 +48,7 @@
 
             <?php
             include_once("php/db_connect.php");
-            $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, EMAIL, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Active' ORDER BY FULL_NAME";
+            $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG, GITHUB_ID, LINKEDIN_ID, BIO FROM alumni WHERE REG_STATUS = 'Active' ORDER BY FULL_NAME";
             $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
             $number_of_results = mysqli_num_rows($resultset);
             $result_per_page = 4;
@@ -63,11 +63,11 @@
             $starting_limit_number = ($page - 1) * $result_per_page;
             if (isset($_GET["submit"])) {
               $str = $_GET["search"];
-              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, EMAIL, LEVEL, ALUMNI_IMG FROM alumni WHERE FULL_NAME LIKE '%$str%' OR DEPT LIKE '%$str%' OR LEVEL LIKE '%$str%'";
+              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG, GITHUB_ID, LINKEDIN_ID, BIO FROM alumni WHERE FULL_NAME LIKE '%$str%' OR DEPT LIKE '%$str%' OR LEVEL LIKE '%$str%'";
               $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
               showCard($resultset);
             } else {
-              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, EMAIL, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Active' ORDER BY FULL_NAME LIMIT " . $starting_limit_number . "," . $result_per_page;
+              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG, GITHUB_ID, LINKEDIN_ID, BIO FROM alumni WHERE REG_STATUS = 'Active' ORDER BY FULL_NAME LIMIT " . $starting_limit_number . "," . $result_per_page;
               $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
               showCard($resultset);
             }
@@ -96,11 +96,7 @@
                           <p class="lead"><?php echo $record['LEVEL'] ?></p>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="col col-card-alumni-val">
-                          <p class="lead"><?php echo $record['EMAIL'] ?></p>
-                        </div>
-                      </div>
+
                       <div class="alumni-card-footer mt-1 mx-2 mb-3">
                         <button type="button" class="btn shadow alumni-card-view-profile-button" data-bs-toggle="modal" data-bs-target="#alumni-modal-<?php echo $record['ALUMNI_ID']; ?>">View Alumni Profile</button>
                       </div>
@@ -122,36 +118,115 @@
 
 
                       <div class="container modal-container-alumni">
-                        <div class="row justify-content-center">
+                        <div class="row d-flex justify-content-center">
 
                           <!-- Profile Card -->
-                          <div class="col-auto col-left-modal-alumni justify-content-center">
-                            <div class="contact-box center-version shadow">
-                              <div class="body-alumni-card-modal">
-                                <img alt="image" id="modal-profile-img" <?php echo 'src=data:image/jpeg;base64,' . base64_encode($record['ALUMNI_IMG']); ?>>
-                                <h1 id="modal-profile-name" class="m-b-xs profile-card-name mt-3" style="text-align: center;">
-                                  <?php echo $record['FULL_NAME'] ?>
-                                </h1>
-                                <h4 id="modal-profile-dept" class="card-department-alumni pb-1">
-                                  <?php echo $record['DEPT'] ?>
-                                </h4>
-                                <div class="prof-icon-modal d-flex justify-content-center" id="social-prof-icon">
+                          <div class="contact-box center-version shadow">
+                            <div class="row d-flex align-items-center ">
 
+                              <div class="col-lg-4 d-flex justify-content-center">
+                                <div class="body-alumni-card-modal">
+                                  <img alt="image" id="modal-profile-img" <?php echo 'src=data:image/jpeg;base64,' . base64_encode($record['ALUMNI_IMG']); ?>>
+                                  <h2 id="modal-profile-name" class="m-b-xs profile-card-name mt-3" style="text-align: center;">
+                                    <?php echo $record['FULL_NAME'] ?>
+                                    </h1>
+                                    <h4 id="modal-profile-dept" class="card-department-alumni pb-1">
+                                      <?php echo $record['DEPT'] ?>
+                                    </h4>
+
+
+                                    <div class="row">
+                                      <div class="col col-card-alumni-val">
+                                        <p id="modal-profile-level" class="lead">
+                                          <?php echo $record['LEVEL'] ?>
+                                        </p>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col col-card-alumni-val">
+                                        <p id="modal-profile-level">
+                                          <?php echo $record['BIO'] ?>
+                                        </p>
+                                      </div>
+                                    </div>
                                 </div>
-                                <hr>
-                                <div class="row">
-                                  <div class="col col-card-alumni-val">
-                                    <p id="modal-profile-level" class="lead">
-                                      <?php echo $record['LEVEL'] ?>
-                                    </p>
+                              </div>
+                              <div class="col-lg-4 d-flex justify-content-center">
+                                <div class="body-alumni-card-modal">
+                                  <div class="row d-grid justify-content-center align-items-center" id="bot-row-modal-alumni-header" style="border: 1px dashed;">
+                                    <h2 class="text-center">Academic Background</h1>
+                                  </div>
+                                  <hr>
+                                  <div class="row">
+                                    <div class="col">
+                                      <p class="h4 text-end">Course</p>
+                                    </div>
+                                    :
+                                    <div class="col">
+                                      <p class="h4" id="modal-profile-course">Computer Science</p>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col">
+                                      <p class="h4 text-end">Major</p>
+                                    </div>
+                                    :
+                                    <div class="col">
+                                      <p class="h4" id="modal-profile-major">
+                                        <?php echo $record['DEPT'] ?>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <hr>
+                                  <div class="row">
+                                    <div class="col text-center">
+                                      <p class="h4" id="modal-profile-batch">
+                                        <?php echo 'Batch of ' . $record['ENROL_YEAR'] ?>
+                                      </p>
+                                    </div>
+                                    <div class="col text-center">
+                                      <p class="h4" id="modal-profile-gradYear">
+                                        <?php echo 'Graduation Year: ' . $record['GRAD_YEAR'] ?>
+                                      </p>
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="row">
-                                  <div class="col col-card-alumni-val">
-                                    <p id="modal-profile-mail" class="lead">
-                                      <?php echo $record['EMAIL'] ?>
-                                    </p>
+                              </div>
+                              <div class="col-lg-4 d-flex justify-content-center">
+                                <div class="body-alumni-card-modal">
+                                  <div class="row d-grid justify-content-center align-items-center" id="bot-row-modal-alumni-header" style="border: 1px dashed;">
+                                    <h2 class="text-center">Contact Details</h1>
                                   </div>
+                                  <?php
+                                  if ($record['LINKEDIN_ID'] != '') {
+                                  ?>
+                                    <hr>
+                                    <div class="row">
+                                      <div class="col">
+                                        <p class="h5"><a id="linkedin1" href="https://www.linkedin.com/in/<?php echo $record['LINKEDIN_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/linkedin_color.png" alt="LinkedIn" id="bio-icons-prof">/<?php echo $record['LINKEDIN_ID']; ?></a></p>
+                                      </div>
+                                    </div>
+                                  <?php } ?>
+                                  <?php
+                                  if ($record['GITHUB_ID'] != '') {
+                                  ?>
+                                    <div class="row">
+                                      <div class="col">
+                                        <p class="h5"><a id="github1" href="https://www.github.com/<?php echo $record['GITHUB_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/github_black.png" alt="Github" id="bio-icons-prof">/<?php echo $record['GITHUB_ID']; ?></a></p>
+                                      </div>
+                                    </div>
+                                  <?php } ?>
+                                  <?php
+                                  if ($record['GITHUB_ID'] == '' && $record['LINKEDIN_ID'] == '') {
+                                  ?>
+                                    <hr>
+                                    <div class="row">
+                                      <div class="col">
+                                        <p class="h5"><?php echo $record['FULL_NAME'] ?> has not provided any public contact information!</p>
+                                      </div>
+                                    </div>
+                                  <?php } ?>
                                 </div>
                               </div>
                             </div>
@@ -159,55 +234,6 @@
                           <!-- Profile Card -->
 
 
-                          <!-- Right Col -->
-                          <div class="col-lg d-grid justify-content-center" id="right-col-alumni-modal">
-
-
-
-                            <!-- Bot Row -->
-                            <div class="row contact-box d-flex" id="bot-row-modal-alumni">
-                              <div class="row" id="bot-row-modal-alumni-header">
-                                <h1 class="display-6 text-center">Academic Background</h1>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                <div class="col">
-                                  <p class="h4 text-end">Course</p>
-                                </div>
-                                :
-                                <div class="col">
-                                  <p class="h4" id="modal-profile-course">Computer Science</p>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col">
-                                  <p class="h4 text-end">Major</p>
-                                </div>
-                                :
-                                <div class="col">
-                                  <p class="h4" id="modal-profile-major">
-                                    <?php echo $record['DEPT'] ?>
-                                  </p>
-                                </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                <div class="col text-center">
-                                  <p class="h4" id="modal-profile-batch">
-                                    <?php echo 'Batch of ' . $record['ENROL_YEAR'] ?>
-                                  </p>
-                                </div>
-                                <div class="col text-center">
-                                  <p class="h4" id="modal-profile-gradYear">
-                                    <?php echo 'Graduation Year: ' . $record['GRAD_YEAR'] ?>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- Bot Row -->
-
-                          </div>
-                          <!-- Right Col -->
                           <div class="container mt-4 shadow-lg" id="bottom-box">
 
                             <h3 id="exp-alumni-modal">Experience and Recent Project</h3>

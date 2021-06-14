@@ -1114,7 +1114,7 @@ a:hover[id=profileNav-inactive] {
 }
 content-table{
     border-collapse: collapse;
-    width: 100%;   
+    width: auto;   
     border-radius: 10px 10px 0 0;
 }
 .content-table thead tr{
@@ -1880,6 +1880,7 @@ h6.height{
     width: 100%;
 }
 .body-alumni-card-modal{
+    margin: 5px;
     max-width: 20rem;
 }
 .alumni-modal img {
@@ -1893,9 +1894,7 @@ h6.height{
     margin-right: 0px !important;
     padding-right: 0px !important;
 }
-#top-row-modal-alumni.contact-box, #bot-row-modal-alumni.contact-box {
-    padding: 10px 0px;
-}
+
 
 #middle-top-row-modal-alumni {
     padding: 0px;
