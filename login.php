@@ -63,6 +63,10 @@
                 echo "Please enter the correct login info!";
               } else if ($_GET["error"] == "passwordWrong") {
                 echo "Please enter the correct password!";
+              } else if ($_GET["error"] == "pendingstatus") {
+                echo "Your account is still being processed by the Admin.";
+              } else if ($_GET["error"] == "rejectedstatus") {
+                echo "Your account is unfortunately rejected by the Admin, If you have any inquiry please contact us.";
               }
 
               ?>
