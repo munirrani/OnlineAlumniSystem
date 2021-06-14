@@ -1,3 +1,11 @@
+<?php 
+    require_once("php/db_connect.php");
+
+    $sql = "SELECT * FROM event WHERE EVENT_TITLE = '{$_GET['EVENT_TITLE']}'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,53 +25,19 @@
             <section id="event-intro">
                 <div>
                     <div id="title-separator">
-                        <small class="text-muted">Start date - end date</small>
-                        <h4 class="event-title card-title mb-0">Event title</h4>
-                        <small class="text-muted">Mode</small>
+                        <small id="date" class="text-muted">Start date - end date</small>
+                        <h4 class="mb-0"><?php echo $row['EVENT_TITLE']; ?></h4>
+                        <small class="text-muted"><?php echo $row['MODE']; ?></small>
                     </div>
     
                     <figure class="text-center">
-                        <img class="rounded-3 img-fluid" src="img/faculty_image.jpg" alt="Main image of the event" width="800" height="500">
+                        <img class="rounded-3 img-fluid" src="<?php echo $row['IMAGE']; ?>" alt="Main image of the event">
                     </figure>
                 </div>
             </section>
     
-            <article class="m-2 align-items-center">
-                <p class="event-text m-4">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi optio molestias dolor aliquid incidunt voluptas molestiae quos et, ratione sed repellat quae mollitia quisquam consequatur dignissimos cumque voluptatibus? Quam, dolores.
-                </p>
-    
-                <div class="event-table m-4">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <article class="m-2 align-items-center description">
+                <?php echo $row['DESCRIPTION']; ?>
             </article>
         </main>
 
@@ -71,6 +45,20 @@
     </div>
 
     <?php include_once("php/scripts.php")?>
+    
+    <script>
+        function date(start_date, end_date)
+        {
+            let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            let startDateValues = start_date.split("-");
+            let endDateValues = end_date.split("-");
+            if(start_date == end_date)
+                return months[startDateValues[1].replace(/^0+/, '')] + " " + startDateValues[2] + ", " + startDateValues[0];
+            else
+                return months[startDateValues[1].replace(/^0+/, '')] + " " + startDateValues[2] + ", " + startDateValues[0] + " - " + months[endDateValues[1].replace(/^0+/, '')] + " " + endDateValues[2] + ", " + endDateValues[0];
+        }
+        let theDate = date('<?php echo $row['START_DATE'] ?>', '<?php echo $row['END_DATE'] ?>');
+        document.querySelector("#date").textContent = String(theDate);
+    </script>
 </body>
-
 </html>

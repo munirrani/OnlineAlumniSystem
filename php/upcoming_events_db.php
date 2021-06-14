@@ -1,9 +1,13 @@
 <!-- TODO: Figure out how to make the pages of the event -->
 <?php
-    require_once("db_connect.php");
+    require_once("php/db_connect.php");
 
-    $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event";
+    $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event ORDER BY START_DATE";
     $result = mysqli_query($conn, $sql);
+
+    $jsarray = array();
+    while($row = mysqli_fetch_assoc($result))
+        $jsarray[] = $row;
 ?>
 
 <script>
@@ -11,30 +15,49 @@
     // Getting the necessary items //
     // --------------------------- //
 
-    function date(START_DATE, END_DATE)
+    function date(start_date, end_date)
     {
         let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-        let START_DATEValues = START_DATE.split("-");
-        let END_DATEValues = END_DATE.split("-");
-        if(START_DATE == END_DATE)
-            return months[START_DATEValues[1]] + " " + START_DATEValues[2] + ", " + START_DATEValues[0];
+        let startDateValues = start_date.split("-");
+        let endDateValues = end_date.split("-");
+        if(start_date == end_date)
+            return months[startDateValues[1].replace(/^0+/, '')] + " " + startDateValues[2] + ", " + startDateValues[0];
         else
-            return months[START_DATEValues[1]] + " " + START_DATEValues[2] + ", " + START_DATEValues[0] + " - " + months[END_DATEValues[1]] + " " + END_DATEValues[2] + ", " + END_DATEValues[0];
+            return months[startDateValues[1].replace(/^0+/, '')] + " " + startDateValues[2] + ", " + startDateValues[0] + " - " + months[endDateValues[1].replace(/^0+/, '')] + " " + endDateValues[2] + ", " + endDateValues[0];
     }
     const eventList = document.querySelector("#event-list");
     const highlighted = document.querySelector("#highlighted-section");
-    var eventData = <?php echo $jsarray; ?>;
+    var eventData = <?php echo json_encode($jsarray);?>;
+    for(var i = 0; i < eventData.length; i++)
+    {
+        if(eventData[i]['DESCRIPTION'] !== null && eventData[i]['DESCRIPTION'].length > 100)
+        {
+            let startIndex = eventData[i]['DESCRIPTION'].indexOf('<p>');
+            let endIndex = eventData[i]['DESCRIPTION'].indexOf('</p>');
+            if(startIndex === -1)
+                eventData[i]['DESCRIPTION'] = "";
+            else
+            {
+                if(endIndex - startIndex >= 400)
+                {
+                    eventData[i]['DESCRIPTION'] = eventData[i]['DESCRIPTION'].substring(startIndex, startIndex + 300) + "...</p>";
+                }
+                else
+                    eventData[i]['DESCRIPTION'] = eventData[i]['DESCRIPTION'].substring(startIndex, endIndex + 4);
+            }
+        }
+    }
+    const temp_event_page = "event.php";
 
     // ------------------------------------- //
     // Populate the page with event contents //
     // ------------------------------------- //
 
     highlighted.innerHTML = 
-    // third line from here, 18th line from here
         `<div class="row g-0 highlighted-event">
             <div class="col-md-4">
-                <a href="event.php"> 
-                    <IMAGE id="highlighted-event-IMAGE" class="IMAGE-fluid rounded-4" src="${eventData[0].IMAGE}" alt="" width="540" height="340">
+                <a href="event.php?EVENT_TITLE=${eventData[0]["EVENT_TITLE"]}">
+                    <img id="highlighted-event-img" class="img-fluid rounded-4" src="${eventData[0]["IMAGE"]}" alt="" width="540" height="340">
                 </a>
             </div>
             
@@ -45,14 +68,15 @@
                             <div class="mb-3">
                                 <h4>Highlighted event</h4>
                             </div>
-                            <!-- TODO: Decide whether to change the order of these things -->
                             <div id="highlighted-event-header" class="mb-3">
-                                <span class="text-muted">${date(eventData[0].START_DATE, eventData[0].END_DATE)}</span>
-                                <a href="event.php"><h3 class="mb-0">${eventData[0].EVENT_TITLE}</h3></a>
-                                <span class="text-muted">${eventData[0].MODE}</span>
+                                <span class="text-muted">${date(eventData[0]["START_DATE"], eventData[0]["END_DATE"])}</span>
+                                <a href="event.php?EVENT_TITLE=${eventData[0]["EVENT_TITLE"]}">
+                                    <h3 class="mb-0">${eventData[0]["EVENT_TITLE"]}</h3>
+                                </a>
+                                <span class="text-muted">${eventData[0]["MODE"]}</span>
                             </div>
                             <article>
-                                ${eventData[0].DESCRIPTION}
+                                ${eventData[0]["DESCRIPTION"]}
                             </article>
                         </div>
                     </div>
@@ -63,36 +87,39 @@
     for(var i = 1; i < eventData.length; i++)
     {
         var currentCard = 
-            '<li>' +
-                '<div class="my-event-card card mt-3">' +
-                    '<div class="row g-0">' +
-                        '<div class="col-md-8">' +
-                            '<div class="card-body">' +
-                                '<div class="mb-4">' +
-                                    '<p class="mb-0">' +
-                                        '<small class="text-muted">' + date(eventData[i].START_DATE, eventData[i].END_DATE) + '</small>' +
-                                        '<a href="event.php"><h4 class="event-EVENT_TITLE card-EVENT_TITLE mb-0">' + eventData[i].EVENT_TITLE + '</h4></a>' + //here
-                                        '<small class="text-muted">' + eventData[i].MODE + '</small>' +
-                                    '</p>' +
-                                '</div>' +
-
-                                '<p class="card-text limit-text">' +
-                                    eventData[i].DESCRIPTION +
-                                '</p>' +
-                            '</div>' +
-                        '</div>' +
-                        '<!-- Implementing this was a bitch but its really about knowing where to apply which class and how many divs do you need to nest -->' +
-                        '<figure class="col-md-4 mb-0 event-IMAGE-container" >' +
-                            '<div class="event-IMAGE-align">' +
-                                '<a href="event.php">' + //here
-                                    '<IMAGE class="IMAGE-fluid rounded-3 event-IMAGE" src="' + eventData[i].IMAGE + '" alt="">' +
-                                '</a>' +
-                            '</div>' +
-                        '</figure>' +
-                    '</div>' +
-                '</div>' +
-            '</li>';
-
+            `<li>
+                <div class="my-event-card card mt-3">
+                    <div class="row g-0 full-height">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <p class="mb-0">
+                                        <small class="text-muted">${date(eventData[i]["START_DATE"], eventData[i]["END_DATE"])}</small>
+                                        <a href="event.php?EVENT_TITLE=${eventData[i]["EVENT_TITLE"]}">
+                                            <h4 class="event-title card-title mb-0">
+                                                ${eventData[i]["EVENT_TITLE"]}
+                                            </h4>
+                                        </a>
+                                        <small class="text-muted">${eventData[i]["MODE"]}</small>
+                                    </p>
+                                </div>
+                                <p class="card-text limit-text">
+                                    ${eventData[i]["DESCRIPTION"]}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <figure class="event-img-container" >
+                                <div class="event-img-align">
+                                    <a href="event.php?EVENT_TITLE=${eventData[i]["EVENT_TITLE"]}">
+                                        <img class="img-fluid rounded-3 event-img" src="${eventData[i]["IMAGE"]}" alt="" width="310" height="100">
+                                    </a>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </li>`;
         events += currentCard;
     }
     eventList.innerHTML = events;
@@ -117,31 +144,36 @@
         const htmlString = event
             .map((event) => {
                 return `
-                <li> 
-                    <div class="my-event-card card mt-4">
-                        <div class="row g-0">
+                <li>
+                    <div class="my-event-card card mt-3">
+                        <div class="row g-0 full-height">
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <div class="mb-4">
                                         <p class="mb-0">
-                                            <small class="text-muted">${date(event.START_DATE, event.END_DATE)}</small>
-                                            <a href=""><h4 class="event-EVENT_TITLE card-EVENT_TITLE mb-0">${event.EVENT_TITLE}</h4></a>
-                                            <small class="text-muted">${event.MODE}</small>
+                                            <small class="text-muted">${date(event["START_DATE"], event["END_DATE"])}</small>
+                                            <a href="event.php?EVENT_TITLE=${event["EVENT_TITLE"]}">
+                                                <h4 class="event-title card-title mb-0">
+                                                    ${event["EVENT_TITLE"]}
+                                                </h4>
+                                            </a>
+                                            <small class="text-muted">${event["MODE"]}</small>
                                         </p>
                                     </div>
-
-                                    <article class="card-text">
-                                        ${event.DESCRIPTION}
-                                    </article>
+                                    <p class="card-text limit-text">
+                                        ${event["DESCRIPTION"]}
+                                    </p>
                                 </div>
                             </div>
-                            <figure class="col-md-4 mb-0 event-IMAGE-container" >
-                                <div class="event-IMAGE-align">
-                                    <a href="">
-                                        <IMAGE class="IMAGE-fluid rounded-3 event-IMAGE" src="${event.IMAGE}" alt="">
-                                    </a>
-                                </div>
-                            </figure>
+                            <div class="col-md-4">
+                                <figure class="event-img-container" >
+                                    <div class="event-img-align">
+                                        <a href="event.php?EVENT_TITLE=${event["EVENT_TITLE"]}">
+                                            <img class="img-fluid rounded-3 event-img" src="${event["IMAGE"]}" alt="" width="310" height="100">
+                                        </a>
+                                    </div>
+                                </figure>
+                            </div>
                         </div>
                     </div>
                 </li>`;
@@ -149,4 +181,4 @@
             .join("");
         eventList.innerHTML = htmlString;
     };
-</script> 
+</script>
