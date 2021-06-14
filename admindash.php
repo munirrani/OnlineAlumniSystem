@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="icon" href="img/logo_um_without_text.png" type="image/png" />
-  <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+  <?php include_once("php/head.php") ?>
+
+  <?PHP
+
+  if (!isset($_SESSION["userid"])) {
+    header("location: index.php");
+  }
+
+  ?>
   <style>
     main {
       min-height: calc(100vh - 52px - 110px - 72px);
@@ -28,7 +29,7 @@
       <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
         <div class="container h4">
           <div class="mx-auto order-0">
-            <a class="navbar-brand" href="admindash.html">Faculty of Computer Science and Information Technology
+            <a class="navbar-brand" href="admindash.php">Faculty of Computer Science and Information Technology
               Alumni</a>
           </div>
         </div>
@@ -36,11 +37,10 @@
     </header>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
       <div class="container h5">
-        <a class="navbar-brand" href="admindash.html">
+        <a class="navbar-brand" href="admindash.php">
           <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block" id="logo-img">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
@@ -64,11 +64,11 @@
                   <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                 </button>
                 <div id="myDropdown" class="dropdown-content">
-                  <a href="profile.html" id="dropdown-username"></a>
+                  <a href="profile.html" id="dropdown-username">Signed in as <strong>Admin</strong></a>
                   <hr class="no-margin">
                   <a href="admin-profile-settings.html">Settings & Privacy</a>
                   <hr class="no-margin">
-                  <a href="#" id="logoutbutton">Log Out</a>
+                  <a href="php/logout.php" id="logoutbutton">Log Out</a>
                 </div>
               </div>
             </div>
@@ -116,46 +116,35 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-    integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-    integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
   <!-- <script type="text/javascript" src="js/main.js"></script> -->
   <script>
+    // document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
 
-    document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
 
+    let dropdowns = document.querySelector(".dropdown-content");
+    let myDropdown = document.querySelector("#myDropdown");
 
-    // The navbar profile dropdown
     function myFunction() {
-      myDropdown.classList.toggle("show");
+      myDropdown.classList.add("show");
     }
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
+    window.onclick = function(event) {
       if (!event.target.matches(".dropbtn")) {
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
-        }
+        dropdowns.classList.remove("show");
       }
     };
+
+    // let logoutbutton = document.querySelector("#logoutbutton");
+    // // when clicking the logout button it will set loggedin to false and sent user to homepage
+    // logoutbutton.onclick = function() {
+    //   let loggedin = false;
+    //   sessionStorage.setItem("loggedin", loggedin);
+    //   window.location.href = "index.html";
+    // };
     //
-    let logoutbutton = document.querySelector("#logoutbutton");
-    // when clicking the logout button it will set loggedin to false and sent user to homepage
-    logoutbutton.onclick = function () {
-      let loggedin = false;
-      sessionStorage.setItem("loggedin", loggedin);
-      window.location.href = "index.html";
-    };
-  //
   </script>
 </body>
 

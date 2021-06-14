@@ -63,7 +63,7 @@
                         echo '
                                 <div class="navbar-nav dropdown">
                                 <button onclick="myFunction()" id="profilebtn" class="btn">
-                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
+                                    <img src="data:image/jpeg;base64,' . base64_encode($_SESSION["alumniimg"]) . '" alt="Null-Image" id="profileIcon" class="dropbtn shadow imgcoverobject">
                                 </button>
                                     <div id="myDropdown" class="dropdown-content">
                                         <a href="profile.html" id="dropdown-username">Signed in as <strong>'; echo $_SESSION["userUsername"]; echo'</strong></a>

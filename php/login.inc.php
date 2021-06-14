@@ -18,7 +18,11 @@ if(isset($_POST["submit"])) {
         echo "<script>window.location.href = '../login.php?error=chooserole';</script>";
         echo "<script>$('#login-modal-warning').modal('show');</script>";
         exit();
-    } 
+    }
+    if(rolesAdmin($userperm) !== false) {
+        logAdmin($conn, $username, $password);
+        exit();
+    }
 
     loginUser($conn, $username, $password);
 }
