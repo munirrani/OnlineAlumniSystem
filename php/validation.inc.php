@@ -1,8 +1,8 @@
 <?php
 
-function emptyInputRegister($firstname, $lastname, $username, $email, $password, $confirmpw, $matricid) {
+function emptyInputRegister($firstname, $lastname, $username, $email, $password, $confirmpw) {
     $result = false;
-    if(empty($firstname) || empty($lastname) || empty($username) || empty($email) || empty($password) || empty($confirmpw) || empty($matricid)) {
+    if(empty($firstname) || empty($lastname) || empty($username) || empty($email) || empty($password) || empty($confirmpw)) {
         $result = true;
     }else {
         $result = false;
