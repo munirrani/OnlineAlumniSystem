@@ -1,5 +1,5 @@
 <?php
-include_once('php/db_connect.php');
+//include_once('php/db_connect.php');
 echo '<script>console.log("Running...")</script>';
 
 $job_title = mysqli_real_escape_string($conn, $_POST['job_title']);
