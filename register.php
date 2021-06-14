@@ -87,17 +87,33 @@
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-sm">
+                                            <label class="form-label" for="username">Username</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                <input id="username" type="text" name="username" class="form-control" placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
                                             <label class="form-label" for="email">Email</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="far fa-envelope"></i></span>
                                                 <input id="email" type="email" name="email" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row mt-2">
                                         <div class="col-sm">
-                                            <label class="form-label" for="matricid">Student Matric ID</label>
+                                            <label class="form-label" for="password">Password</label>
                                             <div class="input-group">
-                                                <span class="input-group-text" id="matricid"><i class="far fa-id-card"></i></span>
-                                                <input type="text" class="form-control" name="matricid" placeholder="" required>
+                                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                <input id="password" type="password" name="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <label class="form-label" for="confirmpw">Confirm Password</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                                <input id="confirmpw" name="confirmpw" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                     </div>
@@ -132,29 +148,6 @@
                                                     <option value="MM">Multimedia</option>
                                                     <option value="CSN">Computer SyStem and Network</option>
                                                 </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col-sm">
-                                            <label class="form-label" for="username">Username</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                                <input id="username" type="text" name="username" class="form-control" placeholder="" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <label class="form-label" for="password">Password</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                                <input id="password" type="password" name="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <label class="form-label" for="confirmpw">Confirm Password</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                                <input id="confirmpw" name="confirmpw" type="password" class="form-control" placeholder="" onkeyup='checkpw()' required />
                                             </div>
                                         </div>
                                     </div>
@@ -435,12 +428,14 @@
                                             </div>
                                         </div>
                                         <div class="col-sm">
-                                            <label class="form-label" for="postcode">Post Code</label>
+                                            <label class="form-label" for="postcode">Postcode</label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
                                                 <input id="postcode" type="number" name="postcode" class="form-control" placeholder="" min="1" required>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row mt-2">
                                         <div class="col-sm">
                                             <label class="form-label" for="city">City</label>
                                             <div class="input-group">
@@ -458,26 +453,21 @@
                                     </div>
 
                                     <?php
-                                        if(isset($_GET["error"])) {
-                                            if($_GET["error"] == "emptyinput") {
-                                                echo "<p>Fill in all fields!</p>";
-                                            }
-                                            else if($_GET["error"] == "invalidusername") {
-                                                echo "<p>Choose a proper username!</p>";
-                                            }
-                                            else if($_GET["error"] == "invalidemail") {
-                                                echo "<p>Choose a proper email!</p>";
-                                            }
-                                            else if($_GET["error"] == "passwordsdontmatch") {
-                                                echo "<p>Password doesn't match with confirm password!</p>";
-                                            }
-                                            else if($_GET["error"] == "stmtfailed") {
-                                                echo "<p>Something went wrong, try again!</p>";
-                                            }
-                                            else if($_GET["error"] == "usernametaken") {
-                                                echo "<p>Username already taken!</p>";
-                                            }
+                                    if (isset($_GET["error"])) {
+                                        if ($_GET["error"] == "emptyinput") {
+                                            echo "<p>Fill in all fields!</p>";
+                                        } else if ($_GET["error"] == "invalidusername") {
+                                            echo "<p>Choose a proper username!</p>";
+                                        } else if ($_GET["error"] == "invalidemail") {
+                                            echo "<p>Choose a proper email!</p>";
+                                        } else if ($_GET["error"] == "passwordsdontmatch") {
+                                            echo "<p>Password doesn't match with confirm password!</p>";
+                                        } else if ($_GET["error"] == "stmtfailed") {
+                                            echo "<p>Something went wrong, try again!</p>";
+                                        } else if ($_GET["error"] == "usernametaken") {
+                                            echo "<p>Username already taken!</p>";
                                         }
+                                    }
                                     ?>
 
                                     <p class="h4" id="error-text-reg"></p>
