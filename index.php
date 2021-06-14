@@ -29,12 +29,7 @@
                             <br>
                             <p class="lead">
                             <div class="d-flex gap-2">
-                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" <?php if (isset($_SESSION["userid"])) {
-                                                                                                        echo 'href = "index.php"';
-                                                                                                    } else {
-                                                                                                        echo 'href = "register.php"';
-                                                                                                    }
-                                                                                                    ?>href="register.php" role="button">Register
+                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" href="register.php" role="button">Register
                                     Now!</a>
                                 <a class="btn jumbotron-button btn-lg" href="about.php" role="button">Learn more</a>
                             </div>
@@ -68,7 +63,7 @@
                         ?>
                                 <div class="col-lg-3 d-flex align-items-stretch event-card">
                                     <div class="card">
-                                        <a href="event.php"><img src="<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
+                                       <a href="event.php"><img src="<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
                                         </a>
                                         <div class="card-body">
                                             <h4 class="card-title"><?php echo $record['EVENT_TITLE'] ?></h4>
