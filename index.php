@@ -29,7 +29,13 @@
                             <br>
                             <p class="lead">
                             <div class="d-flex gap-2">
-                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" href="register.php" role="button">Register
+                                <a id="main-jumbotron-register" class="btn jumbotron-button btn-lg" <?php if (isset($_SESSION["userid"])){
+                                    echo 'href = "index.php"';
+                                }
+                                    else{
+                                        echo 'href = "register.php"';
+                                    }
+                                    ?>href="register.php" role="button">Register
                                     Now!</a>
                                 <a class="btn jumbotron-button btn-lg" href="about.php" role="button">Learn more</a>
                             </div>
