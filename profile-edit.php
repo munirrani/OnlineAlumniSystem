@@ -18,17 +18,6 @@ include_once("php/db_connect.php");
     <div class="container-fluid p-0 m-0">
     <?php include_once("php/heading.php");
         $alumni_id = 225;
-        /* ini kalau page refresh tapi error klu ada input kosong
-        if(isset($_POST['editBio'])){
-            echo '<script>alert("Updated")</script>';
-            //$alumni_img = mysqli_real_escape_string($conn, $_POST['ALUMNI_IMG']);
-            $bio = mysqli_real_escape_string($conn, $_POST['bio']);
-            $linkedIn = mysqli_real_escape_string($conn, $_POST['linkedIn']);
-            $gitHub = mysqli_real_escape_string($conn, $_POST['gitHub']);
-
-            $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',GITHUB_ID='$gitHub',LINKEDIN_ID='$linkedIn' WHERE ALUMNI_ID='$alumni_id'");
-        }*/
-
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
 
         while($res = mysqli_fetch_array($result)){
@@ -55,41 +44,48 @@ include_once("php/db_connect.php");
         ?>
 
         <main>
+        
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="profile.html">Profile</a>
+                            href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.php">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.php">Bookmarks</a>
                     </li>
                 </ul>
             </div>
-
+            
             <div class="container" style="margin-top: 20px;">
                 <div class="main-body">
+                <form autocomplete="off" action="profile.php" method="POST">
                     <div id="round-corner-left" class="row gutters-sm shadow-lg">
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center" id="result">
-                                    <div class="profile-pic-div">
-                                        <img src="img/icon.jpg" id="photo">
-                                        <input type="file" id="file">
-                                        <label for="file" id="uploadBtn">Change Photo</label>
+                                <div class="profile-pic-div">
+                                    <?php
+                                        if(empty($alumni_img)){
+                                            echo '<img src="img/icon.jpg" alt="Admin" id="photo" class="shadow">';
+                                        }
+                                        else{
+                                            echo '<img src="img/'.$alumni_img.'" alt="Admin" id="photo" class="shadow">';
+                                        }
+                                    ?>
+                                    <input name="alumni_img" type="file" id="file" onchange="loadfile(event)">
+                                    <label for="file" id="uploadBtn">Choose Photo</label>
                                     </div>
                                     <div class="mt-3">
-                                        <h2 class="profile-name" id="userName1"></h2>
+                                        <h2 class="profile-name" id="userName1"><?php echo $username?></h2>
                                         <div class="container">
-                                            <div class="container"> 
-                                                <!--<form onsubmit="updateBio()" action="profile-edit.php">-->
-                                                <form>
+                                            <div class="container">
                                                     <textarea name="bio" class="form-control mb-3" id="bio" placeholder="Add a Bio"><?php echo $bio?></textarea>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
@@ -103,11 +99,11 @@ include_once("php/db_connect.php");
                                                         </div>
                                                         <input name="gitHub" type="url" class="form-control" id="github" placeholder="Github" value="<?php echo $gitHub?>" aria-describedby="basic-addon1">
                                                     </div>
-                                                    <hr class="profileBio-line">
+                                                    <!--<hr class="profileBio-line">
                                                     <div class="container mt-3">
                                                         <button onclick="editBio(<?php echo $alumni_id?>)" id="editbutton" class="btn shadow" type="button">Update</button>
-                                                    </div>
-                                                </form>
+                                                    </div>-->
+                                                <!--</form>-->
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +114,7 @@ include_once("php/db_connect.php");
 
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
-                                    <form autocomplete="off" action="profile.php" method="POST">
+                                    <!--Form-->
                                         <div class="row">
                                             <h2 id="profile-heading">PERSONAL INFORMATION</h2>
                                         </div>
@@ -243,14 +239,17 @@ include_once("php/db_connect.php");
                                                 <button name="editProfile" id="updatebutton" class="btn shadow" type="submit">Update Information</button>
                                             </div>
                                         </div>
-                                    </form>
+                                    <!--</form>-->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+                </form>
             </div>
     </div>
+    
     </main>
 
     <div class="modal fade" id="edit-profile-cancel-warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
@@ -268,15 +267,16 @@ include_once("php/db_connect.php");
         </div>
     </div>
 
-    <script> 
-    // ini untuk editBio tanpa refresh tapi taktau cane nak ambil linkedin & github value
-        function editBio(alumni_id) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "profileBio-to-db.php?alumni_id="+alumni_id, true);
-            xhttp.send();
-            alert("Updated!");
-        }
+    <?php include_once("php/footer.php")?>
+    </div>
 
+    <?php include_once("php/scripts.php")?>
+    <script>
+        function loadfile(event) {
+            var output = document.getElementById('photo');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        };
+   
         function cancelEdit() {
             $('#edit-profile-cancel-warning').modal('show');
         }
@@ -284,7 +284,7 @@ include_once("php/db_connect.php");
         function discardbutton() {
             window.location.href = "profile.html"
         }
-
+/*
         function updateBio() {
             var a = document.getElementById("bio").value;
             sessionStorage.setItem("bio", a);
@@ -293,9 +293,10 @@ include_once("php/db_connect.php");
             var c = document.getElementById("github").value;
             sessionStorage.setItem("github", c);
             alert("Updated")
-        }
+        }*/
 
         // Upload Photo
+        /*
         const imgDiv = document.querySelector('.profile-pic-div');
         const img = document.querySelector('#photo');
         const file = document.querySelector('#file');
@@ -319,79 +320,8 @@ include_once("php/db_connect.php");
             if (recentImageDataUrl) {
                 document.querySelector("#photo").setAttribute("src", recentImageDataUrl);
             }
-        });
+        });*/
     </script>
-
-    <footer class="page-footer shadow">
-        <div class="container text-center text-md-left mt-4">
-            <div class="row align-items-center">
-                <div class="col-md-4 mx-auto mb-4">
-                    <a href="index.html">
-                        <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
-                    </a>
-                    <br>
-                    <br>
-                    <br>
-                    <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
-                        & Information Technology made the university one of the pioneers in computer usage in
-                        Malaysia. Since its establishment, the Faculty of Computer Science and Information
-                        Technology
-                        has been led by a number of distinguished persons.</p>
-                </div>
-
-                <div class="col-md-3 mx-auto mb-4">
-                    <h2 class="text-uppercase">Links</h2>
-                    <br>
-                    <h5>
-                        <ul class="list-unstyled lh-5 footer-link">
-                            <li class="my-2 pt-2">
-                                <a href="about.html" class="text-dark">About</a>
-                            </li>
-                            <li class="my-2 pt-2">
-                                <a href="contact.html" class="text-dark">Contact Us</a>
-                            </li>
-                            <li class="my-2 pt-2">
-                                <a href="events.html" class="text-dark">Upcoming Events</a>
-                            </li>
-                            <li class="my-2 pt-2">
-                                <a href="jobs.html" class="text-dark">Search Jobs</a>
-                            </li>
-                        </ul>
-                    </h5>
-                </div>
-
-                <div class="col-md-4 mx-auto mb-4">
-                    <h2 class="text-uppercase">Location</h2>
-                    <div class="d-flex justify-content-center">
-                        <div id="map"></div>
-                    </div>
-                    <script
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
-                        async></script>
-                    <br>
-                    <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
-                        Federal Territory of Kuala Lumpur, Malaysia
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
-            <p>Copyright &copy; FSKTM 2021
-            </p>
-        </div>
-    </footer>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

@@ -17,6 +17,10 @@ include_once("php/db_connect.php");
         $alumni_id = 225;
 
         if(isset($_POST['editProfile'])){
+            $alumni_img = mysqli_real_escape_string($conn, $_POST['alumni_img']);
+            $bio = mysqli_real_escape_string($conn, $_POST['bio']);
+            $linkedIn = mysqli_real_escape_string($conn, $_POST['linkedIn']);
+            $gitHub = mysqli_real_escape_string($conn, $_POST['gitHub']);
             $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
             $current_pos = mysqli_real_escape_string($conn, $_POST['current_pos']);
             $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -31,17 +35,16 @@ include_once("php/db_connect.php");
             $dept = mysqli_real_escape_string($conn, $_POST['dept']);
             $level = mysqli_real_escape_string($conn, $_POST['level']);
         
-            $result = mysqli_query($conn, "UPDATE alumni SET EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ALUMNI_IMG='$alumni_img',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
+            $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',LINKEDIN_ID='$linkedIn',GITHUB_ID='$gitHub',EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ALUMNI_IMG='$alumni_img',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
         }
 
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
-
         while($res = mysqli_fetch_array($result)){
             $alumni_img = $res['ALUMNI_IMG'];
             $username = $res['USERNAME'];
             $bio = $res['BIO'];
             $linkedIn = $res['LINKEDIN_ID'];
-            $github = $res['GITHUB_ID'];
+            $gitHub = $res['GITHUB_ID'];
             $fullname = $res['FULL_NAME'];
             $current_pos = $res['CURRENT_POS'];
             $email = $res['EMAIL'];
@@ -64,16 +67,16 @@ include_once("php/db_connect.php");
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="profile.html">Profile</a>
+                            href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.php">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.php">Bookmarks</a>
                     </li>
                 </ul>
             </div>
@@ -84,16 +87,33 @@ include_once("php/db_connect.php");
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="img/<?php $alumni_img?>" alt="Admin" id="profileImg" class="shadow">
+                                    <?php
+                                    if(empty($alumni_img)){
+                                        echo '<img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">';
+                                        
+                                    }
+                                    else{
+                                        echo '<img src="img/'.$alumni_img.'" alt="Admin" id="profileImg" class="shadow">';
+                                    }
+                                    ?>
                                     <div class="mt-3">
-                                        <h2 class="profile-name" id="userName1"></h2>
+                                        <h2 class="profile-name" id="userName1"><?php echo $username?></h2>
                                         <div class="container">
                                             <div class="container">
-                                                <p id="bio1"><?php echo $bio?></p>
+                                                <p id="bio1">
+                                                    <?php 
+                                                    if(empty($bio)){
+                                                        echo "Add bio and social media";
+                                                    }
+                                                    else{
+                                                        echo $bio;
+                                                    }
+                                                    ?>
+                                                </p>
                                             </div>
                                             <div class="container">
-                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"><?php echo $linkedIn?></a>
-                                                <a id="github1" href=""><img src="img/github.png" alt="Github" id="bio-icons-prof"><?php echo $github?></a>
+                                                <a id="linkedin1" href="<?php echo $linkedIn?>" <?php if(isset($linkedIn)){echo 'target="_blank"';}?>><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
+                                                <a id="github1" href="<?php echo $gitHub?>" <?php if(isset($gitHub)){echo 'target="_blank"';}?>><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
                                             </div>
                                         </div>
                                         <div class="container">
@@ -402,7 +422,6 @@ include_once("php/db_connect.php");
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>
 
 </html>

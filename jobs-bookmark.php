@@ -14,7 +14,7 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-        $alumni_id = 5;
+        $alumni_id = 225;
         ?> 
 
         <main>
@@ -42,6 +42,11 @@ include_once("php/db_connect.php");
             while($res = mysqli_fetch_array($result)){
                 $book_count++;
             }
+            $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
+            while($res = mysqli_fetch_array($result)){
+                $username = $res['USERNAME'];
+                $alumni_img = $res['ALUMNI_IMG'];
+            }
             ?>
 
             <div class="container" style="margin-top: 20px;">
@@ -49,12 +54,17 @@ include_once("php/db_connect.php");
                     <div id="act-header" class="shadow-lg">
                         <div class="row">
                             <div class="col-md-auto">
-                                <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="act-profileImg"
-                                        class="shadow"></a>
+                                <a href="profile.html">
+                                <?php
+                                if(isset($alumni_img)){
+                                    echo '<img src="img/'.$alumni_img.'" alt="Admin" id="act-profileImg" class="shadow"></a>';
+                                }else{
+                                    echo '<img src="img/icon.jpg" alt="Admin" id="act-profileImg" class="shadow"></a>';
+                                }
+                                ?>
                             </div>
                             <div class="col-md-8">
-                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1">
-                                </h2>
+                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"><?php echo $username?></h2>
                                 <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
                             </div>
                             <div class="col-md">
@@ -153,10 +163,6 @@ include_once("php/db_connect.php");
             setTimeout(function(){
                 $('#dialogModal').modal('hide')
             }, 1000);
-            //profile
-            document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
-            document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
-            document.querySelector("#act-profileImg").classList.add("imgcoverobject");
         </script>
         <?php include_once("php/footer.php")?>  
     </div>

@@ -1,109 +1,83 @@
+<?php
+include_once("php/db_connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
-    <script type="text/javascript" src="js/map.js"></script>
+    <?php include_once("php/head.php")?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <title>Settings | FSKTM Alumni</title>
 </head>
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <header>
-            <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
-                <div class="container h4">
-                    <div class="mx-auto order-0">
-                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and
-                            Information
-                            Technology Alumni</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
-            <div class="container h5">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
-                        id="logo-img">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                        <hr>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="upcoming_events.html"><b>Events</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
-                        </li>
-                        <li class="nav-item nav-hide-logged">
-                            <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html"><b>About</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="fl-right event-buttons navbar-nav">
-                        <div class="d-flex gap-2">
-                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
-                                    type="button">Login</button></a>
-                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
-                                    type="button">Register</button></a>
-                            <div class="dropdown nav-prof-bar">
-                                <button onclick="myFunction()" id="profilebtn" class="btn">
-                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
-                                </button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <a href="profile.html" id="dropdown-username"></a>
-                                    <hr class="no-margin">
-                                    <a href="profile.html">Profile</a>
-                                    <a class="index-chosen-dropdown" href="profile-settings.html">Settings & Privacy</a>
-                                    <hr class="no-margin">
-                                    <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="jobs-bookmark.html">Bookmarks</a>
-                                    <hr class="no-margin">
-                                    <a href="#" id="logoutbutton">Log Out</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <?php include_once("php/heading.php");
+        $alumni_id = 225;
+        
+        if(isset($_POST['chgUsername'])){
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $result = mysqli_query($conn, "UPDATE alumni SET USERNAME='$username' WHERE ALUMNI_ID='$alumni_id'");
+        }
+        if(isset($_POST['chgPassword'])){
+            $query = mysql_query("SELECT PASSWORD FROM alumni WHERE ALUMNI_ID='$alumni_id");
+            $data = mysql_fetch_assoc($query);
+            if($data != md5($_POST['password'])){
+                echo "Old and new password did not match!";
+            }
+            if($_POST['password1'] != $_POST['password2']){
+                echo("Oops! Password did not match! Try again. ");
+            } 
+            if(($data == md5($_POST['password'])) && ($_POST['password1'] == $_POST['password2'])){
+                $password = mysqli_real_escape_string($conn, $_POST['password2']);
+                $result = mysqli_query($conn, "UPDATE alumni SET PASSWORD='$password' WHERE ALUMNI_ID='$alumni_id'");
+            }
+        }
+        if(isset($_POST['delAcc'])){
+            $query = mysql_query("SELECT * FROM alumni WHERE ALUMNI_ID='$alumni_id");
+            while($res = mysqli_fetch_array($query)){
+                $username = $res['USERNAME'];
+                $email = $res['EMAIL'];
+                $password = $res['PASSWORD'];
+            }
+            if(($username != $_POST['username']) || ($email != $_POST['username'])){
+                echo "Your username or email did not match!";
+            }
+            if($password != md5($_POST['password'])){
+                echo("Oops! Password did not match! Try again!");
+            } 
+            if((($username != $_POST['username']) || ($email != $_POST['username'])) && ($password != md5($_POST['password']))){
+                $result = mysqli_query($conn, "DELETE FROM alumni WHERE ALUMNI_ID='$alumni_id'");
+            }
+        }
+        $result = mysql_query("SELECT * FROM alumni WHERE ALUMNI_ID='$alumni_id");
+        while($res = mysqli_fetch_array($result)){
+            $alumni_img = $res['ALUMNI_IMG'];
+            $username = $res['USERNAME'];
+            $bio = $res['BIO'];
+            $linkedIn = $res['LINKEDIN_ID'];
+            $gitHub = $res['GITHUB_ID'];
+            $password = $res['PASSWORD'];
+        }
+        mysqli_close($conn);
+        ?>
 
         <main>
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="profile-settings.html">Settings & Privacy</a>
+                            href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.html">Job Activity</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-activity.php">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.html">Bookmarks</a>
+                        <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.php">Bookmarks</a>
                     </li>
                 </ul>
             </div>
@@ -114,18 +88,27 @@
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="profileImg"
-                                            class="shadow"></a>
+                                    <img src="img/<?php echo $alumni_img?>" alt="Admin" id="profileImg"
+                                            class="shadow">
                                     <div class="mt-3">
-                                        <h2 class="profile-name" id="userName1"></h2>
+                                        <h2 class="profile-name" id="userName1"><?php echo $username?></h2>
                                         <div class="container">
                                             <div class="container">
-                                                <p id="bio1"></p>
+                                                <p id="bio1">
+                                                    <?php 
+                                                    if(empty($bio)){
+                                                        echo "Add bio and social media";
+                                                    }
+                                                    else{
+                                                        echo $bio;
+                                                    }
+                                                    ?>
+                                                </p>
                                             </div>
                                             <div class="container">
-                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn"
+                                                <a id="linkedin1" href="<?php echo $linkedIn?>" target="_blank"><img src="img/linkedin.png" alt="LinkedIn"
                                                         id="bio-icons-prof"></a>
-                                                <a id="github1" href=""><img src="img/github.png" alt="Github"
+                                                <a id="github1" href="<?php echo $gitHub?>" target="_blank"><img src="img/github.png" alt="Github"
                                                         id="bio-icons-prof"></a>
                                             </div>
                                         </div>
@@ -149,7 +132,7 @@
                                                 <h6 class="mb-0" style="font-weight: bold">Username</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <h6 class="mb-0" id="userName2"></h6>
+                                                <h6 class="mb-0" id="userName2"><?php echo $username?></h6>
                                             </div>
                                         </div>
                                     </button>
@@ -162,11 +145,11 @@
                                                 </label>
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                <form method="POST">
-                                                    <input type="text" class="form-control purplemodalinput"
+                                                <form method="POST" action="profile-settings.php">
+                                                    <input name="username" type="text" class="form-control purplemodalinput"
                                                         id="userName" required>
-                                                    <button class="btn confirmbuttonModalSetting" type="submit"
-                                                        style="margin-top: 15px" onclick="confirmChange()">
+                                                    <button name="chgUsername" class="btn confirmbuttonModalSetting" type="submit"
+                                                        style="margin-top: 15px">
                                                         Confirm username</button>
                                                 </form>
                                             </div>
@@ -188,7 +171,7 @@
                                     </button>
                                     <div class="content mb-35">
                                         <hr>
-                                        <form onSubmit="return checkPassword(this)" method="POST">
+                                        <form action="profile-settings.php" method="POST">
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <label for="currentPass">
@@ -196,8 +179,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                    <input type="password" class="form-control" placeholder=""
-                                                        required />
+                                                    <input name="password" type="password" class="form-control" placeholder="" required/>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <label for="newPassModal">
@@ -206,7 +188,7 @@
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-2">
                                                     <input id="password" type="password" class="form-control"
-                                                        placeholder="" name=password1 required />
+                                                        name="password1" required />
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <label for="newPassConfirmModal">
@@ -214,10 +196,8 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                    <input id="confirmpw" type="password" class="form-control"
-                                                        placeholder="" name=password2 required />
-                                                    <button class="btn confirmbuttonModalSetting" type="submit"
-                                                        style="margin-top: 15px;">Confirm password</button>
+                                                    <input id="confirmpw" type="password" class="form-control" name="password2" required/>
+                                                    <button name="chgPassword" class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px;">Confirm password</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -245,7 +225,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="index.html" autocomplete="off" method="POST">
+                                                    <form action="index.php" autocomplete="off" method="POST">
                                                         <div class="mb-3">
                                                             <div id="deleteAcc" class="alert">
                                                                 <span class="closebtn"></span>
@@ -256,7 +236,7 @@
                                                         <div class="mb-3">
                                                             <label for="usernameModalSettings"
                                                                 class="col-form-label">Your username or email:</label>
-                                                            <input type="text" class="form-control purplemodalinput"
+                                                            <input name="username" type="text" class="form-control purplemodalinput"
                                                                 id="usernameModalSettings" required>
                                                         </div>
                                                         <div class="mb-3">
@@ -268,19 +248,17 @@
                                                         <div class="mb-3">
                                                             <label for="passwordModalSettings"
                                                                 class="col-form-label">Confirm your password:</label>
-                                                            <input type="password" class="form-control purplemodalinput"
+                                                            <input name="password" type="password" class="form-control purplemodalinput"
                                                                 id="passwordModalSettings" required>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" id="cancelbuttonmodal"
                                                                 class="btn confirmbuttonModalSetting"
                                                                 data-bs-dismiss="modal">Cancel</button>
-                                                            <button type="submit" class="btn confirmbuttonModalSetting"
-                                                                onclick="deleteAcc()">Delete this account</button>
+                                                            <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting">Delete this account</button>
                                                         </div>
                                                     </form>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -292,7 +270,9 @@
             </div>
         </main>
     </div>
+    <?php include_once("php/footer.php")?>
     <script>
+        /*
         function deleteAcc() {
             let loggedin = false;
             sessionStorage.setItem("loggedin", loggedin);
@@ -312,8 +292,7 @@
 
         document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
         document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
-    </script>
-    <script>
+
         // Function to check Whether both passwords
         // is same or not.
         function checkPassword(form) {
@@ -330,80 +309,11 @@
                 alert("Your password is changed")
                 return true;
             }
-        }
+        }*/
     </script>
+    
 
-    <footer class="page-footer shadow">
-        <div class="container text-center text-md-left mt-4">
-            <div class="row align-items-center">
-                <div class="col-md-4 mx-auto mb-4">
-                    <a href="index.html">
-                        <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
-                    </a>
-                    <br>
-                    <br>
-                    <br>
-                    <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
-                        & Information Technology made the university one of the pioneers in computer usage in
-                        Malaysia. Since its establishment, the Faculty of Computer Science and Information
-                        Technology
-                        has been led by a number of distinguished persons.</p>
-                </div>
-
-                <div class="col-md-3 mx-auto mb-4">
-                    <h2 class="text-uppercase">Links</h2>
-                    <br>
-                    <h5>
-                        <ul class="list-unstyled lh-5 footer-link">
-                            <li class="my-2 pt-2">
-                                <a href="about.html" class="text-dark">About</a>
-                            </li>
-                            <li class="my-2 pt-2">
-                                <a href="contact.html" class="text-dark">Contact Us</a>
-                            </li>
-                            <li class="my-2 pt-2">
-                                <a href="events.html" class="text-dark">Upcoming Events</a>
-                            </li>
-                            <li class="my-2 pt-2">
-                                <a href="jobs.html" class="text-dark">Search Jobs</a>
-                            </li>
-                        </ul>
-                    </h5>
-                </div>
-
-                <div class="col-md-4 mx-auto mb-4">
-                    <h2 class="text-uppercase">Location</h2>
-                    <div class="d-flex justify-content-center">
-                        <div id="map"></div>
-                    </div>
-                    <script
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
-                        async></script>
-                    <br>
-                    <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
-                        Federal Territory of Kuala Lumpur, Malaysia
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
-            <p>Copyright &copy; FSKTM 2021
-            </p>
-        </div>
-    </footer>
-
-
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/defaultProfile.js"></script>
+    <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/register.js"></script>
 </body>
 
