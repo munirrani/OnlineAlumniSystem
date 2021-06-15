@@ -174,8 +174,6 @@ function logAdmin($conn, $username, $password,$remember) {
         exit();
     }
 
-    // $verify = password_verify($password,$usernameExists["PASSWORD"]);
-
     $verify = ($password === $usernameExists["PASSWORD"]);
 
     if($verify === false) {
@@ -187,10 +185,6 @@ function logAdmin($conn, $username, $password,$remember) {
         $fh = fopen("../img/icon.jpg", "r");
         $alumni_img_id = addslashes(fread($fh, filesize("../img/icon.jpg")));
         fclose($fh);
-
-        // $sql = 'SELECT ALUMNI_IMG FROM alumni WHERE ALUMNI_ID = '.$usernameExists["ALUMNI_ID"];
-        // $result = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
-        // $record = mysqli_fetch_assoc($result);
         session_start();
         $_SESSION["userid"] = $usernameExists["ADMIN_ID"]; 
         $_SESSION["userUsername"] = $usernameExists["ADMIN_USERNAME"]; 
