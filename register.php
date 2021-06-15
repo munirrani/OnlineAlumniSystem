@@ -141,11 +141,11 @@
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-user-graduate"></i></span>
                                                 <select class="form-control" name="department" id="department" required>
-                                                    <option value="SE">Software Engineering</option>
-                                                    <option value="AI">Artificial Intelligence</option>
-                                                    <option value="IS">Information System</option>
-                                                    <option value="MM">Multimedia</option>
-                                                    <option value="CSN">Computer SyStem and Network</option>
+                                                    <option value="Software Engineering">Software Engineering</option>
+                                                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+                                                    <option value="Information System">Information System</option>
+                                                    <option value="Multimedia">Multimedia</option>
+                                                    <option value="Computer System & Network">Computer SyStem and Network</option>
                                                 </select>
                                             </div>
                                         </div>

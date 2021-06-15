@@ -48,7 +48,7 @@
 
                         <?php
                         include_once("php/db_connect.php");
-                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE LIMIT 4";
+                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE, EVENT_TITLE LIMIT 4";
                         $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
                         $number_of_events = mysqli_num_rows($resultset);
 
@@ -63,7 +63,7 @@
                         ?>
                                 <div class="col-lg-3 d-flex align-items-stretch event-card">
                                     <div class="card">
-                                       <a href="event.php"><img src="<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
+                                       <a href="event.php?EVENT_TITLE=<?php echo $record['EVENT_TITLE']?>"><img src="<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
                                         </a>
                                         <div class="card-body">
                                             <h4 class="card-title"><?php echo $record['EVENT_TITLE'] ?></h4>
@@ -74,7 +74,7 @@
                                             </p>
 
                                             <p class="event-info">
-                                                <a href="event.php" class="card-link">Learn More</a>
+                                                <a href="event.php?EVENT_TITLE=<?php echo $record['EVENT_TITLE']?>" class="card-link">Learn More</a>
                                             </p>
                                         </div>
                                     </div>

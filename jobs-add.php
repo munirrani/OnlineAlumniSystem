@@ -9,13 +9,14 @@ include_once('php/db_connect.php');
     <?php include_once("php/head.php")?>
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/job.css">
     <title>Post New Job | FSKTM Alumni</title>
 </head>
 
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-        $test_id = $_GET['test_id'];
+        $alumni_id = $_GET['alumni_id'];
         ?>
  
         <main>
@@ -23,7 +24,7 @@ include_once('php/db_connect.php');
                 <div id="post-job-main">
                     <h1 id="post-job-heading">POST NEW JOB</h1>
                     <div class="container mt-4">
-                        <form enctype="multipart/form-​data" action="job-to-db.php?test_id=<?php echo $test_id?>" method="POST" autocomplete="off">
+                        <form enctype="multipart/form-​data" action="job-to-db.php?alumni_id=<?php echo $alumni_id?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title<span id="red"> *</span></h6>
@@ -70,21 +71,13 @@ include_once('php/db_connect.php');
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Salary<span id="red"> *</span></h6>
+                                    <h6 class="mb-0">Salary (Monthly)<span id="red"> *</span></h6>
                                 </div>
-                                <div class="col-sm-3 text-secondary">
-                                    <select name = "job_salary_type" class="form-select purplemodalinput" required>
-                                        <option value="Monthly">Monthly</option>
-                                        <option value="Weekly">Weekly</option>
-                                        <option value="Hourly">Hourly</option>
-                                        <option value="Fixed Rate">Fixed Rate</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3 text-secondary">
+                                <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
                                     <input name = "job_salary_min" type="text" class="form-control purplemodalinput" placeholder="Min" required>
                                 </div>
-                                <div class="col-sm-3 text-secondary">
+                                <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
                                     <input name = "job_salary_max" type="text" class="form-control purplemodalinput" placeholder="Max" required>
                                 </div>

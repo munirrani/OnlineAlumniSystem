@@ -3,10 +3,6 @@
     background-color: none;
 }
 
-* { box-sizing: border-box; }
-body {
-  font: 16px Arial;
-}
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
@@ -51,4 +47,17 @@ input[type=submit] {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;
   color: #ffffff;
+}
+
+.book-unclicked{
+  background: url(../img/bookmark-icon.png);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.book-clicked{
+  background: url(../img/bookmark-clicked.png);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
 }

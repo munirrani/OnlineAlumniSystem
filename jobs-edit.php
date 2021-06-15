@@ -9,6 +9,7 @@ include_once("php/db_connect.php");
     <?php include_once("php/head.php")?>    
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/job.css">
     <title>Edit Job | FSKTM Alumni</title>
 </head>
 
@@ -24,7 +25,6 @@ include_once("php/db_connect.php");
             $job_desc = $res['JOB_DESCRIPTION'];
             $job_type = $res['JOB_TYPE'];
             $job_qual = $res['JOB_QUALIFICATION'];
-            $job_salary_type = $res['JOB_SALARY_TYPE'];
             $job_salary_min = $res['JOB_SALARY_MIN'];
             $job_salary_max = $res['JOB_SALARY_MAX'];
             $job_dateline = $res['JOB_DATELINE'];
@@ -49,7 +49,7 @@ include_once("php/db_connect.php");
                 <div id="post-job-main">
                     <h1 id="post-job-heading">EDIT JOB</h1>
                     <div class="container-fluid mt-4">
-                    <form enctype="multipart/form-​data" action="job-to-db.php?job_id=<?php echo $job_id;?>" method="POST" autocomplete="off">
+                    <form enctype="multipart/form-​data" action="jobs-to-db.php?job_id=<?php echo $job_id;?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title<span id="red"> *</span></h6>
@@ -101,7 +101,7 @@ include_once("php/db_connect.php");
                                                   <option value="Contract" selected>Contract</option>';
                                         }
                                         ?>
-                                    </select> <?php echo ' selected'?>
+                                    </select>
                                 </div>
                             </div>
                             <hr>
@@ -118,43 +118,13 @@ include_once("php/db_connect.php");
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Salary<span id="red"> *</span></h6>
+                                    <h6 class="mb-0">Salary (Monthly)<span id="red"> *</span></h6>
                                 </div>
-                                <div class="col-sm-3 text-secondary">
-                                    <select name = "job_salary_type" class="form-select purplemodalinput" required>
-                                    <?php
-                                        if ($job_salary_type=="Monthly"){
-                                            echo '<option value="Monthly" selected>Monthly</option>
-                                                  <option value="Weekly>Weekly</option>
-                                                  <option value="Hourly">Hourly</option>
-                                                  <option value="Fixed Rate">Fixed Rate</option>';
-                                        }
-                                        else if (($job_salary_type=="Weekly")){
-                                            echo '<option value="Monthly">Monthly</option>
-                                                  <option value="Weekly" selected>Weekly</option>
-                                                  <option value="Hourly">Hourly</option>
-                                                  <option value="Fixed Rate">Fixed Rate</option>';
-                                        }
-                                        else if (($job_salary_type=="Hourly")){
-                                            echo '<option value="Monthly">Monthly</option>
-                                                  <option value="Weekly">Weekly</option>
-                                                  <option value="Hourly" selected>Hourly</option>
-                                                  <option value="Fixed Rate">Fixed Rate</option>';
-                                        }
-                                        else {
-                                            echo '<option value="Monthly">Monthly</option>
-                                                  <option value="Weekly">Weekly</option>
-                                                  <option value="Hourly">Hourly</option>
-                                                  <option value="Fixed Rate" selected>Fixed Rate</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3 text-secondary">
+                                <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
                                     <input name = "job_salary_min" type="text" class="form-control purplemodalinput" placeholder="Min" value="<?php echo $job_salary_min?>" required>
                                 </div>
-                                <div class="col-sm-3 text-secondary">
+                                <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
                                     <input name = "job_salary_max" type="text" class="form-control purplemodalinput" placeholder="Max" value="<?php echo $job_salary_max?>" required>
                                 </div>

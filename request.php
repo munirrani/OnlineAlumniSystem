@@ -26,7 +26,6 @@
             $enrolYear = mysqli_real_escape_string($conn, $_REQUEST['enrolYear']);
             $gradYear = mysqli_real_escape_string($conn, $_REQUEST['gradYear']);
             $email = mysqli_real_escape_string($conn, $_REQUEST['email']);
-            $matricid = mysqli_real_escape_string($conn, $_REQUEST['matricid']);
             $currentPos = mysqli_real_escape_string($conn, $_REQUEST['currentPos']);
             $level = mysqli_real_escape_string($conn, $_REQUEST['level']);
             $department = mysqli_real_escape_string($conn, $_REQUEST['department']);
@@ -48,7 +47,7 @@
 
             require_once 'php/validation.inc.php';
 
-            if (emptyInputRegister($firstname, $lastname, $username, $email, $password, $confirmpw, $matricid) !== false) {
+            if (emptyInputRegister($firstname, $lastname, $username, $email, $password, $confirmpw) !== false) {
                 echo "<script>window.location.href = 'register.php?error=emptyinput';</script>";
                 exit();
             }
@@ -79,7 +78,7 @@
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
             // Attempt insert query execution
-            $sqlreg = "INSERT INTO alumni (EMAIL,USERNAME,PASSWORD,FULL_NAME,AGE,GENDER,PHONE_NO,BIO,ADDRESS,COUNTRY,POSTCODE,CITY,STATE,REG_STATUS,ALUMNI_IMG,MATRIC_ID,ENROL_YEAR,GRAD_YEAR,CURRENT_POS,LEVEL,DEPT,GITHUB_ID,LINKEDIN_ID) VALUES ('$email', '$username', '$hash', '$fullname', '$age', '$gender', '$phonenum', '$bio', '$address', '$country', '$postcode', '$city', '$state', '$reg_status', '$alumni_img_id', '$matricid', '$enrolYear', '$gradYear', '$currentPos', '$level', '$department', '$github_id', '$linkedin_id')";
+            $sqlreg = "INSERT INTO alumni (EMAIL,USERNAME,PASSWORD,FULL_NAME,AGE,GENDER,PHONE_NO,BIO,ADDRESS,COUNTRY,POSTCODE,CITY,STATE,REG_STATUS,ALUMNI_IMG,ENROL_YEAR,GRAD_YEAR,CURRENT_POS,LEVEL,DEPT,GITHUB_ID,LINKEDIN_ID) VALUES ('$email', '$username', '$hash', '$fullname', '$age', '$gender', '$phonenum', '$bio', '$address', '$country', '$postcode', '$city', '$state', '$reg_status', '$alumni_img_id', '$enrolYear', '$gradYear', '$currentPos', '$level', '$department', '$github_id', '$linkedin_id')";
             mysqli_query($conn, $sqlreg) or die("database error: " . mysqli_error($conn));
 
 
