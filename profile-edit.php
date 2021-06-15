@@ -1,92 +1,58 @@
+<?php
+include_once("php/db_connect.php");
+
+//kene letak edit picture dalam form
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="img/logo_um_without_text.png" type="image/png">
-    <script type="text/javascript" src="js/map.js"></script>
+<?php include_once("php/head.php")?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <title>FSKTM Alumni</title>
 </head>
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <header>
-            <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
-                <div class="container h4">
-                    <div class="mx-auto order-0">
-                        <a class="navbar-brand" href="index.html">Faculty of Computer Science and
-                            Information
-                            Technology Alumni</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
-            <div class="container h5">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block"
-                        id="logo-img">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                        <hr>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html"><b>Home</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="upcoming_events.html"><b>Events</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="jobs.html"><b>Jobs</b></a>
-                        </li>
-                        <li class="nav-item nav-hide-logged">
-                            <a class="nav-link" href="alumnisearch.html"><b>Search Alumni</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html"><b>About</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html"><b>Contact Us</b></a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="fl-right event-buttons navbar-nav">
-                        <div class="d-flex gap-2">
-                            <a href="login.html"><button id="logbutton" class="btn shadow nav-button-bar"
-                                    type="button">Login</button></a>
-                            <a href="register.html"><button id="regbutton" class="btn shadow nav-button-bar"
-                                    type="button">Register</button></a>
-                            <div class="dropdown nav-prof-bar">
-                                <button onclick="myFunction()" id="profilebtn" class="btn">
-                                    <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
-                                </button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <a href="profile.html" id="dropdown-username"></a>
-                                    <hr class="no-margin">
-                                    <a class="index-chosen-dropdown" href="profile.html">Profile</a>
-                                    <a href="profile-settings.html">Settings & Privacy</a>
-                                    <hr class="no-margin">
-                                    <a href="jobs-activity.html">Job Activity</a>
-                                    <a href="jobs-bookmark.html">Bookmarks</a>
-                                    <hr class="no-margin">
-                                    <a href="#" id="logoutbutton">Log Out</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </nav>
+    <?php include_once("php/heading.php");
+        $alumni_id = 225;
+        /* ini kalau page refresh tapi error klu ada input kosong
+        if(isset($_POST['editBio'])){
+            echo '<script>alert("Updated")</script>';
+            //$alumni_img = mysqli_real_escape_string($conn, $_POST['ALUMNI_IMG']);
+            $bio = mysqli_real_escape_string($conn, $_POST['bio']);
+            $linkedIn = mysqli_real_escape_string($conn, $_POST['linkedIn']);
+            $gitHub = mysqli_real_escape_string($conn, $_POST['gitHub']);
+
+            $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',GITHUB_ID='$gitHub',LINKEDIN_ID='$linkedIn' WHERE ALUMNI_ID='$alumni_id'");
+        }*/
+
+        $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
+
+        while($res = mysqli_fetch_array($result)){
+            $alumni_img = $res['ALUMNI_IMG'];
+            $username = $res['USERNAME'];
+            $bio = $res['BIO'];
+            $linkedIn = $res['LINKEDIN_ID'];
+            $gitHub = $res['GITHUB_ID'];
+            $fullname = $res['FULL_NAME'];
+            $current_pos = $res['CURRENT_POS'];
+            $email = $res['EMAIL'];
+            $phone = $res['PHONE_NO'];
+            $address = $res['ADDRESS'];
+            $pos_code = $res['POSTCODE'];
+            $city = $res['CITY'];
+            $state = $res['STATE'];
+            $country = $res['COUNTRY'];
+            $enrol_year = $res['ENROL_YEAR'];
+            $grad_year = $res['GRAD_YEAR'];
+            $dept = $res['DEPT'];
+            $level = $res['LEVEL'];
+        }
+        mysqli_close($conn);
+        ?>
 
         <main>
             <div class="container mt-3">
@@ -121,32 +87,25 @@
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
-                                            <div class="container">
-                                                <form onsubmit="updateBio()" action="profile-edit.html">
-                                                    <textarea class="form-control mb-3" id="bio"
-                                                        placeholder="Add a Bio"></textarea>
+                                            <div class="container"> 
+                                                <!--<form onsubmit="updateBio()" action="profile-edit.php">-->
+                                                <form>
+                                                    <textarea name="bio" class="form-control mb-3" id="bio" placeholder="Add a Bio"><?php echo $bio?></textarea>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1"><img
-                                                                    src="img/linkedin.png" alt="LinkedIn"
-                                                                    id="bio-icons"></span>
+                                                            <span class="input-group-text" id="basic-addon1"><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons"></span>
                                                         </div>
-                                                        <input type="url" class="form-control" id="linkedin"
-                                                            placeholder="LinkedIn" aria-describedby="basic-addon1">
+                                                        <input name="linkedIn" type="url" class="form-control" id="linkedin" placeholder="LinkedIn" value="<?php echo $linkedIn?>" aria-describedby="basic-addon1">
                                                     </div>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1"><img
-                                                                    src="img/github.png" alt="Github"
-                                                                    id="bio-icons"></span>
+                                                            <span class="input-group-text" id="basic-addon1"><img src="img/github.png" alt="Github" id="bio-icons"></span>
                                                         </div>
-                                                        <input type="url" class="form-control" id="github"
-                                                            placeholder="Github" aria-describedby="basic-addon1">
+                                                        <input name="gitHub" type="url" class="form-control" id="github" placeholder="Github" value="<?php echo $gitHub?>" aria-describedby="basic-addon1">
                                                     </div>
                                                     <hr class="profileBio-line">
                                                     <div class="container mt-3">
-                                                        <button id="editbutton" class="btn shadow"
-                                                            type="submit">Update</button>
+                                                        <button onclick="editBio(<?php echo $alumni_id?>)" id="editbutton" class="btn shadow" type="button">Update</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -159,17 +118,17 @@
 
                             <div id="right-col" class="card mb-3">
                                 <div class="card-body">
-                                    <form autocomplete="off" action="profile.html" method="POST">
+                                    <form autocomplete="off" action="profile.php" method="POST">
                                         <div class="row">
-                                            <h2 id="profile-heading"> PERSONAL INFORMATION</h2>
+                                            <h2 id="profile-heading">PERSONAL INFORMATION</h2>
                                         </div>
                                         <div class="row mb-35">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Full Name</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="fullName"
-                                                    placeholder="Full Name" required>
+                                                <input name="fullname" type="text" class="form-control purplemodalinput" id="fullName"
+                                                    placeholder="Full Name" value="<?php echo $fullname?>" required>
                                             </div>
                                         </div>
                                         <div class="row mb-35">
@@ -177,8 +136,8 @@
                                                 <h6 class="mb-0">Current Position</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput"
-                                                    id="currentPosition" placeholder="Current Position" required>
+                                                <input name="current_pos" type="text" class="form-control purplemodalinput"
+                                                    id="currentPosition" placeholder="Current Position" value="<?php echo $current_pos?>" required>
                                             </div>
                                         </div>
                                         <div class="row mb-35">
@@ -186,8 +145,8 @@
                                                 <h6 class="mb-0">Email</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="email"
-                                                    placeholder="Email" required>
+                                                <input name="email" type="text" class="form-control purplemodalinput" id="email"
+                                                    placeholder="Email" value="<?php echo $email?>" required>
                                             </div>
                                         </div>
                                         <div class="row mb-35">
@@ -195,8 +154,8 @@
                                                 <h6 class="mb-0">Phone</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="phone"
-                                                    placeholder="Phone" required>
+                                                <input name="phone_no" type="text" class="form-control purplemodalinput" id="phone"
+                                                    placeholder="Phone" value="<?php echo $phone?>" required>
 
                                             </div>
                                         </div>
@@ -206,8 +165,8 @@
                                                 <h6 class="mb-0">Address</h6>
                                             </div>
                                             <div class="col-sm-9 mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="address"
-                                                    placeholder="No, Building No, Street Name" required>
+                                                <input name="address" type="text" class="form-control purplemodalinput" id="address"
+                                                    placeholder="No, Building No, Street Name" value="<?php echo $address?>" required>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -215,15 +174,15 @@
                                                 <h6 class="mb-0">Postal Code</h6>
                                             </div>
                                             <div class="col-sm mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="code"
-                                                    placeholder="Postal Code" required>
+                                                <input name="postcode" type="text" class="form-control purplemodalinput" id="code"
+                                                    placeholder="Postal Code" value="<?php echo $pos_code?>" required>
                                             </div>
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">City</h6>
                                             </div>
                                             <div class="col-sm mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="city"
-                                                    placeholder="City" required>
+                                                <input name="city" type="text" class="form-control purplemodalinput" id="city"
+                                                    placeholder="City" value="<?php echo $city?>" required>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -231,15 +190,15 @@
                                                 <h6 class="mb-0">State</h6>
                                             </div>
                                             <div class="col-sm mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="state"
-                                                    placeholder="State" required>
+                                                <input name="state" type="text" class="form-control purplemodalinput" id="state"
+                                                    placeholder="State" value="<?php echo $state?>" required>
                                             </div>
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Country</h6>
                                             </div>
                                             <div class="col-sm  mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="country"
-                                                    placeholder="Country" required>
+                                                <input name="country" type="text" class="form-control purplemodalinput" id="country"
+                                                    placeholder="Country" value="<?php echo $country?>" required>
                                             </div>
                                         </div>
                                         <hr>
@@ -248,31 +207,31 @@
                                                 <h6 class="mb-0">Enrollment Year</h6>
                                             </div>
                                             <div class="col-sm mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="enrollYear"
-                                                    placeholder="Year" required>
+                                                <input name="enrol_year" type="text" class="form-control purplemodalinput" id="enrollYear"
+                                                    placeholder="Year" value="<?php echo $enrol_year?>" required>
                                             </div>
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Graduation Year</h6>
                                             </div>
                                             <div class="col-sm text-secondary  mb-35">
-                                                <input type="text" class="form-control purplemodalinput" id="graduation"
-                                                    placeholder="Year" required>
+                                                <input name="grad_year" type="text" class="form-control purplemodalinput" id="graduation"
+                                                    placeholder="Year" value="<?php echo $grad_year?>" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Major</h6>
+                                                <h6 class="mb-0">Department</h6>
                                             </div>
                                             <div class="col-sm mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="department"
-                                                    placeholder="Course" required>
+                                                <input name="dept" type="text" class="form-control purplemodalinput" id="department"
+                                                    placeholder="Course" value="<?php echo $dept?>" required>
                                             </div>
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Level</h6>
                                             </div>
                                             <div class="col-sm mb-35 text-secondary">
-                                                <input type="text" class="form-control purplemodalinput" id="level"
-                                                    placeholder="Degree/Master/PhD" required>
+                                                <input name="level" type="text" class="form-control purplemodalinput" id="level"
+                                                    placeholder="Degree/Master/PhD" value="<?php echo $level?>" required>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -281,9 +240,7 @@
                                             <div class="d-flex gap-2">
                                                 <button class="btn shadow confirmbuttonModalSetting" type="button"
                                                     id="cancel-button-prof" onclick="cancelEdit()">Cancel</button>
-                                                <button id="updatebutton" class="btn shadow" type="submit"
-                                                    onclick="updateInfo()">Update
-                                                    Information</button>
+                                                <button name="editProfile" id="updatebutton" class="btn shadow" type="submit">Update Information</button>
                                             </div>
                                         </div>
                                     </form>
@@ -311,7 +268,14 @@
         </div>
     </div>
 
-    <script>
+    <script> 
+    // ini untuk editBio tanpa refresh tapi taktau cane nak ambil linkedin & github value
+        function editBio(alumni_id) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "profileBio-to-db.php?alumni_id="+alumni_id, true);
+            xhttp.send();
+            alert("Updated!");
+        }
 
         function cancelEdit() {
             $('#edit-profile-cancel-warning').modal('show');
@@ -320,8 +284,6 @@
         function discardbutton() {
             window.location.href = "profile.html"
         }
-
-
 
         function updateBio() {
             var a = document.getElementById("bio").value;
@@ -332,52 +294,6 @@
             sessionStorage.setItem("github", c);
             alert("Updated")
         }
-
-        function updateInfo() {
-            var a = document.getElementById("fullName").value;
-            sessionStorage.setItem("fullName", a);
-            var b = document.getElementById("currentPosition").value;
-            sessionStorage.setItem("currentPosition", b);
-            var c = document.getElementById("email").value;
-            sessionStorage.setItem("email", c);
-            var d = document.getElementById("phone").value;
-            sessionStorage.setItem("phone", d);
-            var e = document.getElementById("enrollYear").value;
-            sessionStorage.setItem("enrollYear", e);
-            var f = document.getElementById("graduation").value;
-            sessionStorage.setItem("graduation", f);
-            var g = document.getElementById("department").value;
-            sessionStorage.setItem("department", g);
-            var h = document.getElementById("level").value;
-            sessionStorage.setItem("level", h);
-            var i = document.getElementById("address").value;
-            sessionStorage.setItem("address", i);
-            var j = document.getElementById("code").value;
-            sessionStorage.setItem("code", j);
-            var k = document.getElementById("city").value;
-            sessionStorage.setItem("city", k);
-            var l = document.getElementById("state").value;
-            sessionStorage.setItem("state", l);
-            var m = document.getElementById("country").value;
-            sessionStorage.setItem("country", m);
-        }
-        document.getElementById("fullName").value = sessionStorage.getItem("fullName");
-        document.getElementById("currentPosition").value = sessionStorage.getItem("currentPosition");
-        document.getElementById("email").value = sessionStorage.getItem("email");
-        document.getElementById("phone").value = sessionStorage.getItem("phone");
-        document.getElementById("enrollYear").value = sessionStorage.getItem("enrollYear");
-        document.getElementById("graduation").value = sessionStorage.getItem("graduation");
-        document.getElementById("department").value = sessionStorage.getItem("department");
-        document.getElementById("level").value = sessionStorage.getItem("level");
-        document.getElementById("address").value = sessionStorage.getItem("address");
-        document.getElementById("code").value = sessionStorage.getItem("code");
-        document.getElementById("city").value = sessionStorage.getItem("city");
-        document.getElementById("state").value = sessionStorage.getItem("state");
-        document.getElementById("country").value = sessionStorage.getItem("country");
-        document.getElementById("bio").value = sessionStorage.getItem("bio");
-        document.getElementById("linkedin").value = sessionStorage.getItem("linkedin");
-        document.getElementById("github").value = sessionStorage.getItem("github");
-        document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
 
         // Upload Photo
         const imgDiv = document.querySelector('.profile-pic-div');

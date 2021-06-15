@@ -14,10 +14,30 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
     <?php include_once("php/heading.php");
+        $alumni_id = 225;
+
+        if(isset($_POST['editProfile'])){
+            $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
+            $current_pos = mysqli_real_escape_string($conn, $_POST['current_pos']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $phone = mysqli_real_escape_string($conn, $_POST['phone_no']);
+            $address = mysqli_real_escape_string($conn, $_POST['address']);
+            $pos_code = mysqli_real_escape_string($conn, $_POST['postcode']);
+            $city = mysqli_real_escape_string($conn, $_POST['city']);
+            $state = mysqli_real_escape_string($conn, $_POST['state']);
+            $country = mysqli_real_escape_string($conn, $_POST['country']);
+            $enrol_year = mysqli_real_escape_string($conn, $_POST['enrol_year']);
+            $grad_year = mysqli_real_escape_string($conn, $_POST['grad_year']);
+            $dept = mysqli_real_escape_string($conn, $_POST['dept']);
+            $level = mysqli_real_escape_string($conn, $_POST['level']);
         
+            $result = mysqli_query($conn, "UPDATE alumni SET EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ALUMNI_IMG='$alumni_img',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
+        }
+
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
 
         while($res = mysqli_fetch_array($result)){
+            $alumni_img = $res['ALUMNI_IMG'];
             $username = $res['USERNAME'];
             $bio = $res['BIO'];
             $linkedIn = $res['LINKEDIN_ID'];
@@ -31,11 +51,12 @@ include_once("php/db_connect.php");
             $city = $res['CITY'];
             $state = $res['STATE'];
             $country = $res['COUNTRY'];
-            $enroll_year = $res['ENROLL_YEAR'];
+            $enrol_year = $res['ENROL_YEAR'];
             $grad_year = $res['GRAD_YEAR'];
-            $major = $res['DEPT'];
+            $dept = $res['DEPT'];
             $level = $res['LEVEL'];
         }
+        mysqli_close($conn);
         ?>
 
         <main>
@@ -63,16 +84,16 @@ include_once("php/db_connect.php");
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">
+                                    <img src="img/<?php $alumni_img?>" alt="Admin" id="profileImg" class="shadow">
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"></h2>
                                         <div class="container">
                                             <div class="container">
-                                                <p id="bio1"></p>
+                                                <p id="bio1"><?php echo $bio?></p>
                                             </div>
                                             <div class="container">
-                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
-                                                <a id="github1" href=""><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
+                                                <a id="linkedin1" href=""><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"><?php echo $linkedIn?></a>
+                                                <a id="github1" href=""><img src="img/github.png" alt="Github" id="bio-icons-prof"><?php echo $github?></a>
                                             </div>
                                         </div>
                                         <div class="container">
@@ -80,7 +101,7 @@ include_once("php/db_connect.php");
                                                 <hr class="profileBio-line">
                                             </div>
                                         </div>
-                                        <a href="profile-edit.html"><button id="editbutton" class="btn shadow"
+                                        <a href="profile-edit.php"><button id="editbutton" class="btn shadow"
                                                 type="button" onclick="tryFunction()">Edit Profile</button></a>
                                     </div>
                                 </div>
@@ -97,6 +118,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Full Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="fullName1">
+                                        <?php echo $fullname?>
                                         </div>
                                     </div>
                                     <div class="row mb-35">
@@ -104,6 +126,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Current Position</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="currentPosition1">
+                                        <?php echo $current_pos?>
                                         </div>
                                     </div>
                                     <div class="row mb-35">
@@ -111,6 +134,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Email</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="email1">
+                                        <?php echo $email?>
                                         </div>
                                     </div>
                                     <div class="row mb-35">
@@ -118,6 +142,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Phone</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="phone1">
+                                        <?php echo $phone?>
                                         </div>
                                     </div>
                                     <hr>
@@ -126,6 +151,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Address</h6>
                                         </div>
                                         <div class="col-sm-9 mb-35 text-secondary" id="address1">
+                                        <?php echo $address?>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -133,11 +159,13 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Postal Code</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="code1">
+                                        <?php echo $pos_code?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">City</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="city1">
+                                        <?php echo $city?>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -145,11 +173,13 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">State</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="state1">
+                                        <?php echo $state?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Country</h6>
                                         </div>
                                         <div class="col-sm text-secondary" id="country1">
+                                        <?php echo $country?>
                                         </div>
                                     </div>
                                     <hr class="mt-0">
@@ -158,23 +188,27 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Enrollment Year</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="enrollYear1">
+                                        <?php echo $enrol_year?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Graduation Year</h6>
                                         </div>
                                         <div class="col-sm text-secondary  mb-35" id="graduation1">
+                                        <?php echo $grad_year?>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Major</h6>
+                                            <h6 class="mb-0">Department</h6>
                                         </div>
                                         <div class="col-sm  mb-35 text-secondary" id="department1">
+                                        <?php echo $dept?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Level</h6>
                                         </div>
                                         <div class="col-sm text-secondary" id="level1">
+                                        <?php echo $level?>
                                         </div>
                                     </div>
                                 </div>
@@ -296,26 +330,6 @@ include_once("php/db_connect.php");
         formEl.addEventListener("submit", onAddWebsite);
         tableEl.addEventListener("click", onDeleteRow);
                 
-        </script>
-        <script>
-            document.getElementById("fullName1").innerHTML = sessionStorage.getItem("fullName");
-            document.getElementById("currentPosition1").innerHTML = sessionStorage.getItem("currentPosition");
-            document.getElementById("email1").innerHTML = sessionStorage.getItem("email");
-            document.getElementById("phone1").innerHTML = sessionStorage.getItem("phone");
-            document.getElementById("enrollYear1").innerHTML = sessionStorage.getItem("enrollYear");
-            document.getElementById("graduation1").innerHTML = sessionStorage.getItem("graduation");
-            document.getElementById("department1").innerHTML = sessionStorage.getItem("department");
-            document.getElementById("level1").innerHTML = sessionStorage.getItem("level");
-            document.getElementById("address1").innerHTML = sessionStorage.getItem("address");
-            document.getElementById("code1").innerHTML = sessionStorage.getItem("code");
-            document.getElementById("city1").innerHTML = sessionStorage.getItem("city");
-            document.getElementById("state1").innerHTML = sessionStorage.getItem("state");
-            document.getElementById("country1").innerHTML = sessionStorage.getItem("country");
-            document.getElementById("bio1").innerHTML = sessionStorage.getItem("bio");
-            document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
-            
-            document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
-            document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
         </script>
 
         <footer class="page-footer shadow">
