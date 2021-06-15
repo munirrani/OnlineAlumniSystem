@@ -1802,7 +1802,13 @@ h6.height{
     background-color: #f3f3f3;
     text-align: center;
     width: 21rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 28rem;
   }
+.profile-card-name {
+    height: 100px;
+}
 .the-alumni-cards .body-alumni-card img {
     max-width: 100px;
     max-height: 100px;
