@@ -47,6 +47,18 @@ include_once("php/db_connect.php");
     
         return strval("$query");
     }
+    function bookStatus($check_id){
+        $result = mysqli_query($conn, "SELECT * bookmark WHERE ALUMNI_ID=$alumni_id");
+        while($res = mysqli_fetch_array($result)){
+            $job_id = $res['JOB_ID'];
+            if($job_id == $check_id){
+                return "bookmarked";
+            }
+            else{
+                return "notBookmarked";
+            }
+        }
+    }
     ?>
         <div id="jobs-header">
             <div class="container">
@@ -198,9 +210,12 @@ include_once("php/db_connect.php");
                                                 '.$cmp_name.'
                                             </h6>
                                         </div>
-                                        <div class="col-md-auto p-0" style="margin: 0px 10px 20px 10px;">
-                                            <a href="jobs-details.php?job_id='.$job_id.'"><button type="button" id="viewbutton" class="btn">View</button></a>
+                                        <div class="col-md-auto p-0" style="margin: 0px 0px 20px 10px;">
+                                            <a href="jobs-details.php?job_id='.$job_id.'"><button type="button" src="" id="viewbutton" class="btn">View</button></a>
+                                        </div>
+                                        <div class="col-md-auto p-0" style="margin: 0px 10px 20px 5px;">
                                             <button type="button" id="job-bmark" class="btn" onclick="addBookmark('.$job_id.')"><img id="search-img" src="img/bookmark-icon.png"></button>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -273,6 +288,20 @@ include_once("php/db_connect.php");
             xhttp = new XMLHttpRequest();
             xhttp.open("GET", "job-book-db.php?job_id="+job_id, true);
             xhttp.send();
+        }
+        //toggle between notBookmarked & bookmarked
+        function toggle(el){
+            if(el.className!="bookmarked"){
+                el.src="img/bookmark-clicked.png";
+                el.className="bookmarked";
+            }
+            else if(el.className=="bookmarked")
+            {
+                el.src="img/bookmark-icon.png";
+                el.className="notBookmarked";
+            }
+            
+            return false;
         }
         // Salary Slider
         var slider = document.getElementById("myRange");

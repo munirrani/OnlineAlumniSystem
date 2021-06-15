@@ -59,7 +59,8 @@ include_once("php/db_connect.php");
             $dept = $res['DEPT'];
             $level = $res['LEVEL'];
         }
-        mysqli_close($conn);
+
+        
         ?>
 
         <main>
@@ -249,22 +250,22 @@ include_once("php/db_connect.php");
                 </button>
                 
                 <div class="content" id="exp">
-                    <form>
+                    <form action="exp-to-db.php?alumni_id=<?php echo $alumni_id?>" method="POST">
                         <div class="row">
                             <div class="input col-md my-2">
-                                <input type="text" class="form-control" name="comp" id="comp" placeholder="Company / Instituition" required/>
+                                <input name="companyName" type="text" class="form-control" name="comp" id="comp" placeholder="Company / Instituition" required/>
                             </div>
                             <div class="input col-md my-2">
-                                <input type="text" class="form-control" name="activity" id="activity" placeholder="Work / Activity" required/>
+                                <input name="workTitle" type="text" class="form-control" name="activity" id="activity" placeholder="Work / Activity" required/>
                             </div>
                             <div class="input col-md  my-2">
-                                <input type="text" class="form-control" name="position" id="position" placeholder="Position" required/>
+                                <input name="position" type="text" class="form-control" name="position" id="position" placeholder="Position" required/>
                             </div>
                             <div class="input col-md-4 my-2">
-                                <input type="text" class="form-control" name="description" id="description" placeholder="Description" required/>
+                                <input name="description" type="text" class="form-control" name="description" id="description" placeholder="Description" required/>
                             </div>
                             <div class="input col-md-auto my-2">
-                                <button type="submit" id="updatebutton" class="btn">Add</button>
+                                <button name="addExp" type="submit" id="updatebutton" class="btn">Add</button>
                             </div>
                         </div>
                     </form>
@@ -288,136 +289,49 @@ include_once("php/db_connect.php");
                           </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>University Malaya</td>
-                                <td>FSKTM MyTech Career Fair 2021</td>
-                                <td>Head of Technical Bureau</td>
-                                <td>Leading a 5-person team in handling the technical aspects of the MyTech
-                                    Career Fair and responsible for handling the platform for hosting the
-                                    event.</td>
-                                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
-                            </tr>
-                            <tr>
-                                <td>University Malaya</td>
-                                <td>PEKOM</td>
-                                <td>EXCO Software Engineering</td>
-                                <td>Provide constructive opinions on how to improve students' academic experience.</td>
-                                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
-                            </tr>
-                            <tr>
-                                <td>SWIFT</td>
-                                <td>Software Developer</td>
-                                <td>Part-time employee</td>
-                                <td>Work for 1 year and learned new skills.</td>
-                                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
-                            </tr>
+                            <?php
+                            $result1 = mysqli_query($conn, "SELECT * FROM experience WHERE ALUMNI_ID = $alumni_id");
+                            while($res = mysqli_fetch_array($result1)){
+                                $exp_id = $res['EXPERIENCE_ID'];
+                                $cmp = $res['COMPANY'];
+                                $work_title = $res['WORK_TITLE'];
+                                $position = $res['POSITION'];
+                                $desc = $res['DESCRIPTION'];
+                                echo '<tr id="table'.$exp_id.'">
+                                    <td>'.$cmp.'</td>
+                                    <td>'.$work_title.'</td>
+                                    <td>'.$position.'</td>
+                                    <td>'.$desc.'</td>
+                                    <td><button onclick="deleteRow('.$exp_id.')" type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
+                                </tr>';
+                            }
+                            mysqli_close($conn);
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </main>
         <script>
-        const formEl = document.querySelector("form");
-        const tbodyEl = document.querySelector("tbody");
-        const tableEl = document.querySelector("table");
-        function onAddWebsite(e) {
-            e.preventDefault();
-            const company = document.getElementById("comp").value;
-            const activity = document.getElementById("activity").value;
-            const position = document.getElementById("position").value;
-            const description= document.getElementById("description").value;
-            tbodyEl.innerHTML += `
-                <tr>
-                <td>${company}</td>
-                <td>${activity}</td>
-                <td>${position}</td>
-                <td>${description}</td>
-                <td><button type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
-                </tr>
-            `;
-        }
-        function onDeleteRow(e) {
-            if (!e.target.classList.contains("deleteBtn")) {
-            return;
+        //delete ex[erience row
+        function deleteRow(exp_id) {
+            var x = document.getElementById("table"+exp_id);
+            
+            if (x.style.display === "none") {
+                x.style.display = "block"; 
+            } 
+            else {
+                x.style.display = "none";
             }
-            const btn = e.target;
-            btn.closest("tr").remove();
-        }
-        formEl.addEventListener("submit", onAddWebsite);
-        tableEl.addEventListener("click", onDeleteRow);
-                
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "profile-del-row.php?exp_id="+exp_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+            xhttp.send();
+            }
         </script>
 
-        <footer class="page-footer shadow">
-            <div class="container text-center text-md-left mt-4">
-                <div class="row align-items-center">
-                    <div class="col-md-4 mx-auto mb-4">
-                        <a href="index.html">
-                            <img src="img/FCSIT Logo New.png" alt="" height="70%" width="70%" class="img-fluid">
-                        </a>
-                        <br>
-                        <br>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">Formed in 1965, the Faculty of Computer Science
-                            & Information Technology made the university one of the pioneers in computer usage in
-                            Malaysia. Since its establishment, the Faculty of Computer Science and Information
-                            Technology
-                            has been led by a number of distinguished persons.</p>
-                    </div>
-
-                    <div class="col-md-3 mx-auto mb-4">
-                        <h2 class="text-uppercase">Links</h2>
-                        <br>
-                        <h5>
-                            <ul class="list-unstyled lh-5 footer-link">
-                                <li class="my-2 pt-2">
-                                    <a href="about.html" class="text-dark">About</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="contact.html" class="text-dark">Contact Us</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="events.html" class="text-dark">Upcoming Events</a>
-                                </li>
-                                <li class="my-2 pt-2">
-                                    <a href="jobs.html" class="text-dark">Search Jobs</a>
-                                </li>
-                            </ul>
-                        </h5>
-                    </div>
-
-                    <div class="col-md-4 mx-auto mb-4">
-                        <h2 class="text-uppercase">Location</h2>
-                        <div class="d-flex justify-content-center">
-                            <div id="map"></div>
-                        </div>
-                        <script
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtr5sUBYuVy6QWlxdX19VRvP8dX9INUI&callback=initMap&libraries=&v=weekly"
-                            async></script>
-                        <br>
-                        <p class="h5 lh-5" style="text-align: justify;">University of Malaya, 50603 Kuala Lumpur,
-                            Federal Territory of Kuala Lumpur, Malaysia
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-copyright text-center py-3" style="background-color: #8f0b89; color: white;">
-                <p>Copyright &copy; FSKTM 2021
-                </p>
-            </div>
-        </footer>
+    <?php include_once("php/footer.php")?>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <?php include_once("php/scripts.php")?>
 </body>
-
 </html>

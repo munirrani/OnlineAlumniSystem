@@ -13,7 +13,7 @@
         <!-- Thank you for your registration! Your request to join the Alumni Portal has been sent to the Admin. You will be informed through your registered e-mail upon successful processing of your request. -->
 
         <?php
-
+        include_once("php/db_connect.php");
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -50,7 +50,7 @@
                 $confirmpw = mysqli_real_escape_string($conn, $_REQUEST['confirmpw']);
             }
 
-            include_once("php/db_connect.php");
+            
 
 
             // Default value
