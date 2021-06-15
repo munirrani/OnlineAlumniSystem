@@ -18,7 +18,7 @@ include_once("php/db_connect.php");
         include_once("php/heading.php");
         include_once("job-to-db.php");
         
-        $alumni_id = 225;
+        $alumni_id = $_SESSION["userid"];
         ?> 
         <main>
             <div class="container mt-3">
@@ -60,13 +60,8 @@ include_once("php/db_connect.php");
                             <div class="col-md-auto">
                                 <a href="profile.php">
                                 <?php
-                                if(isset($alumni_img)){
-                                    echo '<img src="img/'.$alumni_img.'" alt="Admin" id="act-profileImg" class="shadow"></a>';
-                                }else{
-                                    echo '<img src="img/icon.jpg" alt="Admin" id="act-profileImg" class="shadow"></a>';
-                                }
+                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="act-profileImg" class="shadow"></a>';
                                 ?>
-                                
                             </div>
                             <div class="col-md-8">
                                 <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"><?php echo $username?></h2>
@@ -139,7 +134,6 @@ include_once("php/db_connect.php");
                                     <hr>
                                 </div>';
                             }
-                            
                             mysqli_close($conn);
                             ?>
                         </div>

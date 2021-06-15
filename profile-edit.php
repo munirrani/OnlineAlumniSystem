@@ -17,7 +17,7 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
     <?php include_once("php/heading.php");
-        $alumni_id = 225;
+        $alumni_id = $_SESSION["userid"];
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
 
         while($res = mysqli_fetch_array($result)){
@@ -65,22 +65,17 @@ include_once("php/db_connect.php");
             
             <div class="container" style="margin-top: 20px;">
                 <div class="main-body">
-                <form autocomplete="off" action="profile.php" method="POST">
+                <form enctype="multipart/form-​data" autocomplete="off" action="profile.php" method="POST">
                     <div id="round-corner-left" class="row gutters-sm shadow-lg">
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center" id="result">
-                                <div class="profile-pic-div">
-                                    <?php
-                                        if(empty($alumni_img)){
-                                            echo '<img src="img/icon.jpg" alt="Admin" id="photo" class="shadow">';
-                                        }
-                                        else{
-                                            echo '<img src="img/'.$alumni_img.'" alt="Admin" id="photo" class="shadow">';
-                                        }
-                                    ?>
-                                    <input name="alumni_img" type="file" id="file" onchange="loadfile(event)">
-                                    <label for="file" id="uploadBtn">Choose Photo</label>
+                                    <div class="profile-pic-div">
+                                        <?php
+                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="photo" class="shadow"></a>';
+                                        ?>
+                                        <input name="alumni_img" type="file" id="file" onchange="loadfile(event)">
+                                        <label for="file" id="uploadBtn">Change Photo</label>
                                     </div>
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"><?php echo $username?></h2>

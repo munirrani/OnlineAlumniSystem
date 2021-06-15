@@ -14,7 +14,7 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
     <?php include_once("php/heading.php");
-        $alumni_id = 225;
+    $alumni_id = $_SESSION["userid"];
 
         if(isset($_POST['editProfile'])){
             $alumni_img = mysqli_real_escape_string($conn, $_POST['alumni_img']);
@@ -87,15 +87,11 @@ include_once("php/db_connect.php");
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <?php
-                                    if(empty($alumni_img)){
-                                        echo '<img src="img/icon.jpg" alt="Admin" id="profileImg" class="shadow">';
-                                        
-                                    }
-                                    else{
-                                        echo '<img src="img/'.$alumni_img.'" alt="Admin" id="profileImg" class="shadow">';
-                                    }
-                                    ?>
+                                    <div class="profile-pic-div">
+                                        <?php
+                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="photo" class="shadow"></a>';
+                                        ?>
+                                    </div>
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"><?php echo $username?></h2>
                                         <div class="container">
