@@ -451,23 +451,7 @@
                                         </div>
                                     </div>
 
-                                    <?php
-                                    if (isset($_GET["error"])) {
-                                        if ($_GET["error"] == "emptyinput") {
-                                            echo "<p>Fill in all fields!</p>";
-                                        } else if ($_GET["error"] == "invalidusername") {
-                                            echo "<p>Choose a proper username!</p>";
-                                        } else if ($_GET["error"] == "invalidemail") {
-                                            echo "<p>Choose a proper email!</p>";
-                                        } else if ($_GET["error"] == "passwordsdontmatch") {
-                                            echo "<p>Password doesn't match with confirm password!</p>";
-                                        } else if ($_GET["error"] == "stmtfailed") {
-                                            echo "<p>Something went wrong, try again!</p>";
-                                        } else if ($_GET["error"] == "usernametaken") {
-                                            echo "<p>Username already taken!</p>";
-                                        }
-                                    }
-                                    ?>
+
 
                                     <p class="h4" id="error-text-reg"></p>
                                     <div class="row form-reg-check">
@@ -495,6 +479,39 @@
 
         </main>
 
+        <div class="modal fade" id="login-modal-warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="text-align: center;">
+                        <h5 class="modal-title">Warning!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center" style="font-weight: 800;">
+                        <?php
+                        if ($_GET["error"] == "emptyinput") {
+                            echo "<p>Fill in all fields!</p>";
+                        } else if ($_GET["error"] == "invalidusername") {
+                            echo "<p>Choose a proper username!</p>";
+                        } else if ($_GET["error"] == "invalidemail") {
+                            echo "<p>Choose a proper email!</p>";
+                        } else if ($_GET["error"] == "passwordsdontmatch") {
+                            echo "<p>Password doesn't match with confirm password!</p>";
+                        } else if ($_GET["error"] == "stmtfailed") {
+                            echo "<p>Something went wrong, try again!</p>";
+                        } else if ($_GET["error"] == "usernametaken") {
+                            echo "<p>Username already taken!</p>";
+                        }
+                        ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="login-warning-modal-button" class="btn" data-bs-dismiss="modal">Okay</button>
+                        <!-- <button type="button" class="btn btn-primary btn-danger">Okay</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <?php include_once("php/footer.php") ?>
     </div>
 
@@ -513,7 +530,17 @@
             autoclose: true,
         });
     </script>
+    <?php
+    if (isset($_GET["error"])) {
+        echo "<script type='text/javascript'>
+          $(document).ready(function(){
+          $('#login-modal-warning').modal('show');
+          });
+          </script>";
+    }
+    ?>
 
 </body>
 
 </html>
+

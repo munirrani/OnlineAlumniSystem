@@ -12,7 +12,7 @@ function emptyInputRegister($firstname, $lastname, $username, $email, $password,
 
 function invalidUsername($username) {
     $result = false;
-    if(!preg_match("/^[a-zA-z0-9]*$/", $username)){
+    if(!preg_match("/^[a-zA-z0-9\s]*$/", $username)){
         $result = true;
     }else {
         $result = false;
