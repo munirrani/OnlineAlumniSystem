@@ -1,7 +1,7 @@
 <?php
     require_once("php/db_connect.php");
     // TODO: Get the query result in a ordered fashion
-    $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE FROM event";
+    $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE";
     $result = mysqli_query($conn, $sql);
 
     $jsarray = array();

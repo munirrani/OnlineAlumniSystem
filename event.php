@@ -27,7 +27,7 @@
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php")?>
 
-        <main id="event-section">
+        <main id="my-event-section" class="rounded-3">
             <section id="event-intro">
                 <div>
                     <div id="title-separator">
