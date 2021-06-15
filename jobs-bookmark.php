@@ -21,7 +21,7 @@ include_once("php/db_connect.php");
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
@@ -31,17 +31,15 @@ include_once("php/db_connect.php");
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link  active" aria-current="page"
-                            href="jobs-bookmark.html">Bookmarks</a>
+                            href="jobs-bookmark.php">Bookmarks</a>
                     </li>
                 </ul>
             </div>
 
             <?php
-            $book_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $alumni_id");
-            while($res = mysqli_fetch_array($result)){
-                $book_count++;
-            }
+            $result2 = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $alumni_id");
+            $book_count = mysqli_num_rows($result2);
+
             $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
             while($res = mysqli_fetch_array($result)){
                 $username = $res['USERNAME'];
@@ -57,7 +55,7 @@ include_once("php/db_connect.php");
                                 <a href="profile.html">
                                 <?php
                                 if(isset($alumni_img)){
-                                    echo '<img src="img/'.$alumni_img.'" alt="Admin" id="act-profileImg" class="shadow"></a>';
+                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="act-profileImg" class="shadow"></a>';
                                 }else{
                                     echo '<img src="img/icon.jpg" alt="Admin" id="act-profileImg" class="shadow"></a>';
                                 }
@@ -155,8 +153,11 @@ include_once("php/db_connect.php");
             else {
                 x.style.display = "none";
             }
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "job-del-book.php?job_id="+job_id, true);
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("act-count").innerHTML = this.responseText;
+            }
+            xhttp.open("GET", "job-doBook.php?do=del&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
             xhttp.send();
             }
             //modal

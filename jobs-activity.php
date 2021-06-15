@@ -17,21 +17,21 @@ include_once("php/db_connect.php");
         <?php 
         include_once("php/heading.php");
         include_once("job-to-db.php");
-        
         $alumni_id = $_SESSION["userid"];
         ?> 
+
         <main>
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="jobs-activity.html">Job Activity</a>
+                            href="jobs-activity.php">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.php">Bookmarks</a>
@@ -40,11 +40,8 @@ include_once("php/db_connect.php");
             </div>
 
             <?php
-            $post_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id");
-            while($res = mysqli_fetch_array($result)){
-                $post_count++;
-            }
+            $result2 = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id");
+            $post_count = mysqli_num_rows($result2);
 
             $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
             while($res = mysqli_fetch_array($result)){
@@ -158,7 +155,6 @@ include_once("php/db_connect.php");
             //delete job
             function deleteBookmark(job_id) {
             var x = document.getElementById("div"+job_id);
-            
             if (x.style.display === "none") {
                 x.style.display = "block"; 
             } 
@@ -166,7 +162,7 @@ include_once("php/db_connect.php");
                 x.style.display = "none";
             }
             var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "job-del-job.php?job_id="+job_id, true);
+            xhttp.open("GET", "job-deleteJob.php?job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
             xhttp.send();
             }
         </script>

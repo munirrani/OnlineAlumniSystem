@@ -238,7 +238,7 @@ include_once('php/db_connect.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                            <!--<a href="jobs-activity.php">--><button name="postJob" type="submit" class="btn confirmbuttonModalSetting">Post Job</button>
+                                            <button name="postJob" type="submit" class="btn confirmbuttonModalSetting">Post Job</button>
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@ include_once('php/db_connect.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                            <!--<a href="jobs-activity.php">--><button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button>
+                                            <button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button>
                                         </div>
                                     </div>
                                 </div>

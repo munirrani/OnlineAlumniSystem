@@ -1,7 +1,5 @@
 <?php
 include_once("php/db_connect.php");
-
-//kene letak edit picture dalam form
 ?>
 
 
@@ -40,6 +38,34 @@ include_once("php/db_connect.php");
             $dept = $res['DEPT'];
             $level = $res['LEVEL'];
         }
+       
+        // If upload button is clicked ...
+        /*if (isset($_POST['editProfile'])) {
+       
+          $filename = $_FILES["uploadfile"]["name"];
+          $tempname = $_FILES["uploadfile"]["tmp_name"];   
+              $folder = "image/".$filename;
+               
+          $db = mysqli_connect("localhost", "root", "", "photos");
+       
+              // Get all the submitted data from the form
+              $sql = "INSERT INTO image (filename) VALUES ('$filename')";
+       
+              // Execute query
+              mysqli_query($db, $sql);
+               
+              // Now let's move the uploaded image into the folder: image
+              if (move_uploaded_file($tempname, $folder))  {
+                  $msg = "Image uploaded successfully";
+              }else{
+                  $msg = "Failed to upload image";
+            }
+        }
+        $result = mysqli_query($db, "SELECT * FROM image");
+      while($data = mysqli_fetch_array($result))*/
+      
+       
+
         mysqli_close($conn);
         ?>
 
@@ -71,9 +97,10 @@ include_once("php/db_connect.php");
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center" id="result">
                                     <div class="profile-pic-div">
-                                        <?php
+                                        <img src="img/<?php echo $alumni_img?>" alt="Admin" id="photo" class="shadow"></a>
+                                        <?php/*
                                         echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="photo" class="shadow"></a>';
-                                        ?>
+                                        */?>
                                         <input name="alumni_img" type="file" id="file" onchange="loadfile(event)">
                                         <label for="file" id="uploadBtn">Change Photo</label>
                                     </div>
@@ -94,11 +121,6 @@ include_once("php/db_connect.php");
                                                         </div>
                                                         <input name="gitHub" type="url" class="form-control" id="github" placeholder="Github" value="<?php echo $gitHub?>" aria-describedby="basic-addon1">
                                                     </div>
-                                                    <!--<hr class="profileBio-line">
-                                                    <div class="container mt-3">
-                                                        <button onclick="editBio(<?php echo $alumni_id?>)" id="editbutton" class="btn shadow" type="button">Update</button>
-                                                    </div>-->
-                                                <!--</form>-->
                                             </div>
                                         </div>
                                     </div>
@@ -279,43 +301,6 @@ include_once("php/db_connect.php");
         function discardbutton() {
             window.location.href = "profile.html"
         }
-/*
-        function updateBio() {
-            var a = document.getElementById("bio").value;
-            sessionStorage.setItem("bio", a);
-            var b = document.getElementById("linkedin").value;
-            sessionStorage.setItem("linkedin", b);
-            var c = document.getElementById("github").value;
-            sessionStorage.setItem("github", c);
-            alert("Updated")
-        }*/
-
-        // Upload Photo
-        /*
-        const imgDiv = document.querySelector('.profile-pic-div');
-        const img = document.querySelector('#photo');
-        const file = document.querySelector('#file');
-        const uploadBtn = document.querySelector('#uploadBtn');
-
-        document.querySelector("#file").addEventListener("change", window.onload = function () {
-            const reader = new FileReader();
-
-            reader.addEventListener('load', () => {
-                sessionStorage.setItem("image", reader.result);
-            });
-
-            reader.readAsDataURL(this.files[0]);
-
-            window.location.reload();
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const recentImageDataUrl = sessionStorage.getItem("image");
-
-            if (recentImageDataUrl) {
-                document.querySelector("#photo").setAttribute("src", recentImageDataUrl);
-            }
-        });*/
     </script>
 </body>
 
