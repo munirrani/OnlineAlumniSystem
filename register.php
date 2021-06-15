@@ -129,10 +129,10 @@
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fa fa-level-up"></i></span>
                                                 <select class="form-control" id="level" name="level" required>
-                                                    <option value="foundation">Foundation</option>
-                                                    <option value="degree">Degree</option>
-                                                    <option value="master">Master</option>
-                                                    <option value="phd">PHD</option>
+                                                    <option value="Foundation">Foundation</option>
+                                                    <option value="Degree">Degree</option>
+                                                    <option value="Master">Master</option>
+                                                    <option value="PhD">PHD</option>
                                                 </select>
                                             </div>
                                         </div>
