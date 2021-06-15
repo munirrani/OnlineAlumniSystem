@@ -14,7 +14,7 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-        $alumni_id = 225;
+        $alumni_id = $_SESSION["userid"];
         ?> 
 
         <main>
@@ -24,7 +24,7 @@ include_once("php/db_connect.php");
                         <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-activity.php">Job Activity</a>
@@ -120,7 +120,7 @@ include_once("php/db_connect.php");
                                                 </h6>
                                             </div>
                                             <div class="col-md-auto">
-                                                <button type="button" id="act-button" class="btn"onclick="deleteBookmark('.$job_id.')"><img id="search-img" src="img/delete.png"></button>
+                                                <button type="button" id="act-button" class="btn" onclick="deleteBookmark('.$job_id.')"><img id="search-img" src="img/delete.png"></button>
                                             </div>
                                         </div>
                                         <hr>

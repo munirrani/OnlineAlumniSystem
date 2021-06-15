@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 html {
@@ -1326,10 +1327,6 @@ a[id="no-blue"]{
 }
 
 #job-bmark:hover{
-    color: white;
-    background-color: rgb(172, 171, 171);
-}
-#job-bmark:focus{
     color: white;
     background-color: rgb(172, 171, 171);
 }
