@@ -83,7 +83,7 @@
                   <div class="contact-box center-version shadow-lg">
                     <div class="body-alumni-card">
                       <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($record['ALUMNI_IMG']) . '" class="img-circle"/>'; ?>
-                      <h1 class="m-b-xs profile-card-name"><?php echo $record['FULL_NAME'] ?></h1>
+                      <h2 class="m-b-xs profile-card-name"><?php echo $record['FULL_NAME'] ?></h2>
                       <h4 class="card-department-alumni pb-1"><?php echo $record['DEPT'] ?></h4>
                       <hr>
                       <div class="row">
@@ -266,7 +266,7 @@
                                       <td><?php echo $experience['COMPANY'] ?></td>
                                       <td><?php echo $experience['WORK_TITLE'] ?></td>
                                       <td><?php echo $experience['POSITION'] ?></td>
-                                      <td><?php echo $experience['DESC'] ?></td>
+                                      <td><?php echo $experience['DESCRIPTION'] ?></td>
                                       <td></td>
                                     </tr>
                                   <?php } ?>
