@@ -204,7 +204,7 @@
                                     <hr>
                                     <div class="row">
                                       <div class="col">
-                                        <p class="h5"><a id="linkedin1" href="https://www.linkedin.com/in/<?php echo $record['LINKEDIN_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/linkedin_color.png" alt="LinkedIn" id="bio-icons-prof">/<?php echo $record['LINKEDIN_ID']; ?></a></p>
+                                        <p class="h6"><a id="linkedin1" href="<?php echo $record['LINKEDIN_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/linkedin_color.png" alt="LinkedIn" id="bio-icons-prof"><?php echo $record['LINKEDIN_ID']; ?></a></p>
                                       </div>
                                     </div>
                                   <?php } ?>
@@ -213,7 +213,7 @@
                                   ?>
                                     <div class="row">
                                       <div class="col">
-                                        <p class="h5"><a id="github1" href="https://www.github.com/<?php echo $record['GITHUB_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/github_black.png" alt="Github" id="bio-icons-prof">/<?php echo $record['GITHUB_ID']; ?></a></p>
+                                        <p class="h6"><a id="github1" href="<?php echo $record['GITHUB_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/github_black.png" alt="Github" id="bio-icons-prof"><?php echo $record['GITHUB_ID']; ?></a></p>
                                       </div>
                                     </div>
                                   <?php } ?>
