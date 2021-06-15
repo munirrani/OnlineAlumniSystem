@@ -1,10 +1,7 @@
 <?php
-include_once("php/db_connect.php");
-$alumni_id = "";
+include_once("db_connect.php");
+$alumni_id = $_GET["alumni_id"];
 
-if(isset($_SESSION["userid"])){
-    $alumni_id = $_SESSION["userid"];
-}
 if(isset($_POST['delAcc'])){
     $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID='$alumni_id'");
     while($res = mysqli_fetch_array($result)){
