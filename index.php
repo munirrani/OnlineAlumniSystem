@@ -5,9 +5,10 @@
     <?php include_once("php/head.php") ?>
     <title>Home | FSKTM Alumni</title>
 </head>
+
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php 
+        <?php
         include_once("php/heading.php");
         ?>
 
@@ -64,7 +65,7 @@
                         ?>
                                 <div class="col-lg-3 d-flex align-items-stretch event-card">
                                     <div class="card">
-                                       <a href="event.php?EVENT_TITLE=<?php echo $record['EVENT_TITLE']?>"><img src="<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
+                                        <a href="event.php?EVENT_TITLE=<?php echo $record['EVENT_TITLE'] ?>"><img src="<?php echo $record['IMAGE'] ?>" class="card-img-top img-fluid" alt="">
                                         </a>
                                         <div class="card-body">
                                             <h4 class="card-title"><?php echo $record['EVENT_TITLE'] ?></h4>
@@ -75,7 +76,7 @@
                                             </p>
 
                                             <p class="event-info">
-                                                <a href="event.php?EVENT_TITLE=<?php echo $record['EVENT_TITLE']?>" class="card-link">Learn More</a>
+                                                <a href="event.php?EVENT_TITLE=<?php echo $record['EVENT_TITLE'] ?>" class="card-link">Learn More</a>
                                             </p>
                                         </div>
                                     </div>
