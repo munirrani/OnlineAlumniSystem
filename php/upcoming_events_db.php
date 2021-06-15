@@ -1,7 +1,7 @@
-<!-- TODO: Figure out how to make the pages of the event -->
 <?php
     require_once("php/db_connect.php");
 
+    // $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE";
     $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event ORDER BY START_DATE";
     $result = mysqli_query($conn, $sql);
 
@@ -30,6 +30,7 @@
     var eventData = <?php echo json_encode($jsarray);?>;
     for(var i = 0; i < eventData.length; i++)
     {
+        // TODO: Are the arbitrary values good?
         if(eventData[i]['DESCRIPTION'] !== null && eventData[i]['DESCRIPTION'].length > 100)
         {
             let startIndex = eventData[i]['DESCRIPTION'].indexOf('<p>');
@@ -38,23 +39,20 @@
                 eventData[i]['DESCRIPTION'] = "";
             else
             {
-                if(endIndex - startIndex >= 400)
-                {
-                    eventData[i]['DESCRIPTION'] = eventData[i]['DESCRIPTION'].substring(startIndex, startIndex + 300) + "...</p>";
-                }
+                if(endIndex - startIndex >= 200)
+                    eventData[i]['DESCRIPTION'] = eventData[i]['DESCRIPTION'].substring(startIndex, startIndex + 200) + "...</p>";
                 else
                     eventData[i]['DESCRIPTION'] = eventData[i]['DESCRIPTION'].substring(startIndex, endIndex + 4);
             }
         }
     }
-    const temp_event_page = "event.php";
 
     // ------------------------------------- //
     // Populate the page with event contents //
     // ------------------------------------- //
 
-    highlighted.innerHTML = 
-        `<div class="row g-0 highlighted-event">
+    highlighted.innerHTML = `
+        <div class="row g-0 highlighted-event">
             <div class="col-md-4">
                 <a href="event.php?EVENT_TITLE=${eventData[0]["EVENT_TITLE"]}">
                     <img id="highlighted-event-img" class="img-fluid rounded-4" src="${eventData[0]["IMAGE"]}" alt="" width="540" height="340">

@@ -21,7 +21,9 @@
                     <hr>
                 </section>
             
-                <section id="highlighted-section" class="card">
+                <section id="highlighted-container">
+                    <div id="highlighted-section" class="card">
+                    </div>
                 </section>
             
                 <section id="events">
