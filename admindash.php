@@ -47,13 +47,13 @@
           <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
             <hr>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="admindash.html"><b>Dashboard</b></a>
+              <a class="nav-link active" aria-current="page" href="admindash.php"><b>Dashboard</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="event_admin.php"><b>Manage Events</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin-profile-dash.html"><b>Manage Profiles</b></a>
+              <a class="nav-link" href="admin-profile-dash.php"><b>Manage Profiles</b></a>
             </li>
           </ul>
           <hr>
@@ -64,9 +64,9 @@
                   <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                 </button>
                 <div id="myDropdown" class="dropdown-content">
-                  <a href="profile.html" id="dropdown-username">Signed in as <strong>Admin</strong></a>
+                  <a href="profile.php" id="dropdown-username">Signed in as <strong>Admin</strong></a>
                   <hr class="no-margin">
-                  <a href="admin-profile-settings.html">Settings & Privacy</a>
+                  <a href="admin-profile-settings.php">Settings & Privacy</a>
                   <hr class="no-margin">
                   <a href="php/logout.php" id="logoutbutton">Log Out</a>
                 </div>
@@ -93,7 +93,7 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-lg">
             <div class="jumbotron-admin-profile admin-welcome-cards d-flex justify-content-center align-items-center">
-              <a href="admin-profile-dash.html"><button class="btn btn-lg btn-admin shadow">Manage Profiles</button></a>
+              <a href="admin-profile-dash.php"><button class="btn btn-lg btn-admin shadow">Manage Profiles</button></a>
             </div>
           </div>
           <div class="col-lg">

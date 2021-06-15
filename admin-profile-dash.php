@@ -28,7 +28,7 @@
       <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
         <div class="container h4">
           <div class="mx-auto order-0">
-            <a class="navbar-brand" href="admindash.html">Faculty of Computer Science and Information Technology
+            <a class="navbar-brand" href="admindash.php">Faculty of Computer Science and Information Technology
               Alumni</a>
           </div>
         </div>
@@ -36,7 +36,7 @@
     </header>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
       <div class="container h5">
-        <a class="navbar-brand" href="admindash.html">
+        <a class="navbar-brand" href="admindash.php">
           <img src="img/FSKTM-Vector.svg" alt="" width="150" height="150" class="d-inline-block" id="logo-img">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -47,13 +47,13 @@
           <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
             <hr>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="admindash.html"><b>Dashboard</b></a>
+              <a class="nav-link" aria-current="page" href="admindash.php"><b>Dashboard</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="event_admin.html"><b>Manage Events</b></a>
+              <a class="nav-link" href="event_admin.php"><b>Manage Events</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="admin-profile-dash.html"><b>Manage Profiles</b></a>
+              <a class="nav-link active" href="admin-profile-dash.php"><b>Manage Profiles</b></a>
             </li>
           </ul>
           <hr>
@@ -64,9 +64,9 @@
                   <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                 </button>
                 <div id="myDropdown" class="dropdown-content">
-                  <a href="profile.html" id="dropdown-username"></a>
+                  <a href="profile.php" id="dropdown-username"></a>
                   <hr class="no-margin">
-                  <a href="admin-profile-settings.html">Settings & Privacy</a>
+                  <a href="admin-profile-settings.php">Settings & Privacy</a>
                   <hr class="no-margin">
                   <a href="#" id="logoutbutton">Log Out</a>
                 </div>
@@ -83,7 +83,7 @@
       <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-background">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.html">Admin-Dashboard</a></li>
+            <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.php">Admin-Dashboard</a></li>
             <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Profiles Dashboard</li>
           </ol>
         </nav>
@@ -92,6 +92,20 @@
             <h1 class="display-5" id="alumni-search-heading">MANAGE ALUMNI PROFILES</h1>
         </div>
         <div class="row d-lg-flex justify-content-center align-items-center mt-4">
+          <?php
+          include_once("php/db_connect.php");
+          $sql = "SELECT COUNT(REG_STATUS) FROM alumni WHERE REG_STATUS = 'Active'";
+          $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+          $active_count = mysqli_fetch_assoc($resultset)['COUNT(REG_STATUS)'];
+
+          $sql = "SELECT COUNT(REG_STATUS) FROM alumni WHERE REG_STATUS = 'Pending'";
+          $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+          $pending_count = mysqli_fetch_assoc($resultset)['COUNT(REG_STATUS)'];
+
+          $sql = "SELECT COUNT(REG_STATUS) FROM alumni WHERE REG_STATUS = 'Rejected'";
+          $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+          $rejected_count = mysqli_fetch_assoc($resultset)['COUNT(REG_STATUS)'];
+          ?>
           <div class="col-lg">
               <div class="counter">
                   <div class="counter-icon">
@@ -99,7 +113,7 @@
                   </div>
                   <div class="counter-content">
                       <h3>Approved</h3>
-                      <span class="counter-value">900</span>
+                      <span class="counter-value"><?php echo $active_count ?></span>
                   </div>
                   
               </div>
@@ -111,7 +125,7 @@
                   </div>
                   <div class="counter-content">
                       <h3>Pending</h3>
-                      <span class="counter-value">120</span>
+                      <span class="counter-value"><?php echo $pending_count ?></span>
                   </div>
                   
               </div>
@@ -123,7 +137,7 @@
                 </div>
                 <div class="counter-content">
                     <h3>Rejected</h3>
-                    <span class="counter-value">10</span>
+                    <span class="counter-value"><?php echo $rejected_count ?></span>
                 </div>
             </div>
         </div>
@@ -131,17 +145,17 @@
       <div class="row align-items-center justify-content-center mt-3 button-in-profile-dash">
         <div class="col-lg">
           <div class="jumbotron-admin-approved upcoming admin-welcome-cards d-flex justify-content-center align-items-center">
-            <a href="admin-approved-alumni.html"><button class="btn btn-lg btn-admin green shadow admin-profile-btn">View Approved</button></a>
+            <a href="admin-approved-alumni.php"><button class="btn btn-lg btn-admin green shadow admin-profile-btn">View Approved</button></a>
           </div>
         </div>
         <div class="col-lg">
           <div class="jumbotron-admin-pending past admin-welcome-cards d-flex justify-content-center align-items-center">
-            <a href="admin-pending-alumni.html"><button class="btn btn-lg btn-admin yellow shadow admin-profile-btn">View Pending</button></a>
+            <a href="admin-pending-alumni.php"><button class="btn btn-lg btn-admin yellow shadow admin-profile-btn">View Pending</button></a>
           </div>
         </div>
         <div class="col-lg">
           <div class="jumbotron-admin-rejected past admin-welcome-cards d-flex justify-content-center align-items-center">
-            <a href="admin-rejected-alumni.html"><button class="btn btn-lg btn-admin red shadow admin-profile-btn">View Rejected</button></a>
+            <a href="admin-rejected-alumni.php"><button class="btn btn-lg btn-admin red shadow admin-profile-btn">View Rejected</button></a>
           </div>
         </div>
       </div>
@@ -194,7 +208,7 @@
     logoutbutton.onclick = function () {
       let loggedin = false;
       sessionStorage.setItem("loggedin", loggedin);
-      window.location.href = "index.html";
+      window.location.href = "index.php";
     };
   //
   </script>
