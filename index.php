@@ -3,12 +3,13 @@
 
 <head>
     <?php include_once("php/head.php") ?>
-
     <title>Home | FSKTM Alumni</title>
-
+</head>
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php") ?>
+        <?php 
+        include_once("php/heading.php");
+        ?>
 
         <main>
             <div id="home-container" class="container-fluid">

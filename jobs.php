@@ -16,7 +16,7 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
     <?php include_once("php/heading.php");
-    $alumni_id = 5;
+    $alumni_id = $_SESSION["userid"];
 
     function Get($index, $defaultValue) {
         return isset($_GET[$index]) ? $_GET[$index] : $defaultValue;

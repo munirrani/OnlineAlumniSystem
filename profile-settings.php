@@ -14,44 +14,9 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-        $alumni_id = 225;
-        
-        if(isset($_POST['chgUsername'])){
-            $username = mysqli_real_escape_string($conn, $_POST['username']);
-            $result = mysqli_query($conn, "UPDATE alumni SET USERNAME='$username' WHERE ALUMNI_ID='$alumni_id'");
-        }
-        if(isset($_POST['chgPassword'])){
-            $query = mysql_query("SELECT PASSWORD FROM alumni WHERE ALUMNI_ID='$alumni_id");
-            $data = mysql_fetch_assoc($query);
-            if($data != md5($_POST['password'])){
-                echo "Old and new password did not match!";
-            }
-            if($_POST['password1'] != $_POST['password2']){
-                echo("Oops! Password did not match! Try again. ");
-            } 
-            if(($data == md5($_POST['password'])) && ($_POST['password1'] == $_POST['password2'])){
-                $password = mysqli_real_escape_string($conn, $_POST['password2']);
-                $result = mysqli_query($conn, "UPDATE alumni SET PASSWORD='$password' WHERE ALUMNI_ID='$alumni_id'");
-            }
-        }
-        if(isset($_POST['delAcc'])){
-            $query = mysql_query("SELECT * FROM alumni WHERE ALUMNI_ID='$alumni_id");
-            while($res = mysqli_fetch_array($query)){
-                $username = $res['USERNAME'];
-                $email = $res['EMAIL'];
-                $password = $res['PASSWORD'];
-            }
-            if(($username != $_POST['username']) || ($email != $_POST['username'])){
-                echo "Your username or email did not match!";
-            }
-            if($password != md5($_POST['password'])){
-                echo("Oops! Password did not match! Try again!");
-            } 
-            if((($username != $_POST['username']) || ($email != $_POST['username'])) && ($password != md5($_POST['password']))){
-                $result = mysqli_query($conn, "DELETE FROM alumni WHERE ALUMNI_ID='$alumni_id'");
-            }
-        }
-        $result = mysql_query("SELECT * FROM alumni WHERE ALUMNI_ID='$alumni_id");
+        $alumni_id = $_SESSION["userid"];
+
+        $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
         while($res = mysqli_fetch_array($result)){
             $alumni_img = $res['ALUMNI_IMG'];
             $username = $res['USERNAME'];
@@ -60,6 +25,46 @@ include_once("php/db_connect.php");
             $gitHub = $res['GITHUB_ID'];
             $password = $res['PASSWORD'];
         }
+
+        if(isset($_POST['chgUsername'])){
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $result = mysqli_query($conn, "UPDATE alumni SET USERNAME='$username' WHERE ALUMNI_ID='$alumni_id'");
+        }
+        if(isset($_POST['chgPassword'])){
+            $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
+            if(!password_verify($curpassword, $password)){
+                echo "Your current password did not match!";
+            }
+            $newpassword1 = mysqli_real_escape_string($conn, $_POST['password1']);
+            $newpassword2 = mysqli_real_escape_string($conn, $_POST['password2']);
+            if($newpassword1 != $newpassword2){
+                echo("Oops! Password did not match! Try again. ");
+            } 
+            if((password_verify($curpassword, $password)) && ($newpassword1 == $newpassword2)){
+                $newpassword = password_hash($newpassword2, PASSWORD_DEFAULT);
+                $result = mysqli_query($conn, "UPDATE alumni SET PASSWORD='$newpassword' WHERE ALUMNI_ID='$alumni_id'");
+            }
+        }
+        /*if(isset($_POST['delAcc'])){
+            $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID='$alumni_id'");
+            while($res = mysqli_fetch_array($result)){
+                $username = $res['USERNAME'];
+                $email = $res['EMAIL'];
+                $password = $res['PASSWORD'];
+            }
+            $curusername = mysqli_real_escape_string($conn, $_POST['username']);
+            if(($username != $curusername) || ($email != $curusername)){
+                echo "Your username or email did not match!";
+            }
+            $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
+            if(!password_verify($curpassword, $password)){
+                echo("Oops! Password did not match! Try again!");
+            } 
+            if((($username == $curusername) || ($email == $curusername)) && (password_verify($curpassword, $password))){
+                $result = mysqli_query($conn, "DELETE FROM alumni WHERE ALUMNI_ID = '$alumni_id'");
+                echo 'Your account is deleted';
+            }
+        }*/
         mysqli_close($conn);
         ?>
 
@@ -88,8 +93,9 @@ include_once("php/db_connect.php");
                         <div class="col-md-4 mb-3">
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="img/<?php echo $alumni_img?>" alt="Admin" id="profileImg"
-                                            class="shadow">
+                                    <?php
+                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="profileImg" class="shadow"></a>';
+                                    ?>
                                     <div class="mt-3">
                                         <h2 class="profile-name" id="userName1"><?php echo $username?></h2>
                                         <div class="container">
@@ -210,22 +216,20 @@ include_once("php/db_connect.php");
                                         <h6 style="margin-bottom: 20px;">Please be certain before you delete your
                                             account. </h6>
                                     </div>
-                                    <button type="button" class="btn shadow confirmbuttonModalSetting"
-                                        style="margin-bottom: 20px;" data-bs-toggle="modal"
+                                    <button type="button" class="btn shadow confirmbuttonModalSetting" style="margin-bottom: 20px;" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your
                                         account</button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Are you sure you want
-                                                        to delete account?</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="index.php" autocomplete="off" method="POST">
+                               
+
+                                    <form action="php/logout.php" autocomplete="off" method="POST">
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete account?</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
                                                         <div class="mb-3">
                                                             <div id="deleteAcc" class="alert">
                                                                 <span class="closebtn"></span>
@@ -234,34 +238,26 @@ include_once("php/db_connect.php");
                                                             </div>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="usernameModalSettings"
-                                                                class="col-form-label">Your username or email:</label>
-                                                            <input name="username" type="text" class="form-control purplemodalinput"
-                                                                id="usernameModalSettings" required>
+                                                            <label for="usernameModalSettings" class="col-form-label">Your username or email:</label>
+                                                            <input name="username" type="text" class="form-control purplemodalinput" id="usernameModalSettings" required>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="verifydelete" class="col-form-label">To verify,
-                                                                type <i>delete my account</i> below:</label>
-                                                            <input type="text" class="form-control purplemodalinput"
-                                                                id="verifydelete" pattern="delete my account" required>
+                                                            <label for="verifydelete" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
+                                                            <input type="text" class="form-control purplemodalinput" id="verifydelete" pattern="delete my account" required>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="passwordModalSettings"
-                                                                class="col-form-label">Confirm your password:</label>
-                                                            <input name="password" type="password" class="form-control purplemodalinput"
-                                                                id="passwordModalSettings" required>
+                                                            <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
+                                                            <input name="password" type="password" class="form-control purplemodalinput" id="passwordModalSettings" required>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" id="cancelbuttonmodal"
-                                                                class="btn confirmbuttonModalSetting"
-                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
                                                             <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting">Delete this account</button>
                                                         </div>
-                                                    </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -271,50 +267,7 @@ include_once("php/db_connect.php");
         </main>
     </div>
     <?php include_once("php/footer.php")?>
-    <script>
-        /*
-        function deleteAcc() {
-            let loggedin = false;
-            sessionStorage.setItem("loggedin", loggedin);
-            window.location.href = "index.html";
-        }
-        function confirmChange() {
-            var a = document.getElementById("userName").value;
-            if (a !== "") {
-                sessionStorage.setItem("userName", a);
-                document.getElementById("userName1").innerHTML = a;
-                document.getElementById("userName2").innerHTML = a;
-            }
-        }
-        document.getElementById("bio1").innerHTML = sessionStorage.getItem("bio");
-        document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
-        document.getElementById("userName2").innerHTML = sessionStorage.getItem("userName");
-
-        document.getElementById("linkedin1").setAttribute("href", sessionStorage.getItem("linkedin"));
-        document.getElementById("github1").setAttribute("href", sessionStorage.getItem("github"));
-
-        // Function to check Whether both passwords
-        // is same or not.
-        function checkPassword(form) {
-            password1 = form.password1.value;
-            password2 = form.password2.value;
-
-            if (password1 != password2) {
-                alert("\nNew password did not match: Please try again.")
-                return false;
-            }
-
-            // If same return True.
-            else {
-                alert("Your password is changed")
-                return true;
-            }
-        }*/
-    </script>
-    
-
     <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/register.js"></script>
 </body>
-
 </html>
