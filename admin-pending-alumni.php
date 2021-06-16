@@ -174,12 +174,11 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header mb-3">
-                        <h4 class="modal-title" id="modal-title">Pending Alumni Registration</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title" id="modal-title" style="color: black;">Pending Alumni Registration</h4>
                     </div>  
                     <!--  -->
 
-                    <div class="container">
+                    <div class="container modal-container-alumni">
 
                       <div id="approve-modal" style="display: block">
                         <p class="lead">Are you sure you would like to approve the alumni profile of <?php echo $record['FULL_NAME']."?";?></p>
@@ -202,12 +201,11 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header mb-3">
-                        <h4 class="modal-title" id="modal-title">Pending Alumni Registration</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title" id="modal-title" style="color: black;">Pending Alumni Registration</h4>
                     </div>  
                     <!--  -->
 
-                    <div class="container">
+                    <div class="container modal-container-alumni">
 
                       <div id="reject-modal" style="display: block">
                         <p class="lead">Are you sure you would like to reject the alumni profile of <?php echo $record['FULL_NAME']."?";?></p>
