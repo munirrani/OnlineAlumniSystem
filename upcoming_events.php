@@ -26,8 +26,10 @@
                     <span class="meta-text">Events that will occur</span>
                     <hr>
                 </section>
-
-                <section id="highlighted-section" class="card">
+            
+                <section id="highlighted-container">
+                    <div id="highlighted-section" class="card">
+                    </div>
                 </section>
 
                 <section id="events">
@@ -37,14 +39,6 @@
 
                     <ul id="event-list" class="mb-0">
                     </ul>
-
-                    <div id="loader-container">
-                        <form action="">
-                            <button id="load-events" class="mt-4">
-                                More Events
-                            </button>
-                        </form>
-                    </div>
                 </section>
             </div>
         </main>

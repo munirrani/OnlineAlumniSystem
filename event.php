@@ -1,9 +1,17 @@
 <?php
 require_once("php/db_connect.php");
 
-$sql = "SELECT * FROM event WHERE EVENT_TITLE = '{$_GET['EVENT_TITLE']}'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
+    $row = "";
+    try
+    {
+        $sql = "SELECT * FROM event WHERE EVENT_TITLE = '{$_GET['EVENT_TITLE']}'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+    }
+    catch(PDOEXCEPTION $e)
+    {
+        die("Error: " . $e->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +41,7 @@ $row = mysqli_fetch_assoc($result);
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php") ?>
 
-        <main id="event-section">
+        <main id="my-event-section" class="rounded-3">
             <section id="event-intro">
                 <div>
                     <div id="title-separator">

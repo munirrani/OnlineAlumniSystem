@@ -31,13 +31,25 @@ while ($res = mysqli_fetch_array($result)) {
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <hr>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admindash.html') echo ' active' ?>" aria-current="page" href="admindash.php"><b>Dashboard</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admindash.html') echo 'active'?>" aria-current="page" href="admindash.php">
+                        <b>
+                            Dashboard
+                        </b>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/event_admin.php') echo ' active' ?>" href="event_admin.php"><b>Manage Events</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/event_admin.php') echo 'active'?>" href="event_admin.php">
+                        <b>
+                            Manage Events
+                        </b>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admin-profile-dash.html') echo ' active' ?>" href="admin-profile-dash.php"><b>Manage Profiles</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admin-profile-dash.html') echo 'active'?>" href="admin-profile-dash.php">
+                        <b>
+                            Manage Profiles
+                        </b>
+                    </a>
                 </li>
             </ul>
             <hr>

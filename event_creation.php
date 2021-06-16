@@ -1,10 +1,3 @@
-<!-- 
-    TODO: Invite alumni to the event
-    TODO: Ability to insert image into the description
-    TODO: Get image of the event
-    TODO: Use location information somewhere 
-    TODO: Fix the color of the submit button
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +11,6 @@
     ?>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
-    <script src="ckfinder/ckfinder.js"></script>
     <style>
         main {
             min-height: calc(100vh - 52px - 110px - 72px);
@@ -51,13 +43,13 @@
                     <hr>
                 </div>
 
-                <form class="form" id="form" method="POST" action="php/event_creation_db.php" enctype="multipart/form-data">
+                <form id="form" class="form" method="POST" action="php/event_creation_db.php" enctype="multipart/form-data">
                     <div class="row event-row">
                         <div>
                             <div class="col-sm mb-3">
                                 <label class="form-label" for="eventTitle">Event Title</label>
                                 <input class="form-control" id="eventTitle" type="text" name="eventTitle" placeholder="" required>
-                                <small class="error-msg">Error Message</small>
+                                <small class="error-msg">Event title must be descriptive</small>
                             </div>
                         </div>
 
@@ -67,7 +59,7 @@
                                 <div class="input-group event-date">
                                     <input type="date" class="form-control" id="startDate" name="startDate" placeholder="" required>
                                 </div>
-                                <small class="error-msg">Error Message</small>
+                                <small class="error-msg">Please select an appropriate start date</small>
                             </div>
 
                             <div class="col-sm event-row">
@@ -75,14 +67,13 @@
                                 <div class="input-group event-date">
                                     <input type="date" class="form-control" id="endDate" name="endDate" placeholder="" required>
                                 </div>
-                                <small class="error-msg">Error Message</small>
+                                <small class="error-msg">Please select an appropriate end date</small>
                             </div>
 
                             <div class="row event-row p-0 m-0" style="margin-top: -1.5em;">
                                 <div class="col-sm">
                                     <label class="form-label" for="description">Description</label>
-                                    <textarea name="description" class="form-control" id="description" cols="25" rows="10"></textarea>
-                                    <small class="error-msg">Error Message</small>
+                                    <textarea name="description" class="form-control" id="description" cols="25" rows="10" placeholder="Reminder: Provide the location/url of the event"></textarea>
                                 </div>
                             </div>
                             <br>
@@ -91,11 +82,11 @@
                                 <div class="col-sm">
                                     <label class="form-label" for="eventImg">Event Image</label>
                                     <input class="form-control" type="file" name="eventImg" id="eventImg" required>
-                                    <small class="error-msg">Error Message</small>
+                                    <small class="error-msg">Please provide an image</small>
                                 </div>
                             </div>
 
-                            <div class="row mt-4 mb-4 event-row p-0 m-0">
+                            <div class="row mt-4 mb-1 event-row p-0 m-0">
                                 <label class="form-label" for="eventMode">Mode</label>
                                 <div class="col radio-label">
                                     <input type="radio" class="event-mode" id="physical" name="eventMode" value="Physical" required>
@@ -104,14 +95,6 @@
                                 <div class="col radio-label">
                                     <input type="radio" class="event-mode" id="virtual" name="eventMode" value="Virtual" required>
                                     <label class="event-label" for="virtual">Virtual</label>
-                                </div>
-                            </div>
-
-                            <div class="row event-row p-0 m-0">
-                                <div class="col-sm">
-                                    <label class="form-label" for="location">Location</label>
-                                    <textarea name="location" class="form-control" id="location" cols="25" rows="1"></textarea>
-                                    <small class="error-msg">Error Message</small>
                                 </div>
                             </div>
 
@@ -127,8 +110,7 @@
         <?php include_once("php/admin_footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php") ?>
-
+    <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/eventValidator.js"></script>
     <script>
         ClassicEditor

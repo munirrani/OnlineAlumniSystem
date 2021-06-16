@@ -1,16 +1,18 @@
 <?php
-require_once("php/db_connect.php");
+    require_once("php/db_connect.php");
+    $json = "";
+    if(isset($_POST["EVENT_TITLE"]))
+    {
+        $title = $_POST["EVENT_TITLE"];
+        $sql = "SELECT * FROM event WHERE EVENT_TITLE = '$title'";
+        $result = mysqli_query($conn, $sql);
+        if($result === false)
+            echo mysqli_error($conn);
+        $json = mysqli_fetch_assoc($result);
+    }
 
-$title = $_POST["EVENT_TITLE"];
-$json = NULL;
-if (isset($_POST["EVENT_TITLE"])) {
-    $sql = "SELECT * FROM event WHERE EVENT_TITLE = '$title'";
-    $result = mysqli_query($conn, $sql);
-    $json = mysqli_fetch_assoc($result);
-}
-
-$words = explode('/', $json['IMAGE']);
-$fileName = end($words);
+    $words = explode('/', $json['IMAGE']);
+    $fileName = end($words);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +28,6 @@ $fileName = end($words);
     ?>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
-    <script src="ckfinder/ckfinder.js"></script>
     <style>
         main {
             min-height: calc(100vh - 52px - 110px - 72px);
@@ -65,7 +66,7 @@ $fileName = end($words);
                             <div class="col-sm mb-3">
                                 <label class="form-label" for="eventTitle">Event Title</label>
                                 <input class="form-control" id="eventTitle" type="text" name="eventTitle" placeholder="" readonly="readonly">
-                                <small class="error-msg">Error Message</small>
+                                <small class="error-msg">Event title must be descriptive</small>
                             </div>
                         </div>
 
@@ -75,7 +76,7 @@ $fileName = end($words);
                                 <div class="input-group event-date">
                                     <input type="date" class="form-control" id="startDate" name="startDate" placeholder="" required>
                                 </div>
-                                <small class="error-msg">Error Message</small>
+                                <small class="error-msg">Please select an appropriate start date</small>
                             </div>
 
                             <div class="col-sm event-row">
@@ -83,14 +84,13 @@ $fileName = end($words);
                                 <div class="input-group event-date">
                                     <input type="date" class="form-control" id="endDate" name="endDate" placeholder="" required>
                                 </div>
-                                <small class="error-msg">Error Message</small>
+                                <small class="error-msg">Please select an appropriate end date</small>
                             </div>
 
                             <div class="row event-row p-0 m-0" style="margin-top: -1.5em;">
                                 <div class="col-sm">
                                     <label class="form-label" for="description">Description</label>
-                                    <textarea name="description" class="form-control" id="description" cols="25" rows="10"></textarea>
-                                    <small class="error-msg">Error Message</small>
+                                    <textarea name="description" class="form-control" id="description" cols="25" rows="10" placeholder="Reminder: Provide the location/url of the event"></textarea>
                                 </div>
                             </div>
                             <br>
@@ -100,7 +100,7 @@ $fileName = end($words);
                                     <label class="form-label" for="eventImg">Event Image</label>
                                     <input class="form-control" type="file" name="eventImg" id="eventImg">
                                     <small class="mt-1"><span>Past image: <?php echo $fileName ?></span></small>
-                                    <small class="error-msg">Error Message</small>
+                                    <small class="error-msg">Please provide an image</small>
                                 </div>
                             </div>
 
@@ -116,14 +116,6 @@ $fileName = end($words);
                                 </div>
                             </div>
 
-                            <div class="row event-row p-0 m-0 mt-2">
-                                <div class="col-sm">
-                                    <label class="form-label" for="location">Location</label>
-                                    <textarea name="location" class="form-control" id="location" cols="25" rows="1"></textarea>
-                                    <small class="error-msg">Error Message</small>
-                                </div>
-                            </div>
-
                             <div class="row form-reg-submit justify-content-center mt-2">
                                 <input class="submitreg" id="submit-event" type="submit" value="Update Event">
                             </div>
@@ -136,8 +128,7 @@ $fileName = end($words);
         <?php include_once("php/admin_footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php") ?>
-
+    <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/eventValidator.js"></script>
     <script>
         // The navbar profile dropdown
@@ -167,31 +158,24 @@ $fileName = end($words);
         };
         //
     </script>
-</body>
+    <script>
+        var event_details = <?php echo json_encode($json); ?>;
 
-</html>
-
-<script>
-    var event_details = <?php echo json_encode($json); ?>;
-
-    document.querySelector("#eventTitle").value = event_details['EVENT_TITLE'];
-    document.querySelector("#startDate").value = event_details['START_DATE'];
-    document.querySelector("#endDate").value = event_details['END_DATE'];
-    document.querySelector("#location").value = event_details["LOCATION"];
-
-    ClassicEditor
+        ClassicEditor
         .create(document.querySelector('#description'))
-        .then(editor => {
-            editor.setData(event_details['DESCRIPTION']);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+        .then(editor => {editor.setData(event_details['DESCRIPTION']);})
+        .catch(error => {console.error(error);});
+        document.querySelector("#eventTitle").value = event_details['EVENT_TITLE'];
+        document.querySelector("#startDate").value = event_details['START_DATE'];
+        document.querySelector("#endDate").value = event_details['END_DATE'];
 
-    var radioButtons = document.querySelectorAll(".event-mode");
-    for (var i = 0; i < radioButtons.length; i++)
-        if (radioButtons[i].value == event_details['MODE']) {
-            radioButtons[i].checked = true;
-            break;
-        }
-</script>
+        var radioButtons = document.querySelectorAll(".event-mode");
+        for(var i = 0; i < radioButtons.length; i++)
+            if(radioButtons[i].value == event_details['MODE'])
+            {
+                radioButtons[i].checked = true;
+                break;
+            } 
+    </script>
+</body>
+</html>

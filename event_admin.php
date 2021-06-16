@@ -53,28 +53,18 @@
 
                 <section id="event-table">
                     <table id="my-table" class="display">
+                        <thead>
+                            <tr>
+                                <th>Event title</th>
+                                <th>Start date</th>
+                                <th>End date</th>
+                                <th>Mode</th>
+                                <th class="dt-center">Update event</th>
+                                <th class="dt-center">Delete event</th>
+                            </tr>
+                        </thead>
                     </table>
                 </section>
-
-                <!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
-                        <div class="modal-dialog warning">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-
-                                <div class="modal-body">
-                                    You're about to delete this event. Are you sure?
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
             </div>
         </main>
 
@@ -83,7 +73,7 @@
 
     <?php include_once("php/scripts.php") ?>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/b-1.7.0/r-2.2.7/datatables.min.js"></script>
-    <?php include_once("php/event_admin.php") ?>
+    <?php include_once("php/event_admin_db.php") ?>
     <script>
         document.querySelector("#dropdown-username").innerHTML = `Signed in as <strong>Admin</strong>`;
         // The navbar profile dropdown
