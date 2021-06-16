@@ -168,7 +168,6 @@ include_once("php/db_connect.php");
                                                         if($newpassword1 != $newpassword2){
                                                         } 
                                                         if((password_verify($curpassword, $password)) && ($newpassword1 == $newpassword2)){
-                                                            $newpassword = password_hash($newpassword2, PASSWORD_DEFAULT);
                                                             $result = mysqli_query($conn, "UPDATE alumni SET PASSWORD='$newpassword' WHERE ALUMNI_ID='$alumni_id'");
                                                             echo '<script>';
                                                             echo 'alert("Your password has been changed");';
@@ -212,7 +211,7 @@ include_once("php/db_connect.php");
                                         account</button>
                                
 
-                                    <form action="php/logout.php?alumni_id=<?php echo $alumni_id?>" autocomplete="off" method="POST">
+                                    <form onsubmit="return false" autocomplete="off" method="POST">
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
@@ -239,10 +238,11 @@ include_once("php/db_connect.php");
                                                         <div class="mb-3">
                                                             <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
                                                             <input name="password" type="password" class="form-control purplemodalinput" id="passwordModalSettings" required>
+                                                            <small><p style="color:red" id="note"><p></small>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                                            <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting">Delete this account</button>
+                                                            <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting" onclick=" checkDelete()">Delete this account</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -261,5 +261,18 @@ include_once("php/db_connect.php");
     <?php include_once("php/footer.php")?>
     <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/register.js"></script>
+    <script>
+    function checkDelete() {
+        var user = document.getElementById("usernameModalSettings").value;
+        var pass = document.getElementById("passwordModalSettings").value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("note").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "test.php?do=delA&alumni_id="+<?php echo $alumni_id?>+"&user="+user+"&pass="+pass, true);
+        xhttp.send();
+        return false;
+    }
+    </script>
 </body>
 </html>

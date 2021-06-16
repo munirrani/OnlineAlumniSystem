@@ -113,13 +113,9 @@ include_once("php/db_connect.php");
                                     <h6 class="mb-0">Qualifications<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9">
-<<<<<<< HEAD
                                     <textarea name="job_qual" class="form-control purplemodalinput"
                                         id="qualification" placeholder="Required Skills, Experience" cols="25" rows="3"
                                         required><?php echo $job_qual?></textarea>
-=======
-                                    <textarea name="job_qual" class="form-control purplemodalinput" id="qualification1" placeholder="Required Skills, Experience" cols="25" rows="3" required><?php echo $job_qual ?></textarea>
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
@@ -129,20 +125,12 @@ include_once("php/db_connect.php");
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
-<<<<<<< HEAD
                                     <input id="minS" name = "job_salary_min" type="text" class="form-control purplemodalinput" placeholder="Min" value="<?php echo $job_salary_min?>" required>
                                     <p style="color:red" id="salarytxt"></p>
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
                                     <input id="maxS" name = "job_salary_max" type="text" class="form-control purplemodalinput" placeholder="Max" value="<?php echo $job_salary_max?>" required>
-=======
-                                    <input name="job_salary_min" type="text" class="form-control purplemodalinput" placeholder="Min" value="<?php echo $job_salary_min ?>" required>
-                                </div>
-                                <div class="col-sm text-secondary">
-                                    <span class="input-group-text">RM</span>
-                                    <input name="job_salary_max" type="text" class="form-control purplemodalinput" placeholder="Max" value="<?php echo $job_salary_max ?>" required>
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
@@ -151,12 +139,8 @@ include_once("php/db_connect.php");
                                     <h6 class="mb-0">Application Deadline<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-<<<<<<< HEAD
                                     <input id="dateline" name="job_dateline" type="date" value="<?php echo $job_dateline?>" class="form-control purplemodalinput">
                                     <p style="color:red" id="datelinetxt"></p>
-=======
-                                    <input name="job_dateline" type="date" value="<?php echo $job_dateline ?>" class="form-control purplemodalinput">
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
@@ -201,20 +185,12 @@ include_once("php/db_connect.php");
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Min</span>
-<<<<<<< HEAD
                                     <input id="minC" name = "cmp_size_min" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_min?>" placeholder="Employee">
                                     <p style="color:red" id="cmpSizetxt"></p>
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Max</span>
                                     <input id="maxC" name = "cmp_size_max" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_max?>" placeholder="Employee">
-=======
-                                    <input name="cmp_size_min" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_min ?>" placeholder="Employee">
-                                </div>
-                                <div class="col-sm text-secondary">
-                                    <span class="input-group-text">Max</span>
-                                    <input name="cmp_size_max" type="text" class="form-control purplemodalinput" value="<?php echo $cmp_size_max ?>" placeholder="Employee">
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
@@ -335,32 +311,9 @@ include_once("php/db_connect.php");
         <?php include_once("php/footer.php") ?>
     </div>
 
-<<<<<<< HEAD
     <?php include_once("php/scripts.php")?>
     
     <script type="text/javascript" src="js/jobs-validate.js"></script>
-=======
-    <?php include_once("php/scripts.php") ?>
-    <script>
-        function loadfile(event) {
-            var output = document.getElementById('photo');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        };
-    </script>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#description1'))
-            .catch(error => {
-                console.error(error);
-            });
-        ClassicEditor
-            .create(document.querySelector('#qualification1'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
 </body>
 
 </html>

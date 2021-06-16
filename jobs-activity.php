@@ -182,7 +182,6 @@ include_once("php/db_connect.php");
             xhttp.open("GET", "php/job-ajax.php?do=delP&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
             xhttp.send();
             }
-            
         </script>
 
         <?php include_once("php/footer.php") ?>

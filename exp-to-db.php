@@ -10,6 +10,6 @@ if(isset($_POST['addExp'])){
     $desc = mysqli_real_escape_string($conn, $_POST['description']);
 
     $result = mysqli_query($conn, "INSERT INTO experience (COMPANY,WORK_TITLE,POSITION,DESCRIPTION,ALUMNI_ID) VALUES ('$cmp','$work_title','$position','$desc','$alumni_id')");
-    echo "success";
 }
+header("location: profile.php");
 ?>
