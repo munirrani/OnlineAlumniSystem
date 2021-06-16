@@ -68,7 +68,6 @@
             $alumni_img_id = addslashes(fread($fh, filesize("img/icon.jpg")));
             fclose($fh);
 
-
             require_once 'php/validation.inc.php';
 
             if (emptyInputRegister($firstname, $lastname, $username, $email, $password, $confirmpw) !== false) {
