@@ -29,10 +29,15 @@
                     if(in_array($ext, $imagesArr) === false)
                         header("Location: ../event_admin.php");
                     // 
-                    $sql =  "UPDATE event SET START_DATE = '{$startDate}', END_DATE = '{$endDate}', MODE = '{$eventMode}', IMAGE = '{$eventImg}', DESCRIPTION = '{$description}' WHERE EVENT_TITLE = '{$eventTitle}'";
+
+                    $imageName = uniqid("", true).".".$ext;
+                    $imagePath = "uploads/images/".$imageName;
+                    $imagePath = (string)$imagePath;
+
+                    $sql =  "UPDATE event SET START_DATE = '$startDate', END_DATE = '$endDate', MODE = '$eventMode', IMAGE = '$imagePath', DESCRIPTION = '$description' WHERE EVENT_TITLE = '$eventTitle'";
                 }
                 else
-                    $sql =  "UPDATE event SET START_DATE = '{$startDate}', END_DATE = '{$endDate}', MODE = '{$eventMode}', DESCRIPTION = '{$description}' WHERE EVENT_TITLE = '{$eventTitle}'";
+                    $sql =  "UPDATE event SET START_DATE = '$startDate', END_DATE = '$endDate', MODE = '$eventMode', DESCRIPTION = '$description' WHERE EVENT_TITLE = '$eventTitle'";
                 $result = mysqli_query($conn, $sql);
 
                 $sql = "INSERT INTO event_modification (EVENT_TITLE, ADMIN_ID, MODIFICATION_TYPE, MODIFICATION_DATE) VALUES ('$eventTitle', '$adminId', 'Update', '$todayDate')";

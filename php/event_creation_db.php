@@ -31,6 +31,7 @@
 
                 $imageName = uniqid("", true).".".$ext;
                 $imagePath = "uploads/images/".$imageName;
+                $imagePath = (string)$imagePath;
                 move_uploaded_file($_FILES['eventImg']['tmp_name'], "../".$imagePath);
 
                 $sql =  "INSERT INTO event (EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION) VALUES ('$eventTitle', '$startDate', '$endDate', '$eventMode', '$imagePath', '$description')";
