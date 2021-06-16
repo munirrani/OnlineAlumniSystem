@@ -29,7 +29,7 @@
                     header("Location: ../event_creation.php");
                 // 
 
-                $imageName = uniqid("", true).".".$ext;
+                $imageName = uniqid().".".$ext;
                 $imagePath = "uploads/images/".$imageName;
                 $imagePath = (string)$imagePath;
                 move_uploaded_file($_FILES['eventImg']['tmp_name'], "../".$imagePath);

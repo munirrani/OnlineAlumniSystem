@@ -30,9 +30,15 @@
                         header("Location: ../event_admin.php");
                     // 
 
-                    $imageName = uniqid("", true).".".$ext;
+                    $imageName = uniqid().".".$ext;
                     $imagePath = "uploads/images/".$imageName;
                     $imagePath = (string)$imagePath;
+
+                    $fetchSQL = "SELECT IMAGE FROM event WHERE EVENT_TITLE = '$eventTitle'";
+                    $result = mysqli_query($conn, $fetchSQL);
+                    $path = mysqli_fetch_assoc($result);
+                    $filePath = (string)$path['IMAGE'];
+                    !unlink("../".$filePath);
 
                     $sql =  "UPDATE event SET START_DATE = '$startDate', END_DATE = '$endDate', MODE = '$eventMode', IMAGE = '$imagePath', DESCRIPTION = '$description' WHERE EVENT_TITLE = '$eventTitle'";
                 }
