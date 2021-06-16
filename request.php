@@ -49,6 +49,10 @@
                 $password = mysqli_real_escape_string($conn, $_REQUEST['password']);
                 $confirmpw = mysqli_real_escape_string($conn, $_REQUEST['confirmpw']);
             }
+            else {
+                echo "<script>window.location.href = 'register.php?error=emptyinput';</script>";
+                exit();
+            }
 
             
 
