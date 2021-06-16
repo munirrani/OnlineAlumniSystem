@@ -1,8 +1,13 @@
 #title-separator {
     margin-bottom: 1.5em;
 }
-#event-section {
-    margin-top: 2em;
+#my-event-section {
+    width: 80%;
+    margin: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    padding: 2em 4em;
+    background-color: #f3f3f3;
 }
 .event-text {
     width: 90%;
@@ -16,10 +21,19 @@
 .description {
     width: 100%;
     padding: 1em 6em;
+    border: 0.5px solid black;
 }
 
 @media (max-width: 730px) {
+    #my-event-section {
+        font-size: small;
+        width: 95%;
+        margin-top: 1em;
+        margin-bottom: 2em;
+        padding: 1em 2em;
+    }
     .description {
         padding: 0em;
+        border: 0px;
     }
 }

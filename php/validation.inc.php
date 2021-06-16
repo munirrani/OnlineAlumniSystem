@@ -187,6 +187,7 @@ function logAdmin($conn, $username, $password,$remember) {
         fclose($fh);
         session_start();
         $_SESSION["userid"] = $usernameExists["ADMIN_ID"]; 
+        $_SESSION["admin"] = "ADMIN"; 
         $_SESSION["userUsername"] = $usernameExists["ADMIN_USERNAME"]; 
         $_SESSION["alumniimg"] = $alumni_img_id;
         $_SESSION["remember"] = $remember;

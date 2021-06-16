@@ -6,7 +6,13 @@ include_once("php/db_connect.php");
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php")?>
+    <?php include_once("php/head.php");
+
+    if (isset($_SESSION["admin"])) {
+        header("location: admindash.php");
+    }
+
+    ?>
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/job.css">
@@ -15,11 +21,19 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
+<<<<<<< HEAD
     <?php 
     include_once("php/heading.php");
     include_once("php/job-functions.php");
     $alumni_id = $_SESSION["userid"];
     ?>
+=======
+        <?php
+        include_once("php/heading.php");
+        include_once("job-functions.php");
+        $alumni_id = $_SESSION["userid"];
+        ?>
+>>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
         <div id="jobs-header">
             <div class="container">
                 <div class="container">
@@ -29,33 +43,31 @@ include_once("php/db_connect.php");
                 <form method="GET" action="jobs.php" autocomplete="off">
                     <div class="search-container">
                         <div class="search-loc mar-5 autocomplete">
-                            <input name="loc" type="text" id="myInput" class="form-control" placeholder="Location, State" value="<?php echo Get("loc", "")?>">
+                            <input name="loc" type="text" id="myInput" class="form-control" placeholder="Location, State" value="<?php echo Get("loc", "") ?>">
                         </div>
                         <div class="search-job mar-5">
-                            <input name="ser" type="text" class="form-control" placeholder="Search Job" value="<?php echo Get("ser", "")?>">';
-                        
+                            <input name="ser" type="text" class="form-control" placeholder="Search Job" value="<?php echo Get("ser", "") ?>">';
+
                         </div>
                         <div class="mar-5">
                             <button class="input-group-text" id="basic-addon2-btn" type="submit"><img id="search-img" src="img/search-icon.png"></button>
                         </div>
                     </div>
                     <div class="container">
-                    <div class="btn-group mar-5">
-                            <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php 
-                                if(isset($_GET["ms"])){
-                                    echo "RM ".$_GET["ms"];
-                                }
-                                else{
+                        <div class="btn-group mar-5">
+                            <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php
+                                if (isset($_GET["ms"])) {
+                                    echo "RM " . $_GET["ms"];
+                                } else {
                                     echo "Salary";
-                                }?>
+                                } ?>
                             </button>
                             <ul class="dropdown-menu" style="text-align: center;">
                                 <div class="slidecontainer">
                                     <label>Minimum Monthly Salary</label>
                                     <p id="MYR">RM <span id="demo"></span></p>
-                                    <input name="ms" type="range" min="200" max="20000" value="<?php echo Get("ms", "200")?>" step="100" class="slider" id="myRange">
+                                    <input name="ms" type="range" min="200" max="20000" value="<?php echo Get("ms", "200") ?>" step="100" class="slider" id="myRange">
                                 </div>
                                 <hr>
                                 <div>
@@ -65,14 +77,15 @@ include_once("php/db_connect.php");
                             </ul>
                         </div>
                         <div class="btn-group mar-5">
-                            <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Job Type
                             </button>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item">
                                     <div class="form-check">
-                                        <input name="ft" class="form-check-input" type="checkbox" value="full-time" id="flexCheckDefault" <?php if(isset($_GET["ft"])){echo "checked";}?>>
+                                        <input name="ft" class="form-check-input" type="checkbox" value="full-time" id="flexCheckDefault" <?php if (isset($_GET["ft"])) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                         <label class="form-check-label mx-2 mt-2" for="flexCheckDefault">
                                             Full-time
                                         </label>
@@ -80,7 +93,9 @@ include_once("php/db_connect.php");
                                 </li>
                                 <li class="dropdown-item">
                                     <div class="form-check">
-                                        <input name="pt" class="form-check-input" type="checkbox" value="Part-time" id="flexCheckDefault" <?php if(isset($_GET["pt"])){echo "checked";}?>> 
+                                        <input name="pt" class="form-check-input" type="checkbox" value="Part-time" id="flexCheckDefault" <?php if (isset($_GET["pt"])) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                         <label class="form-check-label mx-2 mt-2" for="flexCheckDefault">
                                             Part-time
                                         </label>
@@ -88,7 +103,9 @@ include_once("php/db_connect.php");
                                 </li>
                                 <li class="dropdown-item">
                                     <div class="form-check">
-                                        <input  name="ct" class="form-check-input" type="checkbox" value="Contract" id="flexCheckDefault" <?php if(isset($_GET["ct"])){echo "checked";}?>> 
+                                        <input name="ct" class="form-check-input" type="checkbox" value="Contract" id="flexCheckDefault" <?php if (isset($_GET["ct"])) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                         <label class="form-check-label mx-2 mt-2" for="flexCheckDefault">
                                             Contract
                                         </label>
@@ -96,7 +113,9 @@ include_once("php/db_connect.php");
                                 </li>
                                 <li class="dropdown-item">
                                     <div class="form-check">
-                                        <input name="in" class="form-check-input" type="checkbox" value="Internship" id="flexCheckDefault" <?php if(isset($_GET["in"])){echo "checked";}?>> 
+                                        <input name="in" class="form-check-input" type="checkbox" value="Internship" id="flexCheckDefault" <?php if (isset($_GET["in"])) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                         <label class="form-check-label mx-2 mt-2" for="flexCheckDefault">
                                             Internship
                                         </label>
@@ -115,7 +134,7 @@ include_once("php/db_connect.php");
                             </div>
                             <div class="btn-group mar-5">
                                 <button class="btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo Get("sort", "Date")?>
+                                    <?php echo Get("sort", "Date") ?>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button class="dropdown-item" name="sort" value="Date" type="submit">Date</button>
@@ -125,63 +144,62 @@ include_once("php/db_connect.php");
                         </div>
                         <div class="btn-group mar-5">
                             <div class="btn-group mar-5">
-                                <button onclick = "location.href = 'jobs.php';" class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Reset filter</button>
+                                <button onclick="location.href = 'jobs.php';" class="btn btn-secondary btn-sm dropdown-toggle" id="sortDropBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Reset filter</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        
+
         <main>
             <div class="container" style="margin-top: 20px">
                 <div id="job-main" class="main-body">
                     <div>
                         <div class="row" id="jobDiv">
-                        <?php
-                        $result2 = mysqli_query($conn, filterJob());
-                        while($res2 = mysqli_fetch_array($result2)){
-                            $job_id = $res2['JOB_ID'];
-                            $job_title = $res2['JOB_TITLE'];
-                            $cmp_logo = $res2['CMP_LOGO'];
-                            $cmp_name = $res2['CMP_NAME'];
-                            $job_salary_min = $res2['JOB_SALARY_MIN'];
-                            $cmp_city = $res2['CMP_CITY'];
-                            $cmp_state = $res2['CMP_STATE'];
-                            $edit_date = $res2['EDIT_DATE'];
-                            
-                            echo '
+                            <?php
+                            $result2 = mysqli_query($conn, filterJob());
+                            while ($res2 = mysqli_fetch_array($result2)) {
+                                $job_id = $res2['JOB_ID'];
+                                $job_title = $res2['JOB_TITLE'];
+                                $cmp_logo = $res2['CMP_LOGO'];
+                                $cmp_name = $res2['CMP_NAME'];
+                                $job_salary_min = $res2['JOB_SALARY_MIN'];
+                                $cmp_city = $res2['CMP_CITY'];
+                                $cmp_state = $res2['CMP_STATE'];
+                                $edit_date = $res2['EDIT_DATE'];
+
+                                echo '
                             <div class="col-md-6">
                             <div class="row">
                                 <h6 id="job-posted">
                                     <img src="img/time.png" width="15px"
                                     style="float: left; margin-right: 5px;" >';
-                                    echo timeAgo($edit_date);
+                                echo timeAgo($edit_date);
                                 echo '</h6>
                             </div>
                             <div class="job-box">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md">
-                                            <img src="img/'.$cmp_logo.'" class="job-image">
+                                            <img src="img/' . $cmp_logo . '" class="job-image">
                                             <h6 id="job-name">
-                                                '.$job_title.'
+                                                ' . $job_title . '
                                             </h6>
                                             <h6 id="job-company">
-                                                '.$cmp_name.'
+                                                ' . $cmp_name . '
                                             </h6>
                                         </div>
                                         <div class="col-md-auto p-0" style="margin: 0px 0px 20px 10px;">
-                                            <a href="jobs-details.php?job_id='.$job_id.'"><button type="button" src="" id="viewbutton" class="btn">View</button></a>
+                                            <a href="jobs-details.php?job_id=' . $job_id . '"><button type="button" src="" id="viewbutton" class="btn">View</button></a>
                                         </div>
                                         <div class="col-md-auto p-0" style="margin: 0px 10px 20px 5px;">';
-                                        if(bookStatus($job_id)){
-                                            echo '<input type="image" id="job-bmark" src="img/bookmark-clicked.png" class="bookmarked" onclick="addBookmark('.$job_id.',this)">';
-                                        }
-                                        else{
-                                            echo '<input type="image" id="job-bmark" src="img/bookmark-icon.png" class="notBookmarked" onclick="addBookmark('.$job_id.',this)">';
-                                        }
-                                          echo '
+                                if (bookStatus($job_id)) {
+                                    echo '<input type="image" id="job-bmark" src="img/bookmark-clicked.png" class="bookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                } else {
+                                    echo '<input type="image" id="job-bmark" src="img/bookmark-icon.png" class="notBookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                }
+                                echo '
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +209,7 @@ include_once("php/db_connect.php");
                                             <img src="img/RM.png" width="20px"
                                                 style="float: left; margin: 5px 20px 20px 0px;">
                                             <h6 id="job-company">
-                                                RM '.$job_salary_min.'
+                                                RM ' . $job_salary_min . '
                                             </h6>
                                             <h6 id="job-company">
                                                 Monthly salary
@@ -201,7 +219,7 @@ include_once("php/db_connect.php");
                                             <img src="img/location.png" width="20px"
                                                 style="float: left; margin: 5px 20px 20px 0px;">
                                             <h6 id="job-company">
-                                                '.$cmp_city.', '.$cmp_state.'
+                                                ' . $cmp_city . ', ' . $cmp_state . '
                                             </h6>
                                             <h6 id="job-company">
                                                 Location
@@ -212,9 +230,9 @@ include_once("php/db_connect.php");
                                 </div>
                             </div>
                         </div>';
-                        }
-                        mysqli_close($conn);
-                        ?>
+                            }
+                            mysqli_close($conn);
+                            ?>
                         </div>
                     </div>
                     <div class="modal fade bd-example-modal-sm" id="dialogModal" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -226,7 +244,7 @@ include_once("php/db_connect.php");
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="text-center mt-3">
                         <div class="row justify-content-md-center mx-auto btn-group">
                             <a href="#" class="col page-nav page-nav-text">Previous</a>
@@ -242,10 +260,10 @@ include_once("php/db_connect.php");
             </div>
         </main>
 
-        <?php include_once("php/footer.php")?>
+        <?php include_once("php/footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php")?>
+    <?php include_once("php/scripts.php") ?>
     <script src="assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
 
     <script>
@@ -272,10 +290,11 @@ include_once("php/db_connect.php");
         output.innerHTML = slider.value; // Display the default slider value
 
         // Update the current slider value (each time you drag the slider handle)
-        slider.oninput = function () {
+        slider.oninput = function() {
             output.innerHTML = this.value;
         }
     </script>
     <script type="text/javascript" src="js/searchLocation.js"></script>
 </body>
+
 </html>

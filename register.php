@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php") ?>
+    <?php include_once("php/head.php");
+
+    if (isset($_SESSION["admin"])) {
+        header("location: admindash.php");
+    }
+
+    ?>
     <?PHP
 
     if (isset($_SESSION["userid"])) {
@@ -450,7 +456,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
 
 
 
@@ -500,7 +506,7 @@
                         } else if ($_GET["error"] == "stmtfailed") {
                             echo "<p>Something went wrong, try again!</p>";
                         } else if ($_GET["error"] == "usernametaken") {
-                            echo "<p>Username already taken!</p>";
+                            echo "<p>Username or Email is already taken!</p>";
                         }
                         ?>
                     </div>
@@ -544,4 +550,3 @@
 </body>
 
 </html>
-

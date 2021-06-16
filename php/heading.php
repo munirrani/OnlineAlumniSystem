@@ -2,8 +2,7 @@
     <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
         <div class="container h4">
             <div class="mx-auto order-0">
-                <a class="navbar-brand" href="index.php">Faculty of Computer Science and Information Technology
-                    Alumni</a>
+                <a class="navbar-brand" href="index.php">Faculty of Computer Science and Information Technology Alumni</a>
             </div>
         </div>
     </nav>
@@ -21,31 +20,51 @@
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <hr>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/index.php') echo ' active' ?>" aria-current="page" href="index.php"><b>Home</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/index.php') echo 'active' ?>" aria-current="page" href="index.php">
+                        <b>
+                            Home
+                        </b>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/upcoming_events.php') echo ' active' ?>" href="upcoming_events.php"><b>Events</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/upcoming_events.php') echo 'active' ?>" href="upcoming_events.php">
+                        <b>
+                            Events
+                        </b>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.php') echo ' active' ?>" href="jobs.php"><b>Jobs</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/jobs.php') echo 'active' ?>" href="jobs.php">
+                        <b>
+                            Jobs
+                        </b>
+                    </a>
                 </li>
-                <?PHP
-                if (isset($_SESSION["userid"])) {
-                    echo '<li class="nav-item">';
-                    echo '<a class="nav-link';
-                    if ($_SERVER["PHP_SELF"] == "/OnlineAlumniSystem/alumnisearch.php") {
-                        echo ' active';
+                <?php
+                    if (isset($_SESSION["userid"])) 
+                    {
+                        echo '<li class="nav-item">';
+                        echo '<a class="nav-link';
+                        if ($_SERVER["PHP_SELF"] == "/OnlineAlumniSystem/alumnisearch.php") 
+                            echo ' active';
+                        echo '"';
+                        echo "href='alumnisearch.php'><b>Search Alumni</b></a>";
+                        echo '</li>';
                     }
-                    echo '"';
-                    echo "href='alumnisearch.php'><b>Search Alumni</b></a>";
-                    echo '</li>';
-                }
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.php') echo ' active' ?>" href="about.php"><b>About</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.php') echo 'active' ?>" href="about.php">
+                        <b>
+                            About
+                        </b>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/contact.php') echo ' active' ?>" href="contact.php"><b>Contact Us</b></a>
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/contact.php') echo 'active' ?>" href="contact.php">
+                        <b>
+                            Contact Us
+                        </b>
+                    </a>
                 </li>
             </ul>
             <hr>
@@ -69,13 +88,13 @@
                                         <hr class="no-margin">
                                         <a href="php/logout.php" id="logoutbutton">Log Out</a>
                                     </div>
-                                </div>
-                                ';
+                                    ';
 
-                    } else {
-                        echo '<a href="login.php"><button id="logbutton" class="btn shadow" type="button">Login</button></a>';
-                        echo '<a href="register.php"><button id="regbutton" class="btn shadow" type="button">Register</button></a>';
-                    }
+                        } 
+                        else {
+                            echo '<a href="login.php"><button id="logbutton" class="btn shadow" type="button">Login</button></a>';
+                            echo '<a href="register.php"><button id="regbutton" class="btn shadow" type="button">Register</button></a>';
+                        }
                     ?>
                 </div>
             </div>

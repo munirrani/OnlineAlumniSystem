@@ -1,8 +1,17 @@
 <?php
     require_once("php/db_connect.php");
-    // TODO: Get the query result in a ordered fashion
-    $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE FROM event";
-    $result = mysqli_query($conn, $sql);
+
+    $result = "";
+    try
+    {
+        // $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE";
+        $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE FROM event ORDER BY START_DATE";
+        $result = mysqli_query($conn, $sql);
+    }
+    catch(PDOEXCEPTION $e)
+    {
+        die("Error: " . $e->getMessage());
+    }
 
     $jsarray = array();
     while($row = mysqli_fetch_assoc($result))
@@ -11,11 +20,11 @@
 
 <script>
     let table = document.querySelector("#my-table");
-    let html = "";
     var eventData = <?php echo json_encode($jsarray); ?>;
 
     $(document).ready(function () {
         $('#my-table').DataTable( {
+            "order": [],
             responsive: true,
             dom: 'Bfrtip',
             buttons: [
@@ -33,24 +42,12 @@
         } );
     });
 
-    html += 
-        `<thead>
-        <tr>
-            <th>Event title</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Mode</th>
-            <th class="dt-center">Update event</th>
-            <th class="dt-center">Delete event</th>
-        </tr>
-        </thead>
-        <tbody>`;
-
+    let html = "<tbody>";
     for(let i = 0; i < eventData.length; i++)
     {
         html += 
             `<tr>
-                <td>${eventData[i]['EVENT_TITLE']}</td>
+                <td><a href="event.php?EVENT_TITLE=${eventData[i]['EVENT_TITLE']}">${eventData[i]['EVENT_TITLE']}</a></td>
                 <td>${eventData[i]['START_DATE']}</td>
                 <td>${eventData[i]['END_DATE']}</td>
                 <td>${eventData[i]['MODE']}</td>
@@ -70,5 +67,5 @@
     }
     html += `</tbody>`;
 
-    table.innerHTML = html;
+    table.innerHTML += html;
 </script>

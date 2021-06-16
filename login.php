@@ -2,13 +2,19 @@
 <html lang="en">
 
 <head>
-  <?php include_once("php/head.php") ?>
+  <?php include_once("php/head.php");
+
+  if (isset($_SESSION["admin"])) {
+    header("location: admindash.php");
+  }
+
+  ?>
   <?PHP
 
   if (isset($_SESSION["userid"])) {
     header("location: index.php");
   }
-  
+
 
   ?>
   <title>Login | FSKTM Alumni</title>
@@ -16,7 +22,7 @@
 
 <body>
   <div class="container-fluid p-0 m-0">
-  <?php include_once("php/heading.php") ?>
+    <?php include_once("php/heading.php") ?>
 
     <main>
 
@@ -53,23 +59,24 @@
             </div>
             <div class="modal-body text-center" style="font-weight: 800;">
               <?php
-
-              
-
-              if ($_GET["error"] == "emptyinput") {
-                echo "Please enter Username and Password!";
-              } else if ($_GET["error"] == "chooserole") {
-                echo "Please Choose a Role!";
-              } else if ($_GET["error"] == "usernamedoesntexists") {
-                echo "Please enter the correct login info!";
-              } else if ($_GET["error"] == "passwordWrong") {
-                echo "Please enter the correct password!";
-              } else if ($_GET["error"] == "pendingstatus") {
-                echo "Your account is still being processed by the Admin.";
-              } else if ($_GET["error"] == "rejectedstatus") {
-                echo "Your account is unfortunately rejected by the Admin, If you have any inquiry please contact us.";
-              }
-
+                if ($_GET["error"] == "emptyinput") {
+                  echo "Please enter Username and Password!";
+                } 
+                else if ($_GET["error"] == "chooserole") {
+                  echo "Please Choose a Role!";
+                } 
+                else if ($_GET["error"] == "usernamedoesntexists") {
+                  echo "Please enter the correct login info!";
+                } 
+                else if ($_GET["error"] == "passwordWrong") {
+                  echo "Please enter the correct password!";
+                } 
+                else if ($_GET["error"] == "pendingstatus") {
+                  echo "Your account is still being processed by the Admin.";
+                } 
+                else if ($_GET["error"] == "rejectedstatus") {
+                  echo "Your account is unfortunately rejected by the Admin, If you have any inquiry please contact us.";
+                }
               ?>
             </div>
             <div class="modal-footer">
