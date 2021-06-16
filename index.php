@@ -50,7 +50,7 @@
 
                         <?php
                         include_once("php/db_connect.php");
-                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, LOCATION, IMAGE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE, EVENT_TITLE LIMIT 4";
+                        $sql = "SELECT EVENT_TITLE, START_DATE, MODE, IMAGE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE, EVENT_TITLE LIMIT 4";
                         $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
                         $number_of_events = mysqli_num_rows($resultset);
 
@@ -72,7 +72,6 @@
                                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $record['START_DATE'] ?></h6>
                                             <p class="card-text"><?php echo 'Mode: ' . $record['MODE'] ?>
                                                 <br>
-                                                <?php echo 'Venue: ' . $record['LOCATION'] ?>
                                             </p>
 
                                             <p class="event-info">
