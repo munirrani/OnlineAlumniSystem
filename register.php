@@ -500,7 +500,7 @@
                         } else if ($_GET["error"] == "stmtfailed") {
                             echo "<p>Something went wrong, try again!</p>";
                         } else if ($_GET["error"] == "usernametaken") {
-                            echo "<p>Username already taken!</p>";
+                            echo "<p>Username or Email is already taken!</p>";
                         }
                         ?>
                     </div>
