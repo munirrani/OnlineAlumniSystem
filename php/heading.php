@@ -1,3 +1,14 @@
+<?php
+if (isset($_SESSION["userid"])) {
+    $alumni_id = $_SESSION["userid"];
+    include_once("php/db_connect.php");
+    $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
+    while ($res = mysqli_fetch_array($result)) {
+        $alumni_img = $res['ALUMNI_IMG'];
+    }
+}
+?>
+
 <header>
     <nav id="topNavbar" class="navbar navbar-dark navbar-expand-md">
         <div class="container h4">
@@ -41,16 +52,15 @@
                     </a>
                 </li>
                 <?php
-                    if (isset($_SESSION["userid"])) 
-                    {
-                        echo '<li class="nav-item">';
-                        echo '<a class="nav-link';
-                        if ($_SERVER["PHP_SELF"] == "/OnlineAlumniSystem/alumnisearch.php") 
-                            echo ' active';
-                        echo '"';
-                        echo "href='alumnisearch.php'><b>Search Alumni</b></a>";
-                        echo '</li>';
-                    }
+                if (isset($_SESSION["userid"])) {
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link';
+                    if ($_SERVER["PHP_SELF"] == "/OnlineAlumniSystem/alumnisearch.php")
+                        echo ' active';
+                    echo '"';
+                    echo "href='alumnisearch.php'><b>Search Alumni</b></a>";
+                    echo '</li>';
+                }
                 ?>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/about.php') echo 'active' ?>" href="about.php">
@@ -75,10 +85,12 @@
                         echo '
                                 <div class="navbar-nav dropdown">
                                 <button onclick="myFunction()" id="profilebtn" class="btn">
-                                    <img src="data:image/jpeg;base64,' . base64_encode($_SESSION["alumniimg"]) . '" alt="Null-Image" id="profileIcon" class="dropbtn shadow imgcoverobject">
+                                    <img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Null-Image" id="profileIcon" class="dropbtn shadow imgcoverobject">
                                 </button>
                                     <div id="myDropdown" class="dropdown-content">
-                                        <a href="profile.php" id="dropdown-username">Signed in as <strong>'; echo $_SESSION["userUsername"]; echo'</strong></a>
+                                        <a href="profile.php" id="dropdown-username">Signed in as <strong>';
+                        echo $_SESSION["userUsername"];
+                        echo '</strong></a>
                                         <hr class="no-margin">
                                         <a href="profile.php">Profile</a>
                                         <a href="profile-settings.php">Settings & Privacy</a>
@@ -89,12 +101,10 @@
                                         <a href="php/logout.php" id="logoutbutton">Log Out</a>
                                     </div>
                                     ';
-
-                        } 
-                        else {
-                            echo '<a href="login.php"><button id="logbutton" class="btn shadow" type="button">Login</button></a>';
-                            echo '<a href="register.php"><button id="regbutton" class="btn shadow" type="button">Register</button></a>';
-                        }
+                    } else {
+                        echo '<a href="login.php"><button id="logbutton" class="btn shadow" type="button">Login</button></a>';
+                        echo '<a href="register.php"><button id="regbutton" class="btn shadow" type="button">Register</button></a>';
+                    }
                     ?>
                 </div>
             </div>
