@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 html {
@@ -1056,7 +1057,7 @@ a:hover[id=profileNav-inactive] {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 180px;
+    min-width: 200px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
@@ -1326,10 +1327,6 @@ a[id="no-blue"]{
 }
 
 #job-bmark:hover{
-    color: white;
-    background-color: rgb(172, 171, 171);
-}
-#job-bmark:focus{
     color: white;
     background-color: rgb(172, 171, 171);
 }
@@ -1805,7 +1802,13 @@ h6.height{
     background-color: #f3f3f3;
     text-align: center;
     width: 21rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 28rem;
   }
+.profile-card-name {
+    height: 100px;
+}
 .the-alumni-cards .body-alumni-card img {
     max-width: 100px;
     max-height: 100px;

@@ -24,7 +24,7 @@ include_once('php/db_connect.php');
                 <div id="post-job-main">
                     <h1 id="post-job-heading">POST NEW JOB</h1>
                     <div class="container mt-4">
-                        <form enctype="multipart/form-​data" action="job-to-db.php?alumni_id=<?php echo $alumni_id?>" method="POST" autocomplete="off">
+                        <form enctype="multipart/form-​data" action="jobs-activity.php?alumni_id=<?php echo $alumni_id?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title<span id="red"> *</span></h6>
@@ -238,7 +238,7 @@ include_once('php/db_connect.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                            <!--<a href="jobs-activity.php">--><button name="postJob" type="submit" class="btn confirmbuttonModalSetting">Post Job</button>
+                                            <button name="postJob" type="submit" class="btn confirmbuttonModalSetting">Post Job</button>
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@ include_once('php/db_connect.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                            <!--<a href="jobs-activity.php">--><button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button>
+                                            <button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button>
                                         </div>
                                     </div>
                                 </div>

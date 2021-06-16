@@ -14,33 +14,36 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-        $alumni_id = 5;
+        $alumni_id = $_SESSION["userid"];
         ?> 
 
         <main>
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-activity.php">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link  active" aria-current="page"
-                            href="jobs-bookmark.html">Bookmarks</a>
+                            href="jobs-bookmark.php">Bookmarks</a>
                     </li>
                 </ul>
             </div>
 
             <?php
-            $book_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $alumni_id");
+            $result2 = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $alumni_id");
+            $book_count = mysqli_num_rows($result2);
+
+            $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
             while($res = mysqli_fetch_array($result)){
-                $book_count++;
+                $username = $res['USERNAME'];
+                $alumni_img = $res['ALUMNI_IMG'];
             }
             ?>
 
@@ -49,12 +52,17 @@ include_once("php/db_connect.php");
                     <div id="act-header" class="shadow-lg">
                         <div class="row">
                             <div class="col-md-auto">
-                                <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="act-profileImg"
-                                        class="shadow"></a>
+                                <a href="profile.html">
+                                <?php
+                                if(isset($alumni_img)){
+                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="act-profileImg" class="shadow"></a>';
+                                }else{
+                                    echo '<img src="img/icon.jpg" alt="Admin" id="act-profileImg" class="shadow"></a>';
+                                }
+                                ?>
                             </div>
                             <div class="col-md-8">
-                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1">
-                                </h2>
+                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"><?php echo $username?></h2>
                                 <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
                             </div>
                             <div class="col-md">
@@ -110,7 +118,7 @@ include_once("php/db_connect.php");
                                                 </h6>
                                             </div>
                                             <div class="col-md-auto">
-                                                <button type="button" id="act-button" class="btn"onclick="deleteBookmark('.$job_id.')"><img id="search-img" src="img/delete.png"></button>
+                                                <button type="button" id="act-button" class="btn" onclick="deleteBookmark('.$job_id.')"><img id="search-img" src="img/delete.png"></button>
                                             </div>
                                         </div>
                                         <hr>
@@ -145,18 +153,17 @@ include_once("php/db_connect.php");
             else {
                 x.style.display = "none";
             }
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "job-del-book.php?job_id="+job_id, true);
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("act-count").innerHTML = this.responseText;
+            }
+            xhttp.open("GET", "job-doBook.php?do=del&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
             xhttp.send();
             }
             //modal
             setTimeout(function(){
                 $('#dialogModal').modal('hide')
             }, 1000);
-            //profile
-            document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
-            document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
-            document.querySelector("#act-profileImg").classList.add("imgcoverobject");
         </script>
         <?php include_once("php/footer.php")?>  
     </div>

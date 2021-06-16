@@ -83,7 +83,7 @@
                   <div class="contact-box center-version shadow-lg">
                     <div class="body-alumni-card">
                       <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($record['ALUMNI_IMG']) . '" class="img-circle"/>'; ?>
-                      <h1 class="m-b-xs profile-card-name"><?php echo $record['FULL_NAME'] ?></h1>
+                      <h2 class="m-b-xs profile-card-name"><?php echo $record['FULL_NAME'] ?></h2>
                       <h4 class="card-department-alumni pb-1"><?php echo $record['DEPT'] ?></h4>
                       <hr>
                       <div class="row">
@@ -108,6 +108,7 @@
                 <div class="modal fade alumni-modal" id="alumni-modal-<?php echo $record['ALUMNI_ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div id="modal-content-alumni" class="modal-content shadow">
+                      <?php $_SESSION['LAST_ACTIVITY'] = time();?>
 
                       <!-- Modal Header -->
                       <div class="modal-header mb-3">
@@ -204,7 +205,7 @@
                                     <hr>
                                     <div class="row">
                                       <div class="col">
-                                        <p class="h5"><a id="linkedin1" href="https://www.linkedin.com/in/<?php echo $record['LINKEDIN_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/linkedin_color.png" alt="LinkedIn" id="bio-icons-prof">/<?php echo $record['LINKEDIN_ID']; ?></a></p>
+                                        <p class="h6"><a id="linkedin1" href="<?php echo $record['LINKEDIN_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/linkedin_color.png" alt="LinkedIn" id="bio-icons-prof"><?php echo $record['LINKEDIN_ID']; ?></a></p>
                                       </div>
                                     </div>
                                   <?php } ?>
@@ -213,7 +214,7 @@
                                   ?>
                                     <div class="row">
                                       <div class="col">
-                                        <p class="h5"><a id="github1" href="https://www.github.com/<?php echo $record['GITHUB_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/github_black.png" alt="Github" id="bio-icons-prof">/<?php echo $record['GITHUB_ID']; ?></a></p>
+                                        <p class="h6"><a id="github1" href="<?php echo $record['GITHUB_ID']; ?>" target="_blank" style="color: inherit;"><img src="img/github_black.png" alt="Github" id="bio-icons-prof"><?php echo $record['GITHUB_ID']; ?></a></p>
                                       </div>
                                     </div>
                                   <?php } ?>
@@ -266,7 +267,7 @@
                                       <td><?php echo $experience['COMPANY'] ?></td>
                                       <td><?php echo $experience['WORK_TITLE'] ?></td>
                                       <td><?php echo $experience['POSITION'] ?></td>
-                                      <td><?php echo $experience['DESC'] ?></td>
+                                      <td><?php echo $experience['DESCRIPTION'] ?></td>
                                       <td></td>
                                     </tr>
                                   <?php } ?>

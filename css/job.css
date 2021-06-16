@@ -49,15 +49,13 @@ input[type=submit] {
   color: #ffffff;
 }
 
-.book-unclicked{
-  background: url(../img/bookmark-icon.png);
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
+.notBookmarked, .bookmarked {
+  width:25px;
+  height:25px;
 }
-.book-clicked{
-  background: url(../img/bookmark-clicked.png);
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
+#view-button{
+  height: 50px;
+  border-radius: 35%;
+  background-color: #8f0b89;
+  margin-top: 20px;
 }

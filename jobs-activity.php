@@ -14,21 +14,24 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php");
-        $alumni_id = 5;
+        <?php 
+        include_once("php/heading.php");
+        include_once("job-to-db.php");
+        $alumni_id = $_SESSION["userid"];
         ?> 
+
         <main>
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile.html">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.html">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="jobs-activity.html">Job Activity</a>
+                            href="jobs-activity.php">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.php">Bookmarks</a>
@@ -37,10 +40,13 @@ include_once("php/db_connect.php");
             </div>
 
             <?php
-            $post_count = 0;
-            $result = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id");
+            $result2 = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id");
+            $post_count = mysqli_num_rows($result2);
+
+            $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
             while($res = mysqli_fetch_array($result)){
-                $post_count++;
+                $username = $res['USERNAME'];
+                $alumni_img = $res['ALUMNI_IMG'];
             }
             ?>
 
@@ -49,12 +55,13 @@ include_once("php/db_connect.php");
                     <div id="act-header" class="shadow-lg">
                         <div class="row">
                             <div class="col-md-auto">
-                                <a href="profile.html"><img src="img/icon.jpg" alt="Admin" id="act-profileImg"
-                                        class="shadow"></a>
+                                <a href="profile.php">
+                                <?php
+                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="act-profileImg" class="shadow"></a>';
+                                ?>
                             </div>
                             <div class="col-md-8">
-                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1">
-                                    Haney</h2>
+                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"><?php echo $username?></h2>
                                 <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
                             </div>
                             <div class="col-md">
@@ -124,7 +131,6 @@ include_once("php/db_connect.php");
                                     <hr>
                                 </div>';
                             }
-                            
                             mysqli_close($conn);
                             ?>
                         </div>
@@ -149,7 +155,6 @@ include_once("php/db_connect.php");
             //delete job
             function deleteBookmark(job_id) {
             var x = document.getElementById("div"+job_id);
-            
             if (x.style.display === "none") {
                 x.style.display = "block"; 
             } 
@@ -157,12 +162,9 @@ include_once("php/db_connect.php");
                 x.style.display = "none";
             }
             var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "job-del-job.php?job_id="+job_id, true);
+            xhttp.open("GET", "job-deleteJob.php?job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
             xhttp.send();
             }
-            document.getElementById("userName1").innerHTML = sessionStorage.getItem("userName");
-            document.querySelector("#act-profileImg").src = sessionStorage.getItem("image");
-            document.querySelector("#act-profileImg").classList.add("imgcoverobject");
         </script>
 
         <?php include_once("php/footer.php")?>  

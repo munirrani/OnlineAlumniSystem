@@ -71,23 +71,22 @@
             <div class="navbar-nav fl-right event-buttons">
                 <div class="d-flex gap-2">
                     <?php
-                        if (isset($_SESSION["userid"])) {
-                            echo '
-                                    <div class="navbar-nav dropdown">
-                                    <button onclick="myFunction()" id="profilebtn" class="btn">
-                                        <img src="data:image/jpeg;base64,' . base64_encode($_SESSION["alumniimg"]) . '" alt="Null-Image" id="profileIcon" class="dropbtn shadow imgcoverobject">
-                                    </button>
-                                        <div id="myDropdown" class="dropdown-content">
-                                            <a href="profile.html" id="dropdown-username">Signed in as <strong>'; echo $_SESSION["userUsername"]; echo'</strong></a>
-                                            <hr class="no-margin">
-                                            <a href="profile.html">Profile</a>
-                                            <a href="profile-settings.html">Settings & Privacy</a>
-                                            <hr class="no-margin">
-                                            <a href="jobs-activity.php">Job Activity</a>
-                                            <a href="jobs-bookmark.php">Bookmarks</a>
-                                            <hr class="no-margin">
-                                            <a href="php/logout.php" id="logoutbutton">Log Out</a>
-                                        </div>
+                    if (isset($_SESSION["userid"])) {
+                        echo '
+                                <div class="navbar-nav dropdown">
+                                <button onclick="myFunction()" id="profilebtn" class="btn">
+                                    <img src="data:image/jpeg;base64,' . base64_encode($_SESSION["alumniimg"]) . '" alt="Null-Image" id="profileIcon" class="dropbtn shadow imgcoverobject">
+                                </button>
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <a href="profile.php" id="dropdown-username">Signed in as <strong>'; echo $_SESSION["userUsername"]; echo'</strong></a>
+                                        <hr class="no-margin">
+                                        <a href="profile.php">Profile</a>
+                                        <a href="profile-settings.php">Settings & Privacy</a>
+                                        <hr class="no-margin">
+                                        <a href="jobs-activity.php">Job Activity</a>
+                                        <a href="jobs-bookmark.php">Bookmarks</a>
+                                        <hr class="no-margin">
+                                        <a href="php/logout.php" id="logoutbutton">Log Out</a>
                                     </div>
                                     ';
 
