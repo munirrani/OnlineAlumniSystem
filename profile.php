@@ -18,6 +18,9 @@ include_once("php/db_connect.php");
 
         if(isset($_POST['editProfile'])){
             $alumni_img = mysqli_real_escape_string($conn, $_POST['alumni_img']);
+            /*$filename = $_FILES["alumni_img"]["name"];
+            $tempname = $_FILES["alumni_img"]["tmp_name"];   
+                $folder = "image/".$filename;*/
             $bio = mysqli_real_escape_string($conn, $_POST['bio']);
             $linkedIn = mysqli_real_escape_string($conn, $_POST['linkedIn']);
             $gitHub = mysqli_real_escape_string($conn, $_POST['gitHub']);
@@ -59,8 +62,6 @@ include_once("php/db_connect.php");
             $dept = $res['DEPT'];
             $level = $res['LEVEL'];
         }
-
-        
         ?>
 
         <main>
@@ -90,7 +91,7 @@ include_once("php/db_connect.php");
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <div class="profile-pic-div">
                                         <?php
-                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="photo" class="shadow"></a>';
+                                        echo '<img src="img/'.$alumni_img.'" alt="Admin" id="photo" class="shadow"></a>';
                                         ?>
                                     </div>
                                     <div class="mt-3">
@@ -313,7 +314,7 @@ include_once("php/db_connect.php");
             </div>
         </main>
         <script>
-        //delete ex[erience row
+        //delete experience row
         function deleteRow(exp_id) {
             var x = document.getElementById("table"+exp_id);
             

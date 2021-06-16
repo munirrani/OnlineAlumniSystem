@@ -15,50 +15,10 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
-    <?php include_once("php/heading.php");
+    <?php 
+    include_once("php/heading.php");
+    include_once("job-functions.php");
     $alumni_id = $_SESSION["userid"];
-
-    function Get($index, $defaultValue) {
-        return isset($_GET[$index]) ? $_GET[$index] : $defaultValue;
-    }
-    function filterJob(){
-        $query="SELECT * FROM job WHERE";
-        if(isset($_GET["ser"])){
-            $query .= " JOB_TITLE LIKE '%".$_GET["ser"]."%' AND";
-        }
-        if(isset($_GET["loc"])){
-            $query .= " CMP_STATE LIKE '%".$_GET["loc"]."%' AND";
-        }
-        if(isset($_GET["ms"])){
-            $query .= " JOB_SALARY_MIN >= ".$_GET["ms"]."    ";
-        }
-        if(isset($_GET["ft"]) || isset($_GET["pt"]) || isset($_GET["ct"]) || isset($_GET["in"])){
-            $query .= " AND JOB_TYPE IN ('".Get('ft',"")."','".Get('pt',"")."','".Get('ct',"")."','".Get('in',"")."')    ";
-        }
-        if(isset($_GET["sort"])){
-            if($_GET["sort"]=="Date"){
-                $query .= " ORDER BY EDIT_DATE ASC    ";
-            }
-            else{
-                $query .= " ORDER BY JOB_TITLE ASC    ";
-            }
-        }
-        $query = substr_replace($query, "", -4);
-    
-        return strval("$query");
-    }
-    function bookStatus($check_id){
-        $result = mysqli_query($conn, "SELECT * bookmark WHERE ALUMNI_ID=$alumni_id");
-        while($res = mysqli_fetch_array($result)){
-            $job_id = $res['JOB_ID'];
-            if($job_id == $check_id){
-                return "bookmarked";
-            }
-            else{
-                return "notBookmarked";
-            }
-        }
-    }
     ?>
         <div id="jobs-header">
             <div class="container">
@@ -188,15 +148,16 @@ include_once("php/db_connect.php");
                             $job_salary_min = $res2['JOB_SALARY_MIN'];
                             $cmp_city = $res2['CMP_CITY'];
                             $cmp_state = $res2['CMP_STATE'];
+                            $edit_date = $res2['EDIT_DATE'];
                             
                             echo '
                             <div class="col-md-6">
                             <div class="row">
                                 <h6 id="job-posted">
                                     <img src="img/time.png" width="15px"
-                                    style="float: left; margin-right: 5px;" >
-                                    Posted 5 days ago
-                                </h6>
+                                    style="float: left; margin-right: 5px;" >';
+                                    echo timeAgo($edit_date);
+                                echo '</h6>
                             </div>
                             <div class="job-box">
                                 <div class="container">
@@ -213,9 +174,14 @@ include_once("php/db_connect.php");
                                         <div class="col-md-auto p-0" style="margin: 0px 0px 20px 10px;">
                                             <a href="jobs-details.php?job_id='.$job_id.'"><button type="button" src="" id="viewbutton" class="btn">View</button></a>
                                         </div>
-                                        <div class="col-md-auto p-0" style="margin: 0px 10px 20px 5px;">
-                                            <button type="button" id="job-bmark" class="btn" onclick="addBookmark('.$job_id.')"><img id="search-img" src="img/bookmark-icon.png"></button>
-                                            
+                                        <div class="col-md-auto p-0" style="margin: 0px 10px 20px 5px;">';
+                                        if(bookStatus($job_id)){
+                                            echo '<input type="image" id="job-bmark" src="img/bookmark-clicked.png" class="bookmarked" onclick="addBookmark('.$job_id.',this)">';
+                                        }
+                                        else{
+                                            echo '<input type="image" id="job-bmark" src="img/bookmark-icon.png" class="notBookmarked" onclick="addBookmark('.$job_id.',this)">';
+                                        }
+                                          echo '
                                         </div>
                                     </div>
                                 </div>
@@ -247,6 +213,7 @@ include_once("php/db_connect.php");
                             </div>
                         </div>';
                         }
+                        mysqli_close($conn);
                         ?>
                         </div>
                     </div>
@@ -283,24 +250,20 @@ include_once("php/db_connect.php");
 
     <script>
         //Add Bookmark to DB
-        function addBookmark(job_id) {
-            var xhttp;
-            xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "job-book-db.php?job_id="+job_id, true);
-            xhttp.send();
-        }
-        //toggle between notBookmarked & bookmarked
-        function toggle(el){
-            if(el.className!="bookmarked"){
+        function addBookmark(job_id, el) {
+            var xhttp = new XMLHttpRequest();
+            if(el.className!="bookmarked"){ //belum tekan
                 el.src="img/bookmark-clicked.png";
                 el.className="bookmarked";
+                xhttp.open("GET", "job-doBook.php?do=add&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+                xhttp.send();
             }
-            else if(el.className=="bookmarked")
-            {
+            else if(el.className=="bookmarked"){ //dah tekan
                 el.src="img/bookmark-icon.png";
                 el.className="notBookmarked";
+                xhttp.open("GET", "job-doBook.php?do=del&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+                xhttp.send();
             }
-            
             return false;
         }
         // Salary Slider

@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <?php include_once("php/head.php")?>
+  <?php include_once("php/head.php") ?>
   <title>About | FSKTM Alumni</title>
 </head>
 
 <body>
   <div class="container-fluid p-0 m-0">
-    <?php include_once("php/heading.php")?>
+    <?php include_once("php/heading.php") ?>
 
     <main>
       <div id="home-container" class="container-fluid">
@@ -17,8 +17,7 @@
           <br />
           <div class="row featurette align-items-center justify-content-center">
             <div class="col-md-9 announcement-sec order-2 order-md-1">
-              <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/fsktm.jpg" alt=""
-                height="110%" width="110%" />
+              <img class="featurette-image news-img img-fluid mx-auto shadow-lg" src="img/fsktm.jpg" alt="" height="110%" width="110%" />
             </div>
           </div>
           <div class="row featurette align-items-center mt-5 justify-content-center">
@@ -49,8 +48,8 @@
               <p class="lead">
                 For more information feel free to contact
                 <strong> +60 12-345 6789 </strong> or email us at
-                <strong><a href="mailto:alumni@fsktm.um.edu.my" class="about-mail">
-                    alumni@fsktm.um.edu.my</a></strong>
+                <strong><a href="mailto:fsktmalumnisys@gmail.com" class="about-mail">
+                    fsktmalumnisys@gmail.com</a></strong>
               </p>
               <br />
             </div>
@@ -60,10 +59,10 @@
       </div>
     </main>
 
-    <?php include_once("php/footer.php")?>
+    <?php include_once("php/footer.php") ?>
   </div>
 
-  <?php include_once("php/scripts.php")?>
+  <?php include_once("php/scripts.php") ?>
 </body>
 
 </html>

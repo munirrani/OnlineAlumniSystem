@@ -8,6 +8,7 @@
   if (isset($_SESSION["userid"])) {
     header("location: index.php");
   }
+  
 
   ?>
   <title>Login | FSKTM Alumni</title>
