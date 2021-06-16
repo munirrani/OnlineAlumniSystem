@@ -45,6 +45,7 @@ include_once("php/db_connect.php");
             $level = mysqli_real_escape_string($conn, $_POST['level']);
 
             $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',LINKEDIN_ID='$linkedIn',GITHUB_ID='$gitHub',EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ALUMNI_IMG='$alumni_img',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
+            $_SESSION["alumniimg"] = $alumni_img;
         }
 
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");

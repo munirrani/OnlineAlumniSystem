@@ -35,6 +35,7 @@ include_once("php/db_connect.php");
         if (isset($_POST['chgUsername'])) {
             $username = mysqli_real_escape_string($conn, $_POST['username']);
             $result = mysqli_query($conn, "UPDATE alumni SET USERNAME='$username' WHERE ALUMNI_ID='$alumni_id'");
+            $_SESSION["userUsername"] = $username;
         }
         if (isset($_POST['chgPassword'])) {
             $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
