@@ -1,7 +1,6 @@
 <?php
 include_once("php/db_connect.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +21,6 @@ include_once("php/db_connect.php");
     <div class="container-fluid p-0 m-0">
         <?php
         include_once("php/heading.php");
-        include_once("job-to-db.php");
         $alumni_id = $_SESSION["userid"];
         ?>
 
@@ -102,9 +100,15 @@ include_once("php/db_connect.php");
                                 $cmp_state = $res['CMP_STATE'];
                                 $new_post_date = date("j F Y", strtotime($post_date));
                                 echo '
+<<<<<<< HEAD
+                                <div id="div'.$job_id.'">
+                                    <div>
+                                        Posted on '.$new_post_date.'
+=======
                                 <div>
                                     <div id="div' . $job_id . '">
                                         Posted on ' . $new_post_date . '
+>>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                     </div>
                                     <div id="act-box" class="row">
                                         <div class="col-md-4">
@@ -127,48 +131,58 @@ include_once("php/db_connect.php");
                                             </h6>
                                         </div>
                                         <div class="col-md-auto">
+<<<<<<< HEAD
+                                            <button type="button" id="act-button" class="btn" data-bs-toggle="modal" data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
+                                            <a href="jobs-edit.php?job_id='.$job_id.'"><button type="button" id="act-button" class="btn"><img id="search-img" src="img/edit.png"></button></a>
+=======
                                             <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
                                                 data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
                                             <a href="jobs-edit.php?job_id=' . $job_id . '"><button type="button" id="act-button" class="btn"><img
                                                         id="search-img" src="img/edit.png"></button></a>
+>>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                         </div>
                                     </div>
                                     <hr>
-                                </div>';
+                                </div>
+                                <div class="modal fade" id="warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-body" style="text-align: center; font-weight: bold">
+                                                You\'re about to delete this job advertisement. <br>Are you sure?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="button" onclick="deleteBookmark('.$job_id.')" data-bs-dismiss="modal" class="btn confirmbuttonModalSetting">Delete Job</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>'
+                                ;
                             }
                             mysqli_close($conn);
                             ?>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body" style="text-align: center; font-weight: bold">
-                                You're about to delete this job advertisement. <br>Are you sure?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                <a href="jobs-activity.php"><button type="button" onclick="deleteBookmark($job_id)" class="btn confirmbuttonModalSetting">Delete Job</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
         <script>
             //delete job
             function deleteBookmark(job_id) {
-                var x = document.getElementById("div" + job_id);
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("GET", "job-deleteJob.php?job_id=" + job_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
-                xhttp.send();
+            var x = document.getElementById("div"+job_id);
+            if (x.style.display === "none") {
+                x.style.display = "block"; 
+            } 
+            else {
+                x.style.display = "none";
             }
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("act-count").innerHTML = this.responseText;
+            }
+            xhttp.open("GET", "php/job-ajax.php?do=delP&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+            xhttp.send();
+            }
+            
         </script>
 
         <?php include_once("php/footer.php") ?>

@@ -150,19 +150,20 @@ include_once("php/db_connect.php");
         <script>
             //delete bookmark
             function deleteBookmark(job_id) {
-                var x = document.getElementById("div" + job_id);
-
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                const xhttp = new XMLHttpRequest();
-                xhttp.onload = function() {
-                    document.getElementById("act-count").innerHTML = this.responseText;
-                }
-                xhttp.open("GET", "job-doBook.php?do=del&job_id=" + job_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
-                xhttp.send();
+            var x = document.getElementById("div"+job_id);
+            
+            if (x.style.display === "none") {
+                x.style.display = "block"; 
+            } 
+            else {
+                x.style.display = "none";
+            }
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("act-count").innerHTML = this.responseText;
+            }
+            xhttp.open("GET", "php/job-ajax.php?do=delB&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+            xhttp.send();
             }
             //modal
             setTimeout(function() {

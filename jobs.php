@@ -23,8 +23,10 @@ include_once("php/db_connect.php");
     <div class="container-fluid p-0 m-0">
         <?php
         include_once("php/heading.php");
-        include_once("job-functions.php");
-        $alumni_id = $_SESSION["userid"];
+        include_once("php/job-functions.php");
+        if (isset($_SESSION["userid"])) {
+            $alumni_id = $_SESSION["userid"];
+        }
         ?>
         <div id="jobs-header">
             <div class="container">
@@ -186,10 +188,12 @@ include_once("php/db_connect.php");
                                             <a href="jobs-details.php?job_id=' . $job_id . '"><button type="button" src="" id="viewbutton" class="btn">View</button></a>
                                         </div>
                                         <div class="col-md-auto p-0" style="margin: 0px 10px 20px 5px;">';
-                                if (bookStatus($job_id)) {
-                                    echo '<input type="image" id="job-bmark" src="img/bookmark-clicked.png" class="bookmarked" onclick="addBookmark(' . $job_id . ',this)">';
-                                } else {
-                                    echo '<input type="image" id="job-bmark" src="img/bookmark-icon.png" class="notBookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                if (isset($_SESSION["userid"])) {
+                                    if (bookStatus($job_id)) {
+                                        echo '<input type="image" id="job-bmark" src="img/bookmark-clicked.png" class="bookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                    } else {
+                                        echo '<input type="image" id="job-bmark" src="img/bookmark-icon.png" class="notBookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                    }
                                 }
                                 echo '
                                         </div>

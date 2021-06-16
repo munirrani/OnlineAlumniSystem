@@ -79,13 +79,13 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.php">Admin-Dashboard</a></li>
               <li class="breadcrumb-item breadcrumb-admin"> <a href="admin-profile-dash.php">Profiles Dashboard</a></li>
-              <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Pending Profiles</li>
+              <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Rejected Profiles</li>
             </ol>
           </nav>
         </div>
         
         <div class="row justify-content-center">
-          <h1 class="display-4" id="alumni-search-heading">PENDING ALUMNI PROFILES</h1>
+          <h1 class="display-4" id="alumni-search-heading">REJECTED ALUMNI PROFILES</h1>
         </div>
 
         <div class="row justify-content-center">
@@ -109,11 +109,9 @@
 
         <div class="row">
           <ul id="alumniList" class="the-alumni-cards">
-
-
             <?php
             include_once("php/db_connect.php");
-            $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Pending' ORDER BY FULL_NAME";
+            $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Rejected' ORDER BY FULL_NAME";
             $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
             $number_of_results = mysqli_num_rows($resultset);
             $result_per_page = 4;
@@ -126,13 +124,9 @@
               $page = $_GET['page'];
             }
             $starting_limit_number = ($page - 1) * $result_per_page;
-            if (isset($_GET["approveProfile"]) || isset($_GET["rejectProfile"])) {
+            if (isset($_GET["reapproveProfile"])) {
               $alumni_id = mysqli_fetch_assoc($resultset)['ALUMNI_ID'];
-              if (isset($_GET["approveProfile"])) {
-                $sql = "UPDATE alumni SET REG_STATUS='Active' WHERE ALUMNI_ID='$alumni_id'";
-              } else {
-                $sql = "UPDATE alumni SET REG_STATUS='Rejected' WHERE ALUMNI_ID='$alumni_id'";
-              }
+              $sql = "UPDATE alumni SET REG_STATUS='Active' WHERE ALUMNI_ID='$alumni_id'";
               $result = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
             }
             showCard($resultset);
@@ -159,65 +153,36 @@
                     </div>
 
                     <div class="alumni-card-footer mt-1 mx-2 mb-3">
-                      <!-- <button type="button" class="btn shadow alumni-card-view-profile-button" data-bs-toggle="modal" data-bs-target="#alumni-modal-<?php echo $record['ALUMNI_ID']; ?>">View Alumni Profile</button> -->
-                      <button type="button" class="btn shadow btn-admin green" data-bs-toggle="modal" data-bs-target="#approve-modal-<?php echo $record['ALUMNI_ID']; ?>"><i class="fa fa-check"></i> Approve</button>
-                      <button type="button" class="btn shadow btn-admin red" data-bs-toggle="modal" data-bs-target="#reject-modal-<?php echo $record['ALUMNI_ID']; ?>"><i class="fa fa-close"></i> Reject</button>
+                      <button type="button" class="btn shadow btn-admin green" data-bs-toggle="modal" data-bs-target="#reapprove-modal-<?php echo $record['ALUMNI_ID']; ?>"><i class="fa fa-check"></i> Reapprove</button>
                     </div>
                   </div>
                 </div>
               </li>
 
               <!-- Modal Starts -->
-              <div class="modal fade alumni-modal" id="approve-modal-<?php echo $record['ALUMNI_ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade alumni-modal" id="reapprove-modal-<?php echo $record['ALUMNI_ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                   <div id="modal-content-admin-alumni" class="modal-content shadow">
 
                     <!-- Modal Header -->
                     <div class="modal-header mb-3">
-                        <h4 class="modal-title" id="modal-title" style="color: black;">Pending Alumni Registration</h4>
+                        <h4 class="modal-title" id="modal-title" style="color: black;">Reapprove Alumni Registration</h4>
                     </div>  
                     <!--  -->
 
                     <div class="container modal-container-alumni">
 
-                      <div id="approve-modal" style="display: block">
-                        <p class="lead">Are you sure you would like to approve the alumni profile of <?php echo $record['FULL_NAME']."?";?></p>
+                      <div id="reapprove-modal" style="display: block">
+                        <p class="lead">Are you sure you would like to reapprove <?php echo $record['FULL_NAME']?>'s alumni profile?</p>
                         <div class="d-flex gap-2 justify-content-center">
                           <form method="GET">
-                            <button type="submit" name="approveProfile" class="btn btn-admin green shadow admin-profile-btn">Approve Profile</button>
-                          </form>
-                          <button class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                      </div>         
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="modal fade alumni-modal" id="reject-modal-<?php echo $record['ALUMNI_ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                  <div id="modal-content-admin-alumni" class="modal-content shadow">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header mb-3">
-                        <h4 class="modal-title" id="modal-title" style="color: black;">Pending Alumni Registration</h4>
-                    </div>  
-                    <!--  -->
-
-                    <div class="container modal-container-alumni">
-
-                      <div id="reject-modal" style="display: block">
-                        <p class="lead">Are you sure you would like to reject the alumni profile of <?php echo $record['FULL_NAME']."?";?></p>
-                        <div class="d-flex gap-2 justify-content-center">
-                          <form method="GET">
-                            <button name="rejectProfile" class="btn btn-admin red shadow admin-profile-btn">Reject Profile</button>
+                            <button name="reapproveProfile" class="btn btn-admin green shadow admin-profile-btn">Reapprove Profile</button>
                           </form>
                           <button class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal">Cancel</button>
                         </div>
                       </div>
                     </div>
-                    
+
                   </div>
                 </div>
               </div>
@@ -245,6 +210,7 @@
         <?php } ?>
     
       </div>
+
     </main>
 
   <?php include_once("php/footer.php") ?>
