@@ -50,9 +50,6 @@
                 $confirmpw = mysqli_real_escape_string($conn, $_REQUEST['confirmpw']);
             }
 
-            
-
-
             // Default value
             $reg_status = "Pending";
             $bio = $github_id = $linkedin_id = "";

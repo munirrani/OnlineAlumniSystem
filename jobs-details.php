@@ -106,11 +106,12 @@ include_once("php/db_connect.php");
                             </div>
                         </div>
                         <?php
-                        $result2 = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
+                        $result2 = mysqli_query($conn, "SELECT job.*, alumni.USERNAME FROM job INNER JOIN alumni ON job.ALUMNI_ID = alumni.ALUMNI_ID");
                         while($res2 = mysqli_fetch_array($result2)){
                             $alumni_id = $res2['ALUMNI_ID'];
                             $post_date = $res2['POST_DATE'];
                             $edit_date = $res2['EDIT_DATE'];
+                            $username = $res2['USERNAME'];
 
                             $new_post_date = date("j F Y",strtotime($post_date));
                             $new_edit_date = date("j F Y",strtotime($edit_date));
@@ -123,7 +124,7 @@ include_once("php/db_connect.php");
                                     <div class="row mb-3">
                                         <div class="col-md-9">
                                             <h1><?php echo $job_title?></h1>
-                                            <h6 id="details-small"><?php echo "Posted by ".$alumni_id." on ".$new_post_date?></h6>
+                                            <h6 id="details-small"><?php echo "Posted by ".$username." on ".$new_post_date?></h6>
                                             <?php
                                             if($post_date != $edit_date){
                                                 echo '<h6 id="details-small">Recently edited on '.$new_edit_date.'</h6>';

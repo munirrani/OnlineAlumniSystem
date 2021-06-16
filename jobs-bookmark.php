@@ -157,7 +157,7 @@ include_once("php/db_connect.php");
             xhttp.onload = function() {
                 document.getElementById("act-count").innerHTML = this.responseText;
             }
-            xhttp.open("GET", "job-doBook.php?do=del&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+            xhttp.open("GET", "php/job-ajax.php?do=delB&job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
             xhttp.send();
             }
             //modal

@@ -13,7 +13,7 @@ let checkpw = function () {
     if (password.value != confirmpw.value) {
       errortextreg.classList.add("error-reg-text");
       confirmpw.classList.add("input-error");
-      errortextreg.innerHTML = 'Confimed Password Does Not Match';
+      errortextreg.innerHTML = 'Confirmed Password Does Not Match';
       return false;
     } else {
       confirmpw.classList.remove("input-error");
