@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-  <?php include_once("php/head.php") ?>
+  <?php include_once("php/head.php");
+
+  if (!isset($_SESSION["admin"])) {
+    header("location: index.php");
+  }
+
+  ?>
 
   <?PHP
 
@@ -25,7 +31,7 @@
 
 <body>
   <div class="container-fluid p-0 m-0">
-  <?php include_once("php/admin_heading.php")?>
+    <?php include_once("php/admin_heading.php") ?>
 
 
 

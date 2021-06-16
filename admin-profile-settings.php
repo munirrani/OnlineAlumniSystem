@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-  <?php include_once("php/head.php") ?>
+  <?php include_once("php/head.php");
+
+  if (!isset($_SESSION["admin"])) {
+    header("location: index.php");
+  }
+
+  ?>
   <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
   <?PHP
 
@@ -287,7 +293,6 @@
       });
     }
     //
-
   </script>
 </body>
 

@@ -1,33 +1,39 @@
 <?php
-    require_once("php/db_connect.php");
+require_once("php/db_connect.php");
 
-    $title = $_POST["EVENT_TITLE"];
-    $json = NULL;
-    if(isset($_POST["EVENT_TITLE"]))
-    {
-        $sql = "SELECT * FROM event WHERE EVENT_TITLE = '$title'";
-        $result = mysqli_query($conn, $sql);
-        $json = mysqli_fetch_assoc($result);
-    }
+$title = $_POST["EVENT_TITLE"];
+$json = NULL;
+if (isset($_POST["EVENT_TITLE"])) {
+    $sql = "SELECT * FROM event WHERE EVENT_TITLE = '$title'";
+    $result = mysqli_query($conn, $sql);
+    $json = mysqli_fetch_assoc($result);
+}
 
-    $words = explode('/', $json['IMAGE']);
-    $fileName = end($words);
+$words = explode('/', $json['IMAGE']);
+$fileName = end($words);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php")?>
+    <?php include_once("php/head.php");
+
+    if (!isset($_SESSION["admin"])) {
+        header("location: index.php");
+    }
+
+    ?>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js"></script>
     <style>
         main {
-          min-height: calc(100vh - 52px - 110px - 72px);
+            min-height: calc(100vh - 52px - 110px - 72px);
         }
+
         footer {
-          padding-top: 0px;
+            padding-top: 0px;
         }
     </style>
     <title>Update Event | FSKTM Alumni</title>
@@ -35,7 +41,7 @@
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/admin_heading.php")?>
+        <?php include_once("php/admin_heading.php") ?>
 
         <main id="event-section">
             <div class="container form-reg-container">
@@ -47,7 +53,7 @@
                         <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">Update Event</li>
                     </ol>
                 </nav>
-                
+
                 <div class="row mb-4">
                     <h1 class="form-reg-heading">UPDATE EVENT</h1>
                     <hr>
@@ -120,17 +126,17 @@
 
                             <div class="row form-reg-submit justify-content-center mt-2">
                                 <input class="submitreg" id="submit-event" type="submit" value="Update Event">
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
         </main>
 
-        <?php include_once("php/admin_footer.php")?>
+        <?php include_once("php/admin_footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php")?>
+    <?php include_once("php/scripts.php") ?>
 
     <script type="text/javascript" src="js/eventValidator.js"></script>
     <script>
@@ -140,7 +146,7 @@
         }
 
         // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (!event.target.matches(".dropbtn")) {
                 var i;
                 for (i = 0; i < dropdowns.length; i++) {
@@ -154,12 +160,12 @@
         //
         let logoutbutton = document.querySelector("#logoutbutton");
         // when clicking the logout button it will set loggedin to false and sent user to homepage
-        logoutbutton.onclick = function () {
+        logoutbutton.onclick = function() {
             let loggedin = false;
             sessionStorage.setItem("loggedin", loggedin);
             window.location.href = "index.html";
         };
-      //
+        //
     </script>
 </body>
 
@@ -175,13 +181,16 @@
 
     ClassicEditor
         .create(document.querySelector('#description'))
-        .then(editor => {editor.setData(event_details['DESCRIPTION']);})
-        .catch(error => {console.error(error);});
+        .then(editor => {
+            editor.setData(event_details['DESCRIPTION']);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
     var radioButtons = document.querySelectorAll(".event-mode");
-    for(var i = 0; i < radioButtons.length; i++)
-        if(radioButtons[i].value == event_details['MODE'])
-        {
+    for (var i = 0; i < radioButtons.length; i++)
+        if (radioButtons[i].value == event_details['MODE']) {
             radioButtons[i].checked = true;
             break;
         }

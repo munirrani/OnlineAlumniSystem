@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php")?>
+    <?php include_once("php/head.php");
+
+    if (isset($_SESSION["admin"])) {
+        header("location: admindash.php");
+    }
+
+    ?>
 
     <link rel="stylesheet" href="css/upcoming_events.css">
 
@@ -11,7 +17,7 @@
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php")?>
+        <?php include_once("php/heading.php") ?>
 
         <main>
             <div id="event-main">
@@ -20,15 +26,15 @@
                     <span class="meta-text">Events that will occur</span>
                     <hr>
                 </section>
-            
+
                 <section id="highlighted-section" class="card">
                 </section>
-            
+
                 <section id="events">
                     <div id="search-container" class="rounded-2 form-control form-control-lg form-control-borderless">
                         <input id="search-bar" class="rounded-3" type="search" placeholder="Search events">
                     </div>
-            
+
                     <ul id="event-list" class="mb-0">
                     </ul>
 
@@ -43,10 +49,11 @@
             </div>
         </main>
 
-        <?php include_once("php/footer.php")?>
+        <?php include_once("php/footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php")?>
-    <?php include_once("php/upcoming_events_db.php")?>
+    <?php include_once("php/scripts.php") ?>
+    <?php include_once("php/upcoming_events_db.php") ?>
 </body>
+
 </html>

@@ -9,6 +9,16 @@
     </nav>
 </header>
 
+<?php
+include_once("php/db_connect.php");
+$admin_id = $_SESSION["userid"];
+$result = mysqli_query($conn, "SELECT * FROM admin WHERE ADMIN_ID = $admin_id");
+while ($res = mysqli_fetch_array($result)) {
+  $username = $res['ADMIN_USERNAME'];
+  $password = $res['PASSWORD'];
+}
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-lg" id="botNavbar">
     <div class="container h5">
         <a class="navbar-brand" href="admindash.php">
@@ -38,7 +48,7 @@
                             <img src="img/icon.jpg" alt="Admin" id="profileIcon" class="dropbtn shadow">
                         </button>
                         <div id="myDropdown" class="dropdown-content">
-                            <a href="admin-profile-settings.php" id="dropdown-username">Signed in as <strong> <?php if(isset($_SESSION["userid"])){ echo $_SESSION["userUsername"]; }?></strong></a>
+                            <a href="admin-profile-settings.php" id="dropdown-username">Signed in as <strong> <?php echo $username; ?></strong></a>
                             <hr class="no-margin">
                             <a href="admin-profile-settings.php">Settings & Privacy</a>
                             <hr class="no-margin">

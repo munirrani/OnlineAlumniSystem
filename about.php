@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-  <?php include_once("php/head.php") ?>
+  <?php include_once("php/head.php");
+
+  if (isset($_SESSION["admin"])) {
+    header("location: admindash.php");
+  }
+
+  ?>
   <title>About | FSKTM Alumni</title>
 </head>
 
