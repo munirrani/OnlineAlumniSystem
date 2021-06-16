@@ -32,6 +32,7 @@ include_once("php/db_connect.php");
             $_SESSION["userUsername"] = $username; 
             echo("<meta http-equiv='refresh' content='0'>");
             $result = mysqli_query($conn, "UPDATE alumni SET USERNAME='$username' WHERE ALUMNI_ID='$alumni_id'");
+            $_SESSION["userUsername"] = $username;
         }
         ?>
 
