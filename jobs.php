@@ -21,19 +21,11 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
-<<<<<<< HEAD
-    <?php 
-    include_once("php/heading.php");
-    include_once("php/job-functions.php");
-    $alumni_id = $_SESSION["userid"];
-    ?>
-=======
         <?php
         include_once("php/heading.php");
         include_once("job-functions.php");
         $alumni_id = $_SESSION["userid"];
         ?>
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
         <div id="jobs-header">
             <div class="container">
                 <div class="container">
