@@ -64,33 +64,33 @@ if ($uploadOk == 0) {
     <?php include_once("php/heading.php");
     $alumni_id = $_SESSION["userid"];
         
-    if(isset($_POST['editProfile'])){
-        //Update Image       
-        $fh = fopen("profileImage/$image", "r");
-        $alumni_img_id = addslashes(fread($fh, filesize("profileImage/$image")));
-        fclose($fh);
+    // if(isset($_POST['editProfile'])){
+    //     //Update Image       
+    //     $fh = fopen("profileImage/$image", "r");
+    //     $alumni_img_id = addslashes(fread($fh, filesize("profileImage/$image")));
+    //     fclose($fh);
         
-        $_SESSION["alumniimg"] = $alumni_img_id;
+    //     $_SESSION["alumniimg"] = $alumni_img_id;
         
-        $bio = mysqli_real_escape_string($conn, $_POST['bio']);
-        $linkedIn = mysqli_real_escape_string($conn, $_POST['linkedIn']);
-        $gitHub = mysqli_real_escape_string($conn, $_POST['gitHub']);
-        $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
-        $current_pos = mysqli_real_escape_string($conn, $_POST['current_pos']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $phone = mysqli_real_escape_string($conn, $_POST['phone_no']);
-        $address = mysqli_real_escape_string($conn, $_POST['address']);
-        $pos_code = mysqli_real_escape_string($conn, $_POST['postcode']);
-        $city = mysqli_real_escape_string($conn, $_POST['city']);
-        $state = mysqli_real_escape_string($conn, $_POST['state']);
-        $country = mysqli_real_escape_string($conn, $_POST['country']);
-        $enrol_year = mysqli_real_escape_string($conn, $_POST['enrol_year']);
-        $grad_year = mysqli_real_escape_string($conn, $_POST['grad_year']);
-        $dept = mysqli_real_escape_string($conn, $_POST['dept']);
-        $level = mysqli_real_escape_string($conn, $_POST['level']);
+    //     $bio = mysqli_real_escape_string($conn, $_POST['bio']);
+    //     $linkedIn = mysqli_real_escape_string($conn, $_POST['linkedIn']);
+    //     $gitHub = mysqli_real_escape_string($conn, $_POST['gitHub']);
+    //     $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
+    //     $current_pos = mysqli_real_escape_string($conn, $_POST['current_pos']);
+    //     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    //     $phone = mysqli_real_escape_string($conn, $_POST['phone_no']);
+    //     $address = mysqli_real_escape_string($conn, $_POST['address']);
+    //     $pos_code = mysqli_real_escape_string($conn, $_POST['postcode']);
+    //     $city = mysqli_real_escape_string($conn, $_POST['city']);
+    //     $state = mysqli_real_escape_string($conn, $_POST['state']);
+    //     $country = mysqli_real_escape_string($conn, $_POST['country']);
+    //     $enrol_year = mysqli_real_escape_string($conn, $_POST['enrol_year']);
+    //     $grad_year = mysqli_real_escape_string($conn, $_POST['grad_year']);
+    //     $dept = mysqli_real_escape_string($conn, $_POST['dept']);
+    //     $level = mysqli_real_escape_string($conn, $_POST['level']);
         
-        $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',LINKEDIN_ID='$linkedIn',GITHUB_ID='$gitHub',EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ALUMNI_IMG='$alumni_img_id',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
-    }
+    //     $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',LINKEDIN_ID='$linkedIn',GITHUB_ID='$gitHub',EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ALUMNI_IMG='$alumni_img_id',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
+    // }
 
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
         while($res = mysqli_fetch_array($result)){
