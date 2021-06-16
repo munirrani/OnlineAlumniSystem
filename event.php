@@ -1,9 +1,17 @@
 <?php 
     require_once("php/db_connect.php");
 
-    $sql = "SELECT * FROM event WHERE EVENT_TITLE = '{$_GET['EVENT_TITLE']}'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+    $row = "";
+    try
+    {
+        $sql = "SELECT * FROM event WHERE EVENT_TITLE = '{$_GET['EVENT_TITLE']}'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+    }
+    catch(PDOEXCEPTION $e)
+    {
+        die("Error: " . $e->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>

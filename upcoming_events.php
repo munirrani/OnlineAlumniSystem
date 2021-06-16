@@ -33,14 +33,6 @@
             
                     <ul id="event-list" class="mb-0">
                     </ul>
-
-                    <!-- <div id="loader-container">
-                        <form action="">
-                            <button id="load-events" class="mt-4">
-                                More Events
-                            </button>
-                        </form>
-                    </div> -->
                 </section>
             </div>
         </main>

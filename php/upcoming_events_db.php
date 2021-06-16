@@ -1,9 +1,17 @@
 <?php
     require_once("php/db_connect.php");
 
-    // $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE";
-    $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event ORDER BY START_DATE";
-    $result = mysqli_query($conn, $sql);
+    $result = "";
+    try
+    {
+        // $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE";
+        $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event ORDER BY START_DATE";
+        $result = mysqli_query($conn, $sql);
+    }
+    catch(PDOEXCEPTION $e)
+    {
+        die("Error: " . $e->getMessage());
+    }
 
     $jsarray = array();
     while($row = mysqli_fetch_assoc($result))

@@ -1,3 +1,10 @@
+#my-table a {
+    color: black;
+    text-decoration: none;
+}
+#my-table a:hover {
+    color: rgb(126, 125, 125);
+}
 .my-navbar-brand {
     color: white;
     text-decoration: none;
