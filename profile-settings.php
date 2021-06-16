@@ -30,9 +30,7 @@ include_once("php/db_connect.php");
         if(isset($_POST['chgUsername'])){
             $username = mysqli_real_escape_string($conn, $_POST['username']);
             $_SESSION["userUsername"] = $username; 
-            echo("<meta http-equiv='refresh' content='0'>");
             $result = mysqli_query($conn, "UPDATE alumni SET USERNAME='$username' WHERE ALUMNI_ID='$alumni_id'");
-            $_SESSION["userUsername"] = $username;
         }
         ?>
 
@@ -270,7 +268,7 @@ include_once("php/db_connect.php");
         xhttp.onload = function() {
             document.getElementById("note").innerHTML = this.responseText;
         }
-        xhttp.open("GET", "test.php?do=delA&alumni_id="+<?php echo $alumni_id?>+"&user="+user+"&pass="+pass, true);
+        xhttp.open("GET", "profile-ajax.php?do=delA&alumni_id="+<?php echo $alumni_id?>+"&user="+user+"&pass="+pass, true);
         xhttp.send();
         return false;
     }

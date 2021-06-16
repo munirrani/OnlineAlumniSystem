@@ -26,6 +26,7 @@ function filterJob(){
         }
     }
     $query = substr_replace($query, "", -4);
+    $query .=" LIMIT 10";
 
     return strval("$query");
 }

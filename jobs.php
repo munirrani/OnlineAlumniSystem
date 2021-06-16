@@ -77,9 +77,7 @@ include_once("php/db_connect.php");
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item">
                                     <div class="form-check">
-                                        <input name="ft" class="form-check-input" type="checkbox" value="full-time" id="flexCheckDefault" <?php if (isset($_GET["ft"])) {
-                                                                                                                                                echo "checked";
-                                                                                                                                            } ?>>
+                                        <input name="ft" class="form-check-input" type="checkbox" value="full-time" id="flexCheckDefault" <?php if (isset($_GET["ft"])) {echo "checked";} ?>>
                                         <label class="form-check-label mx-2 mt-2" for="flexCheckDefault">
                                             Full-time
                                         </label>
@@ -240,7 +238,7 @@ include_once("php/db_connect.php");
                             </div>
                         </div>
                     </div>
-
+                    <!--
                     <div class="text-center mt-3">
                         <div class="row justify-content-md-center mx-auto btn-group">
                             <a href="#" class="col page-nav page-nav-text">Previous</a>
@@ -251,7 +249,7 @@ include_once("php/db_connect.php");
                             <a href="#" class="col page-nav page-nav-text">5</a>
                             <a href="#" class="col page-nav page-nav-text">Next</a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </main>
