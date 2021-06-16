@@ -2,13 +2,19 @@
 <html lang="en">
 
 <head>
-  <?php include_once("php/head.php") ?>
+  <?php include_once("php/head.php");
+
+  if (isset($_SESSION["admin"])) {
+    header("location: admindash.php");
+  }
+
+  ?>
   <?PHP
 
   if (isset($_SESSION["userid"])) {
     header("location: index.php");
   }
-  
+
 
   ?>
   <title>Login | FSKTM Alumni</title>
@@ -16,7 +22,7 @@
 
 <body>
   <div class="container-fluid p-0 m-0">
-  <?php include_once("php/heading.php") ?>
+    <?php include_once("php/heading.php") ?>
 
     <main>
 

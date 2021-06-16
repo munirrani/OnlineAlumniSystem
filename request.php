@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php") ?>
+    <?php include_once("php/head.php");
+
+    if (isset($_SESSION["admin"])) {
+        header("location: admindash.php");
+    }
+
+    ?>
     <title>Request | FSKTM Alumni</title>
 </head>
 
@@ -18,12 +24,12 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (
-                isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']) 
+                isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age'])
                 && isset($_POST['username']) && isset($_POST['gender'])
-                && isset($_POST['enrolYear']) && isset($_POST['gradYear']) && isset($_POST['email']) 
+                && isset($_POST['enrolYear']) && isset($_POST['gradYear']) && isset($_POST['email'])
                 && isset($_POST['currentPos']) && isset($_POST['level'])
-                && isset($_POST['department']) && isset($_POST['address']) && isset($_POST['phonenum']) 
-                && isset($_POST['country']) 
+                && isset($_POST['department']) && isset($_POST['address']) && isset($_POST['phonenum'])
+                && isset($_POST['country'])
                 && isset($_POST['postcode']) && isset($_POST['city'])
                 && isset($_POST['state']) && isset($_POST['password']) && isset($_POST['confirmpw'])
             ) {
@@ -48,13 +54,12 @@
                 $state = mysqli_real_escape_string($conn, $_REQUEST['state']);
                 $password = mysqli_real_escape_string($conn, $_REQUEST['password']);
                 $confirmpw = mysqli_real_escape_string($conn, $_REQUEST['confirmpw']);
-            }
-            else {
+            } else {
                 echo "<script>window.location.href = 'register.php?error=emptyinput';</script>";
                 exit();
             }
 
-            
+
 
 
             // Default value

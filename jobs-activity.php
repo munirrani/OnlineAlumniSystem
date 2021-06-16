@@ -6,7 +6,13 @@ include_once("php/db_connect.php");
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php")?>
+    <?php include_once("php/head.php");
+
+    if (isset($_SESSION["admin"])) {
+        header("location: admindash.php");
+    }
+
+    ?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/job.css">
     <title>Job Activity | FSKTM Alumni</title>
@@ -14,11 +20,11 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php 
+        <?php
         include_once("php/heading.php");
         include_once("job-to-db.php");
         $alumni_id = $_SESSION["userid"];
-        ?> 
+        ?>
 
         <main>
             <div class="container mt-3">
@@ -30,8 +36,7 @@ include_once("php/db_connect.php");
                         <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"
-                            href="jobs-activity.php">Job Activity</a>
+                        <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="jobs-activity.php">Job Activity</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-bookmark.php">Bookmarks</a>
@@ -44,7 +49,7 @@ include_once("php/db_connect.php");
             $post_count = mysqli_num_rows($result2);
 
             $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
-            while($res = mysqli_fetch_array($result)){
+            while ($res = mysqli_fetch_array($result)) {
                 $username = $res['USERNAME'];
                 $alumni_img = $res['ALUMNI_IMG'];
             }
@@ -56,23 +61,23 @@ include_once("php/db_connect.php");
                         <div class="row">
                             <div class="col-md-auto">
                                 <a href="profile.php">
-                                <?php
+                                    <?php
                                     echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="act-profileImg" class="shadow"></a>';
-                                ?>
+                                    ?>
                             </div>
                             <div class="col-md-8">
-                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"><?php echo $username?></h2>
+                                <h2 class="profile-name" style="margin-bottom: 0px; padding-top: 20px;" id="userName1"><?php echo $username ?></h2>
                                 <p id="bio1" style="margin-top: 0px;">Software Engineering</p>
                             </div>
                             <div class="col-md">
-                                <h2 id="act-count"><?php echo $post_count?></h2>
+                                <h2 id="act-count"><?php echo $post_count ?></h2>
                                 <p id="act-uploads">Job Uploads</p>
                             </div>
                         </div>
                     </div>
                     <div id="act-main" class="card mb-3">
                         <div class="card-body">
-                            <div class="row" id="act-addbox"><a href="jobs-add.php?alumni_id=<?php echo $alumni_id?>" style="text-decoration: none;">
+                            <div class="row" id="act-addbox"><a href="jobs-add.php?alumni_id=<?php echo $alumni_id ?>" style="text-decoration: none;">
                                     <img src="img/add.png" id="act-addimg">
                                     <h6 id="act-txtadd">
                                         Add a new job vacancy
@@ -85,7 +90,7 @@ include_once("php/db_connect.php");
                             </div>
                             <?php
                             $result = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id ORDER BY EDIT_DATE DESC");
-                            while($res = mysqli_fetch_array($result)){
+                            while ($res = mysqli_fetch_array($result)) {
                                 $job_id = $res['JOB_ID'];
                                 $job_title = $res['JOB_TITLE'];
                                 $cmp_logo = $res['CMP_LOGO'];
@@ -93,38 +98,38 @@ include_once("php/db_connect.php");
                                 $job_salary_min = $res['JOB_SALARY_MIN'];
                                 $job_salary_max = $res['JOB_SALARY_MAX'];
                                 $post_date = $res['POST_DATE'];
-                                $job_salary = "RM".$job_salary_min." - RM".$job_salary_max;
+                                $job_salary = "RM" . $job_salary_min . " - RM" . $job_salary_max;
                                 $cmp_state = $res['CMP_STATE'];
-                                $new_post_date = date("j F Y",strtotime($post_date));
+                                $new_post_date = date("j F Y", strtotime($post_date));
                                 echo '
                                 <div>
-                                    <div id="div'.$job_id.'">
-                                        Posted on '.$new_post_date.'
+                                    <div id="div' . $job_id . '">
+                                        Posted on ' . $new_post_date . '
                                     </div>
                                     <div id="act-box" class="row">
                                         <div class="col-md-4">
-                                            <a href="jobs-details.php?job_id='.$job_id.'"><img src="img/'.$cmp_logo.'" class="act-image"></a>
-                                            <a href="jobs-details.php?job_id='.$job_id.'" id="no-blue"><h6 id="act-jobname">
-                                                '.$job_title.'
+                                            <a href="jobs-details.php?job_id=' . $job_id . '"><img src="img/' . $cmp_logo . '" class="act-image"></a>
+                                            <a href="jobs-details.php?job_id=' . $job_id . '" id="no-blue"><h6 id="act-jobname">
+                                                ' . $job_title . '
                                             </h6></a>
                                             <h6 id="job-company">
-                                            '.$cmp_name.'
+                                            ' . $cmp_name . '
                                             </h6>
                                         </div>
                                         <div class="col-md-3">
                                             <h6 id="act-salary">
-                                                '.$job_salary.'
+                                                ' . $job_salary . '
                                             </h6>
                                         </div>
                                         <div class="col-md">
                                             <h6 id="act-location">
-                                            '.$cmp_state.'
+                                            ' . $cmp_state . '
                                             </h6>
                                         </div>
                                         <div class="col-md-auto">
                                             <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
                                                 data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
-                                            <a href="jobs-edit.php?job_id='.$job_id.'"><button type="button" id="act-button" class="btn"><img
+                                            <a href="jobs-edit.php?job_id=' . $job_id . '"><button type="button" id="act-button" class="btn"><img
                                                         id="search-img" src="img/edit.png"></button></a>
                                         </div>
                                     </div>
@@ -154,23 +159,23 @@ include_once("php/db_connect.php");
         <script>
             //delete job
             function deleteBookmark(job_id) {
-            var x = document.getElementById("div"+job_id);
-            if (x.style.display === "none") {
-                x.style.display = "block"; 
-            } 
-            else {
-                x.style.display = "none";
-            }
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "job-deleteJob.php?job_id="+job_id+"&alumni_id="+<?php echo $alumni_id?>, true);
-            xhttp.send();
+                var x = document.getElementById("div" + job_id);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "job-deleteJob.php?job_id=" + job_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
+                xhttp.send();
             }
         </script>
 
-        <?php include_once("php/footer.php")?>  
+        <?php include_once("php/footer.php") ?>
     </div>
 
-    <?php include_once("php/scripts.php")?>
+    <?php include_once("php/scripts.php") ?>
     <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>
+
 </html>
