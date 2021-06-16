@@ -108,6 +108,7 @@
                 <div class="modal fade alumni-modal" id="alumni-modal-<?php echo $record['ALUMNI_ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div id="modal-content-alumni" class="modal-content shadow">
+                      <?php $_SESSION['LAST_ACTIVITY'] = time();?>
 
                       <!-- Modal Header -->
                       <div class="modal-header mb-3">
