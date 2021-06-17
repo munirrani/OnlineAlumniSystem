@@ -1,11 +1,3 @@
-<?php
-    if(isset($_GET['RESPONSE']))
-    {
-    	$response = $_GET['RESPONSE'];
-            echo "<script>alert('$response')</script>";
-        unset($_GET['RESPONSE']);
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,3 +98,11 @@
     </script>
 </body>
 </html>
+<?php
+    if(isset($_GET['RESPONSE']))
+    {
+    	$response = $_GET['RESPONSE'];
+            echo "<script>alert($response)</script>";
+        unset($_GET['RESPONSE']);
+    }
+?>
