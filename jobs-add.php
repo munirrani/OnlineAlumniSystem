@@ -271,31 +271,8 @@ include_once('php/db_connect.php');
         <?php include_once("php/footer.php") ?>
     </div>
 
-<<<<<<< HEAD
     <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/jobs-validate.js"></script>
-=======
-    <?php include_once("php/scripts.php") ?>
-    <script>
-        function loadfile(event) {
-            var output = document.getElementById('photo');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        };
-    </script>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#description'))
-            .catch(error => {
-                console.error(error);
-            });
-        ClassicEditor
-            .create(document.querySelector('#qualification'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
 </body>
 
 </html>

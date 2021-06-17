@@ -38,10 +38,11 @@
           </select>
 
           <div class="bottom-log">
-          <p class="message">Forgot your password? <a href="reset-password.php">Click here</a></p>
+          
             <label class="checkbox">
               <input type="checkbox" id="rememberme" name="rememberMe" value="remember"> Remember me
             </label>
+            <p class="message mt-0 mb-2">Forgot your password? <a href="reset-password.php">Click here</a></p>
             <button class="submitlog" type="submit" name="submit">Login</button>
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>
           </div>
@@ -77,10 +78,53 @@
                 } 
                 else if ($_GET["error"] == "rejectedstatus") {
                   echo "Your account is unfortunately rejected by the Admin, If you have any inquiry please contact us.";
-                }else if ($_GET["reset"] == "success") {
+                }
+              ?>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="login-warning-modal-button" class="btn" data-bs-dismiss="modal">Okay</button>
+              <!-- <button type="button" class="btn btn-primary btn-danger">Okay</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="login-modal-warning2" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header" style="text-align: center;">
+              <h5 class="modal-title">Warning!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center" style="font-weight: 800;">
+              <?php
+                if ($_GET["reset"] == "success") {
                   echo "Check your e-mail!";
                 }
                 else if ($_GET["newpwd"] == "passwordupdated") {
+                  echo "Your new password has been updated, you may now use your new password for login";
+                }
+              ?>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="login-warning-modal-button" class="btn" data-bs-dismiss="modal">Okay</button>
+              <!-- <button type="button" class="btn btn-primary btn-danger">Okay</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="login-modal-warning3" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header" style="text-align: center;">
+              <h5 class="modal-title">Warning!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center" style="font-weight: 800;">
+              <?php
+
+                if ($_GET["newpwd"] == "passwordupdated") {
                   echo "Your new password has been updated, you may now use your new password for login";
                 }
               ?>
@@ -114,6 +158,21 @@
           });
           </script>";
   }
+  if (isset($_GET["reset"])) {
+    echo "<script type='text/javascript'>
+          $(document).ready(function(){
+          $('#login-modal-warning2').modal('show');
+          });
+          </script>";
+  }
+  if (isset($_GET["newpwd"])) {
+    echo "<script type='text/javascript'>
+          $(document).ready(function(){
+          $('#login-modal-warning3').modal('show');
+          });
+          </script>";
+  }
+
   ?>
 </body>
 

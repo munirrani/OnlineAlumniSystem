@@ -41,10 +41,10 @@
                             <p class="message">An e-mail will be send to you with instructions on how to reset your password.</p> -->
                             <input type="hidden" name="selector" value="<?php echo $selector ?>">
                             <input type="hidden" name="validator" value="<?php echo $validator ?>">
-                            <input type="password" name="pwd" value="" required placeholder="Enter a new password...">
-                            <input type="password" name="pwd-repeat" value="" required placeholder="Repeat new password...">
+                            <input class="form-control shadow" type="password" name="pwd" value="" required placeholder="Enter a new password...">
+                            <input class="form-control shadow" type="password" name="pwd-repeat" value="" required placeholder="Repeat new password...">
                             <div class="bottom-log">
-                                <button class="submitlog" type="submit" name="reset-password-submit">Reset Password</button>
+                                <button class="heyo" type="submit" name="reset-password-submit">Reset Password</button>
                             </div>
                         </form>
                 <?php

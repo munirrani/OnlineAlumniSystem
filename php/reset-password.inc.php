@@ -9,6 +9,7 @@ if (isset($_POST["reset-password-submit"])) {
     $password = $_POST["pwd"];
     $passwordRepeat = $_POST["pwd-repeat"];
 
+
     if (empty($password) || empty($passwordRepeat)) {
         header("Location: ../create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token) . "&error=emptyinput");
         exit();
@@ -19,7 +20,7 @@ if (isset($_POST["reset-password-submit"])) {
 
     $currentDate = date("U");
 
-    include_once("php/db_connect.php");
+    include_once("db_connect.php");
 
     $sql = "SELECT * FROM pwdreset WHERE pwdResetSelector =? AND pwdResetExpires >= ?";
     $stmt = mysqli_stmt_init($conn);
@@ -61,9 +62,16 @@ if (isset($_POST["reset-password-submit"])) {
                             echo "There was an error!";
                             exit();
                         } else {
-                            $newPwdHash = password_hash($password, PASSWORD_DEFAULT);
+
+                            $newPwdHash = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
                             mysqli_stmt_bind_param($stmt, "ss", $newPwdHash, $tokenEmail);
                             mysqli_stmt_execute($stmt);
+
+                            echo $tokenEmail;
+                            echo "<br>";
+                            echo $_POST["pwd"];
+                            echo "<br>";
+                            echo $newPwdHash;
 
                             $sql = "DELETE FROM pwdreset WHERE pwdResetEmail = ?";
                             $stmt = mysqli_stmt_init($conn);
