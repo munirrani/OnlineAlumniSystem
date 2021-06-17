@@ -167,7 +167,9 @@ include_once("php/db_connect.php");
                                                         
                                                         $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
                                                         if(!password_verify($curpassword, $password)){
-                                                            echo '<p style="margin-top: 5px; margin-left: 2px; color:red;">Your current password does not match!</p>';
+                                                            echo '<script>';
+                                                            echo 'alert("Your current password does not match!");';
+                                                            echo '</script>';
                                                         }
                                                         $newpassword1 = mysqli_real_escape_string($conn, $_POST['password1']);
                                                         $newpassword2 = mysqli_real_escape_string($conn, $_POST['password2']);

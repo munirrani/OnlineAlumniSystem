@@ -310,21 +310,7 @@ include_once("php/db_connect.php");
                 x.style.display = "none";
             }
             var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "profile-del-row.php?exp_id="+exp_id+"&alumni_id="+<?php echo $alumni_id?>, true);
-            xhttp.send();
-            }
-            //delete experience row
-        function deleteRow(exp_id) {
-            var x = document.getElementById("table"+exp_id);
-            
-            if (x.style.display === "none") {
-                x.style.display = "block"; 
-            } 
-            else {
-                x.style.display = "none";
-            }
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "profile-del-row.php?exp_id="+exp_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+            xhttp.open("GET", "profile-ajax.php?do=delRow&exp_id="+exp_id+"&alumni_id="+<?php echo $alumni_id?>, true);
             xhttp.send();
             }
         </script>
