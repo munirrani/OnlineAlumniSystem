@@ -12,6 +12,9 @@ include_once("php/db_connect.php");
     if (!isset($_SESSION["userid"])) {
         header("location: index.php");
     }
+    if (isset($_SESSION["admin"])) {
+        header("location: admindash.php");
+    }
 
     ?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
