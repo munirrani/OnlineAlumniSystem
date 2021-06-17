@@ -49,12 +49,16 @@
     if (isset($_POST['chgPassword'])) {
       $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
       if (!password_verify($curpassword, $password)) {
-        echo "Your current password did not match!";
+        //echo "Your current password did not match!";
+        echo "<script>window.location.href = 'admin-profile-settings.php?error=incorectpass';</script>";
+        exit();
       }
       $newpassword1 = mysqli_real_escape_string($conn, $_POST['password1']);
       $newpassword2 = mysqli_real_escape_string($conn, $_POST['password2']);
       if ($newpassword1 != $newpassword2) {
-        echo ("Oops! Password did not match! Try again. ");
+        //echo ("Oops! Password did not match! Try again. ");
+        echo "<script>window.location.href = 'admin-profile-settings.php?error=mismatchpass';</script>";
+        exit();
       }
       if (password_verify($curpassword, $password) && ($newpassword1 == $newpassword2)) {
         $newpassword = password_hash($newpassword2, PASSWORD_DEFAULT);
@@ -138,7 +142,7 @@
                     <h5 class="mb-0" style="font-weight: bold;">Change password</h5>
                   </div>
                   <hr>
-                  <button type="button" class="collapsible">
+                  <button type="button" class="collapsible" id="collapsePass">
                     <div class="row">
                       <div class="col-sm-3">
                         <h6 class="mb-0" style="font-weight: bold">Password</h6>
@@ -191,7 +195,7 @@
                   <button type="button" class="btn shadow confirmbuttonModalSetting" style="margin-bottom: 20px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your
                     account</button>
 
-                  <form action="php/logoutadmin.php?alumni_id=<?php echo $admin_id ?>" autocomplete="off" method="POST">
+                  <form action="php/delete-acc-admin" autocomplete="off" method="POST">
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -229,7 +233,30 @@
                     </div>
                   </form>
 
-
+                  <div class="modal fade" id="modal-warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header" style="text-align: center;">
+                          <h5 class="modal-title">Warning!</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center" style="font-weight: 800;">
+                          <?php
+                            if ($_GET["error"] == "incorectpass") {
+                              echo "Please enter the correct password";
+                            } 
+                            else if ($_GET["error"] == "mismatchpass") {
+                              echo "There was a password mismatch. Please retype your password";
+                            } 
+                          ?>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" id="login-warning-modal-button" class="btn" data-bs-dismiss="modal">Okay</button>
+                          <!-- <button type="button" class="btn btn-primary btn-danger">Okay</button> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                 </div>
               </div>
@@ -238,15 +265,6 @@
         </div>
     </main>
   </div>
-  <!-- <script>
-    function confirmChange() {
-      var a = document.getElementById("userName").value;
-      localStorage.setItem("userName", a);
-      document.getElementById("userName1").innerHTML = a;
-      document.getElementById("userName2").innerHTML = a;
-    }
-  </script> -->
-
   <footer class="page-footer shadow-lg">
     <div class="footer-copyright text-center py-3" style="background-color: #f3f3f3; font-weight: 800;">
       <p>Copyright &copy; FSKTM 2021</p>
@@ -292,8 +310,19 @@
         }
       });
     }
+    
     //
   </script>
+  <?php
+    if (isset($_GET["error"])) {
+      echo "<script type='text/javascript'>
+          $(document).ready(function(){
+          $('#exampleModal').modal('show');
+          $('#note').text('Incorrect Credentials. Please enter the correct credentials to delete this account ');
+          });
+          </script>";
+  }
+    ?>
 </body>
 
 </html>
