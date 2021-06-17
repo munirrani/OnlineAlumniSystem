@@ -85,20 +85,12 @@ include_once('php/db_connect.php');
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
-<<<<<<< HEAD
                                     <input id="minS" name="job_salary_min" type="number" class="form-control purplemodalinput" placeholder="Min" min="0" required>
                                     <p style="color:red" id="salarytxt"></p>
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
                                     <input id="maxS" name="job_salary_max" type="number" class="form-control purplemodalinput" placeholder="Max" min="0" required>
-=======
-                                    <input name="job_salary_min" type="text" class="form-control purplemodalinput" placeholder="Min" required>
-                                </div>
-                                <div class="col-sm text-secondary">
-                                    <span class="input-group-text">RM</span>
-                                    <input name="job_salary_max" type="text" class="form-control purplemodalinput" placeholder="Max" required>
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
@@ -153,20 +145,12 @@ include_once('php/db_connect.php');
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Min</span>
-<<<<<<< HEAD
                                     <input id="minC" name="cmp_size_min" type="number" class="form-control purplemodalinput" min=0 placeholder="Employee">
                                     <p style="color:red" id="cmpSizetxt"></p>
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Max</span>
                                     <input Id="maxC" name="cmp_size_max" type="number" class="form-control purplemodalinput" min=0 placeholder="Employee">
-=======
-                                    <input name="cmp_size_min" type="text" class="form-control purplemodalinput" placeholder="Employee">
-                                </div>
-                                <div class="col-sm text-secondary">
-                                    <span class="input-group-text">Max</span>
-                                    <input name="cmp_size_max" type="text" class="form-control purplemodalinput" placeholder="Employee">
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
