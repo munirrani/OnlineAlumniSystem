@@ -9,10 +9,11 @@
         if($result === false)
             echo mysqli_error($conn);
         $json = mysqli_fetch_assoc($result);
+        $words = explode('/', $json['IMAGE']);
+    $fileName = end($words);
     }
 
-    $words = explode('/', $json['IMAGE']);
-    $fileName = end($words);
+    
 ?>
 
 <!DOCTYPE html>
