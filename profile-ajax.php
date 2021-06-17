@@ -31,10 +31,10 @@ if(isset($_POST['delAcc'])){
 
             
         }
-        else{
-            echo "<script>window.location.href = 'profile-settings.php?error=wronguname';</script>";
-            exit();
-        }
+    }
+    else{
+        echo "<script>window.location.href = 'profile-settings.php?error=wronguname';</script>";
+        exit();
     }
     
 }
