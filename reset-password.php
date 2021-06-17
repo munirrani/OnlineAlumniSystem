@@ -29,10 +29,10 @@
       <div class="login">
         <form class="form-signin shadow-lg" action="php/reset-request.inc.php" method="POST">
           <h1 class="form-signin-heading">Reset Your Password</h1>
-          <p class="message">An e-mail will be send to you with instructions on how to reset your password.</p>
+          <p class="mb-4" style="text-align: center;">An e-mail will be send to you with instructions on how to reset your password.</p>
           <input id="usernameloginpage" type="text" class="form-control mb-4 shadow" required name="email" placeholder="Enter your email address" required autofocus="" />
           <div class="bottom-log">
-            <button class="submitlog" type="submit" name="reset-request-submit">Receive new password by e-mail</button>
+            <button class="resetpw" type="submit" name="reset-request-submit">Receive new password by e-mail</button>
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>
           </div>
         </form>
