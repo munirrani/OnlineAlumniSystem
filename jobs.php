@@ -32,7 +32,7 @@ include_once("php/db_connect.php");
             <div class="container">
                 <div class="container">
                     <h1 id="job-heading">JOBS OPPORTUNITY</h1>
-                    <p id="job-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    
                 </div>
                 <form method="GET" action="jobs.php" autocomplete="off">
                     <div class="search-container">
