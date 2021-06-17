@@ -174,6 +174,7 @@ include_once("php/db_connect.php");
                                                         if($newpassword1 != $newpassword2){
                                                         } 
                                                         if((password_verify($curpassword, $password)) && ($newpassword1 == $newpassword2)){
+                                                            $newpassword = password_hash($newpassword2, PASSWORD_DEFAULT);
                                                             $result = mysqli_query($conn, "UPDATE alumni SET PASSWORD='$newpassword' WHERE ALUMNI_ID='$alumni_id'");
                                                             echo '<script>';
                                                             echo 'alert("Your password has been changed");';
