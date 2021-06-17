@@ -174,7 +174,7 @@ function logAdmin($conn, $username, $password,$remember) {
         exit();
     }
 
-    $verify = ($password === $usernameExists["PASSWORD"]);
+    $verify = password_verify($password, $usernameExists["PASSWORD"]);
 
     if($verify === false) {
         echo "<script>window.location.href = '../login.php?error=passwordWrong';</script>";

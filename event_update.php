@@ -9,10 +9,12 @@
         if($result === false)
             echo mysqli_error($conn);
         $json = mysqli_fetch_assoc($result);
-    }
-
-    $words = explode('/', $json['IMAGE']);
+        $words = explode('/', $json['IMAGE']);
     $fileName = end($words);
+    }
+    mysqli_close($conn);
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +22,9 @@
 
 <head>
     <?php include_once("php/head.php");
-
-    if (!isset($_SESSION["admin"])) {
-        header("location: index.php");
-    }
-
+        if (!isset($_SESSION["admin"])) {
+            header("location: index.php");
+        }
     ?>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>

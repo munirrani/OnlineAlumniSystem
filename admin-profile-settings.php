@@ -48,7 +48,7 @@
     }
     if (isset($_POST['chgPassword'])) {
       $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
-      if ($curpassword != $password) {
+      if (!password_verify($curpassword, $password)) {
         echo "Your current password did not match!";
       }
       $newpassword1 = mysqli_real_escape_string($conn, $_POST['password1']);
@@ -56,9 +56,9 @@
       if ($newpassword1 != $newpassword2) {
         echo ("Oops! Password did not match! Try again. ");
       }
-      if (($curpassword == $password) && ($newpassword1 == $newpassword2)) {
-        // $newpassword = password_hash($newpassword2, PASSWORD_DEFAULT);
-        $result = mysqli_query($conn, "UPDATE admin SET PASSWORD='$newpassword1' WHERE ADMIN_ID='$admin_id'");
+      if (password_verify($curpassword, $password) && ($newpassword1 == $newpassword2)) {
+        $newpassword = password_hash($newpassword2, PASSWORD_DEFAULT);
+        $result = mysqli_query($conn, "UPDATE admin SET PASSWORD='$newpassword' WHERE ADMIN_ID='$admin_id'");
       }
     }
     mysqli_close($conn);

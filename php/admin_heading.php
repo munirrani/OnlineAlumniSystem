@@ -31,7 +31,7 @@ while ($res = mysqli_fetch_array($result)) {
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <hr>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admindash.html') echo 'active'?>" aria-current="page" href="admindash.php">
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admindash.php') echo 'active'?>" aria-current="page" href="admindash.php">
                         <b>
                             Dashboard
                         </b>
@@ -45,7 +45,7 @@ while ($res = mysqli_fetch_array($result)) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admin-profile-dash.html') echo 'active'?>" href="admin-profile-dash.php">
+                    <a class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/OnlineAlumniSystem/admin-profile-dash.php') echo 'active'?>" href="admin-profile-dash.php">
                         <b>
                             Manage Profiles
                         </b>
