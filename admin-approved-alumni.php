@@ -24,7 +24,6 @@
 <body>
   <div class="container-fluid p-0 m-0">
   <?php include_once("php/admin_heading.php") ?>
-
     <main>
 
       <div id="home-container" class="container-fluid">
