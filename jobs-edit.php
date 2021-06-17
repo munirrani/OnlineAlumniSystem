@@ -61,7 +61,7 @@ include_once("php/db_connect.php");
                 <div id="post-job-main">
                     <h1 id="post-job-heading">EDIT JOB</h1>
                     <div class="container-fluid mt-4">
-                    <form enctype="multipart/form-​data" action="php/job-to-db.php?job_id=<?php echo $job_id;?>" method="POST" autocomplete="off">
+                    <form enctype="multipart/form-​data" action="job-to-db.php?job_id=<?php echo $job_id;?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title<span id="red"> *</span></h6>

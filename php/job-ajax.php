@@ -1,12 +1,12 @@
 <?php
-include_once("php/db_connect.php");
+include_once("db_connect.php");
 
 
 $alumni_id = $_GET['alumni_id'];
 $job_id = $_GET['job_id'];
 
 //add bookmark
-if($_GET['do'] == "add"){
+if($_GET['do'] == "addB"){
     $book_date = date("Y-m-d H:i:s");
     $result = mysqli_query($conn, "INSERT INTO bookmark (ALUMNI_ID,JOB_ID,BOOK_DATE) VALUES ('$alumni_id','$job_id','$book_date')");
 }
