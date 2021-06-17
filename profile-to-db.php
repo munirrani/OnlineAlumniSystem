@@ -44,14 +44,6 @@ if(isset($_POST["editProfile"])) {
             </script>";
             $uploadOk = 0;
         }
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "<script type='text/javascript'>
-                alert('Sorry, file already exists.');
-                window.location.href='profile-edit.php';
-            </script>";
-            $uploadOk = 0;
-        }
         // Check file size
         if ($_FILES["alumni_img"]["size"] > 500000) {
             echo "<script type='text/javascript'>
