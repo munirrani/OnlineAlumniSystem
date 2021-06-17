@@ -76,6 +76,9 @@
                 else if ($_GET["error"] == "pendingstatus") {
                   echo "Your account is still being processed by the Admin.";
                 } 
+                else if ($_GET["error"] == "noemailexist") {
+                  echo "There is no account exists under the email!";
+                } 
                 else if ($_GET["error"] == "rejectedstatus") {
                   echo "Your account is unfortunately rejected by the Admin, If you have any inquiry please contact us.";
                 }
@@ -93,16 +96,13 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header" style="text-align: center;">
-              <h5 class="modal-title">Warning!</h5>
+              <h5 class="modal-title">Request Succesful!</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center" style="font-weight: 800;">
               <?php
                 if ($_GET["reset"] == "success") {
                   echo "Check your e-mail!";
-                }
-                else if ($_GET["newpwd"] == "passwordupdated") {
-                  echo "Your new password has been updated, you may now use your new password for login";
                 }
               ?>
             </div>
@@ -118,12 +118,11 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header" style="text-align: center;">
-              <h5 class="modal-title">Warning!</h5>
+              <h5 class="modal-title">SUCCESS!</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center" style="font-weight: 800;">
               <?php
-
                 if ($_GET["newpwd"] == "passwordupdated") {
                   echo "Your new password has been updated, you may now use your new password for login";
                 }

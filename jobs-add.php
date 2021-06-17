@@ -37,7 +37,7 @@ include_once('php/db_connect.php');
                 <div id="post-job-main">
                     <h1 id="post-job-heading">POST NEW JOB</h1>
                     <div class="container mt-4">
-                        <form enctype="multipart/form-​data" action="php/job-to-db.php?alumni_id=<?php echo $alumni_id?>" method="POST" autocomplete="off">
+                        <form action="job-to-db.php?alumni_id=<?php echo $alumni_id?>" enctype="multipart/form-​data"  method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title<span id="red"> *</span></h6>

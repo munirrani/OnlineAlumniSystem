@@ -1,26 +1,6 @@
 <?php
 include_once("php/db_connect.php");
 echo '<script>console.log("Running...")</script>';
-$job_title = '';
-$job_desc = '';
-$job_type = '';
-$job_qual = '';
-$job_salary_min = 0;
-$job_salary_max = 0;
-$job_dateline = '';
-$job_link = '';
-$cmp_name = '';
-$cmp_logo = '';
-$cmp_size_min = 0;
-$cmp_size_max = '';
-$cmp_about = '';
-$cmp_address = '';
-$cmp_postal = '';
-$cmp_city = '';
-$cmp_state = ''; 
-$cmp_country = '';
-$cmp_email = '';
-$cmp_website = '';
 
 if(isset($_POST['postJob']) || isset($_POST['editJob'])){
     $job_title = mysqli_real_escape_string($conn, $_POST['job_title']);
