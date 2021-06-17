@@ -107,15 +107,9 @@ include_once("php/db_connect.php");
                                 $cmp_state = $res['CMP_STATE'];
                                 $new_post_date = date("j F Y", strtotime($post_date));
                                 echo '
-<<<<<<< HEAD
                                 <div id="div'.$job_id.'">
                                     <div>
                                         Posted on '.$new_post_date.'
-=======
-                                <div>
-                                    <div id="div' . $job_id . '">
-                                        Posted on ' . $new_post_date . '
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                     </div>
                                     <div id="act-box" class="row">
                                         <div class="col-md-4">
@@ -138,15 +132,8 @@ include_once("php/db_connect.php");
                                             </h6>
                                         </div>
                                         <div class="col-md-auto">
-<<<<<<< HEAD
                                             <button type="button" id="act-button" class="btn" data-bs-toggle="modal" data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
                                             <a href="jobs-edit.php?job_id='.$job_id.'"><button type="button" id="act-button" class="btn"><img id="search-img" src="img/edit.png"></button></a>
-=======
-                                            <button type="button" id="act-button" class="btn" data-bs-toggle="modal" 
-                                                data-bs-target="#warning"><img id="search-img" src="img/delete.png"></button>
-                                            <a href="jobs-edit.php?job_id=' . $job_id . '"><button type="button" id="act-button" class="btn"><img
-                                                        id="search-img" src="img/edit.png"></button></a>
->>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                         </div>
                                     </div>
                                     <hr>
