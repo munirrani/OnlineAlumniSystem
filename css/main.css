@@ -880,6 +880,24 @@ footer {
     border: none;
     transition: 0.25s;
 }
+.resetpw {
+    justify-self: center;
+    padding: 10px 35px;
+    background: #aa2aa4;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    transition: 0.25s;
+}
+.heyo {
+    justify-self: center;
+    padding: 10px 35px;
+    background: #aa2aa4;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    transition: 0.25s;
+}
 
 .submitlog:hover {
     box-shadow: 0 0 15px #c532be;

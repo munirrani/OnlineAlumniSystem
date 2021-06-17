@@ -29,7 +29,6 @@ include_once("php/db_connect.php");
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-
         $job_id = $_GET['job_id'];
         $result = mysqli_query($conn, "SELECT * FROM job WHERE JOB_ID = $job_id");
 
@@ -287,7 +286,7 @@ include_once("php/db_connect.php");
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-body" style="text-align: center; font-weight: bold">
-                                            Are you sure you wish to edit this job advertisement?
+                                            Are you sure you wish to post this edited job advertisement?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>

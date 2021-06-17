@@ -267,12 +267,12 @@ include_once("php/db_connect.php");
             if (el.className != "bookmarked") { //belum tekan
                 el.src = "img/bookmark-clicked.png";
                 el.className = "bookmarked";
-                xhttp.open("GET", "job-doBook.php?do=add&job_id=" + job_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
+                xhttp.open("GET", "php/job-ajax.php?do=add&job_id=" + job_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
                 xhttp.send();
             } else if (el.className == "bookmarked") { //dah tekan
                 el.src = "img/bookmark-icon.png";
                 el.className = "notBookmarked";
-                xhttp.open("GET", "job-doBook.php?do=del&job_id=" + job_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
+                xhttp.open("GET", "php/job-ajax.php?do=del&job_id=" + job_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
                 xhttp.send();
             }
             return false;

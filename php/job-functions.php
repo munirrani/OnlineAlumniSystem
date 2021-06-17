@@ -33,8 +33,8 @@ function filterJob(){
 
 function bookStatus($check_id){
     include("php/db_connect.php");
-    // $alumni_id = $_SESSION["userid"];
-    $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = 295 AND JOB_ID = $check_id");
+    $alumni_id = $_SESSION["userid"];
+    $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = $alumni_id AND JOB_ID = $check_id");
     if (mysqli_num_rows($result) == 0) {
         return False;
     } 
