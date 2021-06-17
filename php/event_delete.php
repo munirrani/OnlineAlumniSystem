@@ -1,3 +1,5 @@
+
+
 <?php
     require_once("db_connect.php");
 
@@ -10,10 +12,11 @@
     $result = mysqli_query($conn, $fetchSQL);
     $path = mysqli_fetch_assoc($result);
     $filePath = (string)$path['IMAGE'];
-    !unlink("../".$filePath);
+    unlink("../".$filePath);
 
     $sql = "DELETE FROM event WHERE EVENT_TITLE = '{$title}'";
     $result = mysqli_query($conn, $sql);
 
-    header("Location: ../event_admin.php");
+    mysqli_close($conn);
+    header("Location: ../event_admin.php?RESPONSE='Event successfully deleted'");
 ?>
