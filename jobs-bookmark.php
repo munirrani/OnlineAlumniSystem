@@ -12,6 +12,13 @@ include_once("php/db_connect.php");
     }
 
     ?>
+    <?PHP
+
+    if (!isset($_SESSION["userid"])) {
+    header("location: index.php");
+    }
+
+    ?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/job.css">
     <title>Bookmark | FSKTM Alumni</title>

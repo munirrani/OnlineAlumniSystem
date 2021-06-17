@@ -7,6 +7,13 @@ include_once("php/db_connect.php");
 
 <head>
     <?php include_once("php/head.php")?>
+    <?PHP
+
+    if (!isset($_SESSION["userid"])) {
+        header("location: index.php");
+    }
+
+    ?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <title>Settings | FSKTM Alumni</title>
 </head>
