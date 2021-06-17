@@ -7,6 +7,7 @@
         // $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE";
         $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE, IMAGE, DESCRIPTION FROM event ORDER BY START_DATE";
         $result = mysqli_query($conn, $sql);
+        mysqli_close($conn);
     }
     catch(PDOEXCEPTION $e)
     {

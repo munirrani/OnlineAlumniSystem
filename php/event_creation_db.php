@@ -4,7 +4,6 @@
     {
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            // TODO: Store php array in IMAGE (actual filename and temporary filename)
             if(isset($_POST["eventTitle"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["description"]) && isset($_FILES["eventImg"]) && isset($_POST["eventMode"]))
             {
                 session_start();
@@ -23,11 +22,9 @@
                 $fileExt = explode(".", $_FILES["eventImg"]["name"]);
                 $ext = strtolower(end($fileExt));
 
-                // Add modal for this function
                 $imagesArr = array("png", "jpg", "jpeg");
                 if(in_array($ext, $imagesArr) === false)
                     header("Location: ../event_creation.php");
-                // 
 
                 $imageName = uniqid().".".$ext;
                 $imagePath = "uploads/images/".$imageName;
@@ -39,11 +36,9 @@
 
                 $sql = "INSERT INTO event_modification (EVENT_TITLE, ADMIN_ID, MODIFICATION_TYPE, MODIFICATION_DATE) VALUES ('$eventTitle', '$adminId', 'Create', '$todayDate')";
                 $result = mysqli_query($conn, $sql);
-
-                mysqli_close($conn);
             }
         }
-
+        mysqli_close($conn);
         header("Location: ../event_admin.php");
     }
     catch(PDOEXCEPTION $e)

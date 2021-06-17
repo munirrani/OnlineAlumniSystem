@@ -3,11 +3,9 @@
 
 <head>
     <?php include_once("php/head.php");
-
-    if (!isset($_SESSION["admin"])) {
-        header("location: index.php");
-    }
-
+        if (!isset($_SESSION["admin"])) {
+            header("location: index.php");
+        }
     ?>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>

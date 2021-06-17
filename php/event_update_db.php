@@ -24,11 +24,9 @@
                     $fileExt = explode(".", $_FILES["eventImg"]["name"]);
                     $ext = strtolower(end($fileExt));
 
-                    // Add modal when going to the event_admin page
                     $imagesArr = array("png", "jpg", "jpeg");
                     if(in_array($ext, $imagesArr) === false)
                         header("Location: ../event_admin.php");
-                    // 
 
                     $imageName = uniqid().".".$ext;
                     $imagePath = "uploads/images/".$imageName;
@@ -48,13 +46,9 @@
 
                 $sql = "INSERT INTO event_modification (EVENT_TITLE, ADMIN_ID, MODIFICATION_TYPE, MODIFICATION_DATE) VALUES ('$eventTitle', '$adminId', 'Update', '$todayDate')";
                 $result = mysqli_query($conn, $sql);
-
-                mysqli_close($conn);
             }
-            else
-                echo "One of the variables wasn't set";
         }
-
+        mysqli_close($conn);
         header("Location: ../event_admin.php");
     }
     catch(PDOEXCEPTION $e)
