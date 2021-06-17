@@ -3,11 +3,9 @@
 
 <head>
     <?php include_once("php/head.php");
-
-    if (isset($_SESSION["admin"])) {
-        header("location: admindash.php");
-    }
-
+        if (isset($_SESSION["admin"])) {
+            header("location: admindash.php");
+        }
     ?>
 
     <link rel="stylesheet" href="css/upcoming_events.css">
@@ -49,5 +47,4 @@
     <?php include_once("php/scripts.php") ?>
     <?php include_once("php/upcoming_events_db.php") ?>
 </body>
-
 </html>

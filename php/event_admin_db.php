@@ -7,6 +7,7 @@
         // $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE FROM event WHERE START_DATE >= CURDATE() ORDER BY START_DATE";
         $sql = "SELECT EVENT_TITLE, START_DATE, END_DATE, MODE FROM event ORDER BY START_DATE";
         $result = mysqli_query($conn, $sql);
+        mysqli_close($conn);
     }
     catch(PDOEXCEPTION $e)
     {
@@ -47,7 +48,7 @@
     {
         html += 
             `<tr>
-                <td><a href="event.php?EVENT_TITLE=${eventData[i]['EVENT_TITLE']}">${eventData[i]['EVENT_TITLE']}</a></td>
+                <td>${eventData[i]['EVENT_TITLE']}</td>
                 <td>${eventData[i]['START_DATE']}</td>
                 <td>${eventData[i]['END_DATE']}</td>
                 <td>${eventData[i]['MODE']}</td>

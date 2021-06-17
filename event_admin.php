@@ -1,17 +1,11 @@
-<!-- 
-    TODO: Implement the modal for the delete function
- -->
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <?php include_once("php/head.php");
-
-    if (!isset($_SESSION["admin"])) {
-        header("location: index.php");
-    }
-
+        if (!isset($_SESSION["admin"])) {
+            header("location: index.php");
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/b-1.7.0/r-2.2.7/datatables.min.css" />
@@ -103,5 +97,12 @@
         };
     </script>
 </body>
-
 </html>
+<?php
+    if(isset($_GET['RESPONSE']))
+    {
+    	$response = $_GET['RESPONSE'];
+            echo "<script>alert($response)</script>";
+        unset($_GET['RESPONSE']);
+    }
+?>
