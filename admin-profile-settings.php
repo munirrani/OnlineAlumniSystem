@@ -73,7 +73,7 @@
       <div class="container mt-3">
         <ul class="nav nav-tabs">
           <li id="inactive" class="nav-item">
-            <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="admin-profile-settings.html">Settings & Privacy</a>
+            <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="admin-profile-settings.html">Admin Settings</a>
           </li>
         </ul>
       </div>
@@ -105,7 +105,7 @@
               <div id="right-col" class="card mb-3">
                 <div class="card-body">
                   <div class="row">
-                    <h2 id="profile-heading">SETTINGS AND PRIVACY</h2>
+                    <h2 id="profile-heading">ADMIN SETTINGS</h2>
                   </div>
                   <div class="row">
                     <h5 class="mb-0" style="font-weight: bold;">Change username</h5>
@@ -184,54 +184,9 @@
                       </div>
                     </form>
                   </div>
-                  <div class="row">
-                    <h5 class="mb-0" style="font-weight: bold;">Delete account</h5>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <h6 style="margin-bottom: 20px;">Please be certain before you delete your
-                      account. </h6>
-                  </div>
-                  <button type="button" class="btn shadow confirmbuttonModalSetting" style="margin-bottom: 20px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your
-                    account</button>
+                  
 
-                  <form action="php/delete-acc-admin" autocomplete="off" method="POST">
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete account?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="mb-3">
-                              <div id="deleteAcc" class="alert">
-                                <span class="closebtn"></span>
-                                <strong>Warning!</strong> Your account may be deleted.
-                                <br>You could lose all your account data.
-                              </div>
-                            </div>
-                            <div class="mb-3">
-                              <label for="usernameModalSettings" class="col-form-label">Your username or email:</label>
-                              <input name="username" type="text" class="form-control purplemodalinput" id="usernameModalSettings" required>
-                            </div>
-                            <div class="mb-3">
-                              <label for="verifydelete" class="col-form-label">To verify, type <i>delete my account</i> below:</label>
-                              <input type="text" class="form-control purplemodalinput" id="verifydelete" pattern="delete my account" required>
-                            </div>
-                            <div class="mb-3">
-                              <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
-                              <input name="password" type="password" class="form-control purplemodalinput" id="passwordModalSettings" required>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                              <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting">Delete this account</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
+                  
 
                   <div class="modal fade" id="modal-warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
