@@ -286,8 +286,20 @@ include_once("php/db_connect.php");
                                     <td>'.$work_title.'</td>
                                     <td>'.$position.'</td>
                                     <td>'.$desc.'</td>
-                                    <td><button onclick="deleteRow('.$exp_id.')" type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
-                                </tr>';
+                                    <td><button type="button" id="act-button" class="btn" data-bs-toggle="modal" data-bs-target="#warning"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
+                                    </tr>
+                                    <div class="modal fade" id="warning" tabindex="-1" aria-labelledby="warning" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-body" style="text-align: center; font-weight: bold">
+                                                You\'re about to delete this experience. <br>Are you sure?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="button" onclick="deleteRow('.$exp_id.')" data-bs-dismiss="modal" class="btn confirmbuttonModalSetting">Delete Experience</button>
+                                            </div>
+                                        </div>
+                                    </div>';
                             }
                             mysqli_close($conn);
                             ?>
@@ -300,7 +312,6 @@ include_once("php/db_connect.php");
         //delete experience row
         function deleteRow(exp_id) {
             var x = document.getElementById("table"+exp_id);
-            
             if (x.style.display === "none") {
                 x.style.display = "block"; 
             } 

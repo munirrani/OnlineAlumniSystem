@@ -32,6 +32,7 @@ if(isset($_POST["editProfile"])) {
             
             $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',LINKEDIN_ID='$linkedIn',GITHUB_ID='$gitHub',EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
             }
+            header("location: profile.php");
     }else{
         $check = getimagesize($_FILES["alumni_img"]["tmp_name"]);
         if($check !== false) {
@@ -42,16 +43,6 @@ if(isset($_POST["editProfile"])) {
                 window.location.href='profile-edit.php';
             </script>";
             $uploadOk = 0;
-            
-        }
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "<script type='text/javascript'>
-                alert('Sorry, file already exists.');
-                window.location.href='profile-edit.php';
-            </script>";
-            $uploadOk = 0;
-            
         }
         // Check file size
         if ($_FILES["alumni_img"]["size"] > 500000) {
@@ -60,7 +51,6 @@ if(isset($_POST["editProfile"])) {
             window.location.href='profile-edit.php';
             </script>";
             $uploadOk = 0;
-            
         }
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -70,7 +60,6 @@ if(isset($_POST["editProfile"])) {
                 window.location.href='profile-edit.php';
                 </script>";
             $uploadOk = 0;
-            
         }
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
