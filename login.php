@@ -38,6 +38,7 @@
           </select>
 
           <div class="bottom-log">
+          <p class="message">Forgot your password? <a href="reset-password.php">Click here</a></p>
             <label class="checkbox">
               <input type="checkbox" id="rememberme" name="rememberMe" value="remember"> Remember me
             </label>
@@ -76,6 +77,11 @@
                 } 
                 else if ($_GET["error"] == "rejectedstatus") {
                   echo "Your account is unfortunately rejected by the Admin, If you have any inquiry please contact us.";
+                }else if ($_GET["reset"] == "success") {
+                  echo "Check your e-mail!";
+                }
+                else if ($_GET["newpwd"] == "passwordupdated") {
+                  echo "Your new password has been updated, you may now use your new password for login";
                 }
               ?>
             </div>
