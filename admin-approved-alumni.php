@@ -4,19 +4,26 @@
 <head>
   <?php include_once("php/head.php");
 
-  if (!isset($_SESSION["admin"])) {
-      header("location: index.php");
+  if (!isset($_SESSION["admin"]) || !isset($_SESSION["userid"])) {
+    header("location: index.php");
   }
 
   ?>
-  <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+  <style>
+    main {
+      min-height: calc(100vh - 52px - 110px - 72px);
+    }
+
+    footer {
+      padding-top: 0px;
+    }
+  </style>
   <title>Admin Alumni Profiles | FSKTM Alumni</title>
 </head>
 
 <body>
   <div class="container-fluid p-0 m-0">
-    <?php include_once("php/admin_heading.php") ?>
-
+  <?php include_once("php/admin_heading.php") ?>
     <main>
 
       <div id="home-container" class="container-fluid">
@@ -24,8 +31,7 @@
           <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-background">
             <ol class="breadcrumb">
               <li class="breadcrumb-item breadcrumb-admin"> <a href="admindash.php">Admin-Dashboard</a></li>
-              <li class="breadcrumb-item breadcrumb-admin"> <a href="admin-profile-dash.php">Profiles Dashboard</a>
-              </li>
+              <li class="breadcrumb-item breadcrumb-admin"> <a href="admin-profile-dash.php">Profiles Dashboard</a></li>
               <li class="breadcrumb-item breadcrumb-admin-current active" aria-current="page">/Approved Profiles</li>
             </ol>
           </nav>

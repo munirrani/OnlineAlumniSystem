@@ -2,14 +2,22 @@
 <html lang="en">
 
 <head>
-<?php include_once("php/head.php");
+  <?php include_once("php/head.php");
 
-if (!isset($_SESSION["admin"])) {
+  if (!isset($_SESSION["admin"]) || !isset($_SESSION["userid"])) {
     header("location: index.php");
-}
+  }
 
-?>
-  <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
+  ?>
+  <style>
+    main {
+      min-height: calc(100vh - 52px - 110px - 72px);
+    }
+
+    footer {
+      padding-top: 0px;
+    }
+  </style>
   <title>Admin Alumni Profiles | FSKTM Alumni</title>
 </head>
 
