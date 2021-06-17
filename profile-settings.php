@@ -218,7 +218,7 @@ include_once("php/db_connect.php");
                                         account</button>
                                
 
-                                    <form onsubmit="return false" autocomplete="off" method="POST">
+                                    
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
@@ -227,6 +227,7 @@ include_once("php/db_connect.php");
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
+                                                    <form action="profile-ajax.php" autocomplete="off" method="POST">
                                                         <div class="mb-3">
                                                             <div id="deleteAcc" class="alert">
                                                                 <span class="closebtn"></span>
@@ -245,17 +246,20 @@ include_once("php/db_connect.php");
                                                         <div class="mb-3">
                                                             <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
                                                             <input name="password" type="password" class="form-control purplemodalinput" id="passwordModalSettings" required>
-                                                            <small><p style="color:red" id="note"><p></small>
+                                                            <small><p style="color:red" id="note">
+                                                                
+                                                            <p></small>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                                            <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting" onclick=" checkDelete()">Delete this account</button>
+                                                            <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting">Delete this account</button>
                                                         </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -268,18 +272,16 @@ include_once("php/db_connect.php");
     <?php include_once("php/footer.php")?>
     <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/register.js"></script>
-    <script>
-    function checkDelete() {
-        var user = document.getElementById("usernameModalSettings").value;
-        var pass = document.getElementById("passwordModalSettings").value;
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
-            document.getElementById("note").innerHTML = this.responseText;
-        }
-        xhttp.open("GET", "profile-ajax.php?do=delA&alumni_id="+<?php echo $alumni_id?>+"&user="+user+"&pass="+pass, true);
-        xhttp.send();
-        return false;
+    <?php
+    if (isset($_GET["error"])) {
+        echo "<script type='text/javascript'>
+            $(document).ready(function(){
+            $('#exampleModal').modal('show');
+            $('#note').text('Incorrect Credentials. Please enter the correct credentials to delete this account ');
+            });
+            </script>";
     }
-    </script>
+    ?>
 </body>
 </html>
+
