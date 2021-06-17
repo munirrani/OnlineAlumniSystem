@@ -105,7 +105,7 @@ include_once("php/db_connect.php");
                                 <hr>
                                 <div class="pd-20">
                                     <h6>About Company</h6>
-                                    <p id="details-small"><?php echo $cmp_about ?></p>
+                                    <p style="text-align: justify; line-height: 1.6" id="details-small"><?php echo $cmp_about ?></p>
                                 </div>
                             </div>
                         </div>
