@@ -8,6 +8,11 @@ include_once("php/db_connect.php");
 <head>
     <?php include_once("php/head.php")?>
     <?PHP
+
+    if (isset($_SESSION["admin"])) {
+    header("location: admindash.php");
+    }
+
     if (!isset($_SESSION["userid"])) {
         header("location: index.php");
     }
