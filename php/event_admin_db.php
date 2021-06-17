@@ -48,7 +48,7 @@
     {
         html += 
             `<tr>
-                <td><a href="event.php?EVENT_TITLE=${eventData[i]['EVENT_TITLE']}">${eventData[i]['EVENT_TITLE']}</a></td>
+                <td>${eventData[i]['EVENT_TITLE']}</td>
                 <td>${eventData[i]['START_DATE']}</td>
                 <td>${eventData[i]['END_DATE']}</td>
                 <td>${eventData[i]['MODE']}</td>

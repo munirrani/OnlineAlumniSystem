@@ -1,12 +1,14 @@
 <?php
-require_once("php/db_connect.php");
+    require_once("php/db_connect.php");
 
     $row = "";
     try
     {
-        $sql = "SELECT * FROM event WHERE EVENT_TITLE = '{$_GET['EVENT_TITLE']}'";
+        $title = $_GET['EVENT_TITLE'];
+        $sql = "SELECT * FROM event WHERE EVENT_TITLE = '$title'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
     }
     catch(PDOEXCEPTION $e)
     {
@@ -19,20 +21,16 @@ require_once("php/db_connect.php");
 
 <head>
     <?php include_once("php/head.php");
-
-    if (isset($_SESSION["admin"])) {
-        header("location: admindash.php");
-    }
-
+        if (isset($_SESSION["admin"])) {
+            header("location: admindash.php");
+        }
     ?>
 
     <link rel="stylesheet" href="css/event.css">
-    <?PHP
-
-    if (!isset($_GET['EVENT_TITLE'])) {
-        header("location: upcoming_events.php");
-    }
-
+    <?php
+        if (!isset($_GET['EVENT_TITLE'])) {
+            header("location: upcoming_events.php");
+        }
     ?>
     <title>Event | FSKTM Alumni</title>
 </head>
@@ -65,7 +63,6 @@ require_once("php/db_connect.php");
     </div>
 
     <?php include_once("php/scripts.php") ?>
-
     <script>
         function date(start_date, end_date) {
             let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
