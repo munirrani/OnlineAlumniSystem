@@ -195,7 +195,7 @@
                   <button type="button" class="btn shadow confirmbuttonModalSetting" style="margin-bottom: 20px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your
                     account</button>
 
-                  <form action="php/logoutadmin.php?alumni_id=<?php echo $admin_id ?>" autocomplete="off" method="POST">
+                  <form action="php/delete-acc-admin" autocomplete="off" method="POST">
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -316,11 +316,12 @@
   <?php
     if (isset($_GET["error"])) {
       echo "<script type='text/javascript'>
-            $(document).ready(function(){
-            $('#modal-warning').modal('show');
-            });
-            </script>";
-    }
+          $(document).ready(function(){
+          $('#exampleModal').modal('show');
+          $('#note').text('Incorrect Credentials. Please enter the correct credentials to delete this account ');
+          });
+          </script>";
+  }
     ?>
 </body>
 
