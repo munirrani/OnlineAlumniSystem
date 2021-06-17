@@ -23,14 +23,16 @@ include_once("php/db_connect.php");
     <div class="container-fluid p-0 m-0">
         <?php
         include_once("php/heading.php");
-        include_once("job-functions.php");
-        $alumni_id = $_SESSION["userid"];
+        include_once("php/job-functions.php");
+        if (isset($_SESSION["userid"])) {
+            $alumni_id = $_SESSION["userid"];
+        }
         ?>
         <div id="jobs-header">
             <div class="container">
                 <div class="container">
                     <h1 id="job-heading">JOBS OPPORTUNITY</h1>
-                    <p id="job-caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    
                 </div>
                 <form method="GET" action="jobs.php" autocomplete="off">
                     <div class="search-container">
@@ -75,9 +77,7 @@ include_once("php/db_connect.php");
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item">
                                     <div class="form-check">
-                                        <input name="ft" class="form-check-input" type="checkbox" value="full-time" id="flexCheckDefault" <?php if (isset($_GET["ft"])) {
-                                                                                                                                                echo "checked";
-                                                                                                                                            } ?>>
+                                        <input name="ft" class="form-check-input" type="checkbox" value="full-time" id="flexCheckDefault" <?php if (isset($_GET["ft"])) {echo "checked";} ?>>
                                         <label class="form-check-label mx-2 mt-2" for="flexCheckDefault">
                                             Full-time
                                         </label>
@@ -186,10 +186,12 @@ include_once("php/db_connect.php");
                                             <a href="jobs-details.php?job_id=' . $job_id . '"><button type="button" src="" id="viewbutton" class="btn">View</button></a>
                                         </div>
                                         <div class="col-md-auto p-0" style="margin: 0px 10px 20px 5px;">';
-                                if (bookStatus($job_id)) {
-                                    echo '<input type="image" id="job-bmark" src="img/bookmark-clicked.png" class="bookmarked" onclick="addBookmark(' . $job_id . ',this)">';
-                                } else {
-                                    echo '<input type="image" id="job-bmark" src="img/bookmark-icon.png" class="notBookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                if (isset($_SESSION["userid"])) {
+                                    if (bookStatus($job_id)) {
+                                        echo '<input type="image" id="job-bmark" src="img/bookmark-clicked.png" class="bookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                    } else {
+                                        echo '<input type="image" id="job-bmark" src="img/bookmark-icon.png" class="notBookmarked" onclick="addBookmark(' . $job_id . ',this)">';
+                                    }
                                 }
                                 echo '
                                         </div>
@@ -236,7 +238,7 @@ include_once("php/db_connect.php");
                             </div>
                         </div>
                     </div>
-
+                    <!--
                     <div class="text-center mt-3">
                         <div class="row justify-content-md-center mx-auto btn-group">
                             <a href="#" class="col page-nav page-nav-text">Previous</a>
@@ -247,7 +249,7 @@ include_once("php/db_connect.php");
                             <a href="#" class="col page-nav page-nav-text">5</a>
                             <a href="#" class="col page-nav page-nav-text">Next</a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </main>

@@ -1,4 +1,5 @@
 <?php
+include_once("php/db_connect.php");
 echo '<script>console.log("Running...")</script>';
 $job_title = '';
 $job_desc = '';
@@ -70,4 +71,6 @@ else if (isset($_POST['editJob'])){
     }
 	echo '<script>console.log("Update success")</script>';
 }
+mysqli_close($conn);
+header("location: jobs-activity.php");
 ?>

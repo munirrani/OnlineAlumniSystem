@@ -29,7 +29,7 @@
                             <a href="upcoming_events.php" class="text-dark">Events</a>
                         </li>
                         <li class="my-2 pt-2">
-                            <a href="jobs.html" class="text-dark">Search Jobs</a>
+                            <a href="jobs.php" class="text-dark">Search Jobs</a>
                         </li>
                     </ul>
                 </h5>

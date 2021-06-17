@@ -6,13 +6,7 @@ include_once("php/db_connect.php");
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php");
-
-    if (isset($_SESSION["admin"])) {
-        header("location: admindash.php");
-    }
-
-    ?>
+    <?php include_once("php/head.php")?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <title>Settings | FSKTM Alumni</title>
 </head>
@@ -23,35 +17,21 @@ include_once("php/db_connect.php");
         $alumni_id = $_SESSION["userid"];
 
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
-        while ($res = mysqli_fetch_array($result)) {
+        while($res = mysqli_fetch_array($result)){
             $alumni_img = $res['ALUMNI_IMG'];
             $username = $res['USERNAME'];
+            $email = $res['EMAIL'];
             $bio = $res['BIO'];
             $linkedIn = $res['LINKEDIN_ID'];
             $gitHub = $res['GITHUB_ID'];
             $password = $res['PASSWORD'];
         }
 
-        if (isset($_POST['chgUsername'])) {
+        if(isset($_POST['chgUsername'])){
             $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $_SESSION["userUsername"] = $username; 
             $result = mysqli_query($conn, "UPDATE alumni SET USERNAME='$username' WHERE ALUMNI_ID='$alumni_id'");
         }
-        if (isset($_POST['chgPassword'])) {
-            $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
-            if (!password_verify($curpassword, $password)) {
-                echo "Your current password did not match!";
-            }
-            $newpassword1 = mysqli_real_escape_string($conn, $_POST['password1']);
-            $newpassword2 = mysqli_real_escape_string($conn, $_POST['password2']);
-            if ($newpassword1 != $newpassword2) {
-                echo ("Oops! Password did not match! Try again. ");
-            }
-            if ((password_verify($curpassword, $password)) && ($newpassword1 == $newpassword2)) {
-                $newpassword = password_hash($newpassword2, PASSWORD_DEFAULT);
-                $result = mysqli_query($conn, "UPDATE alumni SET PASSWORD='$newpassword' WHERE ALUMNI_ID='$alumni_id'");
-            }
-        }
-        mysqli_close($conn);
         ?>
 
         <main>
@@ -61,7 +41,8 @@ include_once("php/db_connect.php");
                         <a id="profileNav-inactive" class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile-settings.php">Settings & Privacy</a>
+                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"
+                            href="profile-settings.php">Settings & Privacy</a>
                     </li>
                     <li id="profileNav" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="jobs-activity.php">Job Activity</a>
@@ -79,25 +60,28 @@ include_once("php/db_connect.php");
                             <div class="card-body mt-3">
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <?php
-                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($alumni_img) . '" alt="Admin" id="profileImg" class="shadow"></a>';
+                                        echo '<img src="data:image/jpeg;base64,'.base64_encode($alumni_img).'" alt="Admin" id="profileImg" class="shadow"></a>';
                                     ?>
                                     <div class="mt-3">
-                                        <h2 class="profile-name" id="userName1"><?php echo $username ?></h2>
+                                        <h2 class="profile-name" id="userName1"><?php echo $username?></h2>
                                         <div class="container">
                                             <div class="container">
                                                 <p id="bio1">
-                                                    <?php
-                                                    if (empty($bio)) {
+                                                    <?php 
+                                                    if(empty($bio)){
                                                         echo "Add bio and social media";
-                                                    } else {
+                                                    }
+                                                    else{
                                                         echo $bio;
                                                     }
                                                     ?>
                                                 </p>
                                             </div>
                                             <div class="container">
-                                                <a id="linkedin1" href="<?php echo $linkedIn ?>" target="_blank"><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
-                                                <a id="github1" href="<?php echo $gitHub ?>" target="_blank"><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
+                                                <a id="linkedin1" href="<?php echo $linkedIn?>" target="_blank"><img src="img/linkedin.png" alt="LinkedIn"
+                                                        id="bio-icons-prof"></a>
+                                                <a id="github1" href="<?php echo $gitHub?>" target="_blank"><img src="img/github.png" alt="Github"
+                                                        id="bio-icons-prof"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +104,7 @@ include_once("php/db_connect.php");
                                                 <h6 class="mb-0" style="font-weight: bold">Username</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <h6 class="mb-0" id="userName2"><?php echo $username ?></h6>
+                                                <h6 class="mb-0" id="userName2"><?php echo $username?></h6>
                                             </div>
                                         </div>
                                     </button>
@@ -134,9 +118,11 @@ include_once("php/db_connect.php");
                                             </div>
                                             <div class="col-sm-9 text-secondary mt-2 mb-4">
                                                 <form method="POST" action="profile-settings.php">
-                                                    <input name="username" type="text" class="form-control purplemodalinput" id="userName" required>
-                                                    <button name="chgUsername" class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px">
-                                                        Confirm username</button>
+                                                    <input name="username" type="text" class="form-control purplemodalinput"
+                                                        id="userName" required>
+                                                    <button name="chgUsername" class="btn confirmbuttonModalSetting" type="submit"
+                                                        style="margin-top: 15px">
+                                                        Change username</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -165,7 +151,29 @@ include_once("php/db_connect.php");
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                    <input name="password" type="password" class="form-control" placeholder="" required />
+                                                    <input name="password" type="password" class="form-control" placeholder="" required/>
+                                                    <?php
+                                                        if(isset($_POST['chgPassword'])){
+                                                        $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
+                                                        $res = mysqli_fetch_array($result);
+                                                        $password = $res['PASSWORD'];
+                                                        
+                                                        $curpassword = mysqli_real_escape_string($conn, $_POST['password']);
+                                                        if(!password_verify($curpassword, $password)){
+                                                            echo '<p style="margin-top: 5px; margin-left: 2px; color:red;">Your current password does not match!</p>';
+                                                        }
+                                                        $newpassword1 = mysqli_real_escape_string($conn, $_POST['password1']);
+                                                        $newpassword2 = mysqli_real_escape_string($conn, $_POST['password2']);
+                                                        if($newpassword1 != $newpassword2){
+                                                        } 
+                                                        if((password_verify($curpassword, $password)) && ($newpassword1 == $newpassword2)){
+                                                            $result = mysqli_query($conn, "UPDATE alumni SET PASSWORD='$newpassword' WHERE ALUMNI_ID='$alumni_id'");
+                                                            echo '<script>';
+                                                            echo 'alert("Your password has been changed");';
+                                                            echo '</script>';
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <label for="newPassModal">
@@ -173,16 +181,18 @@ include_once("php/db_connect.php");
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-2">
-                                                    <input id="password" type="password" class="form-control" name="password1" required />
+                                                    <input id="password" type="password" class="form-control"
+                                                    onkeyup='checkpw()' name="password1" required />
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <label for="newPassConfirmModal">
-                                                        <h6 class="mt-2 mb-4">Re-enter password</h6>
+                                                        <h6 class="mt-2 mb-4">Confirm new password</h6>
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary mt-2 mb-4">
-                                                    <input id="confirmpw" type="password" class="form-control" name="password2" required />
-                                                    <button name="chgPassword" class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px;">Confirm password</button>
+                                                    <input id="confirmpw" type="password" class="form-control" onkeyup='checkpw()' name="password2" required/>
+                                                    <p style="margin-top: 5px !important; margin-bottom: auto !important;" id="error-text-reg"></p>
+                                                    <button name="chgPassword" class="btn confirmbuttonModalSetting" type="submit" style="margin-top: 15px;">Change password</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -195,11 +205,12 @@ include_once("php/db_connect.php");
                                         <h6 style="margin-bottom: 20px;">Please be certain before you delete your
                                             account. </h6>
                                     </div>
-                                    <button type="button" class="btn shadow confirmbuttonModalSetting" style="margin-bottom: 20px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your
+                                    <button type="button" class="btn shadow confirmbuttonModalSetting" style="margin-bottom: 20px;" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete your
                                         account</button>
+                               
 
-
-                                    <form action="php/logout.php?alumni_id=<?php echo $alumni_id ?>" autocomplete="off" method="POST">
+                                    <form onsubmit="return false" autocomplete="off" method="POST">
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
@@ -226,10 +237,11 @@ include_once("php/db_connect.php");
                                                         <div class="mb-3">
                                                             <label for="passwordModalSettings" class="col-form-label">Confirm your password:</label>
                                                             <input name="password" type="password" class="form-control purplemodalinput" id="passwordModalSettings" required>
+                                                            <small><p style="color:red" id="note"><p></small>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" id="cancelbuttonmodal" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                                            <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting">Delete this account</button>
+                                                            <button name="delAcc" type="submit" class="btn confirmbuttonModalSetting" onclick=" checkDelete()">Delete this account</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -243,10 +255,23 @@ include_once("php/db_connect.php");
                 </div>
             </div>
         </main>
+        <?php mysqli_close($conn);?>
     </div>
-    <?php include_once("php/footer.php") ?>
-    <?php include_once("php/scripts.php") ?>
+    <?php include_once("php/footer.php")?>
+    <?php include_once("php/scripts.php")?>
     <script type="text/javascript" src="js/register.js"></script>
+    <script>
+    function checkDelete() {
+        var user = document.getElementById("usernameModalSettings").value;
+        var pass = document.getElementById("passwordModalSettings").value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("note").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "profile-ajax.php?do=delA&alumni_id="+<?php echo $alumni_id?>+"&user="+user+"&pass="+pass, true);
+        xhttp.send();
+        return false;
+    }
+    </script>
 </body>
-
 </html>

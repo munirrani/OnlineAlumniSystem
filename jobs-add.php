@@ -22,7 +22,7 @@ include_once('php/db_connect.php');
 <body>
     <div class="container-fluid p-0 m-0">
         <?php include_once("php/heading.php");
-        $alumni_id = $_GET['alumni_id'];
+        $alumni_id = $_SESSION["userid"];
         ?>
 
         <main>
@@ -30,7 +30,7 @@ include_once('php/db_connect.php');
                 <div id="post-job-main">
                     <h1 id="post-job-heading">POST NEW JOB</h1>
                     <div class="container mt-4">
-                        <form enctype="multipart/form-​data" action="jobs-activity.php?alumni_id=<?php echo $alumni_id ?>" method="POST" autocomplete="off">
+                        <form enctype="multipart/form-​data" action="php/job-to-db.php?alumni_id=<?php echo $alumni_id?>" method="POST" autocomplete="off">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Job Title<span id="red"> *</span></h6>
@@ -78,11 +78,20 @@ include_once('php/db_connect.php');
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
+<<<<<<< HEAD
+                                    <input id="minS" name="job_salary_min" type="number" class="form-control purplemodalinput" placeholder="Min" min="0" required>
+                                    <p style="color:red" id="salarytxt"></p>
+                                </div>
+                                <div class="col-sm text-secondary">
+                                    <span class="input-group-text">RM</span>
+                                    <input id="maxS" name="job_salary_max" type="number" class="form-control purplemodalinput" placeholder="Max" min="0" required>
+=======
                                     <input name="job_salary_min" type="text" class="form-control purplemodalinput" placeholder="Min" required>
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">RM</span>
                                     <input name="job_salary_max" type="text" class="form-control purplemodalinput" placeholder="Max" required>
+>>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
@@ -91,7 +100,8 @@ include_once('php/db_connect.php');
                                     <h6 class="mb-0">Application Deadline<span id="red"> *</span></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input name="job_dateline" type="date" class="form-control purplemodalinput">
+                                    <input id="dateline" name="job_dateline" type="date" class="form-control purplemodalinput">
+                                    <p style="color:red" id="datelinetxt"></p>
                                 </div>
                             </div>
                             <hr>
@@ -136,11 +146,20 @@ include_once('php/db_connect.php');
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Min</span>
+<<<<<<< HEAD
+                                    <input id="minC" name="cmp_size_min" type="number" class="form-control purplemodalinput" min=0 placeholder="Employee">
+                                    <p style="color:red" id="cmpSizetxt"></p>
+                                </div>
+                                <div class="col-sm text-secondary">
+                                    <span class="input-group-text">Max</span>
+                                    <input Id="maxC" name="cmp_size_max" type="number" class="form-control purplemodalinput" min=0 placeholder="Employee">
+=======
                                     <input name="cmp_size_min" type="text" class="form-control purplemodalinput" placeholder="Employee">
                                 </div>
                                 <div class="col-sm text-secondary">
                                     <span class="input-group-text">Max</span>
                                     <input name="cmp_size_max" type="text" class="form-control purplemodalinput" placeholder="Employee">
+>>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
                                 </div>
                             </div>
                             <hr>
@@ -222,7 +241,7 @@ include_once('php/db_connect.php');
                                     </div>
                                     <div class="d-flex gap-2 mt-4">
                                         <button id="editbutton" class="btn shadow" data-bs-toggle="modal" data-bs-target="#cancel" type="button">Cancel</button>
-                                        <button id="updatebutton" class="btn shadow" data-bs-toggle="modal" data-bs-target="#warning" type="button">Post Job</button>
+                                        <button id="updatebutton" class="btn shadow" type="button" onclick="validateForm()">Post Job</button>
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +266,7 @@ include_once('php/db_connect.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button>
+                                             <a href="jobs-activity.php"><button type="button" class="btn confirmbuttonModalSetting">Discard Changes</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -261,6 +280,10 @@ include_once('php/db_connect.php');
         <?php include_once("php/footer.php") ?>
     </div>
 
+<<<<<<< HEAD
+    <?php include_once("php/scripts.php")?>
+    <script type="text/javascript" src="js/jobs-validate.js"></script>
+=======
     <?php include_once("php/scripts.php") ?>
     <script>
         function loadfile(event) {
@@ -281,6 +304,7 @@ include_once('php/db_connect.php');
                 console.error(error);
             });
     </script>
+>>>>>>> c97a41a81e3e39d67be07e501ce802aab2d60e34
 </body>
 
 </html>

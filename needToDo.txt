@@ -1,10 +1,7 @@
 Profile Page
-1. Betulkan profile image
+1. Betulkan profile image//
 2. Delete account punya error notice dekat modal
 
 Job Page
-1. Check delete job activity
 2. Pagination Job Page (optional)
-3. Add/edit - salary min < salary max
-4. Add/edit - dateline > currentdate
 5. Job Page autocomplete css

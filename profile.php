@@ -6,12 +6,11 @@ include_once("php/db_connect.php");
 <html lang="en">
 
 <head>
-    <?php include_once("php/head.php");
-
-    if (isset($_SESSION["admin"])) {
-        header("location: admindash.php");
+    <?php include_once("php/head.php")?>
+    <?PHP
+    if (!isset($_SESSION["userid"])) {
+        header("location: index.php");
     }
-
     ?>
     <script src="https://kit.fontawesome.com/d4305da033.js" crossorigin="anonymous"></script>
     <title>Profile | FSKTM Alumni</title>
@@ -19,36 +18,11 @@ include_once("php/db_connect.php");
 
 <body>
     <div class="container-fluid p-0 m-0">
-        <?php include_once("php/heading.php");
-        $alumni_id = $_SESSION["userid"];
-
-        if (isset($_POST['editProfile'])) {
-            $alumni_img = mysqli_real_escape_string($conn, $_POST['alumni_img']);
-            /*$filename = $_FILES["alumni_img"]["name"];
-            $tempname = $_FILES["alumni_img"]["tmp_name"];   
-                $folder = "image/".$filename;*/
-            $bio = mysqli_real_escape_string($conn, $_POST['bio']);
-            $linkedIn = mysqli_real_escape_string($conn, $_POST['linkedIn']);
-            $gitHub = mysqli_real_escape_string($conn, $_POST['gitHub']);
-            $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
-            $current_pos = mysqli_real_escape_string($conn, $_POST['current_pos']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            $phone = mysqli_real_escape_string($conn, $_POST['phone_no']);
-            $address = mysqli_real_escape_string($conn, $_POST['address']);
-            $pos_code = mysqli_real_escape_string($conn, $_POST['postcode']);
-            $city = mysqli_real_escape_string($conn, $_POST['city']);
-            $state = mysqli_real_escape_string($conn, $_POST['state']);
-            $country = mysqli_real_escape_string($conn, $_POST['country']);
-            $enrol_year = mysqli_real_escape_string($conn, $_POST['enrol_year']);
-            $grad_year = mysqli_real_escape_string($conn, $_POST['grad_year']);
-            $dept = mysqli_real_escape_string($conn, $_POST['dept']);
-            $level = mysqli_real_escape_string($conn, $_POST['level']);
-
-            $result = mysqli_query($conn, "UPDATE alumni SET BIO='$bio',LINKEDIN_ID='$linkedIn',GITHUB_ID='$gitHub',EMAIL='$email',FULL_NAME='$fullname',PHONE_NO='$phone',ADDRESS='$address',COUNTRY='$country',POSTCODE='$pos_code',CITY='$city',STATE='$state',ALUMNI_IMG='$alumni_img',ENROL_YEAR='$enrol_year',GRAD_YEAR='$grad_year',CURRENT_POS='$current_pos',LEVEL='$level',DEPT='$dept' WHERE ALUMNI_ID='$alumni_id'");
-        }
-
+    <?php include_once("php/heading.php");
+    $alumni_id = $_SESSION["userid"];
+    
         $result = mysqli_query($conn, "SELECT * FROM alumni WHERE ALUMNI_ID = $alumni_id");
-        while ($res = mysqli_fetch_array($result)) {
+        while($res = mysqli_fetch_array($result)){
             $alumni_img = $res['ALUMNI_IMG'];
             $username = $res['USERNAME'];
             $bio = $res['BIO'];
@@ -74,7 +48,8 @@ include_once("php/db_connect.php");
             <div class="container mt-3">
                 <ul class="nav nav-tabs">
                     <li id="inactive" class="nav-item">
-                        <a id="profileNav-inactive" class="nav-link active" aria-current="page" href="profile.php">Profile</a>
+                        <a id="profileNav-inactive" class="nav-link active" aria-current="page"
+                            href="profile.php">Profile</a>
                     </li>
                     <li id="inactive" class="nav-item">
                         <a id="profileNav-inactive" class="nav-link" href="profile-settings.php">Settings & Privacy</a>
@@ -96,30 +71,27 @@ include_once("php/db_connect.php");
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <div class="profile-pic-div">
                                         <?php
-                                        echo '<img src="img/' . $alumni_img . '" alt="Admin" id="photo" class="shadow"></a>';
+                                        echo '<img src="data:image/jpeg;base64,'.base64_encode($alumni_img).'" alt="Admin" id="photo" class="shadow"></a>';
                                         ?>
                                     </div>
                                     <div class="mt-3">
-                                        <h2 class="profile-name" id="userName1"><?php echo $username ?></h2>
+                                        <h2 class="profile-name" id="userName1"><?php echo $username?></h2>
                                         <div class="container">
                                             <div class="container">
                                                 <p id="bio1">
-                                                    <?php
-                                                    if (empty($bio)) {
+                                                    <?php 
+                                                    if(empty($bio)){
                                                         echo "Add bio and social media";
-                                                    } else {
+                                                    }
+                                                    else{
                                                         echo $bio;
                                                     }
                                                     ?>
                                                 </p>
                                             </div>
                                             <div class="container">
-                                                <a id="linkedin1" href="<?php echo $linkedIn ?>" <?php if (isset($linkedIn)) {
-                                                                                                    echo 'target="_blank"';
-                                                                                                } ?>><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
-                                                <a id="github1" href="<?php echo $gitHub ?>" <?php if (isset($gitHub)) {
-                                                                                                echo 'target="_blank"';
-                                                                                            } ?>><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
+                                                <a id="linkedin1" href="<?php echo $linkedIn?>" <?php if(isset($linkedIn)){echo 'target="_blank"';}?>><img src="img/linkedin.png" alt="LinkedIn" id="bio-icons-prof"></a>
+                                                <a id="github1" href="<?php echo $gitHub?>" <?php if(isset($gitHub)){echo 'target="_blank"';}?>><img src="img/github.png" alt="Github" id="bio-icons-prof"></a>
                                             </div>
                                         </div>
                                         <div class="container">
@@ -127,7 +99,8 @@ include_once("php/db_connect.php");
                                                 <hr class="profileBio-line">
                                             </div>
                                         </div>
-                                        <a href="profile-edit.php"><button id="editbutton" class="btn shadow" type="button" onclick="tryFunction()">Edit Profile</button></a>
+                                        <a href="profile-edit.php"><button id="editbutton" class="btn shadow"
+                                                type="button" onclick="tryFunction()">Edit Profile</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +116,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Full Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="fullName1">
-                                            <?php echo $fullname ?>
+                                        <?php echo $fullname?>
                                         </div>
                                     </div>
                                     <div class="row mb-35">
@@ -151,7 +124,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Current Position</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="currentPosition1">
-                                            <?php echo $current_pos ?>
+                                        <?php echo $current_pos?>
                                         </div>
                                     </div>
                                     <div class="row mb-35">
@@ -159,7 +132,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Email</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="email1">
-                                            <?php echo $email ?>
+                                        <?php echo $email?>
                                         </div>
                                     </div>
                                     <div class="row mb-35">
@@ -167,7 +140,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Phone</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary" id="phone1">
-                                            <?php echo $phone ?>
+                                        <?php echo $phone?>
                                         </div>
                                     </div>
                                     <hr>
@@ -176,7 +149,7 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Address</h6>
                                         </div>
                                         <div class="col-sm-9 mb-35 text-secondary" id="address1">
-                                            <?php echo $address ?>
+                                        <?php echo $address?>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -184,13 +157,13 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Postal Code</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="code1">
-                                            <?php echo $pos_code ?>
+                                        <?php echo $pos_code?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">City</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="city1">
-                                            <?php echo $city ?>
+                                        <?php echo $city?>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -198,13 +171,13 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">State</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="state1">
-                                            <?php echo $state ?>
+                                        <?php echo $state?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Country</h6>
                                         </div>
                                         <div class="col-sm text-secondary" id="country1">
-                                            <?php echo $country ?>
+                                        <?php echo $country?>
                                         </div>
                                     </div>
                                     <hr class="mt-0">
@@ -213,13 +186,13 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Enrollment Year</h6>
                                         </div>
                                         <div class="col-sm mb-35 text-secondary" id="enrollYear1">
-                                            <?php echo $enrol_year ?>
+                                        <?php echo $enrol_year?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Graduation Year</h6>
                                         </div>
                                         <div class="col-sm text-secondary  mb-35" id="graduation1">
-                                            <?php echo $grad_year ?>
+                                        <?php echo $grad_year?>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -227,13 +200,13 @@ include_once("php/db_connect.php");
                                             <h6 class="mb-0">Department</h6>
                                         </div>
                                         <div class="col-sm  mb-35 text-secondary" id="department1">
-                                            <?php echo $dept ?>
+                                        <?php echo $dept?>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Level</h6>
                                         </div>
                                         <div class="col-sm text-secondary" id="level1">
-                                            <?php echo $level ?>
+                                        <?php echo $level?>
                                         </div>
                                     </div>
                                 </div>
@@ -256,21 +229,21 @@ include_once("php/db_connect.php");
                         </div>
                     </div>
                 </button>
-
+                
                 <div class="content" id="exp">
-                    <form action="exp-to-db.php?alumni_id=<?php echo $alumni_id ?>" method="POST">
+                    <form action="exp-to-db.php?alumni_id=<?php echo $alumni_id?>" method="POST">
                         <div class="row">
                             <div class="input col-md my-2">
-                                <input name="companyName" type="text" class="form-control" name="comp" id="comp" placeholder="Company / Instituition" required />
+                                <input name="companyName" type="text" class="form-control" name="comp" id="comp" placeholder="Company / Instituition" required/>
                             </div>
                             <div class="input col-md my-2">
-                                <input name="workTitle" type="text" class="form-control" name="activity" id="activity" placeholder="Work / Activity" required />
+                                <input name="workTitle" type="text" class="form-control" name="activity" id="activity" placeholder="Work / Activity" required/>
                             </div>
                             <div class="input col-md  my-2">
-                                <input name="position" type="text" class="form-control" name="position" id="position" placeholder="Position" required />
+                                <input name="position" type="text" class="form-control" name="position" id="position" placeholder="Position" required/>
                             </div>
                             <div class="input col-md-4 my-2">
-                                <input name="description" type="text" class="form-control" name="description" id="description" placeholder="Description" required />
+                                <input name="description" type="text" class="form-control" name="description" id="description" placeholder="Description" required/>
                             </div>
                             <div class="input col-md-auto my-2">
                                 <button name="addExp" type="submit" id="updatebutton" class="btn">Add</button>
@@ -286,31 +259,31 @@ include_once("php/db_connect.php");
                             <col span="1" style="width: 21%;">
                             <col span="1" style="width: 31%;">
                             <col span="1" style="width: 8%;">
-                        </colgroup>
+                         </colgroup>
                         <thead>
-                            <tr>
-                                <th>Company / Instituition</th>
-                                <th>Work / Activity</th>
-                                <th>Position</th>
-                                <th>Description</th>
-                                <th></th>
-                            </tr>
+                          <tr>
+                            <th>Company / Instituition</th>
+                            <th>Work / Activity</th>
+                            <th>Position</th>
+                            <th>Description</th>
+                            <th></th>
+                          </tr>
                         </thead>
                         <tbody>
                             <?php
                             $result1 = mysqli_query($conn, "SELECT * FROM experience WHERE ALUMNI_ID = $alumni_id");
-                            while ($res = mysqli_fetch_array($result1)) {
+                            while($res = mysqli_fetch_array($result1)){
                                 $exp_id = $res['EXPERIENCE_ID'];
                                 $cmp = $res['COMPANY'];
                                 $work_title = $res['WORK_TITLE'];
                                 $position = $res['POSITION'];
                                 $desc = $res['DESCRIPTION'];
-                                echo '<tr id="table' . $exp_id . '">
-                                    <td>' . $cmp . '</td>
-                                    <td>' . $work_title . '</td>
-                                    <td>' . $position . '</td>
-                                    <td>' . $desc . '</td>
-                                    <td><button onclick="deleteRow(' . $exp_id . ')" type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
+                                echo '<tr id="table'.$exp_id.'">
+                                    <td>'.$cmp.'</td>
+                                    <td>'.$work_title.'</td>
+                                    <td>'.$position.'</td>
+                                    <td>'.$desc.'</td>
+                                    <td><button onclick="deleteRow('.$exp_id.')" type="button" id="act-button" class="btn"><img id="search-img" class="deleteBtn" src="img/delete.png"></button></td>
                                 </tr>';
                             }
                             mysqli_close($conn);
@@ -321,25 +294,39 @@ include_once("php/db_connect.php");
             </div>
         </main>
         <script>
+        //delete experience row
+        function deleteRow(exp_id) {
+            var x = document.getElementById("table"+exp_id);
+            
+            if (x.style.display === "none") {
+                x.style.display = "block"; 
+            } 
+            else {
+                x.style.display = "none";
+            }
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "profile-del-row.php?exp_id="+exp_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+            xhttp.send();
+            }
             //delete experience row
-            function deleteRow(exp_id) {
-                var x = document.getElementById("table" + exp_id);
-
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("GET", "profile-del-row.php?exp_id=" + exp_id + "&alumni_id=" + <?php echo $alumni_id ?>, true);
-                xhttp.send();
+        function deleteRow(exp_id) {
+            var x = document.getElementById("table"+exp_id);
+            
+            if (x.style.display === "none") {
+                x.style.display = "block"; 
+            } 
+            else {
+                x.style.display = "none";
+            }
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "profile-del-row.php?exp_id="+exp_id+"&alumni_id="+<?php echo $alumni_id?>, true);
+            xhttp.send();
             }
         </script>
 
-        <?php include_once("php/footer.php") ?>
+    <?php include_once("php/footer.php")?>
     </div>
 
-    <?php include_once("php/scripts.php") ?>
+    <?php include_once("php/scripts.php")?>
 </body>
-
 </html>

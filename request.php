@@ -59,9 +59,6 @@
                 exit();
             }
 
-
-
-
             // Default value
             $reg_status = "Pending";
             $bio = $github_id = $linkedin_id = "";
@@ -70,7 +67,6 @@
             $fh = fopen("img/icon.jpg", "r");
             $alumni_img_id = addslashes(fread($fh, filesize("img/icon.jpg")));
             fclose($fh);
-
 
             require_once 'php/validation.inc.php';
 

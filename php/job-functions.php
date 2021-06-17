@@ -26,13 +26,14 @@ function filterJob(){
         }
     }
     $query = substr_replace($query, "", -4);
+    $query .=" LIMIT 10";
 
     return strval("$query");
 }
 
 function bookStatus($check_id){
     include("php/db_connect.php");
-    $alumni_id = $_SESSION["userid"];
+    // $alumni_id = $_SESSION["userid"];
     $result = mysqli_query($conn, "SELECT * FROM bookmark WHERE ALUMNI_ID = 295 AND JOB_ID = $check_id");
     if (mysqli_num_rows($result) == 0) {
         return False;
