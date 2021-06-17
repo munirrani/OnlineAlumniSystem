@@ -90,17 +90,15 @@
 
         <div class="row justify-content-center">
           <div class="col-12 col-md-10 col-lg-8">
-            <form class="card card-sm alumni-search-form">
+            <form class="card card-sm alumni-search-form" method ="GET">
               <div class="card-body row no-gutters align-items-center">
-                <div class="col-auto">
-                  <i><img src="img/search_black_24dp.svg" alt=""></i>
-                </div>
-                <!--end of col-->
                 <div class="col">
-                  <input id="alumni-search-bar" class="form-control form-control-lg form-control-borderless"
-                    type="search" placeholder="Search alumni profiles">
+                  <input id="alumni-search-bar" class="form-control form-control-lg form-control-borderless" name="search" type="search" placeholder="Search alumni profiles (Name / Department / Level of Study)">
                 </div>
                 <!--end of col-->
+                <div class="col-md-1">
+                  <button type="submit" name="submit" class="jumbotron-button"><i><img src="img/search_black_24dp.svg" alt=""></i></button>
+                </div>
               </div>
             </form>
           </div>
@@ -111,6 +109,13 @@
           <ul id="alumniList" class="the-alumni-cards">
             <?php
             include_once("php/db_connect.php");
+
+            if (isset($_GET["reapproveProfile"])) {
+              $alumni_id = $_GET["reapproveProfile"];
+              $sql = "UPDATE alumni SET REG_STATUS='Active' WHERE ALUMNI_ID=$alumni_id";
+              $result = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+            }
+
             $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Rejected' ORDER BY FULL_NAME";
             $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
             $number_of_results = mysqli_num_rows($resultset);
@@ -124,10 +129,13 @@
               $page = $_GET['page'];
             }
             $starting_limit_number = ($page - 1) * $result_per_page;
-            if (isset($_GET["reapproveProfile"])) {
-              $alumni_id = mysqli_fetch_assoc($resultset)['ALUMNI_ID'];
-              $sql = "UPDATE alumni SET REG_STATUS='Active' WHERE ALUMNI_ID='$alumni_id'";
-              $result = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+            if (isset($_GET["submit"])) {
+              $str = $_GET["search"];
+              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG FROM alumni WHERE (FULL_NAME LIKE '%$str%' OR DEPT LIKE '%$str%' OR LEVEL LIKE '%$str%') AND REG_STATUS='Rejected' ORDER BY FULL_NAME";
+              $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
+            } else {
+              $sql = "SELECT ALUMNI_ID, FULL_NAME, DEPT, ENROL_YEAR, GRAD_YEAR, LEVEL, ALUMNI_IMG FROM alumni WHERE REG_STATUS = 'Rejected' ORDER BY FULL_NAME LIMIT " . $starting_limit_number . "," . $result_per_page;
+              $resultset = mysqli_query($conn, $sql) or die("database error: " . mysqli_error($conn));
             }
             showCard($resultset);
 
@@ -176,7 +184,7 @@
                         <p class="lead">Are you sure you would like to reapprove <?php echo $record['FULL_NAME']?>'s alumni profile?</p>
                         <div class="d-flex gap-2 justify-content-center">
                           <form method="GET">
-                            <button name="reapproveProfile" class="btn btn-admin green shadow admin-profile-btn">Reapprove Profile</button>
+                            <button type="submit" name="reapproveProfile" value="<?php echo $record['ALUMNI_ID']?>" class="btn btn-admin green shadow admin-profile-btn">Reapprove Profile</button>
                           </form>
                           <button class="btn btn-admin yellow shadow admin-profile-btn" data-bs-dismiss="modal">Cancel</button>
                         </div>
