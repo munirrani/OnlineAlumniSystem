@@ -19,7 +19,7 @@ function filterJob(){
     }
     if(isset($_GET["sort"])){
         if($_GET["sort"]=="Date"){
-            $query .= " ORDER BY EDIT_DATE ASC    ";
+            $query .= " ORDER BY EDIT_DATE DESC    ";
         }
         else{
             $query .= " ORDER BY JOB_TITLE ASC    ";
