@@ -110,7 +110,7 @@ include_once("php/db_connect.php");
                             </div>
                         </div>
                         <?php
-                        $result2 = mysqli_query($conn, "SELECT job.*, alumni.USERNAME FROM job INNER JOIN alumni ON job.ALUMNI_ID = alumni.ALUMNI_ID");
+                        $result2 = mysqli_query($conn, "SELECT job.*, alumni.USERNAME FROM job INNER JOIN alumni ON job.ALUMNI_ID = alumni.ALUMNI_ID WHERE job.JOB_ID = $job_id");
                         while($res2 = mysqli_fetch_array($result2)){
                             $alumni_id = $res2['ALUMNI_ID'];
                             $post_date = $res2['POST_DATE'];
