@@ -196,7 +196,7 @@
             <div class="row justify-content-md-center mx auto btn-group">
               <?php
               for ($page = 1; $page <= $number_of_pages; $page++) {
-                echo '<a href="admin-approved-alumni.php?page=' . $page . '"class="col page-nav-alumni page-nav-text">' . $page . '</a>';
+                echo '<a href="admin-pending-alumni.php?page=' . $page . '"class="col page-nav-alumni page-nav-text">' . $page . '</a>';
               }
               ?>
             </div>
