@@ -67,12 +67,6 @@ if (isset($_POST["reset-password-submit"])) {
                             mysqli_stmt_bind_param($stmt, "ss", $newPwdHash, $tokenEmail);
                             mysqli_stmt_execute($stmt);
 
-                            echo $tokenEmail;
-                            echo "<br>";
-                            echo $_POST["pwd"];
-                            echo "<br>";
-                            echo $newPwdHash;
-
                             $sql = "DELETE FROM pwdreset WHERE pwdResetEmail = ?";
                             $stmt = mysqli_stmt_init($conn);
                             if (!mysqli_stmt_prepare($stmt, $sql)) {
