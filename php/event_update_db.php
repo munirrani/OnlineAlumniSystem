@@ -4,6 +4,7 @@
     {
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
+            $sql = "";
             if(isset($_POST["eventTitle"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["description"]) && isset($_FILES["eventImg"]) && isset($_POST["eventMode"]))
             {
                 session_start();
@@ -19,7 +20,7 @@
                 $todayDate = date('Y-m-d');
                 $eventImg = json_encode($_FILES['eventImg']);
 
-                if(isset($_POST['eventImg']))
+                if(isset($_FILES['eventImg']))
                 {
                     $fileExt = explode(".", $_FILES["eventImg"]["name"]);
                     $ext = strtolower(end($fileExt));
@@ -31,12 +32,13 @@
                     $imageName = uniqid().".".$ext;
                     $imagePath = "uploads/images/".$imageName;
                     $imagePath = (string)$imagePath;
+                    move_uploaded_file($_FILES['eventImg']['tmp_name'], "../".$imagePath);
 
                     $fetchSQL = "SELECT IMAGE FROM event WHERE EVENT_TITLE = '$eventTitle'";
                     $result = mysqli_query($conn, $fetchSQL);
                     $path = mysqli_fetch_assoc($result);
                     $filePath = (string)$path['IMAGE'];
-                    !unlink("../".$filePath);
+                    unlink("../".$filePath);
 
                     $sql =  "UPDATE event SET START_DATE = '$startDate', END_DATE = '$endDate', MODE = '$eventMode', IMAGE = '$imagePath', DESCRIPTION = '$description' WHERE EVENT_TITLE = '$eventTitle'";
                 }
