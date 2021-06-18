@@ -182,7 +182,5 @@ include_once("php/db_connect.php");
     </div>
 
     <?php include_once("php/scripts.php") ?>
-    <script type="text/javascript" src="js/defaultProfile.js"></script>
 </body>
-
 </html>

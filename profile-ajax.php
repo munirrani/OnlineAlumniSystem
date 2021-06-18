@@ -1,8 +1,7 @@
 <?php
 include_once("php/db_connect.php");
 
-//$alumni_id = $_POST['alumni_id'];
-
+//Delete Account
 if(isset($_POST['delAcc'])){
     session_start();
     $curusername = $_POST['username'];
@@ -37,6 +36,7 @@ if(isset($_POST['delAcc'])){
     }
     
 }
+//Delete Row
 if($_GET['do']=="delRow"){
     $alumni_id = $_GET["alumni_id"];
     $exp_id = $_GET['exp_id'];
