@@ -9,6 +9,9 @@
                 if (time() - $_SESSION['LAST_ACTIVITY'] > $lastrequesttime*3) {
                     echo "<script>window.location.href = 'php/logout.php';</script>";
                 }
+                if (time() - $_SESSION['LAST_ACTIVITY'] > $lastrequesttime) {
+                    echo "<script>window.location.href = 'php/logout.php';</script>";
+                }
             }
         }
         $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp

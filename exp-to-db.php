@@ -11,5 +11,8 @@ if(isset($_POST['addExp'])){
 
     $result = mysqli_query($conn, "INSERT INTO experience (COMPANY,WORK_TITLE,POSITION,DESCRIPTION,ALUMNI_ID) VALUES ('$cmp','$work_title','$position','$desc','$alumni_id')");
 }
-header("location: profile.php");
+
+if (!isset($_SESSION["admin"])) {
+    header("location: profile.php");
+}
 ?>
