@@ -103,14 +103,20 @@ include_once("php/db_connect.php");
                                 $job_salary_min = $res['JOB_SALARY_MIN'];
                                 $job_salary_max = $res['JOB_SALARY_MAX'];
                                 $post_date = $res['POST_DATE'];
+                                $edit_date = $res['EDIT_DATE'];
                                 $job_salary = "RM" . $job_salary_min . " - RM" . $job_salary_max;
                                 $cmp_state = $res['CMP_STATE'];
-                                $new_post_date = date("j F Y", strtotime($post_date));
+                                $new_edit_date = date("j F Y", strtotime($edit_date));
                                 echo '
                                 <div id="div'.$job_id.'">
-                                    <div>
-                                        Posted on '.$new_post_date.'
-                                    </div>
+                                    <div id="act-posted">';
+                                        if ($post_date != $edit_date) {
+                                            echo "Edited on $new_edit_date";
+                                        }
+                                        else{
+                                            echo "Posted on $new_edit_date";
+                                        }
+                                    echo '</div>
                                     <div id="act-box" class="row">
                                         <div class="col-md-4">
                                             <a href="jobs-details.php?job_id=' . $job_id . '"><img src="img/' . $cmp_logo . '" class="act-image"></a>
