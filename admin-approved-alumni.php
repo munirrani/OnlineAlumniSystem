@@ -67,6 +67,7 @@
               $alumni_id = $_GET["deleteProfile"];
               $sql = "DELETE FROM experience WHERE ALUMNI_ID=$alumni_id; ";
               $sql .= "DELETE FROM alumni WHERE ALUMNI_ID=$alumni_id; ";
+              $sql .= "DELETE FROM job WHERE ALUMNI_ID=$alumni_id; ";
               $result = mysqli_multi_query($conn, $sql);
               while(mysqli_next_result($conn)){;} //flush multi_queries
             }
