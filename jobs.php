@@ -61,12 +61,11 @@ include_once("php/db_connect.php");
                             <ul class="dropdown-menu" style="text-align: center;">
                                 <div class="slidecontainer">
                                     <label>Minimum Monthly Salary</label>
-                                    <p id="MYR">RM <span id="demo"></span></p>
-                                    <input name="ms" type="range" min="200" max="20000" value="<?php echo Get("ms", "200") ?>" step="100" class="slider" id="myRange">
+                                    <p id="MYR">RM <span id="money"></span></p>
+                                    <input id="moneyRange" name="ms" type="range" min="200" max="50000" value="<?php echo Get("ms", "200") ?>" step="100" class="slider">
                                 </div>
                                 <hr>
-                                <div>
-                                    <button id="cancelBtn">Cancel</button>
+                                <div class="mx-5">
                                     <button name="applySalary" id="applyBtn" type="submit">Apply</button>
                                 </div>
                             </ul>
@@ -106,17 +105,14 @@ include_once("php/db_connect.php");
                                 </li>
                                 <li class="dropdown-item">
                                     <div class="form-check">
-                                        <input name="in" class="form-check-input" type="checkbox" value="Internship" id="flexCheckDefault" <?php if (isset($_GET["in"])) {
-                                                                                                                                                echo "checked";
-                                                                                                                                            } ?>>
+                                        <input name="in" class="form-check-input" type="checkbox" value="Internship" id="flexCheckDefault" <?php if (isset($_GET["in"])) {echo "checked";} ?>>
                                         <label class="form-check-label mx-2 mt-2" for="flexCheckDefault">
                                             Internship
                                         </label>
                                     </div>
                                 </li>
                                 <hr>
-                                <div>
-                                    <button id="cancelBtn">Cancel</button>
+                                <div class="mx-5">
                                     <button id="applyBtn" type="submit">Apply</button>
                                 </div>
                             </ul>
@@ -230,15 +226,6 @@ include_once("php/db_connect.php");
                             ?>
                         </div>
                     </div>
-                    <div class="modal fade bd-example-modal-sm" id="dialogModal" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body" style="text-align: center;">
-                                    Bookmark added!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!--
                     <div class="text-center mt-3">
                         <div class="row justify-content-md-center mx-auto btn-group">
@@ -262,6 +249,15 @@ include_once("php/db_connect.php");
     <script src="assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
 
     <script>
+        // Salary Slider
+        var slider = document.getElementById("moneyRange");
+            var output = document.getElementById("money");
+            output.innerHTML = slider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
         //Add Bookmark to DB
         function addBookmark(job_id, el) {
             var xhttp = new XMLHttpRequest();
@@ -278,17 +274,10 @@ include_once("php/db_connect.php");
             }
             return false;
         }
-        // Salary Slider
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("demo");
-        output.innerHTML = slider.value; // Display the default slider value
-
-        // Update the current slider value (each time you drag the slider handle)
-        slider.oninput = function() {
-            output.innerHTML = this.value;
-        }
+        
     </script>
     <script type="text/javascript" src="js/searchLocation.js"></script>
+    
 </body>
 
 </html>
