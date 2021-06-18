@@ -67,6 +67,7 @@
               $alumni_id = $_GET["deleteProfile"];
               $sql = "DELETE FROM experience WHERE ALUMNI_ID=$alumni_id; ";
               $sql .= "DELETE FROM alumni WHERE ALUMNI_ID=$alumni_id; ";
+              $sql .= "DELETE FROM job WHERE ALUMNI_ID=$alumni_id; ";
               $result = mysqli_multi_query($conn, $sql);
               while(mysqli_next_result($conn)){;} //flush multi_queries
             }
@@ -119,8 +120,8 @@
                     <div class="alumni-card-footer mt-1 mx-2 mb-3">
                       <form method="GET" action="admin-profile-edit.php">
                         <button type="submit" name="alumni_id" value="<?php echo $record['ALUMNI_ID'];?>" class="btn shadow btn-admin alumni-card-view-profile-button">Edit Alumni Profile</button>
+                        <button type="button" class="btn shadow btn-admin red" data-bs-toggle="modal" data-bs-target="#alumni-delete-modal-<?php echo $record['ALUMNI_ID']; ?>"><i class="fa fa-close"></i> Delete</button>
                       </form>
-                      <button type="button" class="btn shadow btn-admin red" data-bs-toggle="modal" data-bs-target="#alumni-delete-modal-<?php echo $record['ALUMNI_ID']; ?>"><i class="fa fa-close"></i> Delete</button>
                     </div>
                   </div>
                 </div>
