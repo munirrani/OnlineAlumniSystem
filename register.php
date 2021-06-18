@@ -151,7 +151,7 @@
                                                     <option value="Artificial Intelligence">Artificial Intelligence</option>
                                                     <option value="Information System">Information System</option>
                                                     <option value="Multimedia">Multimedia</option>
-                                                    <option value="Computer System & Network">Computer SyStem and Network</option>
+                                                    <option value="Computer System & Network">Computer System and Network</option>
                                                 </select>
                                             </div>
                                         </div>
