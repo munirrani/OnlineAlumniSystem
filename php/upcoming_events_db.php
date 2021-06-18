@@ -39,7 +39,6 @@
     var eventData = <?php echo json_encode($jsarray);?>;
     for(var i = 0; i < eventData.length; i++)
     {
-        // TODO: Are the arbitrary values good?
         if(eventData[i]['DESCRIPTION'] !== null && eventData[i]['DESCRIPTION'].length > 100)
         {
             let startIndex = eventData[i]['DESCRIPTION'].indexOf('<p>');
