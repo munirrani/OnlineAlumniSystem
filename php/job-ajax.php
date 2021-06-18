@@ -19,6 +19,7 @@ else if($_GET['do'] == "delB"){
 
     echo $book_count;
 }
+//delete Post
 else if($_GET['do'] == "delP"){
     $result = mysqli_query($conn, "DELETE FROM job WHERE JOB_ID = $job_id");
     $result2 = mysqli_query($conn, "SELECT * FROM job WHERE ALUMNI_ID = $alumni_id");

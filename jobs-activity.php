@@ -82,7 +82,7 @@ include_once("php/db_connect.php");
                     </div>
                     <div id="act-main" class="card mb-3">
                         <div class="card-body">
-                            <div class="row" id="act-addbox"><a href="jobs-add.php?alumni_id=<?php echo $alumni_id ?>" style="text-decoration: none;">
+                            <div class="row" id="act-addbox"><a href="jobs-add.php" style="text-decoration: none;">
                                     <img src="img/add.png" id="act-addimg">
                                     <h6 id="act-txtadd">
                                         Add a new job vacancy
@@ -152,7 +152,7 @@ include_once("php/db_connect.php");
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn confirmbuttonModalSetting" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="button" onclick="deleteBookmark('.$job_id.')" data-bs-dismiss="modal" class="btn confirmbuttonModalSetting">Delete Job</button>
+                                                <button type="button" onclick="deletePost('.$job_id.')" data-bs-dismiss="modal" class="btn confirmbuttonModalSetting">Delete Job</button>
                                             </div>
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@ include_once("php/db_connect.php");
         </main>
         <script>
             //delete job
-            function deleteBookmark(job_id) {
+            function deletePost(job_id) {
             var x = document.getElementById("div"+job_id);
             if (x.style.display === "none") {
                 x.style.display = "block"; 
